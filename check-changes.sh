@@ -1,6 +1,6 @@
 MODULES="gstreamer gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad gst-ffmpeg gnonlin gst-editing-services gst-python"
 
-DIR=~/devel/pitivi/1.0-uninstalled/
+DIR=~/ges-ci
 cdir=$(pwd)
 changed=
 message="Changes in: "
