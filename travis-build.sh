@@ -407,7 +407,7 @@ if [ "$ready_to_run" != "1" ]; then
         if [ $m == "gst-editing-services" ]; then
             cd tests/check
             echo -ne "  Checking integration $m...."
-            GES_MUTE_TEST=yes make check-integration
+            GES_MUTE_TESTS=yes make check-integration
             if [ $? -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
                 exit 1
