@@ -224,13 +224,14 @@ if [ "$ready_to_run" != "1" ]; then
         # If the folder doesn't exist, check out the module. Later on, we will
         # update it anyway.
         if test ! -d $m; then
-            echo "  Cloning $m..."
+            echo -ne "  Cloning $m..."
             git clone git://git.gnome.org/$m > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Could not download the code for $m ; result: $?"
                 cat results
                 exit 1
             fi
+            echo " OK"
         fi
         cd $m
         git fetch origin  > log 2>&1 # In case you haven't got the latest release tags...
@@ -276,7 +277,7 @@ if [ "$ready_to_run" != "1" ]; then
 
         # Now compile that module
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
-            echo -ne "  Autogen $m..."
+            echo -ne "  Autogening $m..."
             ./autogen.sh --prefix=$PITIVI/prefix --disable-gtk-doc --with-python=python2 > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Could not run autogen for $m ; result: $?"
@@ -286,24 +287,26 @@ if [ "$ready_to_run" != "1" ]; then
         else
             echo "autogen has already been run for $m, not running it again"
         fi
-        echo -e " OK\n"
+        echo " OK"
 
-        echo -ne "  Make $m..."
+        echo -ne "  Making $m..."
         make > results 2>&1
         if [ $? -ne 0 ]; then
             echo "Could not run make for $m ; result: $?"
             cat results
             exit 1
         fi
-        echo -e " OK\n"
+        echo " OK"
 
         if [ "$m" != "pygobject" ]; then
+            echo -ne "  Installing $m..."
             make install > results 2>&1
             if [ $? -ne 0 ]; then
                 cat results
                 echo "Could not install $m ; result: $?"
                 exit 1
             fi
+            echo " OK"
         fi
 
         echo "Sucess"
@@ -318,12 +321,14 @@ if [ "$ready_to_run" != "1" ]; then
         # If the folder doesn't exist, check out the module. Later on, we will
         # update it anyway.
         if test ! -d $m; then
+          echo -ne "Cloning $m..."
           git clone git://anongit.freedesktop.org/gstreamer/$m > results 2>&1
           if [ $? -ne 0 ]; then
               echo "Could not checkout $m ; result: $?"
               cat results
               exit 1
           fi
+          echo "OK"
         fi
         cd $m
 
@@ -374,45 +379,40 @@ if [ "$ready_to_run" != "1" ]; then
         fi
 
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
-            echo -ne "  Autogen $m..."
+            echo -ne "  Autogening $m..."
             if $BUILD_DOCS; then
                 ./autogen.sh > results 2>&1
             else
                 ./autogen.sh --disable-gtk-doc --disable-docbook > results 2>&1
             fi
             if [ $? -ne 0 ]; then
-                echo "Could not run autogen for $m ; result: $?"
+                echo " Could not run autogen for $m ; result: $?"
                 cat results
                 exit 1
             fi
-            echo -e " OK\n"
+            echo " OK"
         else
             echo "autogen has already been run for $m, not running it again"
         fi
 
-        echo -ne "  Make $m..."
+        echo -ne "  Making $m..."
         make > make_result 2>&1
         if [ $? -ne 0 ]; then
             echo "Could not compile $m ; result: $?"
             cat make_result
             exit 1
         fi
-        echo -e " OK\n"
+        echo " OK"
 
         if [ $m == "gst-editing-services" ]; then
-            if [ $? -ne 0 ]; then
-                echo "Could not compile $m ; result: $?"
-                exit 1
-            fi
-
             cd tests/check
-            echo -ne "  Check integration $m...."
+            echo -ne "  Checking integration $m...."
             GES_MUTE_TEST=yes make check-integration
             if [ $? -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
                 exit 1
             fi
-            echo -e " OK\n"
+            echo " OK"
         fi
 
         echo "Sucess"
