@@ -4,6 +4,10 @@ DIR=~/ges-ci
 cdir=$(pwd)
 changed=
 message="Changes in: "
+
+cd $DIR/ges-ci
+git pull --rebase
+
 for m in $MODULES
 do
   cd $DIR/$m
