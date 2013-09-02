@@ -1,15 +1,34 @@
 
 
-====== gst-plugins-base =============
+====== gst-plugins-good =============
 
- commit 57d0a5d794d9ab1be044dca504ace527034c275b
+ commit 966f848edb70a6d6b7d172b842a8ceb600e4d747
 Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Thu Aug 29 11:17:15 2013 +0100
+Date:   Mon Sep 2 23:00:29 2013 +0100
 
-    Require orc >= 0.4.18
+    replaygain: fix taglist leak in rganalysis
     
-    Which contains important bug-fixes.
+    And add some FIXMEs.
+
+commit cc4f985332d65fff9af165006b661e887a434172
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Mon Sep 2 22:50:58 2013 +0100
+
+    tests: rganalysis: rename function for clarity
+
+commit 92dde0760ba17f4df4a0a68a552f953161c83569
+Author: Christoph Reiter <reiter.christoph@gmail.com>
+Date:   Mon Mar 18 14:32:07 2013 +0100
+
+    tests: fix skipped rganalysis tests
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=698520
+    In 0.10 elements would post tag messages on the bus
+    directly, and rganalysis would only post a tag message
+    when it changed tags. In 1.0, only sinks post tag
+    messages when they receive the serialised tag event.
+    This means that we get an additional tag message on
+    the bus now where we didn't expect one before.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=695090
 
  
