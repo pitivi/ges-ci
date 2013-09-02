@@ -32,7 +32,7 @@ message="$message$(echo -e "\n \n ")"
 for m in $MODULES
 do
   cd $DIR/$m
-  message="$message$m$(echo -e " $(git log --pretty=format:"%H %ad %an %ar %s" origin/master^..origin/master 2>&1) \n ")"
+  message="$message$m$(echo -e ":  $(git log --pretty=format:"%H" origin/master^..origin/master 2>&1) \n ")"
 done
 
 cd $cdir

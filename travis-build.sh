@@ -47,7 +47,7 @@ MODULES_CORE="${MODULE_GLIB}"
 if pkg-config --exists --print-errors 'gstreamer-1.0 >= 1.1.0.1'; then
     MODULES="gnonlin gst-editing-services gst-python"
 else
-    MODULES="gstreamer gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad gst-ffmpeg gnonlin gst-editing-services gst-python"
+    MODULES="gstreamer gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad gst-ffmpeg gnonlin gst-editing-services"
 fi
 
 # base path under which dirs are installed
@@ -318,6 +318,8 @@ if [ "$ready_to_run" != "1" ]; then
     # Build all the necessary gstreamer modules.
     for m in $MODULES
     do
+        echo ""
+
         # If the folder doesn't exist, check out the module. Later on, we will
         # update it anyway.
         if test ! -d $m; then
@@ -332,7 +334,6 @@ if [ "$ready_to_run" != "1" ]; then
         fi
         cd $m
 
-        echo ""
         echo "Building $m at: " $(git log --pretty=format:"%H" origin/master^..origin/master 2>&1)
 
         git fetch origin  > results 2>&1 # In case you haven't got the latest release tags...
@@ -419,7 +420,7 @@ if [ "$ready_to_run" != "1" ]; then
             echo -ne "  Checking integration $m...."
             GES_MUTE_TESTS=yes make check-integration > log 2>&1
             export TRAVIS_TEST_RESULT=$?
-            if [ $? -ne 0 ]; then
+            if [ $TRAVIS_TEST_RESULT -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
                 cat results
                 echo -e "\n\n "
