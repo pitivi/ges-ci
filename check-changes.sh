@@ -15,6 +15,7 @@ do
     changed="$changed$(echo -e "\n\n ")"
     message="$message $m"
   fi
+  git reset --hard origin/master
   has_changes=
 done
 
