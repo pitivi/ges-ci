@@ -1,1 +1,741 @@
 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 1971c43279db2f3d53eec47a031618a742a43565
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 2 11:46:52 2013 +0200
+
+    flacparse: Properly propagate downstream flow returns upstream
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707229
+
+commit 1dfc1f268685ab39f75dbb51e7c7bd3f78513fee
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Sun Sep 1 21:18:38 2013 +0100
+
+    Don't use setlocale in plugins()
+    
+    Only apps should call setlocale(), not libraries.
+
+commit d851b8a8b48620c282b0d22f3622f2941ab80dfb
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Aug 29 13:15:15 2013 +0200
+
+    rtpmpvpay: Fix RTP buffer allocation in rtpmpvpay
+    
+    RTP buffer allocation should not be done with padding for the specific MPEG2
+    header as the padding is done at the end of the buffer and the last byte is
+    the size of the padding.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706970
+
+commit f7528d274b56f38a93461cb6f10bdf9775d52ba8
+Author: Bernhard Miller <bernhard.miller@streamunlimited.com>
+Date:   Wed Aug 28 10:51:32 2013 +0200
+
+    autovideosink: add sync property
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706955
+
+commit 2fa68fce077a738821373ec8c16d90485ff4d697
+Author: Bernhard Miller <bernhard.miller@streamunlimited.com>
+Date:   Wed Aug 28 07:15:00 2013 +0200
+
+    autoaudiosink: introduce sync property
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706955
+
+commit 9549289a18d032ff891e1da302e1ffde2ea058b9
+Author: Thiago Santos <thiago.sousa.santos@collabora.com>
+Date:   Tue Aug 27 17:33:40 2013 -0300
+
+    qtdemux: push buffers after segment stop until reaching a keyframe
+    
+    This should make decoders able to precisely push buffers until the stop
+    time in case they need the next keyframe to do it.
+    
+    Also, according to gst_segment_clip, it should only push a buffer that
+    the starting ts is strictly smaller than the segment stop, so we change
+    the min < comparison for <=
+
+commit 73acdf4cc200fb6b70cb7f4e0100cdcde7568ba4
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 13:26:47 2013 +0200
+
+    Back to development
+
+commit 76293efd72357728bd2d1e76562b3fecd7f6c421
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:52:25 2013 +0200
+
+    Release 1.1.4
+
+commit 4bc1a78f6cd2382d57bc0385ec32af4b2ef1f284
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:52:16 2013 +0200
+
+    Update .po files
+
+commit 87a68836ba8cd5eae12d83b50182b9b724e13765
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:32:10 2013 +0200
+
+    po: update translations
+
+commit 2a8566ddec7cdacec68413ebd81fbe5c4182bbdc
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Aug 27 15:25:16 2013 +0200
+
+    matroska-mux: remove framerate restriction
+    
+    Remove the framerate restriction on the caps.
+
+commit f1106cde66b8522d97d41b3d951f76d958b50027
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Aug 27 09:38:16 2013 +0200
+
+    session: only update next check time when reconsidering
+    
+    Don't update the next RTCP check time in all cases but only when we
+    reconsidered. This avoids delaying sending a full RTCP packet when we
+    are doing early feedback.
+
+commit 47065db0b6e873da5c0a55d8279f6724b68b8608
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Aug 27 09:37:33 2013 +0200
+
+    session: add more debug
+
+commit 454d75951e4438f83e9d491c9548e071e2e2f827
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Aug 27 09:34:46 2013 +0200
+
+    jitterbuffer: fix types of the retransmission event
+
+commit dd4af0d11ca5b00378ea2123002b85911d2f5a2c
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Aug 27 09:33:03 2013 +0200
+
+    jitterbuffer: only timeout EXPECTED timers on gap
+    
+    Only timeout the EXPECTED timers when we detect a large seqnum gap.
+
+commit 8cce960372c170a8e8068807e235d18df4d6ba67
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Aug 26 13:47:53 2013 +0200
+
+    configure.ac: Don't set BZ2_LIBS if bz2 is not found
+
+commit 4b7bcc2ec18da09eadb10cde53b3bc8276db7a8f
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Aug 26 11:50:27 2013 +0200
+
+    rtsession: fix locking
+    
+    We need to take the session lock when getting and manipulating the
+    source.
+
+commit 3f46527f75507f17bb63144580b33f2c0ffafef1
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Aug 26 11:50:13 2013 +0200
+
+    rtpsession: add some more debug
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit dc6b976213c42fa038756b20fada1c01378e52a7
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 13:27:05 2013 +0200
+
+    Back to development
+
+commit 90dd5dc13ec189c097a42a1115edc56379cdea8d
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:58:43 2013 +0200
+
+    Release 1.1.4
+
+commit e11b8d3dfdb03810fc6def39ed471d69ab3bebeb
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:58:37 2013 +0200
+
+    Update .po files
+
+commit 7603bb0928d2d3afb49f44b09932873058c59e93
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:32:37 2013 +0200
+
+    po: update translations
+
+commit 65723936292daccec1eae09046223e3a311f53a8
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Aug 27 14:13:06 2013 +0100
+
+    x264enc: log when we output a lower profile than requested
+
+commit aab5534573e318402ab5795f3310a739c8e8dc06
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 21 18:32:17 2013 +0200
+
+    x264enc: Consider subset relations of profiles when setting srcpad caps
+    
+    constrained-baseline is a subset of baseline, is a subset of main,
+    is a subset of high profile.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705425
+
+commit e0ae81ebacbe48300aece22dfef519088d8c5ae8
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Wed Aug 21 12:31:23 2013 +0100
+
+    x264enc: propagate flow return back to base class and upstream
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705425
+
+commit eb5adde7af3cdfed6db5ee64067fe4b8930b30db
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Sat Aug 17 23:13:17 2013 +0100
+
+    configure: fix x264 version checking
+    
+    x264 releases carry pkg-config versions such as 0.120.x
+    (literallly with an 'x'). Checking for x264 >= 0.120.0 will
+    then fail, so we need to either check for > 0.119.0 or
+    for >= 0.120 to make this work right.
+
+commit 71ce5136d1cb949d66afa72b79d7ba6723216a58
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Sat Aug 17 23:09:15 2013 +0100
+
+    x264enc: minor clean-up
+    
+    We requires x264 build >= 120 now.
+
+commit 22b3a60dbd393b9f82d411efc027f20992904b69
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 15 15:30:31 2013 +0200
+
+    mpeg2dec: Fix mpeg2_reset() calls
+
+commit f541f9426220aa140032528a19829b18c537e276
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 15 15:27:48 2013 +0200
+
+    ext: Use new flush vfunc of video codec base classes and remove reset implementations
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 994739332d229a96fdc6bee9932d72349c29c614
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Mon Sep 2 13:40:37 2013 +0100
+
+    Change how win32/common/config.h is updated
+    
+    Generate win32/common/config.h-new directly from config.h.in,
+    using shell variables in configure and some hard-coded information.
+    Change top-level makefile so that 'make win32-update' copies the
+    generated file to win32/common/config.h, which we keep in source
+    control.  It's kept in source control so that the git tree is
+    buildable from VS.
+    
+    This change is similar to the one recently applied to GStreamer
+    and gst-plugins-good.  The previous config.h file in -bad was in
+    pretty bad shape, so unlike core and base, I didn't attempt to
+    leave it strictly the same, but fixed it as necessary.  Needs
+    testing I cannot do myself.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=569015
+
+commit adc17aa87999908bc078d1a52e0f508c2884f867
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Mon Sep 2 12:19:12 2013 +0100
+
+    tests: ignore new aiffparse test binary
+
+commit 576b4826c80a3b4ca4fa946a42732e7c599d312f
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 2 10:29:08 2013 +0200
+
+    soundtouch: Allow compilation against float and integer version of the library
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707270
+
+commit 47c35ee52e3f946abf50f2892f002a12d849dc83
+Author: Josep Torra <n770galaxy@gmail.com>
+Date:   Fri Aug 30 21:52:35 2013 +0200
+
+    dashdemux: Fix warnings when building in OS X Snow Leopard
+    
+    gstdashdemux.c:1753: warning: format '%llu' expects type 'long long unsigned int', but argument 8 has type 'long unsigned int'
+    gstdashdemux.c:2224: warning: format '%llu' expects type 'long long unsigned int', but argument 9 has type 'guint64'
+    gstdashdemux.c:2224: warning: format '%llu' expects type 'long long unsigned int', but argument 10 has type 'guint64'
+
+commit 0b54b0568da69801fc79516863487aed19f5761a
+Author: Josep Torra <n770galaxy@gmail.com>
+Date:   Fri Aug 30 21:36:19 2013 +0200
+
+    dashdemux: Fix warnings when building in OS X Snow Leopard
+    
+    gstmpdparser.h:530: warning: type qualifiers ignored on function return type
+    gstmpdparser.c:4177: warning: type qualifiers ignored on function return type
+
+commit 865ad4cdad87ff088e983e5dab08d2ec33fc29f4
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Aug 30 09:05:43 2013 +0200
+
+    h264parse: Use codecparsers macros
+    
+    note: I/SI also covers the S_I/S_SI variants
+
+commit df287fe250e7d1617766fc4a325ee3a00105f78b
+Author: Kerrick Staley <kerrick@kerrickstaley.com>
+Date:   Thu Aug 29 11:02:37 2013 -0700
+
+    examples: port directfb example to 1.0
+    
+    gst_pad_get_negotiated_caps was removed from 1.0;
+    gst_pad_get_current_caps should be used instead. See
+    http://cgit.freedesktop.org/gstreamer/gstreamer/tree/docs/random
+    /porting-to-1.0.txt
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707074
+
+commit fdcd93ed7caf07622a90672280e17c06c942e319
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Aug 29 15:55:08 2013 +0100
+
+    win32: update config.h
+
+commit 8293594397c7687a9f5c1a3a39b77a7ac7900f59
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Aug 29 15:46:14 2013 +0100
+
+    dfbvideosink: make "layer-mode" property an enum
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=703520
+
+commit f79448552ad4b429a09b30c9afcda997a61fb7d8
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Aug 29 14:48:28 2013 +0100
+
+    dfbvideosink: don't use deprecated GLib thread API
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=703520
+
+commit 90020e21dfaf6039992ace18fe188a2145f4f9b1
+Author: Kazunori Kobayashi <kkobayas@igel.co.jp>
+Date:   Wed Jun 26 11:07:14 2013 +0900
+
+    dfbvideosink: port to 1.0
+    
+    including the following supports and fixes:
+    
+    * Create DirectFB surfaces from GstBufferPool
+    * Add NV12 pixel format support
+    * Don't use the cursor in the exclusive mode
+      - EnableCusor() can be only used when the administrative mode is set
+        in DirectFB 1.6.0 and later.
+    * Support multiple plane rendering for planar color formats
+      - This accommodates the chroma plane offsets of the framebuffer
+        in planar formats.
+    * Invoke SetConfiguration regardless of video mode setting in setcaps()
+      - SetConfiguration() method should be invoked regardless of
+        the result of gst_dfbvideosink_get_best_vmode(), since the two are
+        unrelated.
+    * Disable DirectFB signal handler
+      - "--dfb:no-sighandler" option is passed to DirectFBInit().
+        This prevents DirectFB from trying to kill the process and allows
+        GStreamer's termination sequence to proceed normally.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=703520
+
+commit 5a82dc90283b4d60fabbb80509137fabbec0dcaa
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 29 10:20:56 2013 +0200
+
+    avdtputil: Some minor cleanup and leak fixes
+
+commit 597e3cc98d13ebc8ec195a9745bd2c4b36e1bd29
+Author: Bernhard Miller <bernhard.miller@streamunlimited.com>
+Date:   Wed Aug 28 14:26:04 2013 +0200
+
+    bluez: support aac in avdtpsrc
+    
+    Signed-off-by: Bernhard Miller <bernhard.miller@streamunlimited.com>
+
+commit e39239677e3ca62b78438c157dc7eeee80fb072e
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 13:26:56 2013 +0200
+
+    Back to development
+
+commit 03420d1e2adb7305971a4b8c696dc3c2f57b3a95
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 13:07:27 2013 +0200
+
+    Release 1.1.4
+
+commit f88488cd0aa7d43be151a19bc13607ce4c02b851
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 13:07:24 2013 +0200
+
+    Update .po files
+
+commit 46a2ec3c43bba62e7bdadccc235b03651428f5c2
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:33:17 2013 +0200
+
+    po: update translations
+
+commit f7079af630112118ab8f69cd4645637040b764f8
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Wed Aug 28 11:13:14 2013 +0100
+
+    mpegts: mark as unstable API
+
+commit cf791f6cb011959bcfdc72762d31f4a1b9dc07d2
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Aug 27 17:05:44 2013 +0100
+
+    mpegtsdemux: fix possible read beyond end of buffer when resyncing
+
+commit 4b10f278b6268b01d16052257d5da7c9ba985f03
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Aug 27 11:27:04 2013 +0100
+
+    h264parse: only update src CAPS when it's necessary
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705452
+
+commit 43dcebe2a024547d04cd4d7fac41cc88c6d13dd6
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Aug 20 11:59:34 2013 +0100
+
+    h264parse: do not set CAPS and passthrough mode if SPS/PPS have not been parsed
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705452
+
+commit f69cdad17510c7d91ea3ac9d9441f66b057ab2db
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Aug 26 13:48:02 2013 +0200
+
+    configure.ac: Don't set BZ2_LIBS if bz2 is not found
+
+commit f7db01b0e17b3831796c7d70f49af5214d46b1c7
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Aug 26 10:22:06 2013 +0200
+
+    webpdec: Some cleanup and minor fixes
+
+commit 499d515a9f7211d61155ff312023d00cf93c0c40
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Sat Aug 24 00:46:38 2013 +0300
+
+    webp: Add WebP image decoder plugin
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706285
+
+commit e481ecbf2229468873296b350c1ff5b3ea28a71f
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Sat Sep 1 20:46:43 2012 +0200
+
+    facedetect: new property to control bus messages updates
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=655622
+
+commit 21ea46568bc5e808dff87249409c5e8c0f572539
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Fri Aug 23 12:01:32 2013 +0200
+
+    opencv: Fix indention
+
+commit 5e25d41b84b61d78e6e48b4a78a253f3ec6ab5ed
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Fri Aug 23 12:01:07 2013 +0200
+
+    opencv: Port to non-deprecated GMutex/GCond API
+
+commit fbb5dd38c7d454fec3ece29493ac38b812e9106d
+Author: Miguel Casas-Sanchez <miguelecasassanchez@gmail.com>
+Date:   Fri Aug 23 11:38:04 2013 +0200
+
+    opencv: Add disparity-map calculation element
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=704760
+
+commit 6f4f84fea0e737e08a165e3631064e6603be307c
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 22 17:32:17 2013 +0200
+
+    directsoundsrc: Remove unused variable
+
+commit 4b30e11a2d223744a7b762bf464a661cfa458c7c
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 22 16:07:58 2013 +0200
+
+    configure: Update opencv dependency, 2.4.5 works too.
+
+commit 9df9ee426ee00bac9bec4b636846a2e82890b671
+Author: Kishore Arepalli <kishore.arepalli@gmail.com>
+Date:   Thu Aug 22 13:45:59 2013 +0200
+
+    directsoundsrc: Add 'device-name' property for selecting a audio device
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706574
+
+commit e9581919ffec419ba3d7a22f4c10ab60ff518786
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 22 14:56:05 2013 +0200
+
+    configure: Fix bz2 configure check for Windows
+    
+    Due to function decorations on Windows AC_CHECK_LIB can't be used to check for bz2.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=465924
+
+commit fd4fd13dc89bb7c17270d89ab83c5406ff162ca9
+Author: Edward Hervey <edward@collabora.com>
+Date:   Wed Aug 21 14:44:38 2013 +0200
+
+    tsdemux: Refuse negative rates which we don't support yet
+    
+    And remove a check which was done before
+
+commit e4a0c4d5092639e01fa8c9db4f8225b27c1d5c2e
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Sun Mar 10 17:02:18 2013 +0100
+
+    mpegtsmux: Set the program number from prog-map
+    
+    The prog-map property of mpegtsmux only allows you to group pids together in a program.
+    The program number set in the PAT/PMT tables cannot be set explicitly.
+    
+    This patch will set the program number according to the prog-map.
+    If a program id of 0 is given, the first vacant program number starting from 1 will be used.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=697239
+
+commit c3e4fe4edc16ec5707b87e5de23ab1b42b5b7d92
+Author: Edward Hervey <edward@collabora.com>
+Date:   Wed Aug 21 08:58:52 2013 +0200
+
+    dvb: Adapt for latest mpegts lib changes
+
+commit d6b55b8a666db2cf639aee6ddf37815b0a3d87f8
+Author: Edward Hervey <edward@collabora.com>
+Date:   Wed Aug 21 08:58:23 2013 +0200
+
+    mpegtsbase: Adapt for latest mpegts lib changes
+
+commit 5d06aed3e204c2ae50bf10e61afce46c1baae2e2
+Author: Edward Hervey <edward@collabora.com>
+Date:   Wed Aug 21 08:40:16 2013 +0200
+
+    mpegts: ABI/API break: Use GPtrArray instead of GArray
+    
+    While it was a great idea, various g-i based bindings don't support
+    GArray with entries greater than sizeof(gpointer) :(
+    
+    So let's just make everybody happy by just using GPtrArray.
+    
+    And since we're breaking the API, also rename the various descriptor fields
+    to no longer have the descriptor_ prefix.
+    
+    It does cost a bit more in terms of memory/cpu usage, but makes it usable
+    from bindings.
+
+commit 006e7a3428bd097fc6e6c648332bff583dd434f9
+Author: Robert Krakora <rob.krakora@messagenetsystems.com>
+Date:   Mon Aug 19 15:31:51 2013 -0400
+
+    uvch264src: don't error out on incomplete aux data segment
+    
+    It appears that the Logitech C920 sometimes drops the next
+    to last segment of RAW aux data contained within the MJPEG
+    container.  H264 data that is multiplexed with in the same
+    container does not appear to be affected.  This appears to
+    be a bug in the Logitech C920 firmware and uvch264src should
+    not error out in this case.
+    
+    Sometimes it can take 24 hours of continuous streaming for
+    the problem to occur, but sometimes it takes only a couple
+    of hours.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706276
+
+commit 7667b7920547166e2a1a9b835cae4e96c74ef3ba
+Author: Edward Hervey <edward@collabora.com>
+Date:   Tue Aug 20 16:01:47 2013 +0200
+
+    ivtc: Use input framerate when possible
+    
+    if input is 30000/1001 ... use 24000/1001 as the output fixated framerate
+
+commit f0eda4b54c4d9d11b3826c921f11251e30633474
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Aug 15 11:45:34 2013 +0100
+
+    id3mux: handle publisher, interpreted-by and musical-key tags
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705999
+
+commit 32a65dc5f3e3fec36d542d773092fe336f8d4398
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Aug 20 13:29:14 2013 +0200
+
+    mpegvideoparse: Fix switch statement in level detection code
+    
+    Properly fall through the cases without re-assigning the level to
+    the wrong value.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706369
+
+commit ce81c4eb48b546ae78e2caa8ed09860d35ed105e
+Author: Edward Hervey <edward@collabora.com>
+Date:   Mon Aug 19 17:23:28 2013 +0200
+
+    jpegparse: Forward segment event after caps
+    
+    Store it until we know what our caps are.
+
+commit 1648c0ba6a26ee8665ff94f31e5b2df750cdc2ea
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Aug 20 00:26:06 2013 +0100
+
+    test: fix compiler warning in aiffparse test on 32-bit x86
+
+commit 2e5b1d1cacb634e1ce9396f107d2b3c92bd784d3
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Aug 19 09:25:20 2013 +0000
+
+    aiffparse: fix copyright
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 690ca42e6e099e36063494face393725edd42ee8
+Author: Josep Torra <n770galaxy@gmail.com>
+Date:   Fri Aug 30 13:58:14 2013 +0200
+
+    codecmap: add mapping for MSS1 and MSS2
+    
+    Windows Media Video Screen (WMV Screen) are video formats that
+    specilise in screencast content.
+
+commit 6571196fb87394dfbb3f090cb5442c8c30283bf0
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 29 16:53:28 2013 +0200
+
+    libav: avcodec_close() also resets fields like the AVCodec
+    
+    We need to reload the defaults for the codec after closing it,
+    otherwise we can't access codec information like the supported
+    sample rates and can crash.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707040
+
+commit fe823171fb35b0f4feec86fbf504b0ecdc531ed4
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 13:27:12 2013 +0200
+
+    Back to development
+
+commit 230ec3b6236eb4086ff12d4c9e4f7c8c95950081
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 13:11:19 2013 +0200
+
+    Release 1.1.4
+
+commit c062a86b18297e280154b843e531885d2583b6eb
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Aug 28 12:09:33 2013 +0200
+
+    configure.ac: Fix typo
+
+commit 80b09655281bd66a6a2d09c8b9b8bae5bc333bda
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Fri Aug 23 09:58:30 2013 +0200
+
+    configure: Disable build of dxva2 and vdpau support explicitely
+    
+    It is enabled although we pass --disable-hwaccels apparently and
+    makes the build fail on Windows because libav looks for the d3d headers
+    in the wrong places. We can't make use of these features via libav.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706601
+
+commit 0e1da65f6ca0ebc0951578fc0e6dc62e925e0043
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 22 14:56:11 2013 +0200
+
+    configure: Fix bz2 configure check for Windows
+    
+    Due to function decorations on Windows AC_CHECK_LIB can't be used to check for bz2.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=465924
+
+commit 966b53109b7f933ead596f9075d26bd6713f36d3
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Aug 22 14:23:12 2013 +0200
+
+    avdemux: Add support for video/x-pva
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=158719
+
+commit ffe85cb0ef0c18162f9baa098c991e227d98c926
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Wed Aug 21 13:40:03 2013 +0100
+
+    avvidenc: propagate flow return values upstream in finish()
+
+commit 15a9e62abdf7b36b1f3aa342d2d2c094994658e4
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Aug 20 15:58:35 2013 +0200
+
+    tests: Enable avdemux_ape test again, it works now
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=684684
+
+ 
+
+====== gnonlin =============
+
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 73075e4637f0c6020ec26756506c23b9dadfafdf
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Mon Sep 2 00:19:30 2013 +0100
+
+    ges-xml-formatter: use g_ascii_dtostr() instead of messing with setlocale()
+    
+    Libraries shouldn't use setlocale().
+
+ 
+
+====== gst-python =============
+
+ 
+
+ 
