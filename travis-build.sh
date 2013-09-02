@@ -250,7 +250,7 @@ if [ "$ready_to_run" != "1" ]; then
                 git pull --rebase
                 if [ $? -ne 0 ]; then
                     exit 1
-                fi
+              fi
             fi
         elif [ $m == "pygobject" ]; then
             git checkout $PYGOBJECT_RELEASE_TAG
@@ -270,24 +270,27 @@ if [ "$ready_to_run" != "1" ]; then
 
         # Now compile that module
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
-            ./autogen.sh --prefix=$PITIVI/prefix --disable-gtk-doc --with-python=python2
+            ./autogen.sh --prefix=$PITIVI/prefix --disable-gtk-doc --with-python=python2 > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Could not run autogen for $m ; result: $?"
+                cat results
                 exit 1
             fi
         else
             echo "autogen has already been run for $m, not running it again"
         fi
 
-        make
+        make > results 2>&1
         if [ $? -ne 0 ]; then
             echo "Could not run make for $m ; result: $?"
+            cat results
             exit 1
         fi
 
         if [ "$m" != "pygobject" ]; then
-            make install
+            make install > results 2>&1
             if [ $? -ne 0 ]; then
+                cat results
                 echo "Could not install $m ; result: $?"
                 exit 1
             fi
@@ -337,12 +340,6 @@ if [ "$ready_to_run" != "1" ]; then
             git checkout -- common
             git checkout -- win32
         fi
-        # Yep, another temporary workaround:
-        if [ $m == "gst-editing-services" ]; then
-            make check
-            cd tests/check
-            make check-integration
-        fi
 
         if [ $GST_RELEASE_TAG == "master" ]; then
             git pull --rebase
@@ -353,23 +350,45 @@ if [ "$ready_to_run" != "1" ]; then
 
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
             if $BUILD_DOCS; then
-                ./autogen.sh
+                ./autogen.sh > results 2>&1
             else
-                ./autogen.sh --disable-gtk-doc --disable-docbook
+                ./autogen.sh --disable-gtk-doc --disable-docbook > results 2>&1
             fi
             if [ $? -ne 0 ]; then
                 echo "Could not run autogen for $m ; result: $?"
+                cat results
                 exit 1
             fi
         else
             echo "autogen has already been run for $m, not running it again"
         fi
 
-        make
         if [ $? -ne 0 ]; then
             echo "Could not compile $m ; result: $?"
             exit 1
         fi
+
+        make > make_result 2>&1
+        if [ $? -ne 0 ]; then
+            echo "Could not compile $m ; result: $?"
+            cat make_result
+            exit 1
+        fi
+
+        if [ $m == "gst-editing-services" ]; then
+            if [ $? -ne 0 ]; then
+                echo "Could not compile $m ; result: $?"
+                exit 1
+            fi
+
+            cd tests/check
+            make check-integration
+            if [ $? -ne 0 ]; then
+                echo "Tests FAILED $m ; result: $?"
+                exit 1
+            fi
+        fi
+
         cd ..
     done
 fi
