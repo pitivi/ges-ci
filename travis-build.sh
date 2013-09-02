@@ -407,7 +407,7 @@ if [ "$ready_to_run" != "1" ]; then
 
             cd tests/check
             echo -ne "  Check integration $m...."
-            make check-integration
+            GES_MUTE_TEST=yes make check-integration
             if [ $? -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
                 exit 1
