@@ -220,49 +220,55 @@ if [ "$ready_to_run" != "1" ]; then
     for m in $MODULES_CORE
     do
         echo ""
-        echo "Building $m"
+        echo "Building $m:"
         # If the folder doesn't exist, check out the module. Later on, we will
         # update it anyway.
         if test ! -d $m; then
-            git clone git://git.gnome.org/$m
+            echo "  Cloning $m..."
+            git clone git://git.gnome.org/$m > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Could not download the code for $m ; result: $?"
+                cat results
                 exit 1
             fi
         fi
         cd $m
-        git fetch origin  # In case you haven't got the latest release tags...
+        git fetch origin  > log 2>&1 # In case you haven't got the latest release tags...
         # Take into account whether the user want stable releases or "master"
         if [ $m == "glib" ]; then
             # Silly hack for the fact that glib changes the "mkinstalldirs" file
             # when compiling, which prevents git pull --rebase from working
-            git checkout -- mkinstalldirs
-            git checkout $GLIB_RELEASE_TAG
+            git checkout -- mkinstalldirs > results 2>&1
+            git checkout $GLIB_RELEASE_TAG > results 2>&1
             if [ $GLIB_RELEASE_TAG == "master" ]; then
-                git pull --rebase
+                git pull --rebase > results 2>&1
                 if [ $? -ne 0 ]; then
+                    cat results
                     exit 1
                 fi
             fi
         elif [ $m == "gobject-introspection" ]; then
-            git checkout $GOBJECT_INTROSPECTION_RELEASE_TAG
+            git checkout $GOBJECT_INTROSPECTION_RELEASE_TAG > results 2>&1
             if [ $GOBJECT_INTROSPECTION_RELEASE_TAG == "master" ]; then
-                git pull --rebase
+                git pull --rebase > results 2>&1
                 if [ $? -ne 0 ]; then
+                    cat results
                     exit 1
               fi
             fi
         elif [ $m == "pygobject" ]; then
-            git checkout $PYGOBJECT_RELEASE_TAG
+            git checkout $PYGOBJECT_RELEASE_TAG > results 2>&1
             if [ $PYGOBJECT_RELEASE_TAG == "master" ]; then
-                git pull --rebase
+                git pull --rebase > results 2>&1
                 if [ $? -ne 0 ]; then
+                    cat results
                     exit 1
                 fi
             fi
         else
-            git pull --rebase
+            git pull --rebase > results 2>&1
             if [ $? -ne 0 ]; then
+                cat results
                 exit 1
             fi
         fi
@@ -270,6 +276,7 @@ if [ "$ready_to_run" != "1" ]; then
 
         # Now compile that module
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
+            echo "  Autogen $m..."
             ./autogen.sh --prefix=$PITIVI/prefix --disable-gtk-doc --with-python=python2 > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Could not run autogen for $m ; result: $?"
@@ -280,6 +287,7 @@ if [ "$ready_to_run" != "1" ]; then
             echo "autogen has already been run for $m, not running it again"
         fi
 
+        echo "  Make $m..."
         make > results 2>&1
         if [ $? -ne 0 ]; then
             echo "Could not run make for $m ; result: $?"
@@ -296,6 +304,7 @@ if [ "$ready_to_run" != "1" ]; then
             fi
         fi
 
+        echo "Done"
         cd ..
     done
 
@@ -305,26 +314,39 @@ if [ "$ready_to_run" != "1" ]; then
     for m in $MODULES
     do
         echo ""
-        echo "Building $m"
+        echo "Building $m:"
         # If the folder doesn't exist, check out the module. Later on, we will
         # update it anyway.
         if test ! -d $m; then
-          git clone git://anongit.freedesktop.org/gstreamer/$m
+          echo "   Cloning $m..."
+          git clone git://anongit.freedesktop.org/gstreamer/$m > results 2>&1
           if [ $? -ne 0 ]; then
               echo "Could not checkout $m ; result: $?"
+              cat results
               exit 1
           fi
         fi
 
         cd $m
-        git fetch origin  # In case you haven't got the latest release tags...
-        git checkout $GST_RELEASE_TAG
+        git fetch origin  > results 2>&1 # In case you haven't got the latest release tags...
+        if [ $? -ne 0 ]; then
+            echo "Could not checkout $m ; result: $?"
+            cat results
+            exit 1
+        fi
+        git checkout $GST_RELEASE_TAG > results 2>&1
+        if [ $? -ne 0 ]; then
+            echo "Could not checkout $m ; result: $?"
+            cat results
+            exit 1
+        fi
         if [ $? -ne 0 ]; then
             echo "Could not run checkout $GST_RELEASE_TAG for $m ; result: $?"
             echo 'Trying "master" instead...'
-            git checkout master && git pull --rebase
+            git checkout master && git pull --rebase > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Checkout and rebase failed, aborting"
+                cat results
                 exit 1
             fi
         fi
@@ -332,23 +354,25 @@ if [ "$ready_to_run" != "1" ]; then
         # changed during compilation of the "gstreamer" and "gst-plugins-base"
         # modules, which prevents git pull --rebase from working
         if [ $m == "gstreamer" ] || [ $m == "gst-plugins-base" ]; then
-            git checkout -- po
+            git checkout -- po > results 2>&1
         fi
         # Another similar hack because gst-plugins-bad keeps changing
         # common/ and win32/common/:
         if [ $m == "gst-plugins-bad" ]; then
-            git checkout -- common
-            git checkout -- win32
+            git checkout -- common > results 2>&1
+            git checkout -- win32 > results 2>&1
         fi
 
         if [ $GST_RELEASE_TAG == "master" ]; then
-            git pull --rebase
+            git pull --rebase > results 2>&1
             if [ $? -ne 0 ]; then
+                cat results
                 exit 1
             fi
         fi
 
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
+            echo "  Autogen $m..."
             if $BUILD_DOCS; then
                 ./autogen.sh > results 2>&1
             else
@@ -363,11 +387,7 @@ if [ "$ready_to_run" != "1" ]; then
             echo "autogen has already been run for $m, not running it again"
         fi
 
-        if [ $? -ne 0 ]; then
-            echo "Could not compile $m ; result: $?"
-            exit 1
-        fi
-
+        echo "  Make $m..."
         make > make_result 2>&1
         if [ $? -ne 0 ]; then
             echo "Could not compile $m ; result: $?"
@@ -382,6 +402,7 @@ if [ "$ready_to_run" != "1" ]; then
             fi
 
             cd tests/check
+            echo "Check integration $m"
             make check-integration
             if [ $? -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
@@ -389,6 +410,7 @@ if [ "$ready_to_run" != "1" ]; then
             fi
         fi
 
+        echo "Done"
         cd ..
     done
 fi
