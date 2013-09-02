@@ -1,34 +1,21 @@
 
 
-====== gst-plugins-good =============
+====== gst-plugins-bad =============
 
- commit 966f848edb70a6d6b7d172b842a8ceb600e4d747
+ commit 310a633afb6cdf3620381cf5bd0459370b989aeb
 Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Mon Sep 2 23:00:29 2013 +0100
+Date:   Mon Sep 2 23:28:38 2013 +0100
 
-    replaygain: fix taglist leak in rganalysis
+    mpegpsdemux: minor clean-up
+
+commit e43d1959a866ebcc838424db412095426428a7f5
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Mon Sep 2 22:54:32 2013 +0200
+
+    mpegdemux: send events on pads that are not linked
     
-    And add some FIXMEs.
-
-commit cc4f985332d65fff9af165006b661e887a434172
-Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Mon Sep 2 22:50:58 2013 +0100
-
-    tests: rganalysis: rename function for clarity
-
-commit 92dde0760ba17f4df4a0a68a552f953161c83569
-Author: Christoph Reiter <reiter.christoph@gmail.com>
-Date:   Mon Mar 18 14:32:07 2013 +0100
-
-    tests: fix skipped rganalysis tests
+    Someone might be waiting for certain events with a probe.
     
-    In 0.10 elements would post tag messages on the bus
-    directly, and rganalysis would only post a tag message
-    when it changed tags. In 1.0, only sinks post tag
-    messages when they receive the serialised tag event.
-    This means that we get an additional tag message on
-    the bus now where we didn't expect one before.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=695090
+    https://bugzilla.gnome.org/show_bug.cgi?id=707317
 
  
