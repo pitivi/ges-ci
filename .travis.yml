@@ -1,0 +1,9 @@
+language: c
+
+script:
+  - sudo -i bash -x -c 'apt-get update'
+  - sudo -i bash -x -c 'apt-get install build-essential automake libtool itstool gtk-doc-tools gnome-common gnome-doc-utils yasm flex bison' &&
+  - sudo -i bash -x -c 'apt-get install libgirepository1.0-dev python-dev python-gi-dev gir1.2-goocanvas-2.0-9 \
+    python-cairo-dev libcairo2-dev libgdk-pixbuf2.0-dev libpulse-dev libgtk-3-dev \
+    libclutter-1.0-dev libclutter-gtk-1.0-dev'
+  - ./travis-build.sh
