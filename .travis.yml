@@ -1,6 +1,7 @@
 language: c
 
 script:
+  - bash -x -c "echo -e 'Last changes\n ' && cat Changes"
   - sudo -i bash -x -c "echo 'yes' | sudo add-apt-repository ppa:gstreamer-developers/ppa"
   - sudo -i bash -x -c 'apt-get update'
   - sudo -i bash -x -c 'apt-get install build-essential automake libtool itstool gtk-doc-tools gnome-common gnome-doc-utils yasm flex bison'
