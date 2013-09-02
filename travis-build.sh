@@ -276,7 +276,7 @@ if [ "$ready_to_run" != "1" ]; then
 
         # Now compile that module
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
-            echo "  Autogen $m..."
+            echo -ne "  Autogen $m..."
             ./autogen.sh --prefix=$PITIVI/prefix --disable-gtk-doc --with-python=python2 > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Could not run autogen for $m ; result: $?"
@@ -286,14 +286,16 @@ if [ "$ready_to_run" != "1" ]; then
         else
             echo "autogen has already been run for $m, not running it again"
         fi
+        echo -e " OK\n"
 
-        echo "  Make $m..."
+        echo -ne "  Make $m..."
         make > results 2>&1
         if [ $? -ne 0 ]; then
             echo "Could not run make for $m ; result: $?"
             cat results
             exit 1
         fi
+        echo -e " OK\n"
 
         if [ "$m" != "pygobject" ]; then
             make install > results 2>&1
@@ -372,7 +374,7 @@ if [ "$ready_to_run" != "1" ]; then
         fi
 
         if test ! -f ./configure || [ "$force_autogen" == "1" ]; then
-            echo "  Autogen $m..."
+            echo -ne "  Autogen $m..."
             if $BUILD_DOCS; then
                 ./autogen.sh > results 2>&1
             else
@@ -383,17 +385,19 @@ if [ "$ready_to_run" != "1" ]; then
                 cat results
                 exit 1
             fi
+            echo -e " OK\n"
         else
             echo "autogen has already been run for $m, not running it again"
         fi
 
-        echo "  Make $m..."
+        echo -ne "  Make $m..."
         make > make_result 2>&1
         if [ $? -ne 0 ]; then
             echo "Could not compile $m ; result: $?"
             cat make_result
             exit 1
         fi
+        echo -e " OK\n"
 
         if [ $m == "gst-editing-services" ]; then
             if [ $? -ne 0 ]; then
@@ -402,12 +406,13 @@ if [ "$ready_to_run" != "1" ]; then
             fi
 
             cd tests/check
-            echo "Check integration $m"
+            echo -ne "  Check integration $m...."
             make check-integration
             if [ $? -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
                 exit 1
             fi
+            echo -e " OK\n"
         fi
 
         echo "Sucess"
