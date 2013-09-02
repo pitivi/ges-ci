@@ -304,7 +304,7 @@ if [ "$ready_to_run" != "1" ]; then
             fi
         fi
 
-        echo "Done"
+        echo "Sucess"
         cd ..
     done
 
@@ -314,11 +314,11 @@ if [ "$ready_to_run" != "1" ]; then
     for m in $MODULES
     do
         echo ""
-        echo "Building $m:"
+        echo "Building $m at: " $(git log --pretty=format:"%H" origin/master^..origin/master 2>&1)
         # If the folder doesn't exist, check out the module. Later on, we will
         # update it anyway.
         if test ! -d $m; then
-          echo "   Cloning $m..."
+          echo "  Cloning $m..."
           git clone git://anongit.freedesktop.org/gstreamer/$m > results 2>&1
           if [ $? -ne 0 ]; then
               echo "Could not checkout $m ; result: $?"
@@ -410,7 +410,7 @@ if [ "$ready_to_run" != "1" ]; then
             fi
         fi
 
-        echo "Done"
+        echo "Sucess"
         cd ..
     done
 fi
