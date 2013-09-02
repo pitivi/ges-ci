@@ -405,12 +405,25 @@ if [ "$ready_to_run" != "1" ]; then
         echo " OK"
 
         if [ $m == "gst-editing-services" ]; then
-            cd tests/check
-            echo -ne "  Checking integration $m...."
-            GES_MUTE_TESTS=yes make check-integration
+            echo -ne "  Checking $m...."
+            make check > results 2>&1
             if [ $? -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
+                cat results
+                cat tests/check/test-suite.log
                 exit 1
+            fi
+            echo " OK"
+
+            cd tests/check
+            echo -ne "  Checking integration $m...."
+            GES_MUTE_TESTS=yes make check-integration > log 2>&1
+            export TRAVIS_TEST_RESULT=$?
+            if [ $? -ne 0 ]; then
+                echo "Tests FAILED $m ; result: $?"
+                cat results
+                echo -e "\n\n "
+                cat test-suite.log
             fi
             echo " OK"
         fi
