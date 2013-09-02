@@ -313,12 +313,9 @@ if [ "$ready_to_run" != "1" ]; then
     # Build all the necessary gstreamer modules.
     for m in $MODULES
     do
-        echo ""
-        echo "Building $m at: " $(git log --pretty=format:"%H" origin/master^..origin/master 2>&1)
         # If the folder doesn't exist, check out the module. Later on, we will
         # update it anyway.
         if test ! -d $m; then
-          echo "  Cloning $m..."
           git clone git://anongit.freedesktop.org/gstreamer/$m > results 2>&1
           if [ $? -ne 0 ]; then
               echo "Could not checkout $m ; result: $?"
@@ -326,8 +323,11 @@ if [ "$ready_to_run" != "1" ]; then
               exit 1
           fi
         fi
-
         cd $m
+
+        echo ""
+        echo "Building $m at: " $(git log --pretty=format:"%H" origin/master^..origin/master 2>&1)
+
         git fetch origin  > results 2>&1 # In case you haven't got the latest release tags...
         if [ $? -ne 0 ]; then
             echo "Could not checkout $m ; result: $?"
