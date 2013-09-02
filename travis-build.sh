@@ -339,7 +339,6 @@ if [ "$ready_to_run" != "1" ]; then
         fi
         # Yep, another temporary workaround:
         if [ $m == "gst-editing-services" ]; then
-            git checkout -- acinclude.m4
             make check
             cd tests/check
             make check-integration
