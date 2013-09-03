@@ -427,7 +427,8 @@ if [ "$ready_to_run" != "1" ]; then
                 echo "Tests FAILED $m ; result: $?"
                 cat results
                 echo -e "\n\n "
-                cat test-suite.log
+                cd ../../
+                find -name test-suite.log
             fi
             echo " OK"
         fi
