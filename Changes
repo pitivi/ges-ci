@@ -1,25 +1,11 @@
 
 
-====== gst-plugins-good =============
+====== gst-plugins-bad =============
 
- commit 7f594369791547095eaff13cbbfcb596defbef9c
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Tue Sep 3 11:23:24 2013 +0200
+ commit b54637edc4912f89a93c8b7d105f1e32da9913ee
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 3 11:14:43 2013 +0100
 
-    udpsrc: Bind to multicast addresses on non-Windows systems
-    
-    On Windows it's not possible to bind to a multicast address
-    but the OS will make sure to filter out all packets that
-    arrive not for the multicast address the socket joined.
-    
-    On Linux and others it is necessary to bind to a multicast
-    address to let the OS filter out all packets that are received
-    on the same port but for different addresses than the multicast
-    address
-    
-    And deprecate the multicast-group property and replace it with the
-    address property.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707042
+    .gitignore: ignore new win32 config.h-new
 
  
