@@ -1,17 +1,23 @@
 
 
-====== gst-plugins-good =============
+====== gst-plugins-bad =============
 
- commit 73751dbbe7d37d7847e22e81e3faf793af48bbb8
-Author: Matej Knopp <matej.knopp@gmail.com>
-Date:   Tue Sep 3 10:10:01 2013 +0200
-
-    flacparse: Free GstBaseParseFrame if pushing a header failed
-
-commit edf6d287658e19b03f940a2564a8e8745ce96ca4
+ commit d065c09684959172d4dbb0bcfc6b9324da230ae5
 Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Mon Sep 2 16:02:37 2013 +0200
+Date:   Tue Sep 3 11:05:02 2013 +0200
 
-    udpsrc: Refactor address resolval into its own function
+    amcvideodec: Port tiled NV12 conversion to 1.0
+
+commit c4e742f428ec54a057b6a22df5afae2f250ebece
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 3 10:56:46 2013 +0200
+
+    amcvideodec: Add FIXME comment
+
+commit 48484f04a255f8a75490e7cf4fb5df51017f1e0e
+Author: Jorge Luis Zapata <jzapata@fluendo.com>
+Date:   Mon Aug 12 10:16:16 2013 +0000
+
+    androidmedia: add support for a new qualcomm colorspace
 
  
