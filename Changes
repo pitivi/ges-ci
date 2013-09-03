@@ -1,21 +1,13 @@
 
 
-====== gst-plugins-bad =============
+====== gst-plugins-base =============
 
- commit 310a633afb6cdf3620381cf5bd0459370b989aeb
-Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Mon Sep 2 23:28:38 2013 +0100
-
-    mpegpsdemux: minor clean-up
-
-commit e43d1959a866ebcc838424db412095426428a7f5
+ commit d03feedf4c15e4af7b4ffed4b073772825797b6d
 Author: Matej Knopp <matej.knopp@gmail.com>
-Date:   Mon Sep 2 22:54:32 2013 +0200
+Date:   Tue Sep 3 00:47:18 2013 +0200
 
-    mpegdemux: send events on pads that are not linked
+    videoencoder: Check for invalid stop position before calculating a duration from it
     
-    Someone might be waiting for certain events with a probe.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707317
+    https://bugzilla.gnome.org/show_bug.cgi?id=707332
 
  
