@@ -56,6 +56,9 @@ PITIVI=$MYPITIVI
 # base path under which dirs are installed
 PITIVI_PREFIX=$PITIVI/prefix
 
+# Make it build faster!
+alias make='make -j'
+
 # set up a bunch of paths
 export PATH="\
 $PITIVI/gst-editing-services/tools:\
