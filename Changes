@@ -1,32 +1,13 @@
 
 
-====== gst-plugins-base =============
-
- commit c731f1cba0a26122696158ae7b88aef9e5ad30aa
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Tue Sep 3 17:37:14 2013 +0200
-
-    videoconvert: only chroma subsample when needed
-
- 
-
 ====== gst-plugins-good =============
 
- 
+ commit 349afc633a8d735eecf7e1b4744e6e82bf6f4a81
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Tue Sep 3 17:32:41 2013 +0200
 
- 
-
-====== gst-plugins-bad =============
-
- commit 8e5f0e37f8d776888af468097c98a8130f3db792
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Tue Sep 3 17:36:08 2013 +0200
-
-    soundtouch: Fix compilation with soundtouch 1.4.0
+    flacparse: cleanup on error after state change
     
-    It used FLOAT_SAMPLES/INTEGER_SAMPLES #defines instead of ones properly
-    prefixed with a namespace.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707390
+    https://bugzilla.gnome.org/show_bug.cgi?id=707229
 
  
