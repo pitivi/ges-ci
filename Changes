@@ -1,23 +1,25 @@
 
 
-====== gst-plugins-bad =============
+====== gst-plugins-good =============
 
- commit d065c09684959172d4dbb0bcfc6b9324da230ae5
+ commit 7f594369791547095eaff13cbbfcb596defbef9c
 Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Tue Sep 3 11:05:02 2013 +0200
+Date:   Tue Sep 3 11:23:24 2013 +0200
 
-    amcvideodec: Port tiled NV12 conversion to 1.0
-
-commit c4e742f428ec54a057b6a22df5afae2f250ebece
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Tue Sep 3 10:56:46 2013 +0200
-
-    amcvideodec: Add FIXME comment
-
-commit 48484f04a255f8a75490e7cf4fb5df51017f1e0e
-Author: Jorge Luis Zapata <jzapata@fluendo.com>
-Date:   Mon Aug 12 10:16:16 2013 +0000
-
-    androidmedia: add support for a new qualcomm colorspace
+    udpsrc: Bind to multicast addresses on non-Windows systems
+    
+    On Windows it's not possible to bind to a multicast address
+    but the OS will make sure to filter out all packets that
+    arrive not for the multicast address the socket joined.
+    
+    On Linux and others it is necessary to bind to a multicast
+    address to let the OS filter out all packets that are received
+    on the same port but for different addresses than the multicast
+    address
+    
+    And deprecate the multicast-group property and replace it with the
+    address property.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707042
 
  
