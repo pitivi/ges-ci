@@ -1,13 +1,13 @@
 
 
-====== gst-plugins-good =============
+====== gst-plugins-base =============
 
- commit 349afc633a8d735eecf7e1b4744e6e82bf6f4a81
-Author: Matej Knopp <matej.knopp@gmail.com>
-Date:   Tue Sep 3 17:32:41 2013 +0200
+ commit d400188452c4675cb2ee3e1289b4b59aaeaa8742
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Sat Aug 31 01:05:40 2013 +0200
 
-    flacparse: cleanup on error after state change
+    po: update POTFILES.in
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707229
+    https://bugzilla.gnome.org/show_bug.cgi?id=707158
 
  
