@@ -418,7 +418,7 @@ if [ "$ready_to_run" != "1" ]; then
 
             cd tests/check
             echo -ne "  Checking integration $m...."
-            GES_MUTE_TESTS=yes make check-integration > log 2>&1
+            GES_MUTE_TESTS=yes make check-integration > results 2>&1
             export TRAVIS_TEST_RESULT=$?
             if [ $TRAVIS_TEST_RESULT -ne 0 ]; then
                 echo "Tests FAILED $m ; result: $?"
