@@ -1,13 +1,17 @@
 
 
-====== gst-plugins-base =============
+====== gst-plugins-good =============
 
- commit d03feedf4c15e4af7b4ffed4b073772825797b6d
+ commit 73751dbbe7d37d7847e22e81e3faf793af48bbb8
 Author: Matej Knopp <matej.knopp@gmail.com>
-Date:   Tue Sep 3 00:47:18 2013 +0200
+Date:   Tue Sep 3 10:10:01 2013 +0200
 
-    videoencoder: Check for invalid stop position before calculating a duration from it
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707332
+    flacparse: Free GstBaseParseFrame if pushing a header failed
+
+commit edf6d287658e19b03f940a2564a8e8745ce96ca4
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 2 16:02:37 2013 +0200
+
+    udpsrc: Refactor address resolval into its own function
 
  
