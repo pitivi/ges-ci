@@ -1,24 +1,55 @@
 
 
+====== gstreamer =============
+
+ 
+
+ 
+
 ====== gst-plugins-base =============
 
- commit 10b3b88e9cc414fd8fce6f1545b55f43c28d0396
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Tue Sep 3 15:42:44 2013 +0200
+ 
 
-    videoconvert: fix handling of chroma resample
-    
-    Increase the number of temporary lines that we need, it is possible that the
-    up and downsampling offsets are out of phase and that we need to keep some
-    extra lines around. Also copy the unhandled output lines for the next round
-    instead of overwriting them.
-    
-    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=706823
+ 
 
-commit cfb7b51c084d7bb81519586729673582bc1920a3
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Tue Sep 3 15:41:56 2013 +0200
+====== gst-plugins-good =============
 
-    videoconvert: improve debug
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
+
+====== gnonlin =============
+
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ 
+
+ 
+
+====== gst-python =============
+
+ 
 
  
