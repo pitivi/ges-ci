@@ -1,18 +1,11 @@
 
 
-====== gst-plugins-ugly =============
+====== gstreamer =============
 
- commit 55037ab411218786a7625e2d8827ae253f4b4909
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Wed Sep 4 16:32:43 2013 +0200
+ commit 26c481e59227904184722b885cd572352b30f29d
+Author: Christian Fredrik Kalager Schaller <uraeus@linuxrising.org>
+Date:   Wed Sep 4 17:11:20 2013 +0200
 
-    x264enc: Check if we have an input state before using it
-    
-    Flushing might happen before caps were set on the encoder,
-    which would lead to crashes here.
-    
-    Thanks to Matej Knopp for analyzing this.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707414
+    Remove PyXML from spec file, it is not longer needed
 
  
