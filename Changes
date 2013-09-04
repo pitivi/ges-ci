@@ -1,13 +1,27 @@
 
 
-====== gst-plugins-base =============
+====== gstreamer =============
 
- commit d400188452c4675cb2ee3e1289b4b59aaeaa8742
-Author: Piotr Drąg <piotrdrag@gmail.com>
-Date:   Sat Aug 31 01:05:40 2013 +0200
+ commit 7f657358a843afcc2d301773dd122adfe06b4b9f
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Tue Sep 3 23:59:05 2013 +0200
 
-    po: update POTFILES.in
+    multiqueue: Don't reduce single queue visible size below its current level
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707158
+    If the multiqueue has automatically grown chances are good that
+    we will cause the pipeline to starve if the maximum level is reduced
+    below that automatically grown size.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707156
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit ae45623450e28c8c8bd5017d04605facc27298f3
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Tue Sep 3 20:28:35 2013 +0200
+
+    x264enc: fix unsigned comparison warning
 
  
