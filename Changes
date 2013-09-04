@@ -1,18 +1,7 @@
 
 
-====== gst-plugins-base =============
+====== gst-ffmpeg =============
 
- commit 22da49a55c76e136cb10a5524c2216f733513a2f
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Wed Sep 4 17:34:20 2013 +0200
-
-    videoconvert: also allocate temp lines in fastpath
-    
-    Some of the fastpath functions need tmplines, so make sure we allocate some in
-    the fastpath too.
-    
-    This avoids SEGFAULTs with odd heights.
-    
-    See https://bugzilla.gnome.org/show_bug.cgi?id=663248
+ 
 
  
