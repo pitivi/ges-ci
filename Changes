@@ -1,14 +1,122 @@
 
 
-====== gstreamer =============
+====== gst-plugins-base =============
 
- commit 954776ab38d0550133fac4c4c603833ae1caae4e
-Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Wed Sep 4 09:18:55 2013 +0100
+ commit 7240e2e38cf37c648edda0ae10c2b9be3480ec03
+Author: Alex Ashley <alex.ashley@youview.com>
+Date:   Mon Jun 10 16:06:21 2013 +0100
 
-    tools: move gst-plot-timeline.py into scripts directory
+    typefind: Added "dash" and "avc3" fourCC codes to qt_type_find.
     
-    So it's not in PATH in an uninstalled setup (thwarting
-    gst-play autocompletion).
+    This commit adds detection of the "dash" and "avc3" compatible brands
+    in qt_type_find.
+    
+    Amendment 2 of ISO/IEC 14496-15 (AVC file format) is defining a new
+    structure for fragmented MP4 called "avc3". The principal difference
+    between AVC1 and AVC3 is the location of the codec initialisation
+    data (e.g. SPS, PPS). In AVC1 this data is placed in the initial MOOV
+    box (moov.trak.mdia.minf.stbl.stsd.avc1) but in AVC3 this data goes in
+    the first sample of every fragment (i.e. the first sample in each mdat
+    box).  The principal reason for avc3 is to make it easier for client
+    implementations, because it removes the requirement to insert the
+    SPS+PPS in to the decoder pipeline every time there is a representation
+    change.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=702004
+
+ 
+
+====== gst-plugins-good =============
+
+ commit a965185dee339da89f833b10cc2e5ac1108381b2
+Author: Alex Ashley <bugzilla@ashley-family.net>
+Date:   Tue Jun 18 13:27:20 2013 +0100
+
+    qtdemux: Add support for the avc3 sample entry format of the AVC file format
+    
+    Amendment 2 of ISO/IEC 14496-15 (AVC file format) is defining a new
+    structure for fragmented MP4 called "avc3". The principal difference
+    between AVC1 and AVC3 is the location of the codec initialisation
+    data (e.g. SPS, PPS). In AVC1 this data is placed in the initial
+    MOOV box (moov.trak.mdia.minf.stbl.stsd.avc1) but in AVC3 this data
+    goes in the first sample of every fragment (i.e. the first sample in
+    each mdat box).  The principal reason for avc3 is to make it easier
+    for client implementations, because it removes the requirement to
+    insert the SPS+PPS in to the decoder pipeline every time there is a
+    representation change.
+    
+    This commit adds support for the "avc3" atom, which is almost identical
+    to the "avc1" atom, except it does not contain any SPS or PPS data.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=702004
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 31d1c05871fefabc2966d09e11331a0f0431e4fa
+Author: Alex Ashley <bugzilla@ashley-family.net>
+Date:   Fri Aug 30 13:54:40 2013 +0100
+
+    h264parse: Add support for stream-format=avc3
+    
+    When outputting in AVC3 stream format, the codec_data should not
+    contain any SPS or PPS, because they are embedded inside the stream.
+    
+    In case of avc->bytestream h264parse will push the SPS and PPS from
+    codec_data downstream at the start of the stream, at intervals
+    controlled by "config-interval" and when there is a codec_data change.
+    
+    In the case of avc3->bytstream h264parse detects that there is
+    already SPS/PPS in the stream and sets h264parse->push_codec to FALSE.
+    Therefore avc3->bytstream was already supported, except for the stream
+    type.
+    
+    In the case of bystream->avc h264parse will generate codec_data caps
+    from the parsed SPS/PPS in the stream. However it does not remove these
+    SPS/PPS from the stream. bytestream->avc3 is the same as bytestream->avc
+    except that the codec_data must not have any SPS/PPS in it.
+    
+    |--------------+-------------+-------------------|
+    |stream-format | SPS in-band | SPS in codec_data |
+    |--------------+-------------+-------------------|
+    | avc          | maybe       | always            |
+    |--------------+-------------+-------------------|
+    | avc3         | always      | never             |
+    |--------------+-------------+-------------------|
+    
+    Amendment 2 of ISO/IEC 14496-15 (AVC file format) is defining a new
+    structure for fragmented MP4 called "avc3". The principal difference
+    between AVC1 and AVC3 is the location of the codec initialisation
+    data (e.g. SPS, PPS). In AVC1 this data is placed in the initial MOOV box
+    (moov.trak.mdia.minf.stbl.stsd.avc1) but in AVC3 this data goes in the
+    first sample of every fragment.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=702004
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 61153a5ac231141e4395b9f0bb28a26fa808a098
+Author: Alex Ashley <bugzilla@ashley-family.net>
+Date:   Fri Aug 30 11:48:51 2013 +0100
+
+    avcodecmap: exclude avc3 stream format from AV_CODEC_ID_H264
+    
+    As part of the changes to support the "avc3" variant of the ISO-BMFF
+    (see bug #702004) a new stream-format has been created
+    (video/x-h264, stream-format="avc3", alignment="au") that requires
+    changes to gstavcodecmap to exclude this format because avdec_h264
+    expects the SPS and PPS to be in the codec_data.
+    
+    Amendment 2 of ISO/IEC 14496-15 (AVC file format) is defining a new
+    structure for fragmented MP4 called "avc3". The principal difference
+    between AVC1 and AVC3 is the location of the codec initialisation data
+    (e.g. SPS, PPS). In AVC1 this data is placed in the initial MOOV box
+    (moov.trak.mdia.minf.stbl.stsd.avc1) but in AVC3 this data goes in the
+    first sample of every fragment.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=702004
 
  
