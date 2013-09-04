@@ -1,22 +1,18 @@
 
 
-====== gst-plugins-good =============
+====== gst-plugins-ugly =============
 
- commit 5d2ff288b3e373d031a75d5af53af0bfb15fd54c
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Wed Sep 4 15:50:42 2013 +0200
+ commit 55037ab411218786a7625e2d8827ae253f4b4909
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 4 16:32:43 2013 +0200
 
-    avidemux: handle unseekable streams
+    x264enc: Check if we have an input state before using it
     
-    Handle streams that we can't seek in and ignore them in the
-    seek logic.
-
-commit 6f0e8a8b87c7ab9318d7ab5c90863d4290d8133f
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Wed Sep 4 15:25:39 2013 +0200
-
-    avidemux: only check video compression for video streams
+    Flushing might happen before caps were set on the encoder,
+    which would lead to crashes here.
     
-    Or else we might deref a stream with a NULL strf.vids and segfault
+    Thanks to Matej Knopp for analyzing this.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707414
 
  
