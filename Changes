@@ -1,13 +1,14 @@
 
 
-====== gst-plugins-good =============
+====== gstreamer =============
 
- commit b68f419b6f94db059a5fc06b2e7db65f16773eae
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Wed Sep 4 00:27:50 2013 +0200
+ commit 954776ab38d0550133fac4c4c603833ae1caae4e
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Wed Sep 4 09:18:55 2013 +0100
 
-    videomixer: Don't set EOS to FALSE when the collectpad *is* EOS
+    tools: move gst-plot-timeline.py into scripts directory
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707238
+    So it's not in PATH in an uninstalled setup (thwarting
+    gst-play autocompletion).
 
  
