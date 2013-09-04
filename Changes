@@ -1,11 +1,11 @@
 
 
-====== gstreamer =============
+====== gst-plugins-base =============
 
- commit 26c481e59227904184722b885cd572352b30f29d
+ commit 0b693deb3de8a445b1f43c97f089daccf5fe7ae3
 Author: Christian Fredrik Kalager Schaller <uraeus@linuxrising.org>
-Date:   Wed Sep 4 17:11:20 2013 +0200
+Date:   Wed Sep 4 17:21:23 2013 +0200
 
-    Remove PyXML from spec file, it is not longer needed
+    Update specfile with latest changes
 
  
