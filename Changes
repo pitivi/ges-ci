@@ -1,14 +1,22 @@
 
 
-====== gst-plugins-base =============
+====== gst-plugins-good =============
 
- commit 579be969e50f36d614733a51b1102ebf3b09c9c4
+ commit 5d2ff288b3e373d031a75d5af53af0bfb15fd54c
 Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Wed Sep 4 15:07:56 2013 +0200
+Date:   Wed Sep 4 15:50:42 2013 +0200
 
-    videoconvert: add more fastpaths
+    avidemux: handle unseekable streams
     
-    Also reuse the I420 code for YV12 because it can handle the swapped UV fields
-    just fine.
+    Handle streams that we can't seek in and ignore them in the
+    seek logic.
+
+commit 6f0e8a8b87c7ab9318d7ab5c90863d4290d8133f
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 4 15:25:39 2013 +0200
+
+    avidemux: only check video compression for video streams
+    
+    Or else we might deref a stream with a NULL strf.vids and segfault
 
  
