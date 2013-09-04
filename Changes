@@ -1,55 +1,14 @@
 
 
-====== gstreamer =============
+====== gst-plugins-base =============
 
- commit 631421b8af0f2f7e6b296530e81898a9b7917160
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Wed Sep 4 14:40:57 2013 +0200
+ commit 579be969e50f36d614733a51b1102ebf3b09c9c4
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 4 15:07:56 2013 +0200
 
-    typefind: Add missing break after handling the GAP event
+    videoconvert: add more fastpaths
     
-    Thanks to Edward Hervey for noticing.
-
- 
-
-====== gst-plugins-bad =============
-
- commit 3a8487529490bd9e435137d8c905f5b1b9462ae8
-Author: Julien Isorce <julien.isorce@collabora.co.uk>
-Date:   Wed Sep 4 10:58:24 2013 +0100
-
-    eglglessink: change pool->sink->last_buffer to pool->last_buffer
-    
-    So that GstEGLImageBufferPool does not depend on GstEglGlesSink
-    The goal is still to move it into gstegl lib
-
-commit fdaa26e1c869f811fdf258a0ab6f286a3e6b3689
-Author: Julien Isorce <julien.isorce@collabora.co.uk>
-Date:   Wed Sep 4 10:56:12 2013 +0100
-
-    eglglessink: buffer pool does not need to maintain a ref on the display
-    
-    Because it does not use it and also it may not know it when
-    we create the pool
-
-commit d16583d771da5562cb57e0263dbb908a70a6e02d
-Author: Julien Isorce <julien.isorce@collabora.co.uk>
-Date:   Wed Sep 4 10:52:51 2013 +0100
-
-    eglglessink: add GstEGLImageBufferPoolSendBlockingAllocate callback
-    
-    The goal here is to prepare GstEGLBufferPool to be moved into
-    gstegl lib. So it has to not depend on 'gst_eglglessink_queue_object'
-
-commit c0ca9bc422e06eab8818f285f70ccc96656fb56e
-Author: Julien Isorce <julien.isorce@collabora.co.uk>
-Date:   Wed Sep 4 10:48:34 2013 +0100
-
-    eglglessink: prepare gst_egl_adaptation_allocate_eglimage to be moved
-    
-    into gstegl lib or splited between gstegl lib and gstgl lib
-    because it both depends on egl and gl
-    
-    So it has to not depend on GstEglAdaptationContext
+    Also reuse the I420 code for YV12 because it can handle the swapped UV fields
+    just fine.
 
  
