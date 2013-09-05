@@ -1,7 +1,13 @@
 
 
-====== gstreamer =============
+====== gst-plugins-base =============
 
- 
+ commit 2f6f0ee2149e83841e0e7cb8c69197e385db3d51
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 5 18:33:28 2013 +0100
+
+    video-format: minor pack_YVYU optimisation
+    
+    Re-use already calculated line offset.
 
  
