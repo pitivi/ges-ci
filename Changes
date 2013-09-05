@@ -1,17 +1,71 @@
 
 
-====== gstreamer =============
+====== gst-plugins-base =============
 
- commit d1d99af22973dd379d95fa477097576275ec1394
-Author: Zaheer Abbas Merali <zaheermerali@gmail.com>
-Date:   Thu Sep 5 14:14:42 2013 +0200
+ commit ede804041c5efa5c6e977fb94c43c669a57d1adc
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 17:46:03 2013 +0200
 
-    collectpads: Don't unref NULL GstCollectData
+    videotestsrc: flush pending lines on odd height
+
+commit e97f6401deb3272c03ec1fe8da0442910d5b2ecf
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 17:22:50 2013 +0200
+
+    videoconvert: add additional width/height constraints
     
-    If a pad is removed while a collectpads element (say adder) is in a chain
-    function waiting to be collected, there is a possibility that an unref happens
-    on a NULL pointer.
+    Some of the fastpath function can only work with aligned widht/height
+    so make sure we check this as well when choosing a fastpath.
+    Add fastpath for I420/YV12 -> BGRx
+
+commit e55ff1e374c5c5eea5d253196f9b0dbedcc30558
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 17:06:05 2013 +0200
+
+    video-format: fix chroma offsets
+
+commit ce2b40670a9c90e311b1431375541029e6b94557
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 16:25:36 2013 +0200
+
+    videoconvert: don't convert too much with odd width
+
+commit bbeac11e74f4495fd829cc8d00d96aa4161f58d8
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 16:15:41 2013 +0200
+
+    video-format: fix unpack functions for odd formats
+
+commit d33e73e00f00801aa88e7f10e42f36472afe4504
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 15:02:17 2013 +0200
+
+    video-format: clean up pack/unpack functions
+
+commit 6508c738ff51f8d4a1b6ed51e24d1295fd83c117
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 14:12:53 2013 +0200
+
+    video-format: handle odd width in various pack functions
+
+commit 9b01d9a1d9a7c2800919c7b9d74cb41de686c3ee
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 12:44:05 2013 +0200
+
+    video-format: don't overrun the arrays on UYVP
+
+commit 700afbf6fdf77554707419246d2ca19cf7cdd472
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 11:05:36 2013 +0200
+
+    videoconvert: handle lines in one go
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707536
+    Handle odd heights in 1 go when no vertical subsampling is used.
+
+commit ce2ad4ae4a0a2bd7172c37be87b13ccae1bdd84e
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 5 11:04:03 2013 +0200
+
+    videoconvert: fix height round down
 
  
