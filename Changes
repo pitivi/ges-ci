@@ -1,13 +1,20 @@
 
 
-====== gst-plugins-ugly =============
+====== gst-plugins-bad =============
 
- commit 0243810e1e0d35fff1023d3f6c42967cc7aaff6e
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Thu Sep 5 22:56:48 2013 +0200
+ commit 8fb662884232c6840a094c0d40b54888e3efd6c3
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Thu Sep 5 19:23:10 2013 -0400
 
-    x264enc: Don't unref future state but the old one
+    uvch264src: Let the caps be NULL if there is no peer
+
+commit 5ac10edde7ec1428b9fdb2fd52891b24f3e307d3
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Thu Sep 5 19:22:51 2013 -0400
+
+    uvch264src: No need to drop segment events
     
-    Being silly will lead us nowhere.
+    In 1.0, segment events are sticky and not additive, no need to prevent
+    their accumulation.
 
  
