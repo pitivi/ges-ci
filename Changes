@@ -1,13 +1,13 @@
 
 
-====== gst-plugins-good =============
+====== gst-plugins-ugly =============
 
- commit 60e72b02544104935329f0d46e932384cf95c179
-Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Thu Sep 5 19:46:37 2013 +0100
+ commit 0243810e1e0d35fff1023d3f6c42967cc7aaff6e
+Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Thu Sep 5 22:56:48 2013 +0200
 
-    udpsrc: fix build on win32
+    x264enc: Don't unref future state but the old one
     
-    gstudpsrc.c:855:15: error: #if with no expression
+    Being silly will lead us nowhere.
 
  
