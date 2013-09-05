@@ -1,13 +1,11 @@
 
 
-====== gst-plugins-base =============
+====== gst-plugins-bad =============
 
- commit 2f6f0ee2149e83841e0e7cb8c69197e385db3d51
+ commit fb9fbc8fbac97e72339b9bd30ad35232ce3566c7
 Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Thu Sep 5 18:33:28 2013 +0100
+Date:   Thu Sep 5 19:10:31 2013 +0100
 
-    video-format: minor pack_YVYU optimisation
-    
-    Re-use already calculated line offset.
+    decklinksrc: send caps event before segment
 
  
