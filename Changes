@@ -1,23 +1,13 @@
 
 
-====== gstreamer =============
+====== gst-plugins-good =============
 
- commit 3dc8ee97e50039c73fc322f687741a5b7193b750
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Wed Sep 4 15:28:10 2013 -0300
+ commit 60e72b02544104935329f0d46e932384cf95c179
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 5 19:46:37 2013 +0100
 
-    basesrc: preserve seqnum on segments after seeks
+    udpsrc: fix build on win32
     
-    The seqnum of the segment after a seek should be the same of
-    the seek event. Downstream elements might rely on seqnums to
-    identify events related to a seek.
-    
-    This is particularly important when a demuxer maps a TIME seek
-    into a BYTES seek for upstream and it needs to identify the
-    corresponding segment event and map it back into TIME to push
-    downstream, possibly using the values from the original seek
-    event.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707530
+    gstudpsrc.c:855:15: error: #if with no expression
 
  
