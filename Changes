@@ -1,7 +1,17 @@
 
 
-====== gst-ffmpeg =============
+====== gstreamer =============
 
- 
+ commit d1d99af22973dd379d95fa477097576275ec1394
+Author: Zaheer Abbas Merali <zaheermerali@gmail.com>
+Date:   Thu Sep 5 14:14:42 2013 +0200
+
+    collectpads: Don't unref NULL GstCollectData
+    
+    If a pad is removed while a collectpads element (say adder) is in a chain
+    function waiting to be collected, there is a possibility that an unref happens
+    on a NULL pointer.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707536
 
  
