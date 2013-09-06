@@ -6,9 +6,19 @@
 # LD_LIBRARY_PATH, DYLD_LIBRARY_PATH, PKG_CONFIG_PATH are set to
 # prefer the cloned git projects and to also allow using the installed ones.
 import os
+import multiprocessing
 import subprocess
 from os.path import join
 from optparse import OptionParser
+
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
 
 
 def env(name):
@@ -39,18 +49,23 @@ GLIB_MIN_VERSION = "2.34.3"
 
 
 class Recipe:
+    recipes = None
+
     def __init__(self,
                  module,
                  branch="master",
                  autogen='./autogen.sh',
-                 make="make",
+                 make="make -j%i" % multiprocessing.cpu_count(),
                  autogen_param='--disable-gtk-doc',
                  force_autogen=False,
                  install="",
                  gitrepo="git://anongit.freedesktop.org/gstreamer/%s",
+                 extra_remotes=[],
                  check='',
                  check_integration='',
-                 force_build=False):
+                 force_build=False,
+                 paths=[],
+                 gst_plugin_paths=[]):
         self.module = module
         self.gitrepo = gitrepo % module
         self.branch = branch
@@ -62,7 +77,9 @@ class Recipe:
         self.build = False
         self.force_build = force_build
         self.force_autogen = force_autogen
-
+        self.paths = paths
+        self.gst_plugin_paths = gst_plugin_paths
+        self.extra_remotes = extra_remotes
 
 RECIPES = [
     Recipe("glib",
@@ -72,24 +89,36 @@ RECIPES = [
            gitrepo="git://git.gnome.org/%s"),
 
     Recipe("gstreamer",
-           autogen_param="--disable-docbook"),
+           autogen_param="--disable-docbook",
+           paths=[("%s/libs/gst/%s/.libs", "base net check controller"),
+           ("%s/%s/.libs", "gst")],
+           gst_plugin_paths=[("%s/%s", "ext gst plugins")]),
 
-    Recipe("gst-plugins-base"),
+    Recipe("gst-plugins-base",
+           paths=[("%s/gst-libs/gst/%s/.libs",
+                  "app audio cdda fft interfaces pbutils netbuffer riff rtp rtsp sdp tag utils video")],
+           gst_plugin_paths=[("%s/%s", "ext gst sys")]),
 
-    Recipe("gst-plugins-good"),
+    Recipe("gst-plugins-good",
+           gst_plugin_paths=[("%s/%s", "ext gst sys")]),
 
-    Recipe("gst-plugins-ugly"),
+    Recipe("gst-plugins-ugly",
+           gst_plugin_paths=[("%s/%s", "ext gst sys")]),
 
-    Recipe("gst-plugins-bad"),
+    Recipe("gst-plugins-bad",
+           paths=[("%s/gst-libs/gst/%s/.libs", "basecamerabinsrc codecparsers interfaces")],
+           gst_plugin_paths=[("%s/%s", "ext gst sys")]),
 
-    Recipe("gnonlin"),
+    Recipe("gnonlin",
+           gst_plugin_paths=[("%s/%s", "gnl")]),
 
-    Recipe("gst-ffmpeg"),
+    Recipe("gst-ffmpeg",
+           paths=[("%s/gst-libs/ext/ffmpeg/%s", "libavformat libavutil libavcodec libpostproc libavdevice")],
+           gst_plugin_paths=[("%s/%s", "ext")]),
 
     Recipe("gst-editing-services",
            check="make check",
-           check_integration="cd tests/check && GES_MUTE_TESTS=yes make check-integration"),
-]
+           check_integration="cd tests/check && GES_MUTE_TESTS=yes make check-integration")]
 
 
 def find_recipe(name):
@@ -99,108 +128,93 @@ def find_recipe(name):
 
     return None
 
-#
-# Everything below this line shouldn't be edited!
-#
-try:
-    subprocess.check_output("pkg-config glib-2.0 --atleast-version=%s" % GLIB_MIN_VERSION, shell=True)
-    print "glib is up to date, using the version already available."
-except subprocess.CalledProcessError:
-    print "Building GLib"
-    find_recipe("glib").build = True
 
-try:
-    print subprocess.check_output("pkg-config --exists --print-errors 'gstreamer-1.0 >= %s'"
-                                  % GST_MIN_VERSION,
-                                  shell=True)
-except subprocess.CalledProcessError:
-    find_recipe("gstreamer").build = True
-    find_recipe("gst-plugins-base").build = True
-    find_recipe("gst-plugins-good").build = True
-    find_recipe("gst-plugins-ugly").build = True
-    find_recipe("gst-plugins-bad").build = True
-    find_recipe("gst-ffmpeg").build = True
+def check_needed_repos():
+    #
+    # Everything below this line shouldn't be edited!
+    #
+    try:
+        subprocess.check_output("pkg-config glib-2.0 --atleast-version=%s" % GLIB_MIN_VERSION, shell=True)
+    except subprocess.CalledProcessError:
+        find_recipe("glib").build = True
 
+    try:
+        print subprocess.check_output("pkg-config --exists --print-errors 'gstreamer-1.0 >= %s'"
+                                      % GST_MIN_VERSION,
+                                      shell=True)
+    except subprocess.CalledProcessError:
+        find_recipe("gstreamer").build = True
+        find_recipe("gst-plugins-base").build = True
+        find_recipe("gst-plugins-good").build = True
+        find_recipe("gst-plugins-ugly").build = True
+        find_recipe("gst-plugins-bad").build = True
+        find_recipe("gst-ffmpeg").build = True
 
-# The following decision has to be made before we've set any env variables,
-# otherwise the script will detect our "gst uninstalled" and think it's the
-# system-wide install.
-find_recipe("gnonlin").build = True
-find_recipe("gst-editing-services").build = True
-
-# set up a bunch of paths
-setenv('PATH',
-       join(BASE_PATH, "gst-editing-services", "tools"),
-       join(BASE_PATH, "pitivi", "bin"),
-       join(BASE_PATH, "gstreamer", "tools"),
-       join(BASE_PATH, "gst-plugins-base", "tools"),
-       join(BASE_PREFIX, 'bin'))
+    # The following decision has to be made before we've set any env variables,
+    # otherwise the script will detect our "gst uninstalled" and think it's the
+    # system-wide install.
+    find_recipe("gnonlin").build = True
+    find_recipe("gst-editing-services").build = True
 
 
-# /some/path: makes the dynamic linker look in . too, so avoid this
-setenv('LD_LIBRARY_PATH', join(BASE_PREFIX, 'lib'))
-setenv('DYLD_LIBRARY_PATH', join(BASE_PREFIX, 'lib'))
-setenv('GI_TYPELIB_PATH', join(BASE_PREFIX, 'share', 'gir-1.0'))
-setenv('PKG_CONFIG_PATH', join(BASE_PREFIX, 'lib', 'pkgconfig'), join(BASE_PATH, 'pygobject'))
+def set_env_variables():
+    # set up a bunch of paths
+    setenv('PATH',
+           join(BASE_PATH, "gst-editing-services", "tools"),
+           join(BASE_PATH, "pitivi", "bin"),
+           join(BASE_PATH, "gstreamer", "tools"),
+           join(BASE_PATH, "gst-plugins-base", "tools"),
+           join(BASE_PREFIX, 'bin'))
 
-#if pkg-config --exists --print-errors 'gstreamer-1.0 >= 1.1.0.1'; the#n
-try:
-    subprocess.check_output("pkg-config --exists --print-errors 'gstreamer-1.0 >= 1.1.0.1'", shell=True)
-    print "Using system-wide GStreamer 1.0"
-except:
-    print"Using a local build of GStreamer 1.0"
-    paths = {"gst-ffmpeg/gst-libs/ext/ffmpeg/%s": "libavformat libavutil libavcodec libpostproc libavdevice",
-             "gst-plugins-base/gst-libs/gst/%s/.libs": "app audio cdda fft interfaces pbutils netbuffer riff rtp rtsp sdp tag utils video",
-             "gst-plugins-bad/gst-libs/gst/%s/.libs": "basecamerabinsrc codecparsers interfaces",
-             "gstreamer/libs/gst/%s/.libs": "base net check controller",
-             "gstreamer/%s/.libs": "gst"}
-    # GStreamer ffmpeg libraries
-    for itpath, vals in paths.iteritems():
-        for subdir in vals.split(' '):
-            setenv('LD_LIBRARY_PATH', join(BASE_PATH, itpath) % subdir)
-            setenv('DYLD_LIBRARY_PATH', join(BASE_PATH, itpath) % subdir)
-            if ".libs" in itpath:
-                setenv('GI_TYPELIB_PATH', join(BASE_PATH, itpath.replace(".libs", "")) % subdir)
+    # /some/path: makes the dynamic linker look in . too, so avoid this
+    setenv('LD_LIBRARY_PATH', join(BASE_PREFIX, 'lib'))
+    setenv('DYLD_LIBRARY_PATH', join(BASE_PREFIX, 'lib'))
+    setenv('GI_TYPELIB_PATH', join(BASE_PREFIX, 'share', 'gir-1.0'))
+    setenv('PKG_CONFIG_PATH', join(BASE_PREFIX, 'lib', 'pkgconfig'), join(BASE_PATH, 'pygobject'))
 
-    ## GStreamer plugins base libraries
-    for path in "app audio cdda fft interfaces pbutils netbuffer riff rtp rtsp sdp tag utils video".split(" "):
-        setenv('LD_LIBRARY_PATH', join(BASE_PATH, "gst-plugins-base/gst-libs/gst/", path, ".libs"))
+    #if pkg-config --exists --print-errors 'gstreamer-1.0 >= 1.1.0.1'; the#n
+    try:
+        subprocess.check_output("pkg-config --exists --print-errors 'gstreamer-1.0 >= 1.1.0.1'", shell=True)
+        print "Using system-wide GStreamer 1.0"
+    except:
+        print"Using a local build of GStreamer 1.0"
+        for recipe in RECIPES:
+            for itpath, vals in recipe.paths:
+                for subdir in vals.split(' '):
+                    setenv('LD_LIBRARY_PATH', join(BASE_PATH, itpath) % (recipe.module, subdir))
+                    setenv('DYLD_LIBRARY_PATH', join(BASE_PATH, itpath) % (recipe.module, subdir))
+                    setenv('PKG_CONFIG_PATH', join(BASE_PATH, "%s/pkgconfig" % recipe.module))
+                    if ".libs" in itpath:
+                        setenv('GI_TYPELIB_PATH', join(BASE_PATH, itpath.replace(".libs", ""))
+                               % (recipe.module, subdir))
 
-    setenv('PKG_CONFIG_PATH',
-           join(BASE_PATH, "gstreamer/pkgconfig"),
-           join(BASE_PATH, "gst-plugins-base/pkgconfig"),
-           join(BASE_PATH, "gst-plugins-good/pkgconfig"),
-           join(BASE_PATH, "gst-plugins-ugly/pkgconfig"),
-           join(BASE_PATH, "gst-plugins-bad/pkgconfig"),
-           join(BASE_PATH, "gst-ffmpeg/pkgconfig"),
-           join(BASE_PATH, "gst-editing-services/pkgconfig"))
+            for form, vals in recipe.gst_plugin_paths:
+                for subdir in vals.split(' '):
+                    setenv("GST_PLUGIN_PATH", join(BASE_PATH, form) % (recipe.module, subdir))
 
-    setenv("GST_PLUGIN_PATH", join(BASE_PATH, "gstreamer/plugins"),
-           join(BASE_PATH, "gst-plugins-base/ext"),
-           join(BASE_PATH, "gst-plugins-base/gst"),
-           join(BASE_PATH, "gst-plugins-base/sys"),
-           join(BASE_PATH, "gst-plugins-good/ext"),
-           join(BASE_PATH, "gst-plugins-good/gst"),
-           join(BASE_PATH, "gst-plugins-good/sys"),
-           join(BASE_PATH, "gst-plugins-ugly/ext"),
-           join(BASE_PATH, "gst-plugins-ugly/gst"),
-           join(BASE_PATH, "gst-plugins-ugly/sys"),
-           join(BASE_PATH, "gst-plugins-bad/ext"),
-           join(BASE_PATH, "gst-plugins-bad/gst"),
-           join(BASE_PATH, "gst-plugins-bad/sys"),
-           join(BASE_PATH, "gst-ffmpeg/ext/"),
-           join(BASE_PATH, "gnonlin/gnl/"),
-           join(BASE_PATH, "gst-openmax/omx/.libs"),
-           join(BASE_PATH, "gst-omx/omx/.libs"),
-           join(BASE_PATH, "gst-plugins-gl/gst/.libs"),
-           join(BASE_PATH, "clutter-gst/clutter-gst/.libs"),
-           join(BASE_PATH, "plugins"),
-           join(BASE_PATH, "farsight2/gst"),
-           join(BASE_PATH, "farsight2/transmitters"),
-           join(BASE_PATH, "libnice/gst"))
+        os.environ['GST_PLUGIN_SYSTEM_PATH'] = ''
+        # set our registry somewhere else so we don't mess up the registry generated
+        # by an installed copy
+        os.environ['GST_REGISTRY'] = join(BASE_PATH, "gstreamer/registry.dat")
+        # Point at the uninstalled plugin scanner
+        os.environ['GST_PLUGIN_SCANNER']= join (BASE_PATH, "gstreamer/libs/gst/helpers/gst-plugin-scanner")
+
+        # once MANPATH is set, it needs at least an "empty"component to keep pulling
+        # in the system-configured man paths from man.config
+        # this still doesn't make it work for the uninstalled case, since man goes
+        # look for a man directory "nearby" instead of the directory I'm telling it to
+        setenv("MANPATH", join(BASE_PATH, "gstreamer/tools"), join(BASE_PREFIX, "share/man"))
 
 
-def run_command(command):
+def print_recipes(message):
+    print message
+    for recipe in RECIPES:
+        if recipe.build is False and recipe.force_build is False:
+            continue
+        print "    %s at: %s" % (recipe.module, recipe.branch)
+
+
+def run_command(command, is_fatal=True):
     info = '  Running %s... ' % command
     print info
     try:
@@ -209,48 +223,87 @@ def run_command(command):
         print "ERROR: running %s in %s:\n\n %s" % (command,
                                                    os.getcwd(),
                                                    e.output)
-        exit(1)
-    print 70 * ' ' + "OK"
-# mkdirs if needed
-try:
-    os.makedirs(BASE_PATH)
-    print "Creating %s" % BASE_PATH
-except OSError:
-    pass
+        if is_fatal:
+            print_recipes("\n\n%sFAILED to build:%s" % (bcolors.FAIL, bcolors.ENDC))
+            exit(1)
+        else:
+            return e
+    print 70 * ' ' + bcolors.OKGREEN + "OK" + bcolors.ENDC
+    return True
 
-os.chdir(BASE_PATH)
-print "\n===================================="
-print "  Base path is: %s" % os.getcwd()
-print "====================================\n"
 
-parser = OptionParser()
-parser.add_option("-f", "--force-autogen", dest="force_autogen",
-                  action="store_true", default=False,
-                  help="Set to force autogen")
-(options, args) = parser.parse_args()
+def set_hashes():
+    linestring = open('Changes', 'r').read()
 
-for recipe in RECIPES:
-    if recipe.build is False and recipe.force_build is False:
-        continue
+    for line in linestring.split('\n'):
+        line = line.replace(" ", '')
+        try:
+            module = line.split(":")[0]
+            hash = line.split(":")[1]
+        except IndexError:
+            continue
 
-    print "\nBuidling %s" % recipe.module
-    os.chdir(BASE_PATH)
+        recipe = find_recipe(module)
+        if recipe is not None:
+            recipe.branch = hash
+
+if "__main__" == __name__:
+    parser = OptionParser()
+    parser.add_option("-f", "--force-autogen", dest="force_autogen",
+                      action="store_true", default=False,
+                      help="Set to force autogen")
+    parser.add_option("-u", "--use-hashes", dest="use_hashes",
+                      action="store_true", default=False,
+                      help="Set to force autogen")
+    (options, args) = parser.parse_args()
+
+    # mkdirs if needed
+    print bcolors.OKBLUE + len("Base path is: %s" % os.getcwd()) * '='
+    print "Base path is: %s" % os.getcwd()
+    print len("Base path is: %s\n\n" % os.getcwd()) * '=' + bcolors.ENDC
+
+    check_needed_repos()
+    set_env_variables()
+    set_hashes()
+
     try:
-        os.chdir(join(BASE_PATH, recipe.module))
+        os.makedirs(BASE_PATH)
+        print "Created basepass %s" % BASE_PATH
     except OSError:
-        run_command('git clone  ' + recipe.gitrepo)
-        os.chdir(join(BASE_PATH, recipe.module))
+        pass
 
-    run_command('git checkout %s' % recipe.branch)
-    if options.force_autogen is True or not \
-            os.path.isfile(join(os.getcwd(), "configure"))  \
-            or recipe.force_autogen is True:
-        run_command(recipe.autogen)
-    run_command(recipe.make)
-    if recipe.install:
-        run_command(recipe.install)
-    if recipe.check:
-        run_command(recipe.check)
-    if recipe.check_integration:
-        run_command(recipe.check_integration)
-    print "\nBuidling %s" % recipe.module
+    os.chdir(BASE_PATH)
+    for recipe in RECIPES:
+        if recipe.build is False and recipe.force_build is False:
+            continue
+
+        print "\nBuidling %s" % recipe.module
+        os.chdir(BASE_PATH)
+        try:
+            os.chdir(join(BASE_PATH, recipe.module))
+        except OSError:
+            run_command('git clone  ' + recipe.gitrepo)
+            os.chdir(join(BASE_PATH, recipe.module))
+
+        if recipe.extra_remotes:
+            for name, remote in recipe.extra_remotes:
+                run_command('git remote add %s %s' % (name, remote))
+                run_command('git fetch %ss' % (name))
+
+        run_command('git checkout %s' % recipe.branch)
+        if options.force_autogen is True or not \
+                os.path.isfile(join(os.getcwd(), "configure"))  \
+                or recipe.force_autogen is True:
+            run_command(recipe.autogen)
+        run_command(recipe.make)
+        if recipe.install:
+            run_command(recipe.install)
+        if recipe.check:
+            run_command(recipe.check)
+        if recipe.check_integration:
+            if run_command(recipe.check_integration, is_fatal=False) is not True:
+                print "\n\n%s=================================" % bcolors.WARNING
+                print "Errors during integration tests"
+                print "=================================%s\n" % bcolors.ENDC
+
+    print_recipes("\n\n%sSuccessfully built:%s" % (bcolors.OKGREEN, bcolors.ENDC))

@@ -1,64 +1,13 @@
+gstreamer:8ba5fb0b28f479b924b779095dc44d9504ce7ce5
+gst-plugins-base:f22a2380efdf1f736a72b2aacc580a6049d21e38
+gst-plugins-good:1971c43279db2f3d53eec47a031618a742a43565
+gst-plugins-ugly:dc6b976213c42fa038756b20fada1c01378e52a7
+gst-plugins-bad:ef7a8c2ca86590d994f6cf768070d75b05dd7b61
+gst-ffmpeg:690ca42e6e099e36063494face393725edd42ee8
+gnonlin:79624b830af08437d9a17464ba688c6a228f790b
+gst-editing-services:28770ce53b97678dcd7e5d981e748f643bc9c8cd
+gst-python:20860bc63376944cc7749255123e201feec5f39c
 
 
-====== gstreamer =============
 
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 
- 
-
-====== gst-plugins-base =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
-
-====== gst-plugins-good =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
-
-====== gst-plugins-ugly =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
-
-====== gst-plugins-bad =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
-
-====== gst-ffmpeg =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
-
-====== gnonlin =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
-
-====== gst-editing-services =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
-
-====== gst-python =============
-
- fatal: Not a git repository (or any parent up to mount point /home)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
- 
