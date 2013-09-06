@@ -224,7 +224,7 @@ def run_command(command, recipe, is_fatal=True):
                                                    os.getcwd(),
                                                    e.output)
         if is_fatal:
-            print_recipes("\n\n%sFAILED to build:%s%s" % (bcolors.FAIL, recipe.name, bcolors.ENDC))
+            print_recipes("\n\n%sFAILED to build:%s%s" % (bcolors.FAIL, recipe.module, bcolors.ENDC))
             exit(1)
         else:
             return e
