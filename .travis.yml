@@ -6,7 +6,7 @@ script:
   - sudo -i bash -x -c 'apt-get update'
   - sudo -i bash -x -c 'apt-get install build-essential automake libtool itstool gtk-doc-tools gnome-common gnome-doc-utils yasm flex bison'
   - sudo -i bash -x -c 'apt-get build-dep gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly'
-  - ./travis-build.sh
+  - python travis-build.py
 
 
 notifications:
