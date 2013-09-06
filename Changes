@@ -1,5 +1,5 @@
 gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750 
- gst-plugins-base:9b4e2b4b36a7e27564bf31584de8741c6365ee82 
+ gst-plugins-base:d7775cffb99c9fc63757c0e6d665bd1bce523633 
  gst-plugins-good:60e72b02544104935329f0d46e932384cf95c179 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:8fb662884232c6840a094c0d40b54888e3efd6c3 
@@ -14,24 +14,13 @@ gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750
 
 ====== gst-plugins-base =============
 
- commit 9b4e2b4b36a7e27564bf31584de8741c6365ee82
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Fri Sep 6 12:44:10 2013 +0200
+ commit d7775cffb99c9fc63757c0e6d665bd1bce523633
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Fri Sep 6 13:28:00 2013 +0100
 
-    videoconvert: disable fastpath for odd width on some formats
-
-commit fae9d82515cba6d799dc83f093a7685aadb94e9e
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Fri Sep 6 12:43:27 2013 +0200
-
-    video-format: fix NV24 pack/unpack function
+    video: fix build without orc or older or versions
     
-    We can't reuse the NV12 functions, we need to make new ones.
-
-commit 26d04c7582c9d01c40ce36bf99be24124e3dd344
-Author: Wim Taymans <wim.taymans@collabora.co.uk>
-Date:   Fri Sep 6 12:42:47 2013 +0200
-
-    video-format: handle odd width in more pack/unpack functions
+    ./.libs/libgstvideo-1.0.so: undefined reference to `video_orc_unpack_NV24'
+    ./.libs/libgstvideo-1.0.so: undefined reference to `video_orc_pack_NV24'
 
  
