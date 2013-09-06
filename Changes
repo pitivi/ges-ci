@@ -1,20 +1,64 @@
 
 
+====== gstreamer =============
+
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+ 
+
+====== gst-plugins-base =============
+
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+ 
+
+====== gst-plugins-good =============
+
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+ 
+
+====== gst-plugins-ugly =============
+
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+ 
+
 ====== gst-plugins-bad =============
 
- commit 8fb662884232c6840a094c0d40b54888e3efd6c3
-Author: Olivier Crête <olivier.crete@collabora.com>
-Date:   Thu Sep 5 19:23:10 2013 -0400
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 
-    uvch264src: Let the caps be NULL if there is no peer
+ 
 
-commit 5ac10edde7ec1428b9fdb2fd52891b24f3e307d3
-Author: Olivier Crête <olivier.crete@collabora.com>
-Date:   Thu Sep 5 19:22:51 2013 -0400
+====== gst-ffmpeg =============
 
-    uvch264src: No need to drop segment events
-    
-    In 1.0, segment events are sticky and not additive, no need to prevent
-    their accumulation.
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+ 
+
+====== gnonlin =============
+
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+ 
+
+====== gst-editing-services =============
+
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+ 
+
+====== gst-python =============
+
+ fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 
  
