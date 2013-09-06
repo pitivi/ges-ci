@@ -1,13 +1,37 @@
-gstreamer:8ba5fb0b28f479b924b779095dc44d9504ce7ce5
-gst-plugins-base:f22a2380efdf1f736a72b2aacc580a6049d21e38
-gst-plugins-good:1971c43279db2f3d53eec47a031618a742a43565
-gst-plugins-ugly:dc6b976213c42fa038756b20fada1c01378e52a7
-gst-plugins-bad:ef7a8c2ca86590d994f6cf768070d75b05dd7b61
-gst-ffmpeg:690ca42e6e099e36063494face393725edd42ee8
-gnonlin:79624b830af08437d9a17464ba688c6a228f790b
-gst-editing-services:28770ce53b97678dcd7e5d981e748f643bc9c8cd
-gst-python:20860bc63376944cc7749255123e201feec5f39c
+gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750 
+ gst-plugins-base:9b4e2b4b36a7e27564bf31584de8741c6365ee82 
+ gst-plugins-good:60e72b02544104935329f0d46e932384cf95c179 
+ gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
+ gst-plugins-bad:8fb662884232c6840a094c0d40b54888e3efd6c3 
+ gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
+ gnonlin:79624b830af08437d9a17464ba688c6a228f790b 
+ gst-editing-services:28770ce53b97678dcd7e5d981e748f643bc9c8cd 
+ gst-python:20860bc63376944cc7749255123e201feec5f39c 
+ 
+ 
 
+ 
 
+====== gst-plugins-base =============
 
+ commit 9b4e2b4b36a7e27564bf31584de8741c6365ee82
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 6 12:44:10 2013 +0200
 
+    videoconvert: disable fastpath for odd width on some formats
+
+commit fae9d82515cba6d799dc83f093a7685aadb94e9e
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 6 12:43:27 2013 +0200
+
+    video-format: fix NV24 pack/unpack function
+    
+    We can't reuse the NV12 functions, we need to make new ones.
+
+commit 26d04c7582c9d01c40ce36bf99be24124e3dd344
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 6 12:42:47 2013 +0200
+
+    video-format: handle odd width in more pack/unpack functions
+
+ 
