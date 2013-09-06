@@ -118,7 +118,7 @@ RECIPES = [
 
     Recipe("gst-editing-services",
            check="make check",
-           check_integration="cd tests/check && GES_MUTE_TESTS=yes make check-integration")]
+           check_integration="cd tests/check && CK_TIMEOUT_MULTIPLIER=10 GES_MUTE_TESTS=yes make check-integration")]
 
 
 def find_recipe(name):
