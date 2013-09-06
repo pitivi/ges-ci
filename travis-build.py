@@ -118,7 +118,7 @@ RECIPES = [
 
     Recipe("gst-editing-services",
            check="make check",
-           check_integration="cd tests/check && CK_TIMEOUT_MULTIPLIER=10 GES_MUTE_TESTS=yes make check-integration")]
+           check_integration="cd tests/check && CK_TIMEOUT_MULTIPLIER=10 GST_DEBUG_FILE=test.log GES_MUTE_TESTS=yes make check-integration")]
 
 
 def find_recipe(name):
@@ -214,9 +214,12 @@ def print_recipes(message):
         print "    %s at: %s" % (recipe.module, recipe.branch)
 
 
-def run_command(command, recipe, is_fatal=True):
-    info = '  Running %s... ' % command
-    print info
+def run_command(command, recipe, verbose_level=None, is_fatal=True):
+    print '  Running %s... ' % command
+
+    if verbose_level is None:
+        command += " 2>&1"
+
     try:
         subprocess.check_output(command, shell=True)
     except subprocess.CalledProcessError, e:
@@ -228,7 +231,7 @@ def run_command(command, recipe, is_fatal=True):
             exit(1)
         else:
             return e
-    print 70 * ' ' + bcolors.OKGREEN + "OK" + bcolors.ENDC
+    print 90 * ' ' + bcolors.OKGREEN + "OK" + bcolors.ENDC
     return True
 
 
@@ -308,7 +311,10 @@ if "__main__" == __name__:
         if recipe.check:
             run_command(recipe.check, recipe)
         if recipe.check_integration:
-            if run_command(recipe.check_integration, recipe, is_fatal=False) is not True:
+            if run_command(recipe.check_integration,
+                           recipe,
+                           verbose_level=1,
+                           is_fatal=False) is not True:
                 print "\n\n%s=================================" % bcolors.WARNING
                 print "Errors during integration tests"
                 print "=================================%s\n" % bcolors.ENDC
