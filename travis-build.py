@@ -100,7 +100,8 @@ RECIPES = [
            gst_plugin_paths=[("%s/%s", "ext gst sys")]),
 
     Recipe("gst-plugins-good",
-           gst_plugin_paths=[("%s/%s", "ext gst sys")]),
+           gst_plugin_paths=[("%s/%s", "ext gst sys")],
+           extra_remotes=[("mathieu", "https://github.com/MathieuDuponchelle/gst-plugins-good.git")]),
 
     Recipe("gst-plugins-ugly",
            gst_plugin_paths=[("%s/%s", "ext gst sys")]),
