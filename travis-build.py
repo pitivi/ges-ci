@@ -42,8 +42,8 @@ def setenv(var, *args):
 # If you care about building the GStreamer/GES developer API documentation:
 BUILD_DOCS = False
 
-BASE_PATH = env("BASE_PATH") if env("BASE_PATH") else join(env("HOME"), "gst-git")
-BASE_PREFIX = join(BASE_PATH, "prefix")
+GST_ENV_PATH = env("GST_ENV_PATH") if env("GST_ENV_PATH") else join(env("HOME"), "gst-git")
+BASE_PREFIX = join(GST_ENV_PATH, "prefix")
 GST_MIN_VERSION = "1.1.1.4"
 GLIB_MIN_VERSION = "2.34.3"
 
@@ -161,17 +161,17 @@ def check_needed_repos():
 def set_env_variables():
     # set up a bunch of paths
     setenv('PATH',
-           join(BASE_PATH, "gst-editing-services", "tools"),
-           join(BASE_PATH, "pitivi", "bin"),
-           join(BASE_PATH, "gstreamer", "tools"),
-           join(BASE_PATH, "gst-plugins-base", "tools"),
+           join(GST_ENV_PATH, "gst-editing-services", "tools"),
+           join(GST_ENV_PATH, "pitivi", "bin"),
+           join(GST_ENV_PATH, "gstreamer", "tools"),
+           join(GST_ENV_PATH, "gst-plugins-base", "tools"),
            join(BASE_PREFIX, 'bin'))
 
     # /some/path: makes the dynamic linker look in . too, so avoid this
     setenv('LD_LIBRARY_PATH', join(BASE_PREFIX, 'lib'))
     setenv('DYLD_LIBRARY_PATH', join(BASE_PREFIX, 'lib'))
     setenv('GI_TYPELIB_PATH', join(BASE_PREFIX, 'share', 'gir-1.0'))
-    setenv('PKG_CONFIG_PATH', join(BASE_PREFIX, 'lib', 'pkgconfig'), join(BASE_PATH, 'pygobject'))
+    setenv('PKG_CONFIG_PATH', join(BASE_PREFIX, 'lib', 'pkgconfig'), join(GST_ENV_PATH, 'pygobject'))
 
     #if pkg-config --exists --print-errors 'gstreamer-1.0 >= 1.1.0.1'; the#n
     try:
@@ -182,29 +182,29 @@ def set_env_variables():
         for recipe in RECIPES:
             for itpath, vals in recipe.paths:
                 for subdir in vals.split(' '):
-                    setenv('LD_LIBRARY_PATH', join(BASE_PATH, itpath) % (recipe.module, subdir))
-                    setenv('DYLD_LIBRARY_PATH', join(BASE_PATH, itpath) % (recipe.module, subdir))
-                    setenv('PKG_CONFIG_PATH', join(BASE_PATH, "%s/pkgconfig" % recipe.module))
+                    setenv('LD_LIBRARY_PATH', join(GST_ENV_PATH, itpath) % (recipe.module, subdir))
+                    setenv('DYLD_LIBRARY_PATH', join(GST_ENV_PATH, itpath) % (recipe.module, subdir))
+                    setenv('PKG_CONFIG_PATH', join(GST_ENV_PATH, "%s/pkgconfig" % recipe.module))
                     if ".libs" in itpath:
-                        setenv('GI_TYPELIB_PATH', join(BASE_PATH, itpath.replace(".libs", ""))
+                        setenv('GI_TYPELIB_PATH', join(GST_ENV_PATH, itpath.replace(".libs", ""))
                                % (recipe.module, subdir))
 
             for form, vals in recipe.gst_plugin_paths:
                 for subdir in vals.split(' '):
-                    setenv("GST_PLUGIN_PATH", join(BASE_PATH, form) % (recipe.module, subdir))
+                    setenv("GST_PLUGIN_PATH", join(GST_ENV_PATH, form) % (recipe.module, subdir))
 
         os.environ['GST_PLUGIN_SYSTEM_PATH'] = ''
         # set our registry somewhere else so we don't mess up the registry generated
         # by an installed copy
-        os.environ['GST_REGISTRY'] = join(BASE_PATH, "gstreamer/registry.dat")
+        os.environ['GST_REGISTRY'] = join(GST_ENV_PATH, "gstreamer/registry.dat")
         # Point at the uninstalled plugin scanner
-        os.environ['GST_PLUGIN_SCANNER']= join (BASE_PATH, "gstreamer/libs/gst/helpers/gst-plugin-scanner")
+        os.environ['GST_PLUGIN_SCANNER']= join (GST_ENV_PATH, "gstreamer/libs/gst/helpers/gst-plugin-scanner")
 
         # once MANPATH is set, it needs at least an "empty"component to keep pulling
         # in the system-configured man paths from man.config
         # this still doesn't make it work for the uninstalled case, since man goes
         # look for a man directory "nearby" instead of the directory I'm telling it to
-        setenv("MANPATH", join(BASE_PATH, "gstreamer/tools"), join(BASE_PREFIX, "share/man"))
+        setenv("MANPATH", join(GST_ENV_PATH, "gstreamer/tools"), join(BASE_PREFIX, "share/man"))
 
 
 def print_recipes(message):
@@ -265,32 +265,39 @@ if "__main__" == __name__:
 
     check_needed_repos()
     set_env_variables()
-    set_hashes()
+    if options.use_hashes:
+        set_hashes()
 
     try:
-        os.makedirs(BASE_PATH)
-        print "Created basepass %s" % BASE_PATH
+        os.makedirs(GST_ENV_PATH)
+        print "Created basepass %s" % GST_ENV_PATH
     except OSError:
         pass
 
-    os.chdir(BASE_PATH)
+    os.chdir(GST_ENV_PATH)
+    for recipe in RECIPES:
+        if recipe.build is False and recipe.force_build is False:
+            continue
+
+        os.chdir(GST_ENV_PATH)
+        try:
+            os.chdir(join(GST_ENV_PATH, recipe.module))
+        except OSError:
+            run_command('git clone  ' + recipe.gitrepo)
+            os.chdir(join(GST_ENV_PATH, recipe.module))
+
+        if recipe.extra_remotes:
+            for name, remote in recipe.extra_remotes:
+                run_command('git remote add %s %s' % (name, remote))
+                run_command('git fetch %s' % (name))
+
     for recipe in RECIPES:
         if recipe.build is False and recipe.force_build is False:
             continue
 
         print "\nBuidling %s" % recipe.module
-        os.chdir(BASE_PATH)
-        try:
-            os.chdir(join(BASE_PATH, recipe.module))
-        except OSError:
-            run_command('git clone  ' + recipe.gitrepo)
-            os.chdir(join(BASE_PATH, recipe.module))
 
-        if recipe.extra_remotes:
-            for name, remote in recipe.extra_remotes:
-                run_command('git remote add %s %s' % (name, remote))
-                run_command('git fetch %ss' % (name))
-
+        os.chdir(join(GST_ENV_PATH, recipe.module))
         run_command('git checkout %s' % recipe.branch)
         if options.force_autogen is True or not \
                 os.path.isfile(join(os.getcwd(), "configure"))  \
