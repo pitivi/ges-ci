@@ -121,7 +121,10 @@ RECIPES = [
 
     Recipe("gst-editing-services",
            check="make check", nick='ges',
-           check_integration="cd tests/check && CK_TIMEOUT_MULTIPLIER=10 GST_DEBUG_FILE=test.log GES_MUTE_TESTS=yes make check-integration")]
+           check_integration="""cd tests/check && \
+                                CK_TIMEOUT_MULTIPLIER=10 GST_DEBUG_FILE=test.log \
+                                GES_MUTE_TESTS=yes make check-integration 2>&1 \
+                                |grep 'running test\|integration.c' 1>&2""")]
 
 
 def find_recipe(name):
