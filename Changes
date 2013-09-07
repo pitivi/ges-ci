@@ -1,5 +1,5 @@
 gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750 
- gst-plugins-base:d7775cffb99c9fc63757c0e6d665bd1bce523633 
+ gst-plugins-base:8492b956cd3ce23eb38bf78d3aaaeafbcc125e2e 
  gst-plugins-good:60e72b02544104935329f0d46e932384cf95c179 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:8fb662884232c6840a094c0d40b54888e3efd6c3 
@@ -14,13 +14,14 @@ gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750
 
 ====== gst-plugins-base =============
 
- commit d7775cffb99c9fc63757c0e6d665bd1bce523633
-Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Fri Sep 6 13:28:00 2013 +0100
+ commit 8492b956cd3ce23eb38bf78d3aaaeafbcc125e2e
+Author: Loïc Minier <lool@dooz.org>
+Date:   Fri Sep 6 23:17:44 2013 +0200
 
-    video: fix build without orc or older or versions
+    playback: fix docs of convert-sample action signal
     
-    ./.libs/libgstvideo-1.0.so: undefined reference to `video_orc_unpack_NV24'
-    ./.libs/libgstvideo-1.0.so: undefined reference to `video_orc_pack_NV24'
+    convert-sample returns a GstSample, not a GstBuffer.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707660
 
  
