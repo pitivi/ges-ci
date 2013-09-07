@@ -124,7 +124,7 @@ RECIPES = [
            check_integration="""cd tests/check && \
                                 CK_TIMEOUT_MULTIPLIER=10 GST_DEBUG_FILE=test.log \
                                 GES_MUTE_TESTS=yes make check-integration 2>&1 \
-                                |grep 'running test\|integration.c' 1>&2""")]
+                                |grep 'running test\|integration.c\|Checks.*Failures' 1>&2""")]
 
 
 def find_recipe(name):
@@ -221,13 +221,12 @@ def print_recipes(message):
 
 
 def run_command(command, recipe, verbose_level=None, is_fatal=True):
-    print '  Running %s... ' % command
-
     if verbose_level is None:
         command += " 2>&1"
     elif verbose_level > 2:
         command += " 1>&2"
 
+    print '  Running %s... ' % command
     try:
         stdout = subprocess.check_output(command, shell=True)
     except subprocess.CalledProcessError, e:
@@ -317,6 +316,8 @@ if "__main__" == __name__:
     parser.add_option("-u", "--use-hashes", dest="use_hashes",
                       action="store_true", default=False,
                       help="Set to force autogen")
+    parser.add_option("-v", "--verbose", dest="verbose",
+                      default=None, help="Set verbosity")
     (options, args) = parser.parse_args()
 
     # mkdirs if needed
@@ -330,7 +331,7 @@ if "__main__" == __name__:
 
     try:
         os.makedirs(GST_ENV_PATH)
-        print "Created basepass %s" % GST_ENV_PATH
+        print "Created directory: %s" % GST_ENV_PATH
     except OSError:
         pass
 
@@ -348,7 +349,7 @@ if "__main__" == __name__:
             continue
 
         try:
-            build(recipe.module, options.force_autogen)
+            build(recipe.module, options.verbose, options.force_autogen)
         except subprocess.CalledProcessError, e:
             exit(1)
 
