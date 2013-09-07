@@ -1,6 +1,6 @@
 gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750 
  gst-plugins-base:8492b956cd3ce23eb38bf78d3aaaeafbcc125e2e 
- gst-plugins-good:60e72b02544104935329f0d46e932384cf95c179 
+ gst-plugins-good:a5ceab82dd8658bf2e81aff95891962340eef6be 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:8fb662884232c6840a094c0d40b54888e3efd6c3 
  gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
@@ -12,16 +12,14 @@ gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750
 
  
 
-====== gst-plugins-base =============
+====== gst-plugins-good =============
 
- commit 8492b956cd3ce23eb38bf78d3aaaeafbcc125e2e
-Author: Loïc Minier <lool@dooz.org>
-Date:   Fri Sep 6 23:17:44 2013 +0200
+ commit a5ceab82dd8658bf2e81aff95891962340eef6be
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Sep 7 16:37:03 2013 +0200
 
-    playback: fix docs of convert-sample action signal
+    matroskademux: fix leaking buffer and caps
     
-    convert-sample returns a GstSample, not a GstBuffer.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707660
+    https://bugzilla.gnome.org/show_bug.cgi?id=707688
 
  
