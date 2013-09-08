@@ -6,8 +6,9 @@
 # LD_LIBRARY_PATH, DYLD_LIBRARY_PATH, PKG_CONFIG_PATH are set to
 # prefer the cloned git projects and to also allow using the installed ones.
 import os
-import multiprocessing
 import subprocess
+import platform
+import multiprocessing
 from os.path import join
 from optparse import OptionParser
 
@@ -288,7 +289,7 @@ def build(module, verbose_level=None, force_autogen=False):
 
     print "\nBuidling %s" % recipe.module
     os.chdir(join(GST_ENV_PATH, recipe.module))
-    run_command('git checkout %s' % recipe.branch, recipe, verbose_level=verbose_level)
+    run_command('git checkout -qf %s' % recipe.branch, recipe, verbose_level=verbose_level)
     if force_autogen is True or not \
             os.path.isfile(join(os.getcwd(), "configure"))  \
             or recipe.force_autogen is True:
@@ -308,6 +309,16 @@ def build(module, verbose_level=None, force_autogen=False):
             print "Errors during integration tests"
             print "=================================%s\n" % bcolors.ENDC
 
+
+def install_deps(verbosity=None):
+    distro = platform.linux_distribution()
+    print "Distribution: ", str(distro)
+    if distro[0] == 'Ubuntu' and distro[1] >= 12.04:
+        run_command("sudo echo 'yes' | sudo add-apt-repository ppa:gstreamer-developers/ppa", verbosity)
+        run_command("sudo apt-get update", verbosity)
+        run_command("sudo apt-get install build-essential automake libtool itstool gtk-doc-tools gnome-common gnome-doc-utils yasm flex bison", verbosity)
+        run_command("sudo apt-get build-dep gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly", verbosity)
+
 if "__main__" == __name__:
     parser = OptionParser()
     parser.add_option("-f", "--force-autogen", dest="force_autogen",
@@ -318,6 +329,9 @@ if "__main__" == __name__:
                       help="Set to force autogen")
     parser.add_option("-v", "--verbose", dest="verbose",
                       default=None, help="Set verbosity")
+    parser.add_option("-d", "--install-depencies", dest="install_deps",
+                      action="store_true", default=False,
+                      help="Try to automatically install dependencies")
     (options, args) = parser.parse_args()
 
     # mkdirs if needed
@@ -326,6 +340,9 @@ if "__main__" == __name__:
     print len("Base path is: %s\n\n" % os.getcwd()) * '=' + bcolors.ENDC
 
     init(True)
+
+    if options.install_deps:
+        install_deps()
     if options.use_hashes:
         set_hashes()
 
