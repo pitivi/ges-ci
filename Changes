@@ -12,17 +12,8 @@ gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750
 
  
 
-====== gst-plugins-base =============
+====== gstreamer =============
 
- commit 9613f79c1e63ca6a7257484402cc3fb4e0a9fc51
-Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Sat Sep 7 19:14:50 2013 +0100
-
-    tools: play: set playbin to NULL state on error to flush messages
-    
-    Just flushing the bus doesn't work here for some reason, so set
-    playbin to NULL state, which seems to clear all error state and
-    makes sure we do play the next playable song and don't pick up
-    'ghost' error messages from previous files on the bus.
+ 
 
  
