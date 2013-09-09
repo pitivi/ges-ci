@@ -242,7 +242,7 @@ def run_command(command, recipe, verbose_level=None, is_fatal=True):
     if verbose_level == 2:
         print stdout
     print 90 * ' ' + bcolors.OKGREEN + "OK" + bcolors.ENDC
-    return True
+    return None
 
 
 def set_hashes():
@@ -318,6 +318,8 @@ def install_deps(verbosity=None):
         run_command("sudo apt-get update", verbosity)
         run_command("sudo apt-get install build-essential automake libtool itstool gtk-doc-tools gnome-common gnome-doc-utils yasm flex bison", verbosity)
         run_command("sudo apt-get build-dep gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly", verbosity)
+    else:
+        print "Could not install dependencies"
 
 if "__main__" == __name__:
     parser = OptionParser()
