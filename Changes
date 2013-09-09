@@ -1,4 +1,4 @@
-gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750 
+gstreamer:26e27417d7b350db2230ade793c1eee52068f03f 
  gst-plugins-base:9613f79c1e63ca6a7257484402cc3fb4e0a9fc51 
  gst-plugins-good:a5ceab82dd8658bf2e81aff95891962340eef6be 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
@@ -14,6 +14,29 @@ gstreamer:3dc8ee97e50039c73fc322f687741a5b7193b750
 
 ====== gstreamer =============
 
- 
+ commit 26e27417d7b350db2230ade793c1eee52068f03f
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 9 14:21:56 2013 +0200
+
+    tests/capsfilter: Fix memory leak and compare caps directly instead of strcmp()
+
+commit 7854e392dd82fe21837a2abac3c5949b519285e3
+Author: Sebastian Rasmussen <sebrn@axis.com>
+Date:   Fri Sep 6 23:03:54 2013 +0200
+
+    tests/capsfilter: Test caps-related queries and property
+
+commit 4cb596ddd6919701744387339e9a957a6f71b2b6
+Author: Gustavo Noronha Silva <gns@gnome.org>
+Date:   Fri Sep 6 15:09:46 2013 -0300
+
+    Update the buffering state before stalling for more data
+    
+    In some cases the wait for more data was happening without updating
+    the buffering state, meaning the API user would not be able to notice
+    it should pause the pipeline and update UI to indicate that is the
+    case, the video would likely stutter instead.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707648
 
  
