@@ -1,6 +1,6 @@
 gstreamer:26e27417d7b350db2230ade793c1eee52068f03f 
  gst-plugins-base:9613f79c1e63ca6a7257484402cc3fb4e0a9fc51 
- gst-plugins-good:a5ceab82dd8658bf2e81aff95891962340eef6be 
+ gst-plugins-good:478f0dcfe7995876dc4437ae19ec30f6a2c02a9e 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:8fb662884232c6840a094c0d40b54888e3efd6c3 
  gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
@@ -12,31 +12,26 @@ gstreamer:26e27417d7b350db2230ade793c1eee52068f03f
 
  
 
-====== gstreamer =============
+====== gst-plugins-good =============
 
- commit 26e27417d7b350db2230ade793c1eee52068f03f
+ commit 478f0dcfe7995876dc4437ae19ec30f6a2c02a9e
 Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Mon Sep 9 14:21:56 2013 +0200
+Date:   Mon Sep 9 14:46:42 2013 +0200
 
-    tests/capsfilter: Fix memory leak and compare caps directly instead of strcmp()
+    v4l2bufferpool: Fix missing condition in previous commit
 
-commit 7854e392dd82fe21837a2abac3c5949b519285e3
-Author: Sebastian Rasmussen <sebrn@axis.com>
-Date:   Fri Sep 6 23:03:54 2013 +0200
+commit 1e7c3e45204e102a87348830a362ae682a4037b4
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 9 14:44:58 2013 +0200
 
-    tests/capsfilter: Test caps-related queries and property
+    v4l2bufferpool: Also fix strides for other semi-planar video formats
 
-commit 4cb596ddd6919701744387339e9a957a6f71b2b6
-Author: Gustavo Noronha Silva <gns@gnome.org>
-Date:   Fri Sep 6 15:09:46 2013 -0300
+commit 78adf28a61f6dd14bc5bf921cd57acc38e383241
+Author: Andreea Fulger <andreea.fulger@parrot.com>
+Date:   Mon Sep 9 14:41:42 2013 +0200
 
-    Update the buffering state before stalling for more data
+    v4l2bufferpool: Fix stride for NV12/NV21
     
-    In some cases the wait for more data was happening without updating
-    the buffering state, meaning the API user would not be able to notice
-    it should pause the pipeline and update UI to indicate that is the
-    case, the video would likely stutter instead.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707648
+    https://bugzilla.gnome.org/show_bug.cgi?id=707758
 
  
