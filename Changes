@@ -1,5 +1,5 @@
 gstreamer:dae27ba3d3bccd1af8a2b5b1e837350c8803ee3c 
- gst-plugins-base:6d7ab5a8f9db1407d6b7aaaa4eeebcfcaf8af07a 
+ gst-plugins-base:7b3ca538fd9ddc146795f79b7eb420db78e02885 
  gst-plugins-good:374a97a3e9a93869108748e88a6b9f8dfd706c2b 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:fb639741d70f05afc75b0daf3a684f714aafeb17 
@@ -14,19 +14,17 @@ gstreamer:dae27ba3d3bccd1af8a2b5b1e837350c8803ee3c
 
 ====== gst-plugins-base =============
 
- commit 6d7ab5a8f9db1407d6b7aaaa4eeebcfcaf8af07a
-Author: Tim-Philipp Müller <tim@centricular.net>
-Date:   Mon Sep 9 19:26:34 2013 +0100
+ commit 7b3ca538fd9ddc146795f79b7eb420db78e02885
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Sep 3 17:27:37 2013 +0100
 
-    pbutils: fix and improve raw video format description strings
+    tag: id3: encapsulate ID3V2 blob frames in GstSample
     
-    Mark terms such as "planar", "packed", and "palettized" as
-    translatable, and re-arrange strings a bit to make them
-    better suited for translation.
+    id3mux and id3v2mux expect GST_TAG_ID3V2_FRAME type to be stored in a
+    GstSample and not a buffer, which is also needed because we can't
+    attach extradata/caps to buffers any more. These are private tags
+    no one should be poking at, and also the extra info is missing.
     
-    Also fix bug in yuv descriptions, one plane is packed, more
-    is planar (or semi-planar).
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707789
+    https://bugzilla.gnome.org/show_bug.cgi?id=707765
 
  
