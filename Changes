@@ -1,5 +1,5 @@
 gstreamer:dae27ba3d3bccd1af8a2b5b1e837350c8803ee3c 
- gst-plugins-base:1664468eaa3bd62ef429d276639112a280b36bce 
+ gst-plugins-base:d3641943b38c403eb5df26df8a5ba0a01adab80e 
  gst-plugins-good:374a97a3e9a93869108748e88a6b9f8dfd706c2b 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:a41e8698b1ae62b18fd2449dfcb7c1b9d39d02b9 
@@ -12,63 +12,12 @@ gstreamer:dae27ba3d3bccd1af8a2b5b1e837350c8803ee3c
 
  
 
-====== gstreamer =============
-
- commit dae27ba3d3bccd1af8a2b5b1e837350c8803ee3c
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Mon Sep 9 15:40:25 2013 +0200
-
-    meta: Deprecate GST_META_TAG_MEMORY
-    
-    The GQuarks are not exported by any public API
-
-commit ff05a4698e7462f96f3161a1e93814db6de3c353
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Thu Aug 22 00:02:28 2013 +0200
-
-    meta: Add a #define for memory metadata
-
-commit 8d24c4e451d0b9b5fb2b42fa25c7592166d9e994
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Thu Aug 22 00:01:44 2013 +0200
-
-    basetransform: implement a default transform_meta.
-    If a metadata has no dependency as shown by the tags, copy it.
-
-commit 4c7dbde791fefae95b552e23c108680528561b83
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Thu Aug 22 21:32:36 2013 +0200
-
-    meta: API: Add gst_meta_api_type_get_tags() to get all meta tags.
-
- 
-
 ====== gst-plugins-base =============
 
- commit 1664468eaa3bd62ef429d276639112a280b36bce
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Wed Aug 21 23:54:49 2013 +0200
+ commit d3641943b38c403eb5df26df8a5ba0a01adab80e
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 9 15:52:05 2013 +0200
 
-    videofilter: implement transform_meta virtual method.
-    
-    If tags of the meta only contain "video", let it be copied.
-
-commit d1cb9c994bafeb7114bc35b36a53f12a274602f8
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Wed Aug 21 23:56:15 2013 +0200
-
-    video/audio: #define metadata strings.
-    
-    For instance "orientation" becomes GST_VIDEO_ORIENTATION_METADATA.
-
- 
-
-====== gst-plugins-good =============
-
- commit 374a97a3e9a93869108748e88a6b9f8dfd706c2b
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Thu Aug 22 00:03:48 2013 +0200
-
-    v4l2: Use newly #defined metadata names.
+    docs: fix some doc blocks
 
  
