@@ -5,25 +5,21 @@ gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf
  gst-plugins-bad:c70fceb16fa71207b02f4a70c2b2524c7ee4ffa2 
  gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
  gnonlin:79624b830af08437d9a17464ba688c6a228f790b 
- gst-editing-services:0daf523dfdeff2619f1e8b982879c8de230fb7cb 
+ gst-editing-services:667b33cb96db2f53dba4c1f7c992f52abd5aa828 
  gst-python:20860bc63376944cc7749255123e201feec5f39c 
  
  
 
  
 
-====== gstreamer =============
+====== gst-editing-services =============
 
- commit f1971fe1e985494ab1341463f02a13226fb233bf
-Author: Rico Tzschichholz <ricotz@t-online.de>
-Date:   Tue Sep 10 16:39:30 2013 +0100
+ commit 667b33cb96db2f53dba4c1f7c992f52abd5aa828
+Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Tue Sep 10 18:17:57 2013 +0200
 
-    controlbindings: fix pspec relaxation for control source properties
+    tests: integration: set restriction_caps on the video encoding profile
     
-    The change should have been from PARAM_CONSTRUCT_ONLY to
-    PARAM_CONSTRUCT, otherwise bindings are affected, since
-    they look for the CONSTRUCT flag.
-    
-    See ec55363d
+    We need this cause now videomixer renegotiates downstream.
 
  
