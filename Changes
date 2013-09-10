@@ -1,6 +1,6 @@
 gstreamer:b25b9ad6bda052d013a5531f7fe43f84256117b7 
  gst-plugins-base:7b3ca538fd9ddc146795f79b7eb420db78e02885 
- gst-plugins-good:374a97a3e9a93869108748e88a6b9f8dfd706c2b 
+ gst-plugins-good:8db40a8c7f1cac4b361414af56887aa7efac4d05 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:fb639741d70f05afc75b0daf3a684f714aafeb17 
  gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
@@ -12,17 +12,35 @@ gstreamer:b25b9ad6bda052d013a5531f7fe43f84256117b7
 
  
 
-====== gstreamer =============
+====== gst-plugins-good =============
 
- commit b25b9ad6bda052d013a5531f7fe43f84256117b7
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Tue Sep 10 10:15:03 2013 +0200
+ commit 8db40a8c7f1cac4b361414af56887aa7efac4d05
+Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Fri Jul 26 19:40:53 2013 +0200
 
-    queue2: Only update current level if we already downloaded a range
+    videomixer: Add colorspace conversion
     
-    Otherwise queue->level is NULL and dereferencing that is not a good
-    idea in general.
+    https://bugzilla.gnome.org/show_bug.cgi?id=704950
+
+commit 707e39fe7aa1f30f8893a86023323a508e35ff14
+Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Tue Aug 6 15:38:39 2013 +0200
+
+    videomixer: Don't send reconfigure event when formats or PAR are different
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707648
+    It is racy with multiple pads.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=704950
+
+commit 8db36485443c767c93c3aebe379a66efa0fd301b
+Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Thu Jul 25 13:49:57 2013 +0200
+
+    videomixer: Bundle private copies of videoconvert code
+    
+    Ideally, this would be part of libgstvideo.
+    Prefixes videoconvert symbols with videomixer_.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=704950
 
  
