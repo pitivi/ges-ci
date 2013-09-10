@@ -1,5 +1,5 @@
 gstreamer:b25b9ad6bda052d013a5531f7fe43f84256117b7 
- gst-plugins-base:7b3ca538fd9ddc146795f79b7eb420db78e02885 
+ gst-plugins-base:a156fe4a1aa059898ee1964d14f0289b963ad87b 
  gst-plugins-good:8db40a8c7f1cac4b361414af56887aa7efac4d05 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
  gst-plugins-bad:c70fceb16fa71207b02f4a70c2b2524c7ee4ffa2 
@@ -12,12 +12,53 @@ gstreamer:b25b9ad6bda052d013a5531f7fe43f84256117b7
 
  
 
-====== gst-plugins-bad =============
+====== gst-plugins-base =============
 
- commit c70fceb16fa71207b02f4a70c2b2524c7ee4ffa2
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Tue Sep 10 11:37:55 2013 +0200
+ commit a156fe4a1aa059898ee1964d14f0289b963ad87b
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 10 16:16:51 2013 +0200
 
-    opencv: We also work with OpenCV 2.4.6.1
+    videoscale: fix RGB15 masks
+
+commit 85c572a57ef4bdaf0fc4fa39bd048708198a51c5
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 10 16:06:54 2013 +0200
+
+    videoscale: simplify YUYV and UYVY linear scaling
+    
+    Simplify the code and make it handle odd width
+
+commit ccf53052a013171122cb3aee658657dcb65e7e65
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 10 16:05:14 2013 +0200
+
+    videoscale: small cleanups
+    
+    Use BLEND macro
+    Fix NV12 corner case
+
+commit d365b68517797f2e049b45d4bd4410e65f34f9bc
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 10 16:03:08 2013 +0200
+
+    videoscale: fix RGB15 masks
+
+commit d7c02f389f733efd666da6dd58c160c786534f01
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 10 12:18:16 2013 +0200
+
+    videoscale: simplify nearest scaling
+    
+    Round the accumulator to avoid later checks
+    Remove some bound checks that would never trigger
+    Fix odd width scaling
+
+commit c8cbcb6f02f27d23caf3d9d6bd0370073b7cab53
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 10 11:31:57 2013 +0200
+
+    videoscale: pick nearest line in scaling
+    
+    Use rounding to pick the nearest line instead of rounding down.
 
  
