@@ -1,4 +1,4 @@
-gstreamer:dae27ba3d3bccd1af8a2b5b1e837350c8803ee3c 
+gstreamer:b25b9ad6bda052d013a5531f7fe43f84256117b7 
  gst-plugins-base:7b3ca538fd9ddc146795f79b7eb420db78e02885 
  gst-plugins-good:374a97a3e9a93869108748e88a6b9f8dfd706c2b 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
@@ -12,171 +12,17 @@ gstreamer:dae27ba3d3bccd1af8a2b5b1e837350c8803ee3c
 
  
 
-====== gst-editing-services =============
+====== gstreamer =============
 
- commit 0daf523dfdeff2619f1e8b982879c8de230fb7cb
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Mon Sep 9 12:47:32 2013 -0300
+ commit b25b9ad6bda052d013a5531f7fe43f84256117b7
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 10 10:15:03 2013 +0200
 
-    pipeline: Create it through a factory
+    queue2: Only update current level if we already downloaded a range
     
-    Making it possible to use it with GstValidate LD_PRELOAD feature
-
-commit 0d0fc767eec7206026bf8a52b158b51740a67954
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Mon Sep 9 12:47:02 2013 -0300
-
-    pipeline: Finnish renaming from GESTimelinePipeline
-
-commit 1a674bb26c9061098110df7aa09aeecdb47b8922
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Sun Sep 8 19:27:04 2013 -0300
-
-    tests: timelineedition: Minor cleanups
-
-commit 9c77d52f307bcd085088cdc838650ff12898c2da
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Sun Sep 8 19:19:24 2013 -0300
-
-    timeline: Make sure we do not move object when only trimming
+    Otherwise queue->level is NULL and dereferencing that is not a good
+    idea in general.
     
-    We were missing a few checks so that we do not move objects when their
-    duration is equal to the max duration, or 0
-
-commit c47c115dd11e1b91b7ccb54edc55affca7d3983e
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Sat Sep 7 12:59:17 2013 -0400
-
-    timeline: Avoid setting duration > max_duration when rippling
-    
-    We should use the trimming method to set duration to make sure to avoid
-    going over the max duration.
-    
-    Also avoid computing when setting duration to the same old value.
-
-commit c4c26f8748ce50036d351ddd78dd9377550d45ea
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Sat Sep 7 02:11:23 2013 -0400
-
-    ges: Handle trimming in groups
-    
-    This was broken, clips where moving all around, make it behave properly.
-
-commit c74aee5fdcf88e85d08016844e043e4da7f0a79a
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Sat Sep 7 02:10:12 2013 -0400
-
-    timeline: Make ripple start be trimming
-    
-    This is a more natural behaviour as a user instead of doing nothing at
-    all.
-
-commit 2f03a5df256805e1f27f24371951a98f2799bb88
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Tue Sep 3 20:50:54 2013 -0400
-
-    ges: Make GESAudioSource and GESVideoSource abstract
-
-commit 17122c44fbaf131db392993a250afd6448048a7b
-Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
-Date:   Thu Aug 22 23:06:38 2013 +0200
-
-    gstframepositionner: correctly tag metadata.
-    
-    We do not use GST_VIDEO_META_TAG_STR as it would mean depending on
-    GstVideo which is not the case right now
-
-commit 9ed5803323b5c1e90c247cac7cd51ce9007c9b88
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Sun Sep 1 12:19:32 2013 -0400
-
-    videosource: Make sure to update z-order when layer priority changes
-    
-    Conflicts:
-    	ges/ges-video-source.c
-
-commit 9fa99df5a72f3be42c952544e73de71c19c470d3
-Author: Thibault Saunier <thibault.saunier@collabora.com>
-Date:   Sun Sep 1 12:18:53 2013 -0400
-
-    timeline-element: Add a set_parent vmethod
-    
-    API:
-            GESTimelineElment->set_parent vmethod
-
-commit bd30bbd4a8de769ac27ca84938121809b8df6e6a
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Thu Aug 29 11:35:30 2013 +0200
-
-    tests: timelineedition: Add a test_scaling.
-    
-    It will check that the clip updates its size correctly.
-
-commit 805d5dfc0751e971d4206c39bed632f964a5b28c
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Sun Aug 25 17:08:00 2013 +0200
-
-    test-utils: Adds a utility function to quickly check the timeline.
-
-commit 93de0baf96c3da6bf387bc5f031bb07783a355e1
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Thu Aug 15 20:12:30 2013 +0200
-
-    videotransition: No need to hard set width and height anymore.
-
-commit a93f7baed3f5dec4c7d95bd85aa4f76c9da90c39
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Wed Aug 21 11:32:45 2013 +0200
-
-    gstframepositionner: Install width and height properties.
-    
-      + And manage them properly.
-
-commit 7269c2b316879e4591649db4b91f7ba3d7627780
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Sat Aug 17 14:57:15 2013 +0200
-
-    ges-track: Add the notion of resriction caps to GESTrack
-    
-    This way we can let the user determine what he want to come out of the
-    track.
-    
-    API:
-      - ges_track_set_caps (The track caps are now construct only)
-      + ges_track_set_restriction_caps
-      + ges_track_get_restriction_caps
-      + GESTrack.props.restriction_caps
-
-commit a635e48d775f8ab2d56ecd5f16c0baa666e1303b
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Tue Jul 9 15:31:15 2013 +0200
-
-    GES: Add GESVideoSource and GESAudioSource base classes
-    
-      + Update documentation.
-      + Implements subclasses audio-uri-source and video-uri-source
-
-commit 7fcc6e4b08319d10852164981952f2c5edaa84e8
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Wed Jul 3 18:27:00 2013 +0200
-
-    testsource: Handle child properties as child properties
-    
-    Makes $make check pass.
-    Standardizes property handling.
-
-commit e50a86d0d900ee5a573e2208a8b24b64d47ef583
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Tue Jul 2 11:12:00 2013 +0200
-
-    source: Make a ges_source_create_topbin internal helper method
-
-commit c0b6c968d8d4ea98e687b604025283651b516086
-Author: Simon Corsin <simoncorsin@gmail.com>
-Date:   Thu Jun 27 14:20:00 2013 +0200
-
-    ges-source: Move common elements handling to the base class
-    
-      + And port all the subclasses
+    https://bugzilla.gnome.org/show_bug.cgi?id=707648
 
  
