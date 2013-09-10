@@ -1,6 +1,6 @@
 gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf 
  gst-plugins-base:1618084bc8730343b7e572f8076d39dafafb7f02 
- gst-plugins-good:193ce9110e172b373e461e0da11da7071fb4c45a 
+ gst-plugins-good:268058eb376e7ce2a70fd60386c5695e2adb7435 
  gst-plugins-ugly:6a5c767ce5a27d3d341f84d992e9a05704d67459 
  gst-plugins-bad:efb27f19ec2790714b06b1f9c1a72f5c376474a8 
  gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
@@ -12,93 +12,14 @@ gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf
 
  
 
-====== gst-plugins-base =============
-
- commit 1618084bc8730343b7e572f8076d39dafafb7f02
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Fri Sep 6 15:36:12 2013 -0300
-
-    oggdemux: check for full eos after a pad goes eos in push mode
-    
-    After a pad is on EOS, verify if all pads are EOS and return
-    upstream, avoiding keeping the buffer flow without having more
-    data to push
-
-commit 7ecd5b1108a98fd3f7a2d834869b41f18a13b64c
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Fri Sep 6 15:56:39 2013 -0300
-
-    oggdemux: properly handle stop position at seeks in push mode
-    
-    Store the seek stop and seqnum and properly restore them when
-    receiving the corresponding Segment from upstream. Also fixes
-    seqnum for converted seek events.
-
- 
-
 ====== gst-plugins-good =============
 
- commit 193ce9110e172b373e461e0da11da7071fb4c45a
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Tue Sep 10 17:57:49 2013 -0300
+ commit 268058eb376e7ce2a70fd60386c5695e2adb7435
+Author: Seán de Búrca <leftmostcat@gmail.com>
+Date:   Tue Sep 10 16:44:53 2013 -0600
 
-    matroskademux: Preserve seqnum when pushing seek upstream
+    videomixer: fix build if orc is not installed
     
-    After converting a seek from time to bytes, use the same seqnum
-    on the event that goes upstream
-
-commit be0eeae491eee25e80ef1116fb77ca8f9cb80842
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Thu Sep 5 00:17:16 2013 -0300
-
-    qtdemux: track streams that are EOS on push mode to finish earlier
-    
-    When the segment has a defined stop position, qtdemux should check
-    when streams reach this position and mark those as EOS. When all
-    streams are EOS it will return GST_FLOW_EOS to upstream to allow
-    the pipeline to finish instead of continuously consume buffers
-    from upstream that are not useful for the segment.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707530
-
-commit 33cf8b679dee66afe927cb7e5da446563a11dec6
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Wed Sep 4 15:34:35 2013 -0300
-
-    qtdemux: preserve stop of segment when doing seeks in push mode
-    
-    When handling seeks in push mode, qtdemux converts the seek to bytes
-    and pushes upstream. It needs to keep track of the seek and the
-    subsequent segment to be able to map them back to the requested
-    seek time and properly preserve the segment stop of the seek.
-    
-    This is done by using the start offset in bytes of the seek,
-    that should be the same of the segment from upstream. And this
-    is also backwards compatible with what qtdemux already was using.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=707530
-
- 
-
-====== gst-plugins-ugly =============
-
- commit 6a5c767ce5a27d3d341f84d992e9a05704d67459
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Tue Sep 10 19:33:33 2013 -0300
-
-    asfdemux: remove unused variable
-
- 
-
-====== gst-plugins-bad =============
-
- commit efb27f19ec2790714b06b1f9c1a72f5c376474a8
-Author: Thiago Santos <thiago.sousa.santos@collabora.com>
-Date:   Tue Sep 10 18:51:52 2013 -0300
-
-    tsdemux: respect seqnums on seeks
-    
-    Pass the seqnum to other events that are consequence of the
-    original seek event
+    https://bugzilla.gnome.org/show_bug.cgi?id=707886
 
  
