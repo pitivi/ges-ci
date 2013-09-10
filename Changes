@@ -2,7 +2,7 @@ gstreamer:b25b9ad6bda052d013a5531f7fe43f84256117b7
  gst-plugins-base:7b3ca538fd9ddc146795f79b7eb420db78e02885 
  gst-plugins-good:8db40a8c7f1cac4b361414af56887aa7efac4d05 
  gst-plugins-ugly:0243810e1e0d35fff1023d3f6c42967cc7aaff6e 
- gst-plugins-bad:fd4cb22ae42b146e327b12aa0507b59520ba1db2 
+ gst-plugins-bad:c70fceb16fa71207b02f4a70c2b2524c7ee4ffa2 
  gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
  gnonlin:79624b830af08437d9a17464ba688c6a228f790b 
  gst-editing-services:0daf523dfdeff2619f1e8b982879c8de230fb7cb 
@@ -14,15 +14,10 @@ gstreamer:b25b9ad6bda052d013a5531f7fe43f84256117b7
 
 ====== gst-plugins-bad =============
 
- commit fd4cb22ae42b146e327b12aa0507b59520ba1db2
-Author: Iain Lane <iain.lane@canonical.com>
-Date:   Tue Sep 10 08:48:32 2013 +0000
+ commit c70fceb16fa71207b02f4a70c2b2524c7ee4ffa2
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 10 11:37:55 2013 +0200
 
-    modplug: Specify directory when including stdafx.h
-    
-    modplug stopped exposing their directory in their pcfile, meaining
-    consumers accessing the headers directly fail to build.
-    
-    http://sourceforge.net/p/modplug-xmms/git/ci/75e9b166982ed637b59ef7cbc1835a09f768923e/
+    opencv: We also work with OpenCV 2.4.6.1
 
  
