@@ -1,9 +1,9 @@
 gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf 
- gst-plugins-base:1618084bc8730343b7e572f8076d39dafafb7f02 
+ gst-plugins-base:721931d80a7d30c602314444f9795c2805ec604c 
  gst-plugins-good:268058eb376e7ce2a70fd60386c5695e2adb7435 
  gst-plugins-ugly:6a5c767ce5a27d3d341f84d992e9a05704d67459 
  gst-plugins-bad:efb27f19ec2790714b06b1f9c1a72f5c376474a8 
- gst-ffmpeg:61153a5ac231141e4395b9f0bb28a26fa808a098 
+ gst-ffmpeg:94875a34d4fb70f28328b2af90906b2d68b977ff 
  gnonlin:79624b830af08437d9a17464ba688c6a228f790b 
  gst-editing-services:667b33cb96db2f53dba4c1f7c992f52abd5aa828 
  gst-python:20860bc63376944cc7749255123e201feec5f39c 
@@ -12,14 +12,34 @@ gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf
 
  
 
-====== gst-plugins-good =============
+====== gst-plugins-base =============
 
- commit 268058eb376e7ce2a70fd60386c5695e2adb7435
-Author: Seán de Búrca <leftmostcat@gmail.com>
-Date:   Tue Sep 10 16:44:53 2013 -0600
+ commit 721931d80a7d30c602314444f9795c2805ec604c
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Tue Sep 10 21:44:33 2013 +0200
 
-    videomixer: fix build if orc is not installed
+    pbutils: Add description for TechSmith Screen Capture 2
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707886
+    https://bugzilla.gnome.org/show_bug.cgi?id=707878
+
+commit 297686634878e7a1a4a22188bf7f3824b37ac9fb
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Tue Sep 10 21:44:21 2013 +0200
+
+    riff: Add support for TechSmith Screen Capture 2
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707878
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 94875a34d4fb70f28328b2af90906b2d68b977ff
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Tue Sep 10 21:47:55 2013 +0200
+
+    avcodecmap: Add support for TechSmith Screen Capture 2
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707878
 
  
