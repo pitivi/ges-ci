@@ -74,7 +74,7 @@ class Recipe:
                  install="",
                  gitrepo="git://anongit.freedesktop.org/gstreamer/%s",
                  extra_remotes=[],
-                 check='',
+                 check='GST_CHECK_XML=yes make check',
                  check_integration='',
                  force_build=False,
                  ldpaths=[],
@@ -146,7 +146,7 @@ RECIPES = [
            pythonpaths=[("%s", "")]),
 
     Recipe("gst-editing-services",
-           check="make check", nick='ges',
+           nick='ges',
            check_integration="""cd tests/check && \
                                 CK_TIMEOUT_MULTIPLIER=10 GST_DEBUG_FILE=test.log \
                                 GES_MUTE_TESTS=yes make check-integration 2>&1 \
@@ -284,8 +284,8 @@ def run_command(command, recipe, verbose_level=None, is_fatal=True):
     return None
 
 
-def set_hashes():
-    linestring = open('hashes', 'r').read()
+def set_hashes(filedir):
+    linestring = open(os.path.join(filedir, 'hashes'), 'r').read()
 
     for line in linestring.split('\n'):
         line = line.replace(" ", '')
@@ -397,6 +397,7 @@ if "__main__" == __name__:
                       help="Try to automatically install dependencies")
     (options, args) = parser.parse_args()
 
+    filedir = os.path.dirname(os.path.abspath(__file__))
     if options.no_color:
         bcolors = ncolors
 
@@ -425,7 +426,7 @@ if "__main__" == __name__:
     if options.install_deps:
         install_deps()
     if options.use_hashes:
-        set_hashes()
+        set_hashes(filedir)
 
     if isinstance(options.tests, str):
         options.tests = [options.tests]
