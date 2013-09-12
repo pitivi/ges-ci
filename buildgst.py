@@ -284,14 +284,14 @@ def run_command(command, recipe, verbose_level=None, is_fatal=True):
     return None
 
 
-def set_hashes(filedir):
+def set_hashes(filedir, verbose_level=None):
     linestring = open(os.path.join(filedir, 'hashes'), 'r').read()
 
     for line in linestring.split('\n'):
         line = line.replace(" ", '')
         try:
-            module = line.split(":")[0]
-            hash = line.split(":")[1]
+            module = line.split("=")[0]
+            hash = line.split("=")[1]
         except IndexError:
             continue
 
@@ -323,6 +323,7 @@ def checkout(recipe):
 
     return ret
 
+
 def run_tests(recipe, verbose_level):
     os.chdir(join(GST_ENV_PATH, recipe.module))
     if recipe.check:
@@ -337,7 +338,9 @@ def run_tests(recipe, verbose_level):
             print "Errors during integration tests"
             print "=================================%s\n" % bcolors.ENDC
 
-def build(module, verbose_level=None, force_autogen=False, test=False):
+
+def build(module, verbose_level=None, force_autogen=False, use_hashes=False,
+          test=False):
 
     recipe = find_recipe(module)
     if recipe is None:
@@ -347,7 +350,8 @@ def build(module, verbose_level=None, force_autogen=False, test=False):
     run_command('git fetch origin', recipe)
     os.chdir(join(GST_ENV_PATH, recipe.module))
     run_command('git checkout -qf %s' % recipe.branch, recipe, verbose_level=verbose_level)
-    run_command('git pull --rebase', recipe)
+    if not use_hashes:
+        run_command('git pull --rebase', recipe)
     if force_autogen is True or not \
             os.path.isfile(join(os.getcwd(), "configure"))  \
             or recipe.force_autogen is True:
@@ -357,6 +361,7 @@ def build(module, verbose_level=None, force_autogen=False, test=False):
         run_command(recipe.install, recipe, verbose_level=verbose_level)
     if test and recipe.check:
         run_tests(recipe, verbose_level=verbose_level)
+
 
 def install_deps(verbosity=None):
     distro = platform.linux_distribution()
@@ -368,6 +373,7 @@ def install_deps(verbosity=None):
         run_command("sudo apt-get build-dep gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly", verbosity)
     else:
         print "Could not install dependencies"
+
 
 if "__main__" == __name__:
     parser = OptionParser()
@@ -426,7 +432,7 @@ if "__main__" == __name__:
     if options.install_deps:
         install_deps()
     if options.use_hashes:
-        set_hashes(filedir)
+        set_hashes(filedir, options.verbose)
 
     if isinstance(options.tests, str):
         options.tests = [options.tests]
@@ -468,7 +474,7 @@ if "__main__" == __name__:
             continue
 
         try:
-            build(recipe.module, options.verbose, options.force_autogen,
+            build(recipe.module, options.verbose, options.force_autogen, use_hashes=options.use_hashes,
                   test=recipe.module in options.tests or recipe.nick in options.tests)
         except subprocess.CalledProcessError, e:
             exit(1)
