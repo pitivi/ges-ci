@@ -1,5 +1,5 @@
 gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf 
- gst-plugins-base:721931d80a7d30c602314444f9795c2805ec604c 
+ gst-plugins-base:420e2298294e30a53642962c55ed2d133339e876 
  gst-plugins-good:9d3dbd6581f86e824627d5fe51391a099f853b7a 
  gst-plugins-ugly:6a5c767ce5a27d3d341f84d992e9a05704d67459 
  gst-plugins-bad:efb27f19ec2790714b06b1f9c1a72f5c376474a8 
@@ -12,26 +12,24 @@ gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf
 
  
 
-====== gst-plugins-good =============
+====== gst-plugins-base =============
 
- commit 9d3dbd6581f86e824627d5fe51391a099f853b7a
-Author: Seán de Búrca <leftmostcat@gmail.com>
-Date:   Wed Sep 11 13:11:58 2013 -0600
+ commit 420e2298294e30a53642962c55ed2d133339e876
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 12 09:42:36 2013 +0200
 
-    matroskademux: Fix off-by-one in validation of UTF-8
+    audioencoder/decoder: Mark pads as requiring reconfiguration again if negotiation fails
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707933
+    Otherwise we might end up in non-optimal configuration, especially
+    when a flush happened during reconfiguration.
 
- 
+commit 35ee4b056b043ff38cd2d55d34bc16aedbef4f67
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 12 09:35:00 2013 +0200
 
-====== gst-editing-services =============
-
- commit 6c993d36ba5a838bb1f2a09d1ed1e55cf3e45ac3
-Author: Kishore Arepalli <kishore.arepalli@gmail.com>
-Date:   Thu Sep 12 09:05:51 2013 +0200
-
-    ges-pipeline: Don't unref buffer obtained from a GstSample
+    videodecoder/videoencoder: Mark pads as requiring reconfiguration again if negotiation fails
     
-    https://bugzilla.gnome.org/show_bug.cgi?id=707914
+    Otherwise we might end up in non-optimal configuration, especially
+    when a flush happened during reconfiguration.
 
  
