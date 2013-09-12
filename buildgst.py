@@ -381,16 +381,24 @@ if "__main__" == __name__:
     parser.add_option("-d", "--install-depencies", dest="install_deps",
                       action="store_true", default=False,
                       help="Try to automatically install dependencies")
+    parser.add_option("-c", "--current-dir", dest="current_dir",
+                      action="store_true", default=False,
+                      help="Try to automatically install dependencies")
     (options, args) = parser.parse_args()
 
-    # mkdirs if needed
-    try:
-        os.makedirs(GST_ENV_PATH)
-        need_build = True
-        print "Created directory: %s" % GST_ENV_PATH
-    except OSError:
+    if options.current_dir is True:
+        args = [os.path.basename(os.getcwd())]
+        GST_ENV_PATH = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
         need_build = False
-        pass
+    else:
+        # mkdirs if needed
+        try:
+            os.makedirs(GST_ENV_PATH)
+            need_build = True
+            print "Created directory: %s" % GST_ENV_PATH
+        except OSError:
+            need_build = False
+            pass
 
     os.chdir(GST_ENV_PATH)
 
