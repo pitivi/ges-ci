@@ -2,7 +2,7 @@ language: c
 
 script:
   - bash -x -c "echo -e 'Last changes\n ' && cat Changes"
-  - python buildgst.py --use-hashes --install-depencies
+  - python buildgst.py --use-hashes --install-depencies -t ges -t gnl
 
 
 notifications:

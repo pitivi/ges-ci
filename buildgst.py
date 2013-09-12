@@ -48,6 +48,8 @@ GST_ENV_PATH = env("GST_ENV_PATH") if env("GST_ENV_PATH") else join(env("HOME"),
 BASE_PREFIX = join(GST_ENV_PATH, "prefix")
 GST_MIN_VERSION = "1.1.1.4"
 GLIB_MIN_VERSION = "2.34.3"
+GI_MIN_VERSION = "1.34.2"
+PYGI_MIN_VERSION = '3.8.0'
 
 
 class Recipe:
@@ -68,6 +70,7 @@ class Recipe:
                  check_integration='',
                  force_build=False,
                  ldpaths=[],
+                 pythonpaths=[],
                  gst_plugin_paths=[]):
         self.module = module
         self.nick = nick
@@ -84,6 +87,7 @@ class Recipe:
         self.ldpaths = ldpaths
         self.gst_plugin_paths = gst_plugin_paths
         self.extra_remotes = extra_remotes
+        self.pythonpaths = pythonpaths
 
 RECIPES = [
     Recipe("glib",
@@ -120,12 +124,26 @@ RECIPES = [
            ldpaths=[("%s/gst-libs/ext/ffmpeg/%s", "libavformat libavutil libavcodec libpostproc libavdevice")],
            gst_plugin_paths=[("%s/%s", "ext")]),
 
+    Recipe("gobject-introspection", nick='gi',
+           autogen_param="--prefix=%s" % BASE_PREFIX,
+           install="make install",
+           gitrepo="git://git.gnome.org/%s"),
+
+    Recipe("pygobject", nick='pygi',
+           ldpaths=[("%s/%s/.libs", "gi")],
+           pythonpaths=[("%s", "")],
+           gitrepo="git://git.gnome.org/%s"),
+
+    Recipe("gst-python", nick='pygst',
+           pythonpaths=[("%s", "")]),
+
     Recipe("gst-editing-services",
            check="make check", nick='ges',
            check_integration="""cd tests/check && \
                                 CK_TIMEOUT_MULTIPLIER=10 GST_DEBUG_FILE=test.log \
                                 GES_MUTE_TESTS=yes make check-integration 2>&1 \
-                                |grep 'running test\|integration.c\|Checks.*Failures' 1>&2""")]
+                                |grep 'running test\|integration.c\|Checks.*Failures' 1>&2"""),
+    Recipe("pitivi", check="make check", nick='ptv')]
 
 
 def find_recipe(name):
@@ -146,9 +164,19 @@ def check_needed_repos():
         find_recipe("glib").build = True
 
     try:
-        print subprocess.check_output("pkg-config --exists --print-errors 'gstreamer-1.0 >= %s'"
-                                      % GST_MIN_VERSION,
-                                      shell=True)
+        subprocess.check_output("pkg-config gobject-introspton-1.0 --atleast-version=%s" % GI_MIN_VERSION, shell=True)
+    except subprocess.CalledProcessError:
+        find_recipe("gi").build = True
+
+    try:
+        import gi
+        gi.check_version(PYGI_MIN_VERSION)
+    except ValueError:
+        find_recipe("pygi").build = True
+
+    try:
+        subprocess.check_output("pkg-config --exists --print-errors 'gstreamer-1.0 >= %s'"
+                                % GST_MIN_VERSION, shell=True)
     except subprocess.CalledProcessError:
         find_recipe("gstreamer").build = True
         find_recipe("gst-plugins-base").build = True
@@ -198,6 +226,9 @@ def set_env_variables():
             for form, vals in recipe.gst_plugin_paths:
                 for subdir in vals.split(' '):
                     setenv("GST_PLUGIN_PATH", join(GST_ENV_PATH, form) % (recipe.module, subdir))
+
+            for form, vals in recipe.pythonpaths:
+                setenv("PYTHONPATH", join(GST_ENV_PATH, form) % (recipe.module))
 
         os.environ['GST_PLUGIN_SYSTEM_PATH'] = ''
         # set our registry somewhere else so we don't mess up the registry generated
@@ -271,32 +302,21 @@ def checkout(recipe):
     os.chdir(GST_ENV_PATH)
     try:
         os.chdir(join(GST_ENV_PATH, recipe.module))
+        ret = not os.path.isfile(join(os.getcwd(), "configure"))
     except OSError:
         run_command('git clone  ' + recipe.gitrepo, recipe)
         os.chdir(join(GST_ENV_PATH, recipe.module))
+        ret = True
 
     if recipe.extra_remotes:
         for name, remote in recipe.extra_remotes:
             run_command('git remote add %s %s' % (name, remote), recipe)
             run_command('git fetch %s' % (name), recipe)
 
+    return ret
 
-def build(module, verbose_level=None, force_autogen=False):
-
-    recipe = find_recipe(module)
-    if recipe is None:
-        raise KeyError("%s not found" % module)
-
-    print "\nBuidling %s" % recipe.module
+def run_tests(recipe, verbose_level):
     os.chdir(join(GST_ENV_PATH, recipe.module))
-    run_command('git checkout -qf %s' % recipe.branch, recipe, verbose_level=verbose_level)
-    if force_autogen is True or not \
-            os.path.isfile(join(os.getcwd(), "configure"))  \
-            or recipe.force_autogen is True:
-        run_command(recipe.autogen, recipe, verbose_level=verbose_level)
-    run_command(recipe.make, recipe, verbose_level=verbose_level)
-    if recipe.install:
-        run_command(recipe.install, recipe, verbose_level=verbose_level)
     if recipe.check:
         run_command(recipe.check, recipe, verbose_level=verbose_level)
     if recipe.check_integration:
@@ -309,6 +329,26 @@ def build(module, verbose_level=None, force_autogen=False):
             print "Errors during integration tests"
             print "=================================%s\n" % bcolors.ENDC
 
+def build(module, verbose_level=None, force_autogen=False, test=False):
+
+    recipe = find_recipe(module)
+    if recipe is None:
+        raise KeyError("%s not found" % module)
+
+    print "\nBuidling %s" % recipe.module
+    run_command('git fetch origin', recipe)
+    os.chdir(join(GST_ENV_PATH, recipe.module))
+    run_command('git checkout -qf %s' % recipe.branch, recipe, verbose_level=verbose_level)
+    run_command('git pull --rebase', recipe)
+    if force_autogen is True or not \
+            os.path.isfile(join(os.getcwd(), "configure"))  \
+            or recipe.force_autogen is True:
+        run_command(recipe.autogen, recipe, verbose_level=verbose_level)
+    run_command(recipe.make, recipe, verbose_level=verbose_level)
+    if recipe.install:
+        run_command(recipe.install, recipe, verbose_level=verbose_level)
+    if test and recipe.check:
+        run_tests(recipe, verbose_level=verbose_level)
 
 def install_deps(verbosity=None):
     distro = platform.linux_distribution()
@@ -323,6 +363,13 @@ def install_deps(verbosity=None):
 
 if "__main__" == __name__:
     parser = OptionParser()
+    parser.add_option("-b", "--build", dest="build",
+                      action="store_true", default=False,
+                      help="Build needed modules")
+    parser.add_option("-t", "--test",
+                      dest="tests",
+                      default=[],
+                      help="Run test for module")
     parser.add_option("-f", "--force-autogen", dest="force_autogen",
                       action="store_true", default=False,
                       help="Set to force autogen")
@@ -337,6 +384,16 @@ if "__main__" == __name__:
     (options, args) = parser.parse_args()
 
     # mkdirs if needed
+    try:
+        os.makedirs(GST_ENV_PATH)
+        need_build = True
+        print "Created directory: %s" % GST_ENV_PATH
+    except OSError:
+        need_build = False
+        pass
+
+    os.chdir(GST_ENV_PATH)
+
     print bcolors.OKBLUE + len("Base path is: %s" % os.getcwd()) * '='
     print "Base path is: %s" % os.getcwd()
     print len("Base path is: %s\n\n" % os.getcwd()) * '=' + bcolors.ENDC
@@ -348,27 +405,48 @@ if "__main__" == __name__:
     if options.use_hashes:
         set_hashes()
 
-    try:
-        os.makedirs(GST_ENV_PATH)
-        print "Created directory: %s" % GST_ENV_PATH
-    except OSError:
-        pass
+    if isinstance(options.tests, str):
+        options.tests = [options.tests]
 
-    os.chdir(GST_ENV_PATH)
     for recipe in RECIPES:
+        if args or options.tests:
+            if recipe.module in args or recipe.nick in args:
+                recipe.build = True
+            else:
+                recipe.build = False
+
         if recipe.build is False and recipe.force_build is False:
             continue
         try:
-            checkout(recipe)
+            if not need_build:
+                need_build = checkout(recipe)
         except subprocess.CalledProcessError, e:
             exit(1)
 
+    if options.tests and not args:
+        for to_test in options.tests:
+            try:
+                print to_test
+                run_tests(find_recipe(to_test), options.verbose)
+            except subprocess.CalledProcessError, e:
+                exit(1)
+        exit(0)
+
+    if need_build is False and options.build is False:
+        print "\n\n%sEntered gst environment%s!" % (bcolors.OKGREEN, bcolors.ENDC)
+        os.system(os.environ["SHELL"])
+        exit(0)
+
+    if need_build:
+        print_recipes("\n\n%sBuild needed:%s" % (bcolors.FAIL, bcolors.ENDC))
+
     for recipe in RECIPES:
         if recipe.build is False and recipe.force_build is False:
             continue
 
         try:
-            build(recipe.module, options.verbose, options.force_autogen)
+            build(recipe.module, options.verbose, options.force_autogen,
+                  test=recipe.module in options.tests or recipe.nick in options.tests)
         except subprocess.CalledProcessError, e:
             exit(1)
 
