@@ -277,7 +277,7 @@ def run_command(command, recipe, verbose_level=None, is_fatal=True):
 
 
 def set_hashes():
-    linestring = open('Changes', 'r').read()
+    linestring = open('hashes', 'r').read()
 
     for line in linestring.split('\n'):
         line = line.replace(" ", '')

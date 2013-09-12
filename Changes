@@ -1,25 +1,7 @@
-gstreamer:f1971fe1e985494ab1341463f02a13226fb233bf 
- gst-plugins-base:58e6f33e3544a12ced84e6c78a11aaec5c492f82 
- gst-plugins-good:b95ddd55cd27f8d25ec3bb9fb6f16c8bb57cd480 
- gst-plugins-ugly:6a5c767ce5a27d3d341f84d992e9a05704d67459 
- gst-plugins-bad:b15177645bf8d4cb2e3850e34f122ffa34911f7c 
- gst-ffmpeg:677eaa6692d73c1d5b51cde20e0176a937467c8b 
- gnonlin:79624b830af08437d9a17464ba688c6a228f790b 
- gst-editing-services:6c993d36ba5a838bb1f2a09d1ed1e55cf3e45ac3 
- gst-python:20860bc63376944cc7749255123e201feec5f39c 
- 
- 
+====== gst-plugins-base =============
 
- 
+ commit 7b3ca538fd9ddc146795f79b7eb420db78e02885
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Sep 3 17:27:37 2013 +0100
 
-====== gst-plugins-good =============
-
- commit b95ddd55cd27f8d25ec3bb9fb6f16c8bb57cd480
-Author: Sebastian Dröge <slomo@circular-chaos.org>
-Date:   Thu Sep 12 15:07:48 2013 +0200
-
-    flacparse: Make sure we have enough data to read image tags
-    
-    Thanks to iputinei for reporting this on IRC.
-
- 
+    tag: id3: encapsulate ID3V2 blob frames in GstSample

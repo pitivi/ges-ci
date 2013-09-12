@@ -29,19 +29,19 @@ if [[ -z "$changed" ]]; then
 fi
 
 message="$message$(echo -e "\n \n ")"
-hashes=''
+cat /dev/null > hashes
 for m in $MODULES
 do
   cd $DIR/$m
   message="$message$m$(echo -e ":$(git log --pretty=format:"%H" origin/master^..origin/master 2>&1) \n ")"
-  hashes="$hashes$m$(echo -e ":$(git log --pretty=format:"%H" origin/master^..origin/master 2>&1) \n ")"
+  echo $m=$(git log --pretty=format:"%H" origin/master^..origin/master 2>&1) >> hashes
 done
 
 cd $cdir
-echo "$hashes" > Changes
 echo -ne " \n\n " >> Changes
 echo "$changed" >> Changes
 message="$message$(echo -e "\n \n ")$changed"
 git add Changes
+git add hashes
 git commit -m "$message"
 git push origin master
