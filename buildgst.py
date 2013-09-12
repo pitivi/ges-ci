@@ -21,6 +21,14 @@ class bcolors:
     FAIL = '\033[91m'
     ENDC = '\033[0m'
 
+class ncolors:
+    HEADER = ''
+    OKBLUE = ''
+    OKGREEN = ''
+    WARNING = ''
+    FAIL = ''
+    ENDC = ''
+
 
 def env(name):
     try:
@@ -384,7 +392,13 @@ if "__main__" == __name__:
     parser.add_option("-c", "--current-dir", dest="current_dir",
                       action="store_true", default=False,
                       help="Try to automatically install dependencies")
+    parser.add_option("-n", "--no-color", dest="no_color",
+                      action="store_true", default=False,
+                      help="Try to automatically install dependencies")
     (options, args) = parser.parse_args()
+
+    if options.no_color:
+        bcolors = ncolors
 
     if options.current_dir is True:
         args = [os.path.basename(os.getcwd())]
