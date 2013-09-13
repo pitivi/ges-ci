@@ -5,3 +5,20 @@ Author: Matthieu Bouron <matthieu.bouron@collabora.com>
 Date:   Tue Sep 3 17:27:37 2013 +0100
 
     tag: id3: encapsulate ID3V2 blob frames in GstSample
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 803c39bf3d773c5a841658f3126aa505d0596a6c
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Fri Sep 13 09:17:38 2013 +0100
+
+    configure: rely solely on pkg-config to find libogg and libvorbis
+    
+    And get rid of AS_SCRUB_INCLUDES
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707658
+
+ 
