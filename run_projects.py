@@ -1,8 +1,10 @@
 import subprocess32
+import time
 import os
 from optparse import OptionParser
 from buildgst import bcolors
 from gi.repository import GES, Gst
+import xml.etree.ElementTree as ET
 
 formats = {"aac": "audio/mpeg,mpegversion=4",
            "ac3": "audio/x-ac3",
@@ -16,6 +18,31 @@ formats = {"aac": "audio/mpeg,mpegversion=4",
            "mp4": "video/quicktime,variant=iso;",
            "webm": "video/x-matroska"}
 
+
+def print_ns(time):
+    if time == Gst.CLOCK_TIME_NONE:
+        return "CLOCK_TIME_NONE"
+
+    return str(time / (Gst.SECOND * 60 * 60)) + ':' + \
+        str((time / (Gst.SECOND * 60)) % 60) + ':' + \
+        str((time / Gst.SECOND) % 60) + ':' + \
+        str(time % Gst.SECOND)
+
+
+def indent(elem, level=0):
+    i = "\n" + level*"  "
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + "  "
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+        for elem in elem:
+            indent(elem, level+1)
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+    else:
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = i
 
 class Combination():
     def __str__(self):
@@ -61,23 +88,30 @@ def get_profile_full(muxer, venc, aenc, video_restriction=None,
 def get_profile(combination):
     return get_profile_full(formats[combination.container],
                             formats[combination.vcodec],
-                            formats[combination.acodec])
+                            formats[combination.acodec],
+                            video_restriction="video/x-raw,format=I420")
+
 
 def getDuration(project):
 
     proj = GES.Project.new(project)
     tl = proj.extract()
-    duration = tl.get_meta("duration")
+    if tl is None:
+        duration = None
+    else:
+        duration = tl.get_meta("duration")
     if duration is not None:
         return duration / Gst.SECOND
     return 10 * 60
 
 
-def launch_project(project, combination, dest_dir):
+def launch_project(project, combination, dest_dir, paths=[], elem=None):
+    ret = True
+
     if combination is None:
-        msg = "Playing project", os.path.basename (project)
+        msg = "Playing project", os.path.basename(project)
     else:
-        msg = "Rendering project %s to: %s" % (os.path.basename (project), combination)
+        msg = "Rendering project %s to: %s" % (os.path.basename(project), combination)
 
     print bcolors.OKBLUE + len(msg) * '='
     print msg
@@ -88,21 +122,67 @@ def launch_project(project, combination, dest_dir):
                              combination.vcodec + '.' +
                              combination.container)
     profile = get_profile(combination)
-    command = "ges-launch-1.0 -l %s -f %s -o %s 1>&2" % (project, profile, dest_file)
-    timeout = getDuration(project)
+    command = "ges-launch-1.0 -l %s -f %s -o %s " % (project, profile, dest_file)
+    for path in paths:
+        command += " -P %s" % path
+
+    duration = timeout = getDuration(project)
     if combination:
-        timeout *= 3 # Give us 2 time the length of the timeline to render
+        timeout *= 3  # Give us 2 time the length of the timeline to render
         print "Timeout set to %is" % timeout
 
+    if elem is not None:
+        elem.attrib["classname"] = str(comb).replace(' ', '_')
+        elem.attrib["name"] = os.path.basename(project)
+
+    start = time.time()
+    stderr = open("sterr_o", 'wr')
     try:
-        subprocess32.check_output(command, timeout=timeout, shell=True)
+        subprocess32.check_output(command, stderr=stderr, timeout=timeout, shell=True)
+        asset = GES.UriClipAsset.request_sync(dest_file)
+        if not asset:
+            err = ET.SubElement(elem, 'failure')
+            err.attrib["type"] = "Wrong rendered file"
+            tmpf = open("sterr_o", 'r')
+            err.text = "Rendered file could not be discovered\n %s" % tmpf.read()
+            tmpf.close()
+        elif asset.duration != duration:
+            err = ET.SubElement(elem, 'failure')
+            err.attrib["type"] = "Wrong rendered file"
+            tmpf = open("sterr_o", 'r')
+            err.text = "Rendered file as wrong duration (real: %s, expected %s)\n %s" \
+                       % (print_ns(asset.duration()),
+                          print_ns (duration),
+                          tmpf.read())
+            tmpf.close()
     except subprocess32.TimeoutExpired as e:
-        print bcolors.FAIL, "TIMEOUT: running %s in %s:\n\n %s" % (command,
+        msg = bcolors.FAIL, "TIMEOUT: running %s in %s:\n\n %s" % (command,
               os.getcwd(), e.output), bcolors.ENDC
+        print msg
+        if elem is not None:
+            err = ET.SubElement(elem, 'failure')
+            err.attrib["type"] = "Timeout"
+            tmpf = open("sterr_o", 'r')
+            err.text = tmpf.read()
+            tmpf.close()
+        ret = False
     except subprocess32.CalledProcessError as e:
-        print"\n\n%sFAILED to run project:%s with profile: %s:\n%s%s" \
+        msg = "\n\n%sFAILED to run project:%s with profile: %s:\n%s%s" \
             % (bcolors.FAIL, project, profile, e.output, bcolors.ENDC)
-        raise e
+        print msg
+        if elem is not None:
+            err = ET.SubElement(elem, 'failure')
+            err.attrib["type"] = "Fail"
+            tmpf = open("sterr_o", 'r')
+            err.text = tmpf.read()
+            tmpf.close()
+        ret = False
+
+    stderr.close()
+    if elem is not None:
+        elem.attrib["time"] = str(int(time.time() - start))
+
+    return ret
 
 
 if "__main__" == __name__:
@@ -110,6 +190,9 @@ if "__main__" == __name__:
     parser.add_option("-o", "--output-path", dest="dest",
                       default="~/Videos/ges-rendered-projects",
                       help="Set the path to which projects should be renderd")
+    parser.add_option("-p", "--asset-path", dest="paths",
+                      default=[],
+                      help="Paths in which to look for moved assets")
     (options, args) = parser.parse_args()
 
     options.dest = os.path.expanduser(os.path.abspath(options.dest))
@@ -124,6 +207,25 @@ if "__main__" == __name__:
     except OSError:
         pass
 
+    projects = list()
     for proj in args:
+        if Gst.uri_is_valid(proj):
+            projects.append(proj)
+        else:
+            projects.append("file://" + proj)
+
+    if isinstance(options.paths, str):
+        options.paths = [options.paths]
+
+    fails = 0
+    root = ET.Element('testsuites')
+    testsuite = ET.SubElement(root, 'testsuite')
+    testsuite.attrib["tests"] = str(len(projects) * len(combinations))
+    for proj in projects:
         for comb in combinations:
-            launch_project(proj, comb, options.dest)
+            elem = ET.SubElement(testsuite, 'testcase')
+            if launch_project(proj, comb, options.dest, options.paths, elem) is False:
+                fails += 1
+    indent(root)
+    tree = ET.ElementTree(root)
+    tree.write('results.xml')
