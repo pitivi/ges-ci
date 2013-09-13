@@ -124,3 +124,36 @@ Date:   Fri Sep 13 23:26:21 2013 +1000
     get plugged for any dynamically allocated payload type.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 240c7234f6332b255aff1d3d0323e5f4f5eaf9f9
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 13 16:01:42 2013 +0200
+
+    rtpbuffer: check for valid payload type
+    
+    The payload type can't be between 72 and 76 because with the marker bit set,
+    this could be mistaken for an RTCP packet then. We do a relaxed check and
+    only refuse 72-76 when the marker bit is set. The effect is that when
+    we try to map an RTCP packet as an RTP packet, we will certainly fail.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b9ceafe5af016df012fab524418ae6b506a1f8a4
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Sep 13 16:25:49 2013 +0200
+
+    rtpsession: Demux RTCP buffers from the RTP stream
+    
+    If there are RTCP buffers in the RTP stream, process them as
+    RTCP. This way, we want receive streams following RFC 5761
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=687657
+
+ 
