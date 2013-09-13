@@ -49,3 +49,62 @@ Date:   Fri Sep 13 08:53:25 2013 +0200
     In addition to a956a6ceb2deb87cc1361aee1d6626449f46dab2
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 8501fbd21616e374128f434b38db4dfda1625597
+Author: Jonas Holmberg <jonashg@axis.com>
+Date:   Fri Sep 13 14:41:45 2013 +0200
+
+    gst: Stop all unused threads in GThreadPool in gst_deinit()
+    
+    Since the default number of max unused threads in GThreadPool has been
+    changed from 0 to 2 it needs to be set to 0 to stop all threads or
+    valgrind will report them as memory leaks.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 28e5f90988148cf2cfdd9587e8032e91f037bcba
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 13 12:40:41 2013 +0200
+
+    rtpbin: use PacketInfo for the sender
+    
+    Avoid mapping the packet multiple times when sending RTP.
+
+commit a02c9473d8356800011f46f48512d9d4fed2a578
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 13 12:22:36 2013 +0200
+
+    rtpbin: store more in the PacketInfo
+    
+    Store all info in the PacketInfo so that we can avoid mapping the packet
+    multiple times.
+
+commit e5c789abd6e5dd138365ba615eaca22e8222a724
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 13 11:32:52 2013 +0200
+
+    session: store more in the PacketInfo structure
+
+commit 47662f9ca4f520b98a8746687febbc63b28a7333
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 13 11:08:55 2013 +0200
+
+    rtpbin: RTPArrivalStats -> RTPPacketInfo
+    
+    Rename a structure because we are also going to use this for the sender
+    bits.
+
+commit c795b72988e59edcd5591190cc2f30a1c4ae0f11
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 13 10:55:31 2013 +0200
+
+    source: small cleanups
+
+ 
