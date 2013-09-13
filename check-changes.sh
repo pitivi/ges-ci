@@ -30,6 +30,7 @@ fi
 
 message="$message$(echo -e "\n \n ")"
 cat /dev/null > hashes
+cat /dev/null > Changes
 for m in $MODULES
 do
   cd $DIR/$m
