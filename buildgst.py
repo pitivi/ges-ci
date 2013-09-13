@@ -99,6 +99,7 @@ class Recipe:
         self.gst_plugin_paths = gst_plugin_paths
         self.extra_remotes = extra_remotes
         self.pythonpaths = pythonpaths
+        self.paths = paths
 
 RECIPES = [
     Recipe("glib",
@@ -110,12 +111,14 @@ RECIPES = [
     Recipe("gstreamer",
            autogen_param="--disable-docbook",
            ldpaths=[("%s/libs/gst/%s/.libs", "base net check controller"),
-           ("%s/%s/.libs", "gst")],
+                    ("%s/%s/.libs", "gst")],
+           paths=[("%s/%s", "tools")],
            gst_plugin_paths=[("%s/%s", "ext gst plugins")]),
 
     Recipe("gst-plugins-base", nick='base',
            ldpaths=[("%s/gst-libs/gst/%s/.libs",
                   "app audio cdda fft interfaces pbutils netbuffer riff rtp rtsp sdp tag utils video")],
+           paths=[("%s/%s", "tools")],
            gst_plugin_paths=[("%s/%s", "ext gst sys")]),
 
     Recipe("gst-plugins-good", nick='good',
@@ -154,6 +157,8 @@ RECIPES = [
 
     Recipe("gst-editing-services",
            nick='ges',
+           ldpaths=[("%s/%s/.libs", "ges")],
+           paths=[("%s/%s", "tools")],
            check_integration="""cd tests/check && \
                                 CK_TIMEOUT_MULTIPLIER=10 GST_DEBUG_FILE=test.log \
                                 GES_MUTE_TESTS=yes make check-integration 2>&1 \
@@ -233,7 +238,8 @@ def set_env_variables():
                 for subdir in vals.split(' '):
                     setenv('LD_LIBRARY_PATH', join(GST_ENV_PATH, itpath) % (recipe.module, subdir))
                     setenv('DYLD_LIBRARY_PATH', join(GST_ENV_PATH, itpath) % (recipe.module, subdir))
-                    setenv('PKG_CONFIG_PATH', join(GST_ENV_PATH, "%s/pkgconfig" % recipe.module))
+                    setenv('PKG_CONFIG_PATH', join(GST_ENV_PATH, recipe.module,
+                           recipe.build_dir, "pkgconfig"))
                     if ".libs" in itpath:
                         setenv('GI_TYPELIB_PATH', join(GST_ENV_PATH, itpath.replace(".libs", ""))
                                % (recipe.module, subdir))
@@ -241,6 +247,10 @@ def set_env_variables():
             for form, vals in recipe.gst_plugin_paths:
                 for subdir in vals.split(' '):
                     setenv("GST_PLUGIN_PATH", join(GST_ENV_PATH, form) % (recipe.module, subdir))
+
+            for form, vals in recipe.paths:
+                for subdir in vals.split(' '):
+                    setenv("PATH", join(GST_ENV_PATH, form) % (recipe.module, subdir))
 
             for form, vals in recipe.pythonpaths:
                 setenv("PYTHONPATH", join(GST_ENV_PATH, form) % (recipe.module))
@@ -355,8 +365,8 @@ def build(module, verbose_level=None, force_autogen=False, use_hashes=False,
 
     print "\nBuidling %s" % recipe.module
     run_command('git fetch origin', recipe)
-    os.chdir(join(GST_ENV_PATH, recipe.module))
-    run_command('git checkout -qf %s' % recipe.branch, recipe, verbose_level=verbose_level)
+    os.chdir(join(GST_ENV_PATH, recipe.module, recipe.build_dir))
+    run_command('git checkout %s' % recipe.branch, recipe, verbose_level=verbose_level)
     if not use_hashes:
         run_command('git pull --rebase', recipe)
     if force_autogen is True or not \
