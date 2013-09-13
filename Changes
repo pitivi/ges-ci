@@ -157,3 +157,22 @@ Date:   Fri Sep 13 16:25:49 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=687657
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit f661c3ea556c3316251a354bb40ee3a9e0450b59
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Sep 12 18:34:55 2013 -0300
+
+    ges-launch: Make it possible to provid pathes to look for moved asset
+    
+    For example if a project was sent from someone else thus the pates in
+    there are meaningless on the other computer, we need to be able
+    to specify a list of pathes where the files are.
+    
+    + Fix documentation
+
+ 
