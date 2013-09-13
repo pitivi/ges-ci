@@ -22,3 +22,30 @@ Date:   Fri Sep 13 09:17:38 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=707658
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 566b0dce403288faf81e653705587c010ba760ca
+Author: Thiago Santos <thiago.sousa.santos@collabora.com>
+Date:   Thu Sep 12 13:31:01 2013 -0300
+
+    qtdemux: only update stop position if seek requests it
+    
+    Check for GST_SEEK_TYPE_NONE for stop poistion and only update
+    the stop time if it is requested. Otherwise just maintain whatever
+    was stored at the segment
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707530
+
+commit 8ed1ff6821bb09a1e1e4e2481cdd847520a55548
+Author: Rico Tzschichholz <ricotz@ubuntu.com>
+Date:   Fri Sep 13 08:53:25 2013 +0200
+
+    rtp: Add missing headers tp fix make dist
+    
+    In addition to a956a6ceb2deb87cc1361aee1d6626449f46dab2
+
+ 
