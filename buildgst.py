@@ -72,16 +72,19 @@ class Recipe:
                  autogen_param='--disable-gtk-doc',
                  force_autogen=False,
                  install="",
+                 build_dir="",
                  gitrepo="git://anongit.freedesktop.org/gstreamer/%s",
                  extra_remotes=[],
                  check='GST_CHECK_XML=yes make check',
                  check_integration='',
                  force_build=False,
                  ldpaths=[],
+                 paths=[],
                  pythonpaths=[],
                  gst_plugin_paths=[]):
         self.module = module
         self.nick = nick
+        self.build_dir = build_dir
         self.gitrepo = gitrepo % module
         self.branch = branch
         self.autogen = autogen + " " + autogen_param + " "
@@ -144,6 +147,10 @@ RECIPES = [
 
     Recipe("gst-python", nick='pygst',
            pythonpaths=[("%s", "")]),
+
+    Recipe("gst-devtools", build_dir="validate/",
+           ldpaths=[("%s/validate/gst/%s/.libs", "validate")],
+           paths=[("%s/validate/%s", "tools")]),
 
     Recipe("gst-editing-services",
            nick='ges',
