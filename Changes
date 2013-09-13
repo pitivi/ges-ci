@@ -108,3 +108,19 @@ Date:   Fri Sep 13 10:55:31 2013 +0200
     source: small cleanups
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 299d3f5c42ef1def98417da3fb92883a0d95bb4e
+Author: Jan Schmidt <thaytan@noraisin.net>
+Date:   Fri Sep 13 23:26:21 2013 +1000
+
+    rtp: Remove bogus extra caps from L24 template.
+    
+    The extra caps entry in the template was making it sometimes
+    get plugged for any dynamically allocated payload type.
+
+ 
