@@ -176,3 +176,22 @@ Date:   Thu Sep 12 18:34:55 2013 -0300
     + Fix documentation
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 2414453a0c533c5503dc10aebb97ff74ad540f27
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Sep 13 20:38:43 2013 -0300
+
+    ges-launch: Handle path for project uri
+
+commit ec28489b84d8b139a23cb83e94ee8d0a9dbe4cb1
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Sep 13 20:37:58 2013 -0300
+
+    formatter: Keep timeline duration as a meta
+
+ 
