@@ -195,3 +195,16 @@ Date:   Fri Sep 13 20:37:58 2013 -0300
     formatter: Keep timeline duration as a meta
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 9bb8479db869ac15888483da94f46811290789e8
+Author: Joris Valette <joris.valette@gmail.com>
+Date:   Sat Sep 14 04:19:57 2013 +0200
+
+    tests: timelineedition: cast start and duration values as guint64
+
+ 
