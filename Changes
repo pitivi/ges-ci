@@ -298,3 +298,18 @@ Date:   Mon Sep 16 15:53:47 2013 +0200
     downstream streaming thread that might block at any time.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b2982bb749232734ca9c7b658bc497cafaeffa8a
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Sep 14 16:03:20 2013 +0200
+
+    qtmux: remove MAX_TOLERATED_LATENESS
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707411
+
+ 
