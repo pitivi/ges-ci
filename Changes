@@ -235,3 +235,44 @@ Date:   Sun Sep 15 17:09:16 2013 +0530
     https://bugzilla.gnome.org/show_bug.cgi?id=708106
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b363832c2ccc66b2edbd9298924af59664e20716
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Sep 14 15:56:04 2013 +0200
+
+    qtmux: set first_ts to DTS for streams that have DTS
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707340
+
+commit 39f7e52266fde3b3c035e22cbcbb2bb1fa207b17
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Sep 14 15:55:22 2013 +0200
+
+    qtmux: make sure duration is a valid number for last buffer
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707340
+
+commit 4e3c13c87c258c9c95e2217d32ab314d12b5fffc
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Sep 14 15:54:29 2013 +0200
+
+    qtmux: use segment.start or last buffer end time in case of missing DTS
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707340
+
+commit 85728c04c4ef57af623bf52340a1b8f047266ef1
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Tue Sep 3 18:14:04 2013 +0200
+
+    Revert qtmux: Use buffer PTS if DTS is not set"
+    
+    This reverts commit f72c3cf71fde622067f41f31a53978ba4c94469d.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707340
+
+ 
