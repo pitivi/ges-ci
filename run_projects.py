@@ -171,26 +171,22 @@ def launch_project(project_uri, combination, dest_uri, paths=[], elem=None):
         if stdo:
             print stdo
 
+    tmpf = open("sterr_o", 'r')
     if process.returncode == 0:
         try:
             asset = GES.UriClipAsset.request_sync(dest_file)
             if duration - DURATION_TOLERANCE <= asset.get_duration() <= duration + DURATION_TOLERANCE:
                 err = ET.SubElement(elem, 'failure')
                 err.attrib["type"] = "Wrong rendered file"
-                tmpf = open("sterr_o", 'r')
                 err.text = "Rendered file as wrong duration (real: %s, expected %s)\n %s" \
                            % (print_ns(asset.get_duration()),
                               print_ns(duration),
                               tmpf.read().replace(">", '_').replace('<', '_'))
-                tmpf.close()
         except Exception as e:
             err = ET.SubElement(elem, 'failure')
             err.attrib["type"] = "Wrong rendered file"
-            tmpf = open("sterr_o", 'r')
-            err.text = "Rendered file could not be discovered: %s\n %s" % (e, tmpf.read())
             tmpf.close()
     else:
-        tmpf = open("sterr_o", 'r')
         stderr = tmpf.read()
         if timeout is True:
             missing_eos = False
@@ -225,7 +221,7 @@ def launch_project(project_uri, combination, dest_uri, paths=[], elem=None):
     fstderr.close()
     if elem is not None:
         elem.attrib["time"] = str(int(time.time() - start))
-    print "%sDone %s seconds: %i %s" %(bcolors.OKGREEN,
+    print "%sDone seconds: %d %s" %(bcolors.OKGREEN,
                                        int(time.time() - start),
                                        bcolors.ENDC)
 
