@@ -276,3 +276,25 @@ Date:   Tue Sep 3 18:14:04 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=707340
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit aa9af2c82e9ff9fe1a85cd485e69b74ec9941125
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 16 15:54:37 2013 +0200
+
+    examples: we don't need the queue anymore
+
+commit 4de919a17ad8468ee058f57de3d8fc94fa281348
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 16 15:53:47 2013 +0200
+
+    jitterbuffer: use separate thread for timeouts
+    
+    Use a separate thread for scheduling the timeouts instead of using the
+    downstream streaming thread that might block at any time.
+
+ 
