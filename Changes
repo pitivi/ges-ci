@@ -374,3 +374,16 @@ Date:   Tue Sep 17 22:02:04 2013 +0100
     build bot.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b92791d1020ff294c358ebc75bbb95e8b9c43417
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Sep 17 17:41:39 2013 -0400
+
+    hlsdemux: Reset GstUriDownloader cancellation when restarting to play
+
+ 
