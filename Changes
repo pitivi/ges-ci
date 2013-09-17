@@ -313,3 +313,22 @@ Date:   Sat Sep 14 16:03:20 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=707411
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 232fdd8b566d6a05bad77086b0f56ca8ba3b9d35
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 17 15:19:42 2013 +0200
+
+    jitterbuffer: release lock on shutdown
+
+commit 99675d1161eb00467a2380b7fc939a7202314a9d
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 17 15:11:41 2013 +0200
+
+    check: change for videomixer renamed orc file
+
+ 
