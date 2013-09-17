@@ -332,3 +332,45 @@ Date:   Tue Sep 17 15:11:41 2013 +0200
     check: change for videomixer renamed orc file
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f49981a59713c0b6eae4ac8282580209af47eecd
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 17 23:21:09 2013 +0200
+
+    jitterbuffer: refactor timeout triggers
+
+commit 047021c4439fc1f8d5035c8deced36028ed92f60
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 17 23:03:45 2013 +0200
+
+    jitterbuffer: simplify the timeout code
+    
+    Keep track of the current time in the timeout loop.
+    Loop over all timers and trigger all the expired ones, we can do this in the
+    same loop that selects the new best timer.
+
+commit fa1ef3328b148eab52073818587b0702fcae949a
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 17 23:01:17 2013 +0200
+
+    jitterbuffer: rearrange timer update code
+    
+    Also update the timers when retransmission is disabled. We need to
+    do this because when we added LOST timers when we detected missing packets and
+    we need to remove those timers when the packet finally arrives.
+
+commit 7a76595b220e622ab20d16d9f9b639aecca34266
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 17 22:02:04 2013 +0100
+
+    videomixer: link to libm for maths stuff
+    
+    Fixes undefined references to rint and pow on ubuntu
+    build bot.
+
+ 
