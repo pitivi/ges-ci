@@ -575,3 +575,127 @@ Date:   Wed Sep 11 14:27:02 2013 -0400
     https://bugzilla.gnome.org/show_bug.cgi?id=707793
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 8c09649de210ed562cbe9c2f93530a7fb20b02df
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 18 23:07:31 2013 +0200
+
+    message: Implement getting the name of the context message types
+
+commit 921ab73340747b7a29f7e12e5fc36a91cc3a35f1
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 21:36:22 2013 +0200
+
+    context: Fix unit test for GstContext changes
+
+commit aacedb9da4196f97e1649455f1e0b9540ccc76dc
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 14:34:47 2013 +0200
+
+    gst-launch: Update for GstContext changes
+
+commit 29ccafb83b3b62e076f26068a3c530f891a2cbd8
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 14:29:06 2013 +0200
+
+    context: Update docs
+
+commit 640a05ff6082230ab01644146732d75a27b98c66
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 14:25:10 2013 +0200
+
+    bin: Implement context caching and propagation again
+
+commit 51982d158aed3f2e8545e1e7d35085085ff58f18
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 13:50:08 2013 +0200
+
+    message/query: Simplify CONTEXT messages/queries to only contain a single type
+
+commit 2ae9809ae8b2da1ab92f34550f836884530b5d69
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 13:33:33 2013 +0200
+
+    context: Update documentation
+
+commit 4d367dc1b0d4ecb37f4d27267e03d7bf0c6c06a6
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 13:28:42 2013 +0200
+
+    context: Change GstContext to contain only a single context
+    
+    It was unintuitive that GstContext was actually a list of different
+    contexts. GstContext now is only a type string and a structure to
+    contain the actual context.
+
+commit 014690326f906dc82e41ea58b81cdb2e3e88b754
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 13:12:28 2013 +0200
+
+    element: Remove GstContext caching
+
+commit e3ce799217c95b2196cabafdfb1d9bb452046c1b
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 13:10:53 2013 +0200
+
+    context: Add persistent qualifier for a context
+    
+    Non-persistent contexts are removed when elements go back
+    to NULL state, persistent contexts are not. Applications
+    most likely want to set persistent contexts.
+
+commit a7f5dc8b8af837f01782d1572379948ff62daab7
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 13:10:16 2013 +0200
+
+    query: Make CONTEXT query upstream and downstream
+
+commit 113c9fa2771b508e9aaeecc700e66e958190476f
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 17 13:09:34 2013 +0200
+
+    event: Remove CONTEXT downstream event
+    
+    This is going to be implemented with an upstream query instead
+    for consistency and simplicity.
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 78b0e167736b1399e41b300c54353f13245ace3e
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 18 22:05:36 2013 +0200
+
+    playbin: Implement context caching for sinks that are not in playsink yet
+
+commit e21d3d214a0de806f40f5f04b9537a2bc6dfcf27
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 18 18:21:54 2013 +0200
+
+    playbin: No need to set the GstContext on the sink before activating it
+    
+    This is all handled by the GstBin code now.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ad0252fc049ea7e75e07fb5a98e92ec238422b30
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 18 22:36:51 2013 +0200
+
+    eglglessink: Update for new GstContext API
+
+commit 14f2c30686b21ad4effc0466c1936f9f125778fc
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 18 22:24:07 2013 +0200
+
+    egl: Update for new GstContext API
+
+ 
