@@ -525,3 +525,21 @@ Date:   Mon Sep 16 19:38:36 2013 +0200
     asfdemux: fix playback regression in push mode
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c84282b9a6bfe9383172c4f8ed28b655cfe84f2f
+Author: Thiago Santos <thiago.sousa.santos@collabora.com>
+Date:   Mon Sep 16 13:53:45 2013 -0300
+
+    souphttpsrc: do not do http requests in READY
+    
+    HEAD requests to discover if the server is seekable shouldn't be done in
+    READY as it might lock the main thread that is doing the state change.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705371
+
+ 
