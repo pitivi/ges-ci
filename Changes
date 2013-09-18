@@ -543,3 +543,35 @@ Date:   Mon Sep 16 13:53:45 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=705371
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit d6187c00a680cb992e028a781d1a6599d133cf6f
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Sep 4 20:21:54 2013 -0400
+
+    dmabuf: Make it not a singleton
+    
+    Makes it easier to track how many users there are
+    
+    Also make it possible to create a dmabuf struct on systems without mmap,
+    it just won't be possible to map it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707793
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d1e16f7b0c425502d3aecdb50aa2b659f25b2e89
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Sep 11 14:27:02 2013 -0400
+
+    v4l2bufferpool: dmabuf is not a singleton anymore
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707793
+
+ 
