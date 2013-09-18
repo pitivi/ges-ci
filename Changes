@@ -413,3 +413,20 @@ Date:   Wed Sep 18 11:56:38 2013 +0200
     output timestamp.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 6e4a051d4094416c87d2c8c251cb8987a512c4b5
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 12:29:38 2013 +0200
+
+    rtpjitterbuffer: keep track of duration
+    
+    Keep track of the estimated duration of missing packets and use it in the lost
+    event.
+    Enable another unit test
+
+ 
