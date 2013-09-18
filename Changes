@@ -456,3 +456,20 @@ Date:   Wed Sep 18 14:12:47 2013 +0200
     Enable another test.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f2efdf28f521dd36a02503806ec9eee568bd25a8
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 14:57:09 2013 +0200
+
+    rtpjitterbuffer: push the lost event from the timer thread
+    
+    Instead of pushing the lost event from the chain function, schedule a timeout
+    that will push the lost event from the timer thread. This avoid blocking the
+    upstream thread while we push and sync the event.
+
+ 
