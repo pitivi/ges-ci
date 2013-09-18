@@ -430,3 +430,29 @@ Date:   Wed Sep 18 12:29:38 2013 +0200
     Enable another unit test
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 5c1f2f0045bacf1bbfa5231d02dce78048a1773b
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 14:23:55 2013 +0200
+
+    rtpjitterbuffer: add another test
+    
+    The test is modified slightly because the late lost packets are only
+    generated now when a large gap is received.
+
+commit 5d5fc03e041b905c32c558e0e9c590ca974dc5c5
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 14:12:47 2013 +0200
+
+    rtpjitterbuffer: round gap duration to multiple of duration
+    
+    Make sure the gap duration in the lost event is a multiple of the packet
+    duration.
+    Enable another test.
+
+ 
