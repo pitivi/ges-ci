@@ -473,3 +473,42 @@ Date:   Wed Sep 18 14:57:09 2013 +0200
     upstream thread while we push and sync the event.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 6bb26264985d01a49b9d2b5f1251fc80fbaa2860
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 16:32:28 2013 +0200
+
+    rtpjitterbuffer: reevaluate the current timer after timeout
+    
+    When we trigger the timeout logic of a timer, reevaluate it because it is
+    possible that it still has the lowest timeout.
+
+commit 8d021b6ede08c9a55b485be692d1e20634b14e19
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 16:31:26 2013 +0200
+
+    rtpjitterbuffer: don't update time when unscheduled
+    
+    Don't try to estimate the current time when we got unscheduled.
+
+commit 65606a25bf1a1e6a311337633ca18bfab42a2486
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 16:29:37 2013 +0200
+
+    rtpjitterbuffer: init packet spacing on first buffer
+    
+    Already init the packet spacing variables on the first buffer so that we can
+    calculate the spacing on the second buffer already.
+
+commit ee75d4b01e13835d13a06366c4a6ec7c4359cb23
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 15:08:45 2013 +0200
+
+    tests: fix comments
+
+ 
