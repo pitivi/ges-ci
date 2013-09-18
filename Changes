@@ -512,3 +512,16 @@ Date:   Wed Sep 18 15:08:45 2013 +0200
     tests: fix comments
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit c5312c71058537d61c2fe4e7d284353e70e2e8f9
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Mon Sep 16 19:38:36 2013 +0200
+
+    asfdemux: fix playback regression in push mode
+
+ 
