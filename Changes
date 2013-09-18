@@ -387,3 +387,29 @@ Date:   Tue Sep 17 17:41:39 2013 -0400
     hlsdemux: Reset GstUriDownloader cancellation when restarting to play
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ac3bb3acf622e87c2e9a44003b3f9108015ef2cb
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 11:59:28 2013 +0200
+
+    rtpjitterbuffer: handle large gaps with one lost event
+    
+    When we have a large number of missing packets, generate one lost event for all
+    the packets that have no chance of being pushed out in time.
+    Fix and activate unit test for large gaps.
+
+commit 26402e1c21b22e711c82ba185a7e6682a90154e9
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 18 11:56:38 2013 +0200
+
+    rtpjitterbuffer: refactor lost event sending
+    
+    Also make sure we only increment the expected seqnum and last
+    output timestamp.
+
+ 
