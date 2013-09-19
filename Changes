@@ -699,3 +699,20 @@ Date:   Wed Sep 18 22:24:07 2013 +0200
     egl: Update for new GstContext API
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit b82703170abde46dcd62fe12e8aed626c2a012e7
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Sep 18 19:13:45 2013 -0400
+
+    x264enc: Implement getcaps that restricts the input format depending on the output profile
+    
+    Also add some x264enc profile tests
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708326
+
+ 
