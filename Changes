@@ -878,3 +878,72 @@ Date:   Thu Sep 19 10:53:46 2013 +0200
     Release 1.1.90
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 291991dac253505cb8b5f1b9c40939d4e831004c
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 11:49:26 2013 +0200
+
+    context: Fix return values for gst_context_has_context_type() in assertions
+
+commit e6acc1462fc657e54eacdd7529ae9763c45580b8
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 11:34:51 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 71930443cc114bd83fb765174df5007059a12e52
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 11:34:54 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d5ecd4ee2f8c524c768410ecad68a8668afd96fc
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 11:34:57 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit cace3125c756c004c667ff0eea3629adc62df133
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 11:35:04 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 11f0669679002e18ca6b0f4ba741c25eb30f138a
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 11:35:01 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 7df4e6da091ce34037c43c8e4f242061f0b78c99
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 11:35:08 2013 +0200
+
+    Back to development
+
+ 
