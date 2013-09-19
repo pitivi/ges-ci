@@ -1038,3 +1038,19 @@ Date:   Thu Sep 19 16:44:48 2013 +0200
     eglglessink: Fix static linking for Android by passing --tag=CC to libtool
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 926e2fa93b7c9ba4a9edd1a5fb96bd0273599d2b
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 19 16:50:44 2013 +0200
+
+    alpha: don't assume planar formats have just 1 block
+    
+    Don't assume planar formats have just one memory block with the data but use the
+    macros to access the right memory block where a component can be found.
+
+ 
