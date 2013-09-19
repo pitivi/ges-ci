@@ -1086,3 +1086,102 @@ Date:   Thu Sep 19 17:12:14 2013 +0100
     Should be g_return_*() not g_assert(), even if it's for tests only.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 000b1a6e046da6fec6b4b61a629330317c27adc1
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:34:27 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 12af105 to 74a6857
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 14a4d3116d45306df65e9e59dfb2d13a8e4be90a
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:34:46 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 098c0d7 to 74a6857
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e2f33e41d5f22540f30c39fa1334709566b31a87
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:35:27 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 098c0d7 to 74a6857
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit e30497c7a185671080f0c59da5b4a5f3f41c04de
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:36:25 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 098c0d7 to 74a6857
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 92ccb58426f58af6602aac066eda321d00ce5b36
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:36:03 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 098c0d7 to 74a6857
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit c144904f244a7e9d5bfeab3959a1429518e60cec
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:38:10 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 12af105 to 74a6857
+
+ 
+
+====== gnonlin =============
+
+ commit 38ae8be1cd4a9a9721ab42eabfcc126f6f2c1056
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:38:45 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 01a7a46 to 74a6857
+
+ 
+
+====== gst-editing-services =============
+
+ commit 21d581a37eff4bff99b050bfdf0c06d96f6d5f04
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:39:44 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 12af105 to 74a6857
+
+ 
