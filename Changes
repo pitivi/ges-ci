@@ -1071,3 +1071,18 @@ Date:   Thu Sep 19 16:43:18 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=706551
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 0e6679013439352ea520c8254fa37d73d5b95124
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 17:12:14 2013 +0100
+
+    check: testclock: fix function guards
+    
+    Should be g_return_*() not g_assert(), even if it's for tests only.
+
+ 
