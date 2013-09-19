@@ -947,3 +947,18 @@ Date:   Thu Sep 19 11:35:08 2013 +0200
     Back to development
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit c4539db3c11ec82a9a613563903dc8c7fa60f462
+Author: Edward Hervey <edward@collabora.com>
+Date:   Thu Sep 19 12:07:56 2013 +0200
+
+    gstcontext: Fix return values some more
+    
+    Return value is a boolean not a pointer
+
+ 
