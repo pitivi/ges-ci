@@ -1054,3 +1054,20 @@ Date:   Thu Sep 19 16:50:44 2013 +0200
     macros to access the right memory block where a component can be found.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit cc4ba028ff8c80110094017ff8159b6b9f5e7440
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Sep 19 16:43:18 2013 +0100
+
+    check: testclock: don't put code with side-effects in g_assert()
+    
+    Fixes unit test failures when -DG_DISABLE_ASSERT is used.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706551
+
+ 
