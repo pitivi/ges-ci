@@ -1305,3 +1305,16 @@ Date:   Thu Sep 19 20:09:26 2013 +0200
     It caused static linking to fail.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 19021e7176c480d63ea3f0d5995e020a751c55af
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Thu Sep 19 17:08:19 2013 -0400
+
+    v4l2: Remove commented out line
+
+ 
