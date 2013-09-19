@@ -1011,3 +1011,30 @@ Date:   Thu Sep 19 14:08:56 2013 +0200
     rtpjitterbuffer: fix writability of properties
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 9f91b2769de163963b2316d588d730de7b1787fb
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 16:33:29 2013 +0200
+
+    dmabuf: Fix compilation if no mmap is available
+    
+    Also #ifdef some more code paths that don't make sense without mmap.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708372
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 6cfbda3b7e05fd399bcecd93fbf363b19d1f85e6
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 16:44:48 2013 +0200
+
+    eglglessink: Fix static linking for Android by passing --tag=CC to libtool
+
+ 
