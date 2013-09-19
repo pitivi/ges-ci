@@ -1284,3 +1284,24 @@ Date:   Thu Sep 19 18:46:26 2013 +0100
     From 74a6857 to b613661
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 92c696b22a3b657d7fb855a014f568bc0562e86f
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 20:17:01 2013 +0200
+
+    audiofxbad: Change plugin name to audiofxbad from audiochannelmix
+
+commit fef9ef6a8e20111f97a0f5c41dcfd2977f37be94
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 20:09:26 2013 +0200
+
+    dash/smoothstreaming: Remove unused debug category with the same name
+    
+    It caused static linking to fail.
+
+ 
