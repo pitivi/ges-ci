@@ -785,3 +785,96 @@ Date:   Thu Sep 19 09:46:34 2013 +0200
     po: Update translations
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 7d76c2d538617db1c046417a82e112cf2282be79
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:48:24 2013 +0200
+
+    Release 1.1.90
+
+commit 75ae5c9f001223d627398c1c8081a79e0c9d1f01
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:05:51 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-plugins-base =============
+
+ commit e729148b0cdb21402a980a5ace4814840c47ae10
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:49:58 2013 +0200
+
+    Release 1.1.90
+
+commit 96d3e5394e663871933206bdd35d771b80595ae2
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:13:32 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b305c85ddd27a93fcfbb90414fefc87c821cc63c
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:50:23 2013 +0200
+
+    Release 1.1.90
+
+commit 630530324ed0ec3862398a59c2dbbacd21d21f78
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:21:42 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit c34688485545d348e7d44a411081e50b3f6f25b9
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:50:32 2013 +0200
+
+    Release 1.1.90
+
+commit 364a9060bf5e27911086666c842f33f288967afd
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:30:37 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 0e07bf8a11e1c46bd1337b3e668e33716971d146
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:50:47 2013 +0200
+
+    Release 1.1.90
+
+commit b03ee55315313181142748a82e3b8017a7d930b6
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:46:27 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 9d018829ca8f2dc68bee5613cda154ba48731619
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 10:53:46 2013 +0200
+
+    Release 1.1.90
+
+ 
