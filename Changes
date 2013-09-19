@@ -716,3 +716,72 @@ Date:   Wed Sep 18 19:13:45 2013 -0400
     https://bugzilla.gnome.org/show_bug.cgi?id=708326
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit f09b12245380083a45d1d9667aaffcbe943335ee
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 09:49:40 2013 +0200
+
+    context: Add convenience function gst_context_has_context_type()
+
+commit 0ecdc31efb0ec34853eca9ab4ac9ed66985d3697
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 09:42:15 2013 +0200
+
+    po: Update translations
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c10311ba70459baa6f299b8206ee183480074814
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Sep 18 20:42:55 2013 -0400
+
+    videodecoder: If there is no PTS at all, assume it starts from the segment start
+    
+    This is to make the multifilesrc ! pngdec case work
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=688043
+
+commit deb43fdd399d1302fe9bd34a56f483396ddce362
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 09:44:47 2013 +0200
+
+    po: Update translations
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2d1ea31da3ea5965d2ba37612f77804ede440101
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 09:45:18 2013 +0200
+
+    po: Update translations
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 9657851120d6bbca31e446a3b86dad97b3bb7d86
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 09:45:55 2013 +0200
+
+    po: Update translations
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f0b879448d1b3366c586d7291cbebeccda3b4c3c
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 19 09:46:34 2013 +0200
+
+    po: Update translations
+
+ 
