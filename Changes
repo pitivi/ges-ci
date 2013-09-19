@@ -977,3 +977,37 @@ Date:   Thu Sep 19 12:58:53 2013 +0200
     Fixes discovery on dvb://
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ee817363c7681c52e738364c2c707ad6ca3b2d60
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 19 14:14:52 2013 +0200
+
+    tests: add retransmission jitterbuffer test
+    
+    Store both DTS and PTS on buffers.
+    Make a queue for srcpad events.
+    Activate pads after linking so that we don't get RECONFIGURE events.
+    Add test for retransmission.
+
+commit fd6c57cf104b81ffde4a2d5a54164874ee0a8bbe
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 19 14:12:18 2013 +0200
+
+    rtpjitterbuffer: keep delay as a separate variable in timer
+    
+    Keep a separate delay in the timer so that we still know the original timestamp
+    of the packet that this timer refers to. We can then place the correct
+    running-time in the Retransmission event.
+
+commit d34184dd03fd46468fcf439d39a62a080c22ad4c
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 19 14:08:56 2013 +0200
+
+    rtpjitterbuffer: fix writability of properties
+
+ 
