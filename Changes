@@ -962,3 +962,18 @@ Date:   Thu Sep 19 12:07:56 2013 +0200
     Return value is a boolean not a pointer
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 556687b94be9b4db2d0ef27870a202521df3f085
+Author: Edward Hervey <edward@collabora.com>
+Date:   Thu Sep 19 12:58:53 2013 +0200
+
+    discoverer: Switch to playing to handle live URI
+    
+    Fixes discovery on dvb://
+
+ 
