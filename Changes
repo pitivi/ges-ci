@@ -1318,3 +1318,47 @@ Date:   Thu Sep 19 17:08:19 2013 -0400
     v4l2: Remove commented out line
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit cfefdaebb697a29ea96229dd649ae05a80c9aeaf
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Tue Sep 17 12:17:54 2013 +0200
+
+    qtmux: handle issues correctly when downstream is not seekable
+    
+    The streamable property only make sense for fragmented formats.
+    For regular MP4, when downstream is not seekable we can't rewrite
+    the headers, so qtmux can only work with fast-start=TRUE, where
+    the headers are written finishing the file.
+    For fragmented MP4, when streamable is not seekable and the streamable
+    property is FALSE, we must enforce streamable=TRUE warning the user
+    about this change
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707242
+
+commit 9ae50822048065491b059f9bdf2c8dcb10d677f8
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Tue Sep 17 12:06:06 2013 +0200
+
+    qtmux: make "streamable" TRUE as default
+    
+    The most common use case for fragmented MP4 (Dash and Smooth Streaming)
+    is producing streamable content (even for VOD). streamable=FALSE would only
+    be used to generate fragmented MP4 with and index of MOOF's that could
+    be reproduced without a playlist/manifest
+    https://bugzilla.gnome.org/show_bug.cgi?id=707242
+
+commit 5732684e18b4d8e0a71242407df92d5e7ceb8170
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Tue Sep 17 12:01:30 2013 +0200
+
+    qtmux: deprecate the streamable property for non-fragmented MP4
+    
+    The streamable property only makes sense for fragmented MP4.
+    https://bugzilla.gnome.org/show_bug.cgi?id=707242
+
+ 
