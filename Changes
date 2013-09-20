@@ -1362,3 +1362,18 @@ Date:   Tue Sep 17 12:01:30 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=707242
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d8841b4832b4f6481d12c270ce44581e403d31b0
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Fri Sep 20 10:19:22 2013 +0200
+
+    matroska-demux: Make sure that subtitle buffers are \0-terminated
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707933
+
+ 
