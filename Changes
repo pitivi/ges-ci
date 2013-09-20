@@ -1377,3 +1377,102 @@ Date:   Fri Sep 20 10:19:22 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=707933
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6db013ff7c6b469da67fd3f96d13a091f147f424
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:16:26 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 769bdaa41eb9e70d20d581b90f9fad5a62556a48
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:16:42 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f83b2d3371e07f71581834f6d90ed299c5c7b8f2
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:16:57 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit ec830e755840969f35c83ebb67756b1c1b5258e9
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:17:31 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ad2c27082d92bca37bde43ffece21cf37b96c961
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:17:14 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 2d63ac0af65fc1d0a66049cf919b0ac787cbcb54
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:18:03 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
+
+====== gnonlin =============
+
+ commit 84534369b4e96432d73a8cefda4b4962e8a4b8ff
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:18:30 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
+
+====== gst-editing-services =============
+
+ commit 56754358f419fc6d1683f423f45413c48f951190
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Sep 20 16:19:06 2013 +0200
+
+    Automatic update of common submodule
+    
+    From b613661 to 6b03ba7
+
+ 
