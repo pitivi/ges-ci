@@ -1476,3 +1476,16 @@ Date:   Fri Sep 20 16:19:06 2013 +0200
     From b613661 to 6b03ba7
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit ea45653db9d5e7b1e7b4793bea5e3de219666ade
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Sat Sep 21 15:17:54 2013 +0200
+
+    sdp: fix docs
+
+ 
