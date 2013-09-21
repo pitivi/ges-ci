@@ -1489,3 +1489,22 @@ Date:   Sat Sep 21 15:17:54 2013 +0200
     sdp: fix docs
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 94ad6724ba5c0136d385cc0f052db636bf99a86c
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Sat Sep 21 18:46:29 2013 +0200
+
+    goom: Fix MMX assembly compilation with clang
+    
+    clang does not want or need a clobber list for emms:
+    error: clobbers must be last on the x87 stack
+    
+    Patch taken from the FreeBSD ports, provided by
+    Dan McGregor <dan.mcgregor@usask.ca>
+
+ 
