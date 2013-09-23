@@ -5733,3 +5733,216 @@ Date:   Mon Sep 23 16:18:43 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=702495
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit adf5d96044a3217bf05ff7053522a84960d1e2e2
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 16:34:15 2013 +0200
+
+    rtpmanager: update docs
+
+commit e5019de80d307cf9b6d906fd5a51c395bb70aa69
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 15:36:32 2013 +0200
+
+    docs: update docs with 1.0 element names
+
+commit 3c69d65b853b072792a960f35ca69fb2341c718c
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 14:13:30 2013 +0200
+
+    tests: add test for retransmission because of reordering
+
+commit 8ce674da871ebc7d3414624d94b7530d7a2eb05a
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 14:12:03 2013 +0200
+
+    rtpjitterbuffer: always store lost event in jitterbuffer
+    
+    Always prepare a lost event in the jitterbuffer, it is to wake up and make the
+    pushing thread continue. We drop the event when we are not supposed to push lost
+    events downstream.
+
+commit 9f3345fcc21be9fb785cf0bc8d74d0e560173f01
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 11:18:46 2013 +0200
+
+    rtpjitterbuffer: schedule lost event differently
+    
+    Schedule the lost event by placing it inside the jitterbuffer with the seqnum
+    that was lost so that the pushing thread can interleave and push it properly.
+
+commit f40d6689f262fd71ea8519bbce3bf7c2bb1e1c0b
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 11:17:34 2013 +0200
+
+    tests: remove timeouts from check
+    
+    Timeouts make the test unreliable and are not needed.
+
+commit ae389aeb0c7d45813ba906ed2cda445306e1afaf
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 11:15:30 2013 +0200
+
+    rtpjitterbuffer: remove list debug
+
+commit 28641e31454d59642231fd6e6f37bd25a38d2b15
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 11:14:01 2013 +0200
+
+    rtpjitterbuffer: add type to the item
+    
+    So that the upper layer can know what data is contained in the item.
+
+commit 479c7642fd953edf1291a0ed4a3d53618418019c
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 09:58:32 2013 +0200
+
+    rtpjitterbuffer: fix flush
+    
+    Pass function to flush to properly free the queue items.
+
+commit 0cc887eb98ff83196d1bdffebe59c8f5a55b79a2
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Sat Sep 21 00:08:20 2013 +0200
+
+    rtpjitterbuffer: append seqnum -1 packets
+
+commit 39a2ba669d463c97bb55cd560174b760bddfe146
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 23:48:20 2013 +0200
+
+    rtpjitterbuffer: use structure to hold packet information
+    
+    Make the jitterbuffer operate on a structure containing all the packet
+    information. This avoids mapping the buffer multiple times just to get the RTP
+    information. It will also make it possible to store other miniobjects such as
+    events later.
+
+commit 1760817005055a5945f1b9f8a53c84fd408ef829
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 17:48:52 2013 +0200
+
+    rtpjitterbuffer: update expected timer when possible
+    
+    When we receive a packet and we have some missing packets, we can update their
+    estimated arrival times based on the timestamp difference.
+
+commit fdc1ed1680b1ae80cdc1925bfaf81395453200d3
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 17:18:27 2013 +0200
+
+    rtpjitterbuffer: fix order of timeout events
+    
+    Improve the order of the timeout events, if there are timers with the same
+    timeout, we want to trigger the lowest seqnum first. For this we need to loop
+    over the complete array of timers to find the best one before triggering the
+    timeout.
+
+commit 0b1a7edfea6de1f1f3de47e4b355a3f290387e5a
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 16:58:38 2013 +0200
+
+    rtpjitterbuffer: send lost event before signaling next buffer
+    
+    First send the lost event, then update the next_seqnum counter and then
+    send the signal to the pushing thread that it can retry to push a buffer. This
+    avoids pushing out buffers before the lost event is pushed.
+
+commit 5051f51f0ad2fdd4e7168f6c2f3290a7c6123f12
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 15:35:25 2013 +0200
+
+    jitterbuffer: configure clock-rate on jitterbuffer
+    
+    Add a get and setter to configure the clock-rate in the jitterbuffer instead of
+    passing it as an argument to the insert method.
+
+commit a71014518cd81b5255766d87d824fac27066eb64
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 12:29:39 2013 +0200
+
+    tests: add test for packet delay and retransmission
+
+commit 3c421e7e48027f54b288608b8bafc512d79b68c9
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 12:27:26 2013 +0200
+
+    rtpjitterbuffer: add option to reset retransmission timers
+
+commit 6f4deab298f18efd2ec0c6a8b5da4a8c819c4c56
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 12:25:43 2013 +0200
+
+    rtpjitterbuffer: stop the timer thread
+    
+    The timeout code could release the lock so we need to check if we are allowed to
+    wait for the clock some more.
+
+commit cba4e6a7076bd7e04dd816e707c40e0fb57ef64e
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 12:25:12 2013 +0200
+
+    rtpjitterbuffer: unlock only once
+
+commit c959cdc8c1a20246b39a32f84dbea2656b8054c5
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 11:30:04 2013 +0200
+
+    tests: check both PTS and DTS
+
+commit 2e3346eff97a85b50ddf430d0fe99193a5232e61
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 10:55:03 2013 +0200
+
+    tests: add unit-test for multiple missing packets
+    
+    Check if multiple missing packets generate retransmission events and that the
+    retranmission requests are canceled when the missing packet arrives.
+
+commit 5dc207948c9bd429b619d42780ebe2daf2afe44d
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 10:53:29 2013 +0200
+
+    rtpjitterbuffer: improve flush and shutdown
+    
+    There is no need to unschedule the timer in flush-start, flush-stop will remove
+    the timers and unschedule.
+    Unschedule the current timer before attempting to join the timer thread.
+
+commit 3b9e2ee5a080942a9add11fcdcb1e36cf474ac23
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 10:43:53 2013 +0200
+
+    tests: improve debug
+
+commit a512cc2d3cab7f236114167370a37fe7f57f1fc2
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 10:42:27 2013 +0200
+
+    rtpjitterbuffer: set correct expected time
+    
+    When we already have a timer for a packet, skip it but don't forget to adjust
+    the dts to the expected dts of the next packet.
+
+commit 517ea0f4d986791b982e6e84be94442133b0c743
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 20 10:41:59 2013 +0200
+
+    jitterbuffer: improve debug
+
+commit c395bf62dd83924b4d4df8f23d996c6f5cad85ce
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 19 16:55:25 2013 +0200
+
+    alpha: use POFFSET instead of OFFSET
+    
+    Use the more correct POFFSET macro to get the offset of a component in its
+    plane. The offset macro gives the offset of the component relative to the start
+    of the frame.
+
+ 
