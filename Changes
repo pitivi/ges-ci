@@ -5669,3 +5669,52 @@ Date:   Sat Sep 21 18:46:29 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit cba26c9ed901e9cce4812519db5f04ac0d198f5d
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 11:47:14 2013 +0200
+
+    tests: handle unscheduled entries correctly
+    
+    Make the testclock return GST_CLOCK_UNSCHEDULED when an unscheduled entry is
+    used for gst_clock_wait() or gst_clock_wait_async().
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=708605
+
+commit 3e4b4eb59bb691c9e1c00a7a5268e68d4444bc7d
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Sun Sep 22 11:09:36 2013 +0200
+
+    gst-uninstalled: Allow specifying the checkout directory by env variable
+    
+    For some rare cases, one might not be able to use the hardcoded $HOME/gst
+    location yet would still want to use the gst-uninstalled script as-is (which
+    has the benefit of being constantly updated).
+    
+    For these cases, the checkout directory can be specified with the
+    GST_UNINSTALLED_ROOT environment variable.
+    
+    Ex:
+    export GST_UNINSTALLED_ROOT=$HOME/somewhere/with/checkouts
+    
+    And then just call gst-uninstalled directly:
+    $GST_UNINSTALLED_ROOT/gstreamer/gst-uninstalled
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 30a0cccbf6356a59adcc3cef26aa828252a81989
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 19 17:25:05 2013 +0200
+
+    video-frame: copy offsets from metadata
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=708606
+
+ 
