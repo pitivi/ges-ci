@@ -5946,3 +5946,18 @@ Date:   Thu Sep 19 16:55:25 2013 +0200
     of the frame.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 141a1fc296b9d98179f09aaca578b4c1fccbaef7
+Author: Robert Krakora <rob.krakora@messagenetsystems.com>
+Date:   Thu Sep 19 17:11:34 2013 -0400
+
+    v4l2bufferpool: Restore original GstMemory in buffer if it has been changed
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706083
+
+ 
