@@ -5961,3 +5961,42 @@ Date:   Thu Sep 19 17:11:34 2013 -0400
     https://bugzilla.gnome.org/show_bug.cgi?id=706083
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 28775dad59392679e6ef07be6a1cfd4f18b400f7
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sun Sep 22 21:56:14 2013 +0200
+
+    tests: Make sure not to test freed objects type
+
+commit efb638efe83495510400b35207e213e9adaf6554
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Sep 16 13:30:33 2013 -0300
+
+    pipeline: Let some queuing in encodebin
+    
+    It is sometimes necessary
+
+commit 7b96c50b4e304243c1158379a5831a35ca0eefc2
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Sep 16 11:19:13 2013 -0300
+
+    examples: Make project loading more generic
+    
+    Pitivi formatter is deprecated, do not use it by default
+
+commit c0eae0c790809362df9a19388feabfdc76327e45
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Sep 16 11:16:18 2013 -0300
+
+    Revert "ges: Disable the Pitivi formatter"
+    
+    This reverts commit e54ceff7204e712daa9949ef41b73d96035a0446.
+    
+    Let's just keep it... it does not cost anything.
+
+ 
