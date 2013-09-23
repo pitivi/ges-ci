@@ -5718,3 +5718,18 @@ Date:   Thu Sep 19 17:25:05 2013 +0200
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=708606
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f33a73b35950cd3dc53efd1b4fa316935836ab8e
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 23 16:18:43 2013 +0200
+
+    sdpdemux: Change rank to NONE until it can be autoplugged properly
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=702495
+
+ 
