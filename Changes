@@ -6105,3 +6105,62 @@ Date:   Tue Sep 24 12:10:00 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708667
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 02a4830096cd07532a8e7a913c2c54ac57f08aa7
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 12:47:52 2013 +0200
+
+    Revert "Potential GstContext regression"
+    
+    This reverts commit e658379534eb4a90b654d90f1d0bdf86f37c6e31.
+    
+    This test commit should've never been pushed. Oops.
+
+commit ccfca8f66f33bc2d571348ad8cbbe15aba7f6130
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 12:46:52 2013 +0200
+
+    bin: Make sure to cache context types that we did not store yet
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708668
+
+commit e658379534eb4a90b654d90f1d0bdf86f37c6e31
+Author: Alex Ashley <bugzilla@ashley-family.net>
+Date:   Tue Sep 24 10:29:06 2013 +0100
+
+    Potential GstContext regression
+    
+    Since the refactoring of GstContext (commits
+    qc9fa2771b508e9aaeecc700e66e958190476f,
+    a7f5dc8b8af837f01782d1572379948ff62daab7,
+    690326f906dc82e41ea58b81cdb2e3e88b754,
+    d367dc1b0d4ecb37f4d27267e03d7bf0c6c06a6, and
+    82d158aed3f2e8545e1e7d35085085ff58f18) I am no longer able to get
+    a shared context for an element that is used twice in a pipeline.
+    
+    I used the documentation and eglglessink as my reference for
+    implementing the GstContext logic.
+    
+    As the code was tied to a hardware decoder, I have ported the
+    GstContext code to fakesink to show the problem. Using the old
+    API a single ExampleMgr instance is created, but using the new
+    API each element is creating its own instance.
+
+ 
+
+====== gst-plugins-base =============
+
+ commit cac572ec5de99dde5f60927840097ac94452e0e6
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 12:47:26 2013 +0200
+
+    playbin: Make sure to cache context types we did not store yet
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708668
+
+ 
