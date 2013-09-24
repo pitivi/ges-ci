@@ -6548,3 +6548,36 @@ Date:   Tue Sep 24 18:35:56 2013 +0100
     From 6b03ba7 to 865aa20
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 556055e2f1e2238c0d9cb67b0922635b69917f97
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Sep 24 10:08:10 2013 -0700
+
+    asfdemux: Only use segment.start as seek_time if it is relative
+    
+    Relying on the gst_segment_do_seek results for getting the
+    seeking time should not be used if seek type is SET because the
+    do_seek function makes the 'cur` position of the seek normalized
+    on the segment range. This means that seeking beyond the end of the
+    file might not result in instant EOS as it will end up seeking to
+    the final ts of the file.
+    
+    In asf seeking to the final timestamp can lead to seeking to the last
+    keyframe, meaning a few seconds of video will still be played, which should
+    not be the desired behavior when seeking beyong file limits.
+
+commit abe5ca6d962fdd34c1292b71f72495475eac2174
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Sep 24 10:07:25 2013 -0700
+
+    asfdemux: Parse last simple index entry
+    
+    The entry size is fixed at 6, fix typo to finish parsing the index
+    correctly until the last sample
+
+ 
