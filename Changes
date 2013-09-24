@@ -6086,3 +6086,22 @@ Date:   Wed Sep 18 11:34:56 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708036
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 8ba90931aed21edd44ddda515665312e49c6b088
+Author: Ognyan Tonchev <ognyan@axis.com>
+Date:   Tue Sep 24 12:10:00 2013 +0200
+
+    rtspconnection: Only create writesrc when it is actually needed
+    
+    Creating a GSource and not attaching it to a context will cause
+    a leak of it's child sources. That is why we create writesrc right
+    before attaching it to a context.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708667
+
+ 
