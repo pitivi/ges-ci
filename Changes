@@ -6037,3 +6037,52 @@ Date:   Sun Sep 22 22:55:33 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708590
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 20f1c96c89e9b5d57a83f81eee4191938c952764
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 10:42:06 2013 +0200
+
+    collectpads: Make sure that the object lock is always taken when accessing the private pad list
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708636
+
+commit c79e5bbcad3f73fd231d4571d95506fd516f7a98
+Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Tue Sep 17 23:23:34 2013 +0200
+
+    collectpads: Use private pad list in set_flushing_unlocked
+    
+    pads->data is the public list. It is dynamically rebuilt at each call to
+    check_collected, in check_pads to be specific. When you add a pad and
+    collectpads have been started, it is not added to the public list.
+    
+    Thus there exists a possible race where :
+    
+    1) You would add a pad to collectpads while running.
+    2) You set collectpads to flushing before check_collected has been called again
+    -> the pad is not set to flushing
+    3) the pad starts pushing data as downstream might not be prepared, in the case
+    of adder it then returns FLOW_FLUSHING.
+    4) elements like demuxers, when they get a FLOW_FLUSHING, stop their tasks,
+    never to be seen again.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708636
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 03a98eabce3b9f6f9e3111418d0c297522834d68
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Wed Sep 18 11:34:56 2013 +0200
+
+    x264enc: Update the documentation to match the default profile used
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708036
+
+ 
