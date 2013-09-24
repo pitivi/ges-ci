@@ -6581,3 +6581,38 @@ Date:   Tue Sep 24 10:07:25 2013 -0700
     correctly until the last sample
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit dc02d91c14847e48b6e830ff58f2dd27ecae336d
+Author: Thiago Santos <thiago.sousa.santos@collabora.com>
+Date:   Mon Sep 16 11:20:51 2013 -0300
+
+    qtdemux: add code to parse creation time earlier than 1970
+    
+    Use g_date_time seconds manipulation to allow to cover the quicktime
+    spec for creation_time. It uses seconds since 1904.
+    
+    Both paths could be done using the generic approach of seconds since
+    1904 with GDateTime handling, but the first path using seconds from
+    1970 should be more commonly found and avoids a few objects creation and
+    ref/unref, so keep it there for performance.
+    
+    Additionally, the code for handling seconds since 1970 changed from >
+    to >= because having 0 seconds since 1970 is also a valid case for that
+    path to handle.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707975
+
+commit a1a493dae4f7e0cdbbb9a04c40db757898831b57
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Sep 21 00:55:26 2013 +0200
+
+    matroskademux: update stream->pos when sending buffers so that gap events are not sent unnecessarily
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708505
+
+ 
