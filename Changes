@@ -6230,3 +6230,66 @@ Date:   Tue Sep 24 14:20:51 2013 +0200
     Update .po files
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit d4545e085c1f7e631e17edf514820bbc1f682c7e
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:27:45 2013 +0200
+
+    Release 1.2.0
+
+commit 4dca6662f093b7cf6c795e436a5a81f9a413f434
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:27:39 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 9f6bf6871c41f2c89154ea96a99db1c156f3cdb6
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:37:58 2013 +0200
+
+    Release 1.2.0
+
+commit bc1f4e070fbfad614755bbbaf6ece4a0d30ec1ab
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:37:29 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 231a25470babb26a25f93149e61a83697f17d903
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:42:30 2013 +0200
+
+    Release 1.2.0
+
+ 
