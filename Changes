@@ -6293,3 +6293,102 @@ Date:   Tue Sep 24 14:42:30 2013 +0200
     Release 1.2.0
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit ab56b964623e897ff9d84bf04d137bc65617a8a3
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:05:16 2013 +0200
+
+    configure: Actually use 1.3.0.1 as version to make configure happy
+
+commit 3217defa6933d93cc8ca0e991f8a1716bb68a076
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:00:17 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-base =============
+
+ commit f1d074ac3997f1de62be0448dd7104fcae7623c7
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:05:21 2013 +0200
+
+    configure: Actually use 1.3.0.1 as version to make configure happy
+
+commit ca25de0d2514e275651b3fea7054a1d54a0e8402
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:00:20 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 425ddeb6f8fcab2fa4d01337bae04dfe5f578a45
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:05:24 2013 +0200
+
+    configure: Actually use 1.3.0.1 as version to make configure happy
+
+commit f6520e2335cd7fff9566136043c32b3705f854f4
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:00:24 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 89116c14d1b0efe41b3f7f444a7b48fe7a1cd2df
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:05:36 2013 +0200
+
+    configure: Actually use 1.3.0.1 as version to make configure happy
+
+commit 5e284814dd798f827f7b0cfd76c9c65b373a0050
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:00:30 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit bc4d8d088891207e81fd418e5e123debd87bddd4
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:05:28 2013 +0200
+
+    configure: Actually use 1.3.0.1 as version to make configure happy
+
+commit 68f2d1fbeb97f64395bb972a8ee2c23ace0f16fa
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:00:27 2013 +0200
+
+    Back to development
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 64687ef0588b7b86f3b45a259875ce3d7559096a
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:06:03 2013 +0200
+
+    configure: Actually use 1.3.0.1 as version to make configure happy
+
+commit 378fe06aabafc765330e75793610c2f79113aed6
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 15:00:34 2013 +0200
+
+    Back to development
+
+ 
