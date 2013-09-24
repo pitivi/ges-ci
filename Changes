@@ -6000,3 +6000,22 @@ Date:   Mon Sep 16 11:16:18 2013 -0300
     Let's just keep it... it does not cost anything.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 05f6c094fa0b5f64507cc035b388c7f635c9ee70
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Fri Sep 20 19:43:21 2013 +0200
+
+    osxvideosink: fix segfault releasing the sink
+    
+    show_frame is deferred to the main thread and can be called
+    when the sink has been released, so we need to keep an extra ref
+    on ObjectiveC object helper.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708501
+
+ 
