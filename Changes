@@ -6179,3 +6179,54 @@ Date:   Tue Sep 24 13:10:36 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708668
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit cd202c647b01e49a4951d383d30e8779067c0a0a
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:07:02 2013 +0200
+
+    Release 1.2.0
+
+commit 74d2a1964b7b8ebae136ead2ef86e28013db294e
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:06:28 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 1867c079bf64f72d3956672c45099de805aee564
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:16:22 2013 +0200
+
+    Release 1.2.0
+
+commit 8af52274664b26579f600ba27f99525ffba51edb
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:14:18 2013 +0200
+
+    Update .po files
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 365962fe6545b585e135a1653ac8a37b4bbde153
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:21:08 2013 +0200
+
+    Release 1.2.0
+
+commit e679d1a1973b47ccff89ea97836e15a1f1eba8fd
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Sep 24 14:20:51 2013 +0200
+
+    Update .po files
+
+ 
