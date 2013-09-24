@@ -6431,3 +6431,21 @@ Date:   Tue Sep 24 15:00:34 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 02ac18b6992b94f824e71a82d6ddaa238f04ffdb
+Author: Ognyan Tonchev <ognyan@axis.com>
+Date:   Tue Sep 24 16:26:37 2013 +0200
+
+    rtspconnection: Unset input/output_stream after freeing the GIOStream
+    
+    watch->input_stream and watch->output_stream are owned by the GIOStream
+    and should be unset after freeing the stream.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708689
+
+ 
