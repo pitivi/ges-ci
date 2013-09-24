@@ -6019,3 +6019,21 @@ Date:   Fri Sep 20 19:43:21 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708501
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 663f71a5ddfcf75adbc857fb1c275f82e6e5dbe9
+Author: Mathieu Duponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Sun Sep 22 22:55:33 2013 +0200
+
+    adder: send pending segment out before checking for EOS
+    
+    Otherwise there would be cases where it would not send its segment
+    out when the first collected after getting it would already yield EOS.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708590
+
+ 
