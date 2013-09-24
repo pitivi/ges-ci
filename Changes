@@ -6449,3 +6449,102 @@ Date:   Tue Sep 24 16:26:37 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708689
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit b924900fa2ac1b77a37d6e91cff12e30a252745a
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:28:05 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 24f3c80fef68402d5c9f951961fbf91c49f4d466
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:28:57 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 950dd1b068764ba22d623a6c2d7a1bd0949923fb
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:30:04 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit a8beacf6e59a01684e217fdbb66f605d874c176a
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:32:31 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 1ba7288a76e780e3793eb235f0c28e889c51607e
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:31:10 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 9b048e2d66d94f00a66301a6494b32def54ada17
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:34:20 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
+
+====== gnonlin =============
+
+ commit 0d474edac0268beadb60e85a8bb0f4b41819efc3
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:34:58 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
+
+====== gst-editing-services =============
+
+ commit 974a8dd4ae7c28c4c7d2c1ce655e5371c4eb4b5e
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Tue Sep 24 18:35:56 2013 +0100
+
+    Automatic update of common submodule
+    
+    From 6b03ba7 to 865aa20
+
+ 
