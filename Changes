@@ -6717,3 +6717,18 @@ Date:   Wed Sep 25 20:25:03 2013 +0200
     bluez: Fix compilation on big endian systems
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit cb70260b4813ed3a7c79192d4361bf9837dcec9a
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Wed Sep 25 19:29:24 2013 +0200
+
+    pbutils: add MPEG 2 AAC description
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708773
+
+ 
