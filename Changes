@@ -6671,3 +6671,27 @@ Date:   Wed Sep 25 15:17:32 2013 +0200
     a big correction to get back on track more quickly.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 6095e2e859e220f0fc210e4397c51f2fafb9fad5
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 25 17:42:02 2013 +0200
+
+    rtspsrc: disable checks when linking pads
+    
+    We know the pad links will work (and we don't check the return value
+    anyway).
+
+commit 2efd58fc845ff3bb84bf757a31499108f2ad6203
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 25 17:36:15 2013 +0200
+
+    rtpbin: avoid some pad link checks
+    
+    Link pads without checks, we know it will work.
+
+ 
