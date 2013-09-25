@@ -6704,3 +6704,16 @@ Date:   Wed Sep 25 17:36:15 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 1ab90f259fee4fa9a7c10dac0a1e85799a15881b
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 25 20:25:03 2013 +0200
+
+    bluez: Fix compilation on big endian systems
+
+ 
