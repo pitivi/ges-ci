@@ -6732,3 +6732,34 @@ Date:   Wed Sep 25 19:29:24 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708773
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c1aae0790977a64cb9e2d4cc0e02f84fa6313953
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Wed Sep 25 23:46:14 2013 +0100
+
+    configure: get rid of AS_SCRUB_INCLUDE
+    
+    Should not be needed any more.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707658
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 6b6ecd09423cb2167a467c679a3544ec096d59f0
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Wed Sep 25 23:57:42 2013 +0100
+
+    configure: remove AS_SCRUB_INCLUDE
+    
+    Shouldn't be needed any more.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707658
+
+ 
