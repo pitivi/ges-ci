@@ -6616,3 +6616,25 @@ Date:   Sat Sep 21 00:55:26 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708505
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 97f46746557ee965d33dcb4cdfdf5fc0615676f5
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Sep 24 04:02:09 2013 +0200
+
+    rtpjitterbuffer: calculate some stats
+
+commit b1d29483bb375292674be1a89d721847294113e0
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 23 17:05:44 2013 +0200
+
+    rtpjitterbuffer: move send_lost_event function
+    
+    Move the send_lost_event function to the do_lost_event handling, there is no
+    need to have a separate function.
+
+ 
