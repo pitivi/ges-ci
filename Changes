@@ -6655,3 +6655,19 @@ Date:   Wed Sep 25 12:55:21 2013 +0200
     a warning message on the bus.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c9ff3e4f9867767e51dfa2bafd79f2a302f6305c
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Sep 25 15:17:32 2013 +0200
+
+    audiobasesink: do big correction for large drift
+    
+    If we are using skew slaving and we drift more than twice the allowed amount, do
+    a big correction to get back on track more quickly.
+
+ 
