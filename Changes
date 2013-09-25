@@ -6638,3 +6638,20 @@ Date:   Mon Sep 23 17:05:44 2013 +0200
     need to have a separate function.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4a91a93d4e651210e7d56dc188184d2ea08d2645
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Sep 25 12:55:21 2013 +0200
+
+    qtmux: Don't error out if downstream is not seekable for non-fragmented variants
+    
+    Doing so would be a regression over 1.0 and breaks the unit test.
+    However the result will be most likely unusable, so let's post
+    a warning message on the bus.
+
+ 
