@@ -6784,3 +6784,19 @@ Date:   Wed Sep 25 23:57:42 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 62b7d17c2e0656ac9823978714e29a785db18269
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 26 11:32:50 2013 +0200
+
+    pad: only check event order when something changed
+    
+    Check the event order in dataflow only when something changed instead
+    of for each buffer.
+
+ 
