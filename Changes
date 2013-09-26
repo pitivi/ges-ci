@@ -6816,3 +6816,18 @@ Date:   Thu Sep 26 16:20:04 2013 +0200
     It causes problems when lost packet events are placed in the jitterbuffer.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a89d53dd32309e7f38ea4b5ef3af1e20f0d4166b
+Author: Brendan Long <b.long@cablelabs.com>
+Date:   Thu Sep 26 14:09:02 2013 -0600
+
+    docs: fix spelling of "generic" in GstBaseSrc's documentation.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708870
+
+ 
