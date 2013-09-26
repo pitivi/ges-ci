@@ -6800,3 +6800,19 @@ Date:   Thu Sep 26 11:32:50 2013 +0200
     of for each buffer.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d4b4b4e924ac0b67883f5633867e69f3b9739d3c
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Sep 26 16:20:04 2013 +0200
+
+    rtpjitterbuffer: don't calculate skew without rtptime
+    
+    Skip trying to calculate the skew when we don't have an rtptime.
+    It causes problems when lost packet events are placed in the jitterbuffer.
+
+ 
