@@ -6831,3 +6831,18 @@ Date:   Thu Sep 26 14:09:02 2013 -0600
     https://bugzilla.gnome.org/show_bug.cgi?id=708870
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 40c0586c174c6b53f4170ad697832ca2e189d3b7
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Fri Sep 27 12:53:06 2013 +0200
+
+    matroskademux: move the check for subtitle buffer being null terminated before validating UTF-8
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707933
+
+ 
