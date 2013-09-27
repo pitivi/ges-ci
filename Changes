@@ -6846,3 +6846,49 @@ Date:   Fri Sep 27 12:53:06 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=707933
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 8c5ce0dbdc038abafd6afcfb693385c0ce4a1e09
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Sep 27 15:05:04 2013 +0200
+
+    rtspsrc: also go into the loop function after connect
+    
+    When we have opened the stream, go into the loop function so that we can
+    receive messages from the server.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 467e0151d3fa733fb34dac3438d1ef357d171641
+Author: Arnaud Vrac <avrac@freebox.fr>
+Date:   Mon Sep 16 11:46:27 2013 +0200
+
+    mpegtspacketizer: rework TS packet sync and extraction
+    
+    The previous code could enter an infinite loop because the adapter state
+    could get out of sync with its mapped data state after sync was lost.
+    The code was pretty confusing so it's been rewritten to be clearer.
+    
+    The easiest way to reproduce the infinite loop is to use the breakmydata
+    element before tsdemux to trigger a resync.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708161
+
+commit 85ad4f3ad6234e425ebf3f4c58f36597a48e4e41
+Author: Arnaud Vrac <avrac@freebox.fr>
+Date:   Mon Sep 16 11:42:48 2013 +0200
+
+    tsdemux: fix buffer overflow
+    
+    This can happen with a corrupt TS file, found with breakmydata element
+    plugged before tsdemux.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708161
+
+ 
