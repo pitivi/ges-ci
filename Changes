@@ -7222,3 +7222,56 @@ Date:   Sat Sep 28 15:42:20 2013 +0200
     timeline: Add a signal to know when it is commited
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 4bed01aff9c2090a9360fcd0655c2ddf4179e564
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Sep 26 13:37:09 2013 +0200
+
+    iosassetsrc: Port to 1.0 and fix some bugs on the way
+
+commit e5d5faa67eb69a457b3addf6113b09a068bbacf5
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Sep 26 13:21:59 2013 +0200
+
+    iosassetsrc: Add new element from the GStreamer SDK project
+
+commit 3d5e214f837d77575ec0674c5fe33715cd41c5da
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 23 14:36:40 2013 +0200
+
+    eglglessink: Port iOS part to 1.0
+
+commit f13a574e2b316dcf13f5202f197624d61c70960b
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 23 13:20:46 2013 +0200
+
+    configure: Fix iOS check for eglglessink
+
+commit dd19715961b9f5af270008f3d56b890574802c97
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 23 11:35:56 2013 +0200
+
+    applemedia: avfvideosrc is not ported to 1.0 yet
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 2daefd69b8c96da50f106179b351559b3c01926b
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 23 15:19:51 2013 +0200
+
+    avcodecmap: Fix boolean expression to fix uninitialized usage of variables
+
+commit a708b5de70c22a8cf6947ebb00081ad8f9dd6219
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 23 15:08:18 2013 +0200
+
+    configure: Chose right target-os for iOS
+
+ 
