@@ -6928,3 +6928,21 @@ Date:   Thu Sep 5 01:03:51 2013 +0200
     	ges/ges-video-source.c
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 3892e4dd611efca396aa2d5dd606ace625e0d315
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Sat Sep 28 08:40:42 2013 +0200
+
+    pluginloader: Check errors on the proper fd
+    
+    Most likely a copy-paste error from the block before.
+    
+    If we're going to check for error/closed on the write fd... do it
+    on the write fd
+
+ 
