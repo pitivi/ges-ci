@@ -7201,3 +7201,24 @@ Date:   Wed Sep 18 17:51:26 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708345
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit ca562ba8a06aab63bf411c026a60aaab05fff238
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Sep 28 18:09:49 2013 +0200
+
+    clip: Return the newly created TrackElement when adding an asset
+    
+    This is a minor API change
+
+commit 002977cd85d21400194ba8041bb48c313952d995
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Sep 28 15:42:20 2013 +0200
+
+    timeline: Add a signal to know when it is commited
+
+ 
