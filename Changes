@@ -7159,3 +7159,45 @@ Date:   Fri Sep 27 16:10:54 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708222
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit f330c014121590a5fad01fd06aef1273812b3315
+Author: MathieuDuponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Sun Sep 15 21:48:43 2013 +0200
+
+    adder: Don't take channel mask in consideration in mono or stereo
+    
+    This could cause negotiation to fail.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708633
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 93ec45a6dfaa9fb0047742fb85314c4946b35070
+Author: Michael Olbrich <m.olbrich@pengutronix.de>
+Date:   Wed Sep 18 17:51:26 2013 +0200
+
+    liveadder: round when calculation length from duration
+    
+    liveadder sometimes calculates the offsets incorrectly before adding. The
+    resulting errors can easily be heard when mixing silence with a sine.
+    I'm not sure what the exact conditions are to trigger this, but it definitively
+    happens when the buffers of two streams have a different duration and buffer
+    length and duration don't match exactly for one stream because of rounding
+    errors (e.g.  duration=0:00:00.021333333)
+    
+    I have to admit, I got lost in the math somewhere but it seems that not
+    rounding in gst_live_adder_length_from_duration() causes 1 sample overlaps in
+    consecutive buffers from the same stream.
+    When using gst_util_uint64_scale_int_round() instead of just truncating the
+    sine sound correctly again.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708345
+
+ 
