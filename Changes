@@ -7275,3 +7275,54 @@ Date:   Mon Sep 23 15:08:18 2013 +0200
     configure: Chose right target-os for iOS
 
  
+ 
+
+ 
+
+====== gnonlin =============
+
+ commit 814737dc14c33737a01ee96c17dbb8ec51b85f91
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Sep 28 21:06:41 2013 +0200
+
+    Back to development
+
+commit cfa78b400f1e146be83ba38595ad4c64114ecf5b
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Sep 24 14:39:47 2013 +0200
+
+    Release 1.1.90
+
+ 
+
+====== gst-editing-services =============
+
+ commit a1a9ac537e076c816b18a04627696cf230db826f
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Sep 28 21:07:10 2013 +0200
+
+    Back to development
+
+commit 93f0bc858d1fb055a7790d3956f55feeb4f322d3
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Sep 28 20:49:13 2013 +0200
+
+    Release 1.1.90
+
+ 
+
+====== gst-python =============
+
+ commit 11d1e09f99151d21c697d7b21060b562f8fc2f20
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Sep 28 21:07:47 2013 +0200
+
+    Back to development
+
+commit 9a258908b38884aa354c6346f632a8ddd8dec33b
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Sep 28 20:48:40 2013 +0200
+
+    Release 1.1.90
+
+ 
