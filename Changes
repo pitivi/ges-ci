@@ -6892,3 +6892,39 @@ Date:   Mon Sep 16 11:42:48 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708161
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 1c389d6af37672fbe0756e1decccde98128c6ecb
+Author: MathieuDuponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Fri Sep 27 02:56:44 2013 +0200
+
+    clip: split_bindings at position * + inpoint*
+
+commit e6f82c68e54e72b92f7f7db0ab2643bf62e6cae8
+Author: MathieuDuponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Wed Sep 25 23:52:46 2013 +0200
+
+    video-track: update gaps framerate along with restriction caps.
+
+commit 1fac84c7b92d2f437b52d4820e4e56b7b6fe22d5
+Author: MathieuDuponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Wed Sep 25 19:48:45 2013 +0200
+
+    xml-formatter: add support for restriction caps.
+
+commit 3970e2fac763c0e5978d715e3d39cc5286e707ce
+Author: Simon Corsin <mathieu.duponchelle@epitech.eu>
+Date:   Thu Sep 5 01:03:51 2013 +0200
+
+    video-source: Add a videorate in video-source.
+    
+    And control it in framepositionner.
+    
+    Conflicts:
+    	ges/ges-video-source.c
+
+ 
