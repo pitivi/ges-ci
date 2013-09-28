@@ -6946,3 +6946,34 @@ Date:   Sat Sep 28 08:40:42 2013 +0200
     on the write fd
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2f0993a95d84a00b2e97f49ce180bd1996c45cb6
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Fri Sep 27 22:41:28 2013 +0200
+
+    audiorate: clip buffer before pushing it
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708953
+
+commit dbaf1bf0a375674e0eef46be5d0bbe456c57e2e8
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Fri Sep 27 22:40:28 2013 +0200
+
+    audio: change buffer timestamp when clipping even if data hasn't been trimmed
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708952
+
+commit 057a44899e8ac13bcb93b20d1114f71f9f0a3253
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Fri Sep 27 22:53:43 2013 +0200
+
+    pbutils: Add entry for text/x-raw
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708954
+
+ 
