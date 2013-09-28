@@ -6977,3 +6977,185 @@ Date:   Fri Sep 27 22:53:43 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708954
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 041946423a15228d6b8c07eaf8fcf3b3b803e2b6
+Author: Hans Månsson <hansm@axis.com>
+Date:   Thu Sep 26 20:41:26 2013 +0200
+
+    mp4mux: Do not require framerate in peer video caps
+    
+    Remove the framerate restriction on the caps.
+    
+    Reference: https://bugzilla.gnome.org/show_bug.cgi?id=708864
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a1cc9ca4de84d3230a4db875db8ef0983372d57d
+Author: Javier Jardón <jjardon@gnome.org>
+Date:   Wed Sep 25 15:22:12 2013 +0100
+
+    hlssink: Use floats for the EXTINF duration values
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708851
+
+commit 203f52765360432a75471e1c1e6934ce0e5f12bb
+Author: Javier Jardón <jjardon@gnome.org>
+Date:   Wed Sep 25 15:18:39 2013 +0100
+
+    hlssink: Write EXT-X-VERSION tag in the playlist file
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708851
+
+commit e9373604d6995a4cd76c26bfe9fa22342f2aca40
+Author: Edward Hervey <edward@collabora.com>
+Date:   Thu Sep 19 14:53:46 2013 +0200
+
+    check: Update uvch264demux for behaviour change
+    
+    Since 006e7a3428bd097fc6e6c648332bff583dd434f9 we no longer error out on
+    incomplete aux segment.
+
+commit 17ed696faae40a90bfbc1afbe948cd80199ab061
+Author: Steve Maynard <steve@secondstryke.com>
+Date:   Fri Sep 27 14:45:00 2013 +0000
+
+    mpegts: Add SCTE/EISS sections and table types
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708688
+
+commit 0e9ce593bf72b05b70da7ecceec0db86ceb17d08
+Author: Edward Hervey <edward@collabora.com>
+Date:   Mon Jul 29 08:10:07 2013 +0200
+
+    tsdemux: Wait for valid PCR/offset obvervations
+    
+    It is quite possible that we might get PTS/DTS before the first
+    PCR/Offset observation.
+    
+    In order to end up with valid timestamp we wait until at least one
+    stream was able to get a proper running-time for any PTS/DTS.
+    Until then, we queue up the pending buffers to push out.
+    
+    Once we see a first valid timestamp, we re-evaluate the amount of
+    running-time elapsed (based on returned inital running-time and amount
+    of data/DTS queued up) for any given stream.
+    
+    Taking the biggest amount of elapsed time, we set that on the packetizer
+    as the initial offset and recalculate all pending buffers running-time
+    PTS/DTS.
+    
+    Note: The buffer queueing system can also be used later on for the
+    dvb fast start proposal (where we queue up all stream packets before
+    seeing PAT/PMT and then push them once we know if they belong to the
+    chosen program).
+
+commit a4ee1abb1532968a56db4a79e5bdb0a31521ccad
+Author: Edward Hervey <edward@collabora.com>
+Date:   Sun Jul 7 15:04:18 2013 +0200
+
+    examples: Add descriptor dumping
+
+commit 2762ead5ef2a16885fbb6918dae9b8df836a361f
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Jul 26 07:54:30 2013 +0200
+
+    mpegtsdemux: New PCR<=>Offset estimation code
+    
+    This allows:
+    * Better duration estimation
+    * More accurate PCR location
+    * Overall more accurate running-time location and calculation
+    
+    Location and values of PCR are recorded in groups (PCROffsetGroup)
+    with notable PCR/Offset observations in them (when bitrate changed
+    for example). PCR and offset are stored as 32bit values to
+    reduce memory usage (they are differences against that group's
+    first_{pcr|offset}.
+    
+    Those groups each contain a global PCR offset (pcr_offset) which
+    indicates how far in the stream that group is.
+    
+    Whenever new PCR values are observed, we store them in a sliding
+    window estimator (PCROffsetGroupCurrent).
+    
+    When a reset/wrapover/gap is detected, we close the current group with
+    current values and start a new one (the pcr_offset of that new group
+    is also calculated).
+    
+    When a notable change in bitrate is observed (+/- 10%), we record
+    new values in the current group. This is a compromise between
+    storing all PCR/offset observations and none, while at the same time
+    providing better information for running-time<=>offset calculation
+    in VBR streams.
+    
+    Whenever a new non-contiguous group is start (due to seeking for example)
+    we re-evaluate the pcr_offset of each groups. This allows detecting as
+    quickly as possible PCR wrapover/reset.
+    
+    When wanting to find the offset of a certain running-time, one can
+    iterate the groups by looking at the pcr_offset (which in essence *is*
+    the running-time of that group in the overall stream).
+    Once a group (or neighbouring groups if the running-time is between two
+    groups) is found, once can use the recorded values to find the most
+    accurate offset.
+    
+    Right now this code is only used in pull-mode , but could also
+    be activated later on for any seekable stream, like live timeshift
+    with queue2.
+    
+    Future improvements:
+    * some heuristics to "compress" the stored values in groups so as to keep
+      the memory usage down while still keeping a decent amount of notable
+      points.
+    * After a seek compare expected and obtained PCR/Offset and if the
+      difference is too big, re-calculate position with newly observed
+      values and seek to that more accurate position.
+    
+    Note that this code will *not* provide keyframe-accurate seeking, but
+    will allow a much more accurate PCR/running-time/offset location on
+    any random stream.
+    For past (observed) values it will be as accurate as can be.
+    For future values it will be better than the current situation.
+    Finally the more you seek, the more accurate your positioning will be.
+
+commit 5017ba84a75bfb0947264374ad6aff095569d25e
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Jul 5 17:11:46 2013 +0200
+
+    mpegtspacketizer: No longer use a private struct
+    
+    These are not public headers, it just adds complexity for no reason
+
+commit 0bdf13c36ae61e150fe6c56d3c4a4e6ab3188ca2
+Author: Alex Ashley <bugzilla@ashley-family.net>
+Date:   Thu Sep 26 16:51:25 2013 +0100
+
+    hlsdemux: Fix dereferencing of NULL pointer
+    
+    On some live HLS streams, gst_hls_demux_switch_playlist causes
+    assertion failures because it tried to dereference a NULL fragment.
+    This is because g_queue_peek_tail sometimes was returning NULL and
+    this case was not being checked.
+    
+    This patch does two things:
+    * move the g_queue_peek_tail inside the semaphore protection
+    * check if q_queue_peek_tail returns NULL
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708849
+
+commit d7c7f54734d04f226e6b3524962a246144d0ffd2
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Fri Sep 27 16:10:54 2013 +0200
+
+    mpegtsparse: Queue buffers until we have enough to know the caps
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708222
+
+ 
