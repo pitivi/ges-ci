@@ -7326,3 +7326,18 @@ Date:   Sat Sep 28 20:48:40 2013 +0200
     Release 1.1.90
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2d29f223389ec455bce6cc3bcbf6be917fd6b632
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Sun Sep 29 23:43:23 2013 +0100
+
+    opencv: don't unref NULL caps in finalize
+    
+    Fixes gst-inspect-1.0 -a and generic states unit test.
+
+ 
