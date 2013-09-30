@@ -7480,3 +7480,22 @@ Date:   Mon Sep 30 12:30:43 2013 +0200
     configure: Fix Python configure checks to work with all Python versions between 2.7 and 3.3
 
  
+ 
+
+ 
+
+====== gst-python =============
+
+ commit 25a0d4b8f91f1d771c215079832170cd0402d2ee
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 30 13:27:33 2013 +0200
+
+    Fix another syntax error with newer Python versions
+
+commit d0f12f81c83435d8e21f288792226398649a97d5
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 30 13:07:03 2013 +0200
+
+    configure: Fix typo
+
+ 
