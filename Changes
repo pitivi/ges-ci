@@ -7436,3 +7436,47 @@ Date:   Mon Sep 30 11:53:08 2013 +0200
     Reset the skew correction algorithm when we change the clock-rate.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 00056965e88a91492bd156d21dae390e4e9f97fd
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 30 12:31:00 2013 +0200
+
+    rtpjitterbuffer: fix race when updating the next_seqnum
+    
+    If we were not waiting for the missing seqnum when we insert the lost packet
+    event in the jitterbuffer, we end up not updating the next_seqnum and wait
+    forever for the lost packets to arrive. Instead, keep track of the amount of
+    packets contained by the jitterbuffer item and update the next expected
+    seqnum only after pushing the buffer/event. This makes sure we correctly handle
+    GAPS in the sequence numbers.
+
+commit fde438791e39c362668dff01854429f9802e642e
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 30 12:30:23 2013 +0200
+
+    rtpjitterbuffer: small debug improvement
+
+ 
+
+====== gst-python =============
+
+ commit 46cab502efed860a605120b157e4daf850e19d9f
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 30 12:45:59 2013 +0200
+
+    Fix compilation with Python 3.0
+    
+    Changes partially taken from pygobject.
+
+commit cbc99d041a37fc758461ad9ee9b8e1c6caa7c36b
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Sep 30 12:30:43 2013 +0200
+
+    configure: Fix Python configure checks to work with all Python versions between 2.7 and 3.3
+
+ 
