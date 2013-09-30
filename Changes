@@ -7420,3 +7420,19 @@ Date:   Mon Sep 30 11:15:25 2013 +0200
     rtpjitterbuffer: improve debug
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 6e7d547be4abc0aa365441b01848c5cf9d824de5
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 30 11:53:08 2013 +0200
+
+    rtpjitterbuffer: reset skew does not reset clock-rate
+    
+    Don't reset the clock-rate when we reset the skew correction algorithm.
+    Reset the skew correction algorithm when we change the clock-rate.
+
+ 
