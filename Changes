@@ -7398,3 +7398,25 @@ Date:   Sun Sep 29 23:43:23 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 03d520eb69b643b0039a69cd1d4942e9049b8d65
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 30 11:16:32 2013 +0200
+
+    rtpjitterbuffer: pause timer when PAUSED
+    
+    Also pause the timer when we go to the PAUSED state. It is possible that we
+    don't have a clock or base-time in PAUSED to perform the timeouts.
+
+commit 4a31aec5135f3b180ae3c28755c851c19b191714
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Sep 30 11:15:25 2013 +0200
+
+    rtpjitterbuffer: improve debug
+
+ 
