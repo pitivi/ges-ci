@@ -7499,3 +7499,22 @@ Date:   Mon Sep 30 13:07:03 2013 +0200
     configure: Fix typo
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 007c0e5fe155abbc3fc0d801c47ba7388cda3f48
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Wed Sep 25 19:06:55 2013 -0300
+
+    value: fix caps serialization when there are caps inside caps
+    
+    Wrap caps strings so that it can handle serialization and deserialization
+    of caps inside caps. Otherwise the values from the internal caps are parsed
+    as if they were from the upper one
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708772
+
+ 
