@@ -7518,3 +7518,18 @@ Date:   Wed Sep 25 19:06:55 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=708772
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 5ff85dd16aa8420b9261113a0ecfbe8d1779bca3
+Author: Brendan Long <b.long@cablelabs.com>
+Date:   Mon Sep 30 15:32:55 2013 -0600
+
+    Add gstreamer-mpegts pkg-config file.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709145
+
+ 
