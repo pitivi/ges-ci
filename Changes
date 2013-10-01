@@ -7554,3 +7554,31 @@ Date:   Mon Sep 30 15:32:55 2013 -0600
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 019ef0747dabddb873babbfc91ee77b26e574adf
+Author: Johannes Dewender <gnome@JonnyJD.net>
+Date:   Sat Sep 28 13:19:02 2013 +0200
+
+    audiocdsrc: Don't consider trailing data tracks for MusicBrainz disc id calculation
+    
+    MusicBrainz removes trailing data tracks from releases on the server
+    and also for the calculation of the MusicBrainz Disc ID.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708991
+
+commit 09d628f8f1a103a32b8c9d25581299f77480c4d5
+Author: David Svensson Fors <davidsf@axis.com>
+Date:   Mon Sep 23 11:35:43 2013 +0200
+
+    audioringbuffer: check if acquired in set_timestamp
+    
+    Also use GST_OBJECT_LOCK when accessing object data in set_timestamp.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=702230
+
+ 
