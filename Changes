@@ -7601,3 +7601,39 @@ Date:   Tue Oct 1 22:38:32 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708732
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 82ade7b1ea5299e57f2da91fa7f244d65bd8ef7f
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Oct 1 23:17:06 2013 +0200
+
+    descriptions: Add description for H.265
+
+commit ebaa714c9f3a85c77e739a94f6351ea2fa9b7518
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Tue Sep 24 15:51:46 2013 +0300
+
+    typefind: Add typefind function for H265
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708680
+
+commit f8d8a56d7bb594d2f7de2d73bb435d19139df2b8
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Sep 24 16:47:52 2013 -0700
+
+    playbin: make sure elements are in null before disposing
+    
+    If a pipeline fails to preroll, it might happen that the sinks are
+    put into READY state from playbin's sink activation, but they are never
+    set to playsink, so they aren't being managed by a GstBin and will keep
+    their READY state until they are unreffed, leading to a warning.
+    
+    Prevent this by always forcing them to NULL when deactivating a group
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708789
+
+ 
