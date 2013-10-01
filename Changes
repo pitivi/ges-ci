@@ -7582,3 +7582,22 @@ Date:   Mon Sep 23 11:35:43 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=702230
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 9becd72b604c6b7ff5568121d19943ea2ea6c481
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Oct 1 22:38:32 2013 +0200
+
+    avenc: Choose 25 fps if we don't have any in the caps
+    
+    Some encoders require a non-zero framerate to be configured properly
+    and just choosing something will make them not fail completely at
+    least.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708732
+
+ 
