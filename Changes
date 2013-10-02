@@ -7688,3 +7688,30 @@ Date:   Wed Oct 2 11:24:58 2013 +0300
     https://bugzilla.gnome.org/show_bug.cgi?id=708629
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 9ffaaddcbe71a38c37a14175942729664f4bf005
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Wed Oct 2 12:26:59 2013 +0300
+
+    pbutils: Add codec-utility funtions to support H265
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708921
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e779b6587b9969808030d706a5e834a38af025eb
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Mon Sep 30 12:31:42 2013 +0300
+
+    qtdemux: Add HEVC support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709093
+
+ 
