@@ -7881,3 +7881,16 @@ Date:   Wed Oct 2 15:56:53 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709266
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c57be26ed9644713da0ce18e0a78a9594a6d6a30
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 10:55:30 2013 +0200
+
+    openjpeg: Port OpenJPEG plugin to the 2.0 API
+
+ 
