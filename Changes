@@ -7637,3 +7637,54 @@ Date:   Tue Sep 24 16:47:52 2013 -0700
     https://bugzilla.gnome.org/show_bug.cgi?id=708789
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 93d5e182d213ddbee312c5448c0e0ea7adebb722
+Author: Ognyan Tonchev <ognyan@axis.com>
+Date:   Mon Sep 30 12:24:32 2013 +0200
+
+    rtpgstpay: Fix memory leak
+    
+    We were leaking the GList nodes of the pending buffers.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709079
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e943f56bf8c8ef14bcac8e98510f323acf96475a
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Tue Aug 20 17:03:38 2013 +0300
+
+    codecparsers: h264: store quantization matrices in zig-zag order
+    
+    Quantizer matrices are encoded in zigzag scan order in the bitstream,
+    so always parse it as it is.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708629
+
+commit 7622c9b10aef79a378d24ae38872333a56109eec
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Wed Oct 2 11:40:05 2013 +0300
+
+    win32: update with the new file libgstcodecparsers.def
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708629
+
+commit 8c9eaf0dc900f859d59d01da9c5d8bcdc89bb27c
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Wed Oct 2 11:24:58 2013 +0300
+
+    codecparsers: h264: add helpers to convert quantization matrices
+    
+    Add utility functions to convert quantization matrices from zig-zag scan
+    order into raster scan order and vice-versa
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708629
+
+ 
