@@ -7820,3 +7820,31 @@ Date:   Wed Oct 2 12:45:44 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=708769
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 10981f781c3a8c39bf3c8a40bbaa2279fc785885
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Wed Oct 2 12:30:54 2013 +0100
+
+    tests: use tcase_skip_broken_test() to skip broken multiqueue test
+    
+    So that we get a warning in the output that reminds us that
+    something needs to be fixed.
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 5b76550168941f40ce7dbc574c9e9f391b629336
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 13:59:04 2013 +0200
+
+    avcodecmap: gst_value_can_intersect() does not do what you would think
+    
+    Check for uniqueness differently now.
+
+ 
