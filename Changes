@@ -7715,3 +7715,108 @@ Date:   Mon Sep 30 12:31:42 2013 +0300
     https://bugzilla.gnome.org/show_bug.cgi?id=709093
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 3537ad8ae1ea00b31d80b10d8667dfbb9df222d4
+Author: Edward Hervey <edward@collabora.com>
+Date:   Wed Oct 2 11:24:02 2013 +0200
+
+    check: Disable multiqueue test_output_order check
+    
+    The check itself is racy.
+    
+     (CK_FORK=no GST_CHECK=test_output_order make elements/multiqueue.forever).
+    
+    The problem is indeed the test and not the actual element behaviour.
+    
+    The objects to push are being pulled out of the single internal queues in the
+    right order and at the right time...
+    
+    But between:
+    * the moment the global multiqueue lock is released (which was used to detect
+    if we should pop and push downstream the next buffer)
+    * and the moment it is received by the source pad (which does the check)
+    
+    => another single queue (like the unlinked pad) might pop and push a buffer
+    downstream
+    
+    What should we do ? Putting a bigger margin of error (say 5 buffers) doesn't
+    help, it'll eventually fail.
+    
+    I can't see how we can detect this reliably.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708661
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 99067e86e2c02ee37c640cf44a272016000288e8
+Author: Edward Hervey <edward@collabora.com>
+Date:   Wed Oct 2 13:06:03 2013 +0200
+
+    win32: Update defs file
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b002490ab24ea6d28eab1d7c6f6af9ec42dece14
+Author: Dominik Röttsches <dominik.rottsches@intel.com>
+Date:   Wed Oct 2 05:49:43 2013 +0300
+
+    vtenc: Add support for I420
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709241
+
+commit 24c79af39440e8b8642bc5e21ae463049dd09b1b
+Author: Dominik Röttsches <dominik.rottsches@intel.com>
+Date:   Wed Oct 2 05:49:34 2013 +0300
+
+    vtenc: Use correct strides, etc from the GstVideoFrame
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706211
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 3e154333de490b603ab80156e0e14e5c585d9125
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 12:57:36 2013 +0200
+
+    avcodecmap: Only append values to the video/audio format lists if we don't have them already
+
+commit 3c777545245b4dc6e1e59a637a7ebb8277fc226d
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 12:52:35 2013 +0200
+
+    avviddec: Reset some more fields in ::stop()
+
+commit 5f5b6f465c1741e7103a4eb0cbfd385b79fdb98e
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 12:51:40 2013 +0200
+
+    avviddec: Don't believe we're negotiated if negotiation failed
+    
+    It can happen that negotiation fails during get_buffer(), but then
+    we don't retry later and never return NOT_NEGOTIATED upstream...
+    and instead run into assertions.
+
+commit 9febec71c0b35ed2ea0b8d24c949013fb57bceda
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 12:45:44 2013 +0200
+
+    avauddec: Don't believe we're negotiated if negotiation failed
+    
+    It can happen that negotiation fails during get_buffer(), but then
+    we don't retry later and never return NOT_NEGOTIATED upstream...
+    and instead run into assertions.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708769
+
+ 
