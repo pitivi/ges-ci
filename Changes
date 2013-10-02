@@ -7909,3 +7909,18 @@ Date:   Tue Oct 1 20:07:10 2013 +0200
     fixes #709205
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 20cdbc83f3cebc2eba1eaf79445a6bda13fdafac
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Oct 2 11:27:41 2013 +0200
+
+    discoverer: extract some common code
+    
+    Extract code to make a GstDiscovererInfo. Extracts code that sets StreamInfo.
+
+ 
