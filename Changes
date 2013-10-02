@@ -7848,3 +7848,21 @@ Date:   Wed Oct 2 13:59:04 2013 +0200
     Check for uniqueness differently now.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit dd4fe544bcafcf0f00660811d6c5d2b68b69ca25
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 15:02:44 2013 +0200
+
+    playsink: If the visualisation is changing and reconfiguration is pending, do it all during reconfiguration
+    
+    Otherwise we will have two pad blocks that want to use the same mutex
+    and block each other via the streamlock.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709210
+
+ 
