@@ -7866,3 +7866,18 @@ Date:   Wed Oct 2 15:02:44 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709210
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 30f62a2eec9a6f2f64f6940bdfcdaa20300e5113
+Author: Ognyan Tonchev <ognyan@axis.com>
+Date:   Wed Oct 2 15:56:53 2013 +0200
+
+    matroskademux: Fix memory leak
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709266
+
+ 
