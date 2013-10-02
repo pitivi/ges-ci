@@ -7894,3 +7894,18 @@ Date:   Wed Oct 2 10:55:30 2013 +0200
     openjpeg: Port OpenJPEG plugin to the 2.0 API
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit fb6aabfe4d1387bef8b183c50db025e6d33799d0
+Author: Mathieu Duponchelle <mduponchelle1@gmail.com>
+Date:   Tue Oct 1 20:07:10 2013 +0200
+
+    timeline: pass the correct argument to disconnect_by_func.
+    
+    fixes #709205
+
+ 
