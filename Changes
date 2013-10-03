@@ -7954,3 +7954,71 @@ Date:   Thu Oct 3 13:26:06 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=707974
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 9a50ca5fbc2cc580c87d8e9a31b9f7c26ac97f5e
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Thu Oct 3 07:57:17 2013 -0300
+
+    hlsdemux: Small improvement on always valid if condition
+    
+    No need to check for !cancelled as the above if guarantees it
+    to be true
+
+commit 72e05dfd7c82ce45e5141c5506e203d05fb2daf9
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Thu Oct 3 07:56:21 2013 -0300
+
+    hlsdemux: Do not call _stop holding the updates lock
+    
+    It will cause a deadlock and the calers for _get_next_fragment
+    will already call _stop if required when _get_next_fragment fails.
+    
+    Fixes #690148
+
+commit 6819d1a206ddd19b1b94725b031d00833d98ea36
+Author: Greg Rutz <greg@gsr-tek.com>
+Date:   Wed Jun 12 10:50:51 2013 -0600
+
+    dashdemux: Improve if cause readability
+    
+    Fixed up the error-handling code when downloading fragments.
+    Modifed the error-handling code to use positive logic when
+    testing for cancellation of the download loop.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=701404
+
+commit b8dd95e2193e159d7fc7d76d17295ad4438edf3d
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Thu Sep 26 17:05:24 2013 -0300
+
+    dashdemux: actually return true on latency query
+    
+    Do not forget to set the return for latency query
+
+commit 42fd04ce48a356d92fe373ac53185211839b1318
+Author: Alex Ashley <bugzilla@ashley-family.net>
+Date:   Thu Sep 26 16:13:33 2013 -0300
+
+    dashdemux: stop fetching live fragments that don't yet exist
+    
+    There is an issue for live streams where download_loop will keep
+    downloading segments until it gets a 404 error for a segment
+    that has not yet been published. This is a problem because this
+    request for a segment that doesn't exist will propagate all the
+    way back to the origin server(s). This means that dashdemux causes
+    extra load on the origin server(s) for segments that aren't yet
+    available.
+    
+    This patch uses availabilityStartTime, period
+    and the host's idea of UTC to decide if a fragment is available to
+    be requested from an HTTP server and filter out requests for fragments
+    that are not yet available.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=701404
+
+ 
