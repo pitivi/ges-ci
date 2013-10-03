@@ -8031,3 +8031,30 @@ Date:   Thu Sep 26 16:13:33 2013 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit a6cf3c8aac41db0cb670ae5277ec5f8c5d510206
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Oct 3 19:52:58 2013 +0200
+
+    discoverer: extract helper to print common stream info
+    
+    Save some lnes of code by using a helper for common stream info.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 51ff79842d1af201cdb6b12453c9743e390d1d61
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Thu Oct 3 18:33:01 2013 +0100
+
+    v4l2src: print probed caps as caps again in debug log
+    
+    This got lost during refactoring.
+
+ 
