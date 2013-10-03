@@ -7939,3 +7939,18 @@ Date:   Thu Oct 3 11:59:25 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709270
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 4b5d5600923ae2cc22348c14d85f3d5de3420172
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Oct 3 13:26:06 2013 +0200
+
+    h264parse: Fix conversion to AVC if a SPS/PPS not from the first indizes is used
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707974
+
+ 
