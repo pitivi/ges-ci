@@ -7924,3 +7924,18 @@ Date:   Wed Oct 2 11:27:41 2013 +0200
     Extract code to make a GstDiscovererInfo. Extracts code that sets StreamInfo.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 21947f9d13caab6ea5d46e7e56699e8ea7c530ab
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Oct 3 11:59:25 2013 +0200
+
+    qtdemux: Add support for the mp2v fourcc for MPEG-2 video
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709270
+
+ 
