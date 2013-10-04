@@ -8058,3 +8058,18 @@ Date:   Thu Oct 3 18:33:01 2013 +0100
     This got lost during refactoring.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6bb58eec8a9b3caa7cb88ab7c2a16032bf2cf396
+Author: Hans Månsson <hansm@axis.com>
+Date:   Mon Sep 30 21:46:10 2013 +0200
+
+    rtspconnection: Connect to proxy if specified
+    
+    Reference: https://bugzilla.gnome.org/show_bug.cgi?id=708880
+
+ 
