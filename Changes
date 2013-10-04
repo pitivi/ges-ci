@@ -8154,3 +8154,21 @@ Date:   Fri Sep 27 08:05:25 2013 -0700
     https://bugzilla.gnome.org/show_bug.cgi?id=708940
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d4892859d4ce62e6dac6bee68653469859f493f9
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Fri Oct 4 12:11:56 2013 +0200
+
+    jitterbuffer: fix race in flush-start/flush-stop
+    
+    When flush-stop arrives before we process the result of the _push() in the
+    loop function, we might pause even though we are not flushing anymore. Fix this
+    race by waiting for the srcpad loop function to completely pause after doing the
+    flush-start.
+
+ 
