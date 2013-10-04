@@ -8139,3 +8139,18 @@ Date:   Thu Oct 3 15:25:30 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=709352
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit fc29cbaa54889876b4a556a5273f0c9ceb539c3c
+Author: Michael Esemplare <michael.esemplare@gmail.com>
+Date:   Fri Sep 27 08:05:25 2013 -0700
+
+    x264enc: If FPS is available, set VFR to false
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708940
+
+ 
