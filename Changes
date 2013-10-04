@@ -8210,3 +8210,24 @@ Date:   Fri Oct 4 13:57:51 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709408
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 94f3d6fc077947e2dde3e40dce4718ef84deb15c
+Author: Peter Korsgaard <peter@korsgaard.com>
+Date:   Fri Oct 4 13:34:09 2013 +0200
+
+    v4l2bufferpool: O_CLOEXEC needs _GNU_SOURCE
+    
+    On some systems (E.G. uClibc and older Glibc versions), O_CLOEXEC is only
+    defined when _GNU_SOURCE is specified, so do so.
+    
+    _GNU_SOURCE needs to be defined before any system headers are included,
+    so move the fcntl.h section up.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709423
+
+ 
