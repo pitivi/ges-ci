@@ -8088,3 +8088,54 @@ Date:   Mon Sep 30 21:46:10 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ef548c2b286bbbae685b4f44d64a14b5e099b0ef
+Author: Mathieu Duponchelle <mduponchelle1@gmail.com>
+Date:   Thu Oct 3 22:38:43 2013 +0200
+
+    videomixer: Update videoconvert copy
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709390
+
+commit 3d780c5c6d4d8987c0c73a13fab7dd20c6eb28d9
+Author: Mathieu Duponchelle <mduponchelle1@gmail.com>
+Date:   Thu Oct 3 21:36:34 2013 +0200
+
+    videomixer: Check if the pad needs reconfiguration in collected
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709384
+
+commit e5c443594fe6d58ff9d532c342dfa13387e997fa
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Oct 3 14:39:35 2013 +0100
+
+    jpegdec: Relax sink caps
+    
+    Since jpegdec already parse the jpeg stream, the sink caps could be
+    relaxed. This will allow jpegdec to be selected in more case and in
+    particular when the jpeg typefinder does not find the width and height.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709352
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 4c93bffb213ee6a330c0a2e64fa757f46e6db951
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Oct 3 15:25:30 2013 +0100
+
+    avcodecmap: Make avdec_mjpeg requires a parsed input
+    
+    Actually avdec_mjpeg does not deal well with incomplete buffers and try
+    to decode incomplete frames. A parser which will also acts as
+    an accumulator needs to be inserted before it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709352
+
+ 
