@@ -8193,3 +8193,20 @@ Date:   Fri Oct 4 12:11:56 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 12f85c325db81e36d12bcbb348d4806eb5057458
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Fri Oct 4 13:57:51 2013 +0200
+
+    audioconvert: Map buffer as READWRITE if the buffer and memory is writable
+    
+    and only use the input buffer as temporary buffer in that case.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709408
+
+ 
