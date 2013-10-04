@@ -8231,3 +8231,18 @@ Date:   Fri Oct 4 13:34:09 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709423
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ed77b22f2b5dc05caad844f6c35a815aed1ce863
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Oct 3 16:39:26 2013 -0400
+
+    videoflip: Add automatic flip mode driven by image-orientation tag
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709312
+
+ 
