@@ -8246,3 +8246,16 @@ Date:   Thu Oct 3 16:39:26 2013 -0400
     https://bugzilla.gnome.org/show_bug.cgi?id=709312
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 89ae3c2a8266bac8220b8e2aa344bf74160e30cc
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Sat Oct 5 10:08:30 2013 +0100
+
+    docs: fix function name in qos design docs
+
+ 
