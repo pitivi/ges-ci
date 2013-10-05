@@ -8290,3 +8290,18 @@ Date:   Sat Oct 5 00:00:52 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709454
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b13385f96abfca2a9118adb2de7f064e3c1636ab
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sat Oct 5 21:01:53 2013 +0200
+
+    discoverer: report depth for video
+    
+    This was returning 0 in all cases. Use the data from GstVideoFormatInfo instead.
+
+ 
