@@ -8259,3 +8259,34 @@ Date:   Sat Oct 5 10:08:30 2013 +0100
     docs: fix function name in qos design docs
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit cf12017ef8d6c209be64a9bb5475ca0d2c926345
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Oct 5 00:00:03 2013 +0200
+
+    matroskademux: make dvd palette change event sticky
+    
+    So they don't get lost.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709454
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f489ae5d553aeae8212173da5883c490387839f2
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Oct 5 00:00:52 2013 +0200
+
+    dvdspu: handle sticky dvd events
+    
+    palette-changed events are now sticky.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709454
+
+ 
