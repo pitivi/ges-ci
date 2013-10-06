@@ -8333,3 +8333,21 @@ Date:   Fri Oct 4 14:42:59 2013 -0700
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 1cb31eeacc749801d391bd17d914d804ea1ad928
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Sun Oct 6 09:17:00 2013 -0700
+
+    matroskamux: Add context flag for WebM
+    
+    WebM has a couple of specific requirements we need to handle.
+    Idea is to set this flag once and just rely on mux->is_webm
+    at run time instead of repeatedly figuring this out from
+    GST_MATROSKA_DOCTYPE_WEBM (which requires a strcmp()).
+
+ 
