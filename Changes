@@ -8305,3 +8305,22 @@ Date:   Sat Oct 5 21:01:53 2013 +0200
     This was returning 0 in all cases. Use the data from GstVideoFormatInfo instead.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit edeed575ae6998a5c6d2756d56c987f0aa8ac04f
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Fri Oct 4 14:42:59 2013 -0700
+
+    matroska: Do not write SegmentUID for WebM mux
+    
+    WebM spec states SegmentUID is Unsupported. Files produced
+    with gstreamer without this change will spit an error like
+    this when passed to mkvalidator:
+    
+    ERR201: Invalid 'SegmentUID' for profile 'webm' in Info at 192
+
+ 
