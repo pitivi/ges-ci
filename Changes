@@ -8425,3 +8425,18 @@ Date:   Mon Oct 7 12:54:11 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709507
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2af0831696c6ab983900198a2841a37419178cd6
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Oct 7 18:53:18 2013 +0200
+
+    discoverer: fix quark-mismatch for toc and stream-id
+    
+    Seems like a copy'n'paste from 15ee41df.
+
+ 
