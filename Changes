@@ -8440,3 +8440,39 @@ Date:   Mon Oct 7 18:53:18 2013 +0200
     Seems like a copy'n'paste from 15ee41df.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b5bcd7301565bbe144c61c4da0b6beb17c088ca2
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Oct 7 22:52:27 2013 +0200
+
+    discoverer: filter 'parsed' field when checking for same caps
+    
+    We're checking the caps to see if we got more caps details after a parser got
+    plugged. This will also have a flipped 'parsed' field. If the field was already
+    present before the parse the match will fail. Add a function that will do the
+    check while excluding this field.
+
+commit 82b6fff272c3fc50d0efc142a31fa7afba69e8d1
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Oct 7 22:51:46 2013 +0200
+
+    discoverer: don't shadow local variables
+
+commit 9230a6af6a76b889a658c0c7c5050a9176c880a8
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Oct 7 22:51:04 2013 +0200
+
+    discoverer: early return when we have no streams
+
+commit 2e1b1699fe0c43331f3fd700400431f41c37a2a9
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Oct 7 22:49:52 2013 +0200
+
+    discoverer: also log stream-id
+
+ 
