@@ -8364,3 +8364,34 @@ Date:   Sun Oct 6 10:01:26 2013 -0700
     matroska: Trivial grammar fix on debug msg
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b6d33e5ce423473a0521fe1cbe1ccf1eb78ef3f3
+Author: Jesper Larsen <knorr.jesper@gmail.com>
+Date:   Sat Oct 5 14:45:33 2013 +0200
+
+    tsdemux: Use mpegts-lib for ISO 639 language tags
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709180
+
+commit 279bdef4ea5c16ff1c0e4b291bc50f10b866e429
+Author: Jesper Larsen <knorr.jesper@gmail.com>
+Date:   Sat Oct 5 14:45:32 2013 +0200
+
+    tsdemux: Return descriptor in get_descriptor
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709180
+
+commit 7cb434e42f95590ed5e57d925cdf51e44a94d930
+Author: Jesper Larsen <knorr.jesper@gmail.com>
+Date:   Sat Oct 5 14:45:31 2013 +0200
+
+    mpegts: Add ISO 639 parsing functions
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709180
+
+ 
