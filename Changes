@@ -8395,3 +8395,18 @@ Date:   Sat Oct 5 14:45:31 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709180
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ce080cb7cc13ebd7f2dd0ba9a1b0beed92e1b06c
+Author: Gilles Dartiguelongue <eva@gentoo.org>
+Date:   Sun Oct 6 17:37:38 2013 +0200
+
+    egl: Allow disabling gstreamer-egl library
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709531
+
+ 
