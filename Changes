@@ -8410,3 +8410,18 @@ Date:   Sun Oct 6 17:37:38 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709531
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit a5bf9f24c9b4f800c305f65919cf3c829780993c
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Mon Oct 7 12:54:11 2013 +0200
+
+    deinterlace: Fix handling of planar video formats in greedyh method
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709507
+
+ 
