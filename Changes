@@ -8529,3 +8529,28 @@ Date:   Tue Oct 8 07:56:11 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b8f9e966d5f920916a6aa51d1dd658139196bf29
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Oct 8 11:28:04 2013 +0200
+
+    wavenc: A-Law and Mu-Law don't have width/depth/signed caps fields
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709614
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f16e70e4ca5d03b4931283b6b812dde2e322619d
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Oct 8 11:10:49 2013 +0200
+
+    configure: Make sure to try window-system-agnostic EGL if nothing was auto-detected
+
+ 
