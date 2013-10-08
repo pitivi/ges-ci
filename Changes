@@ -8554,3 +8554,21 @@ Date:   Tue Oct 8 11:10:49 2013 +0200
     configure: Make sure to try window-system-agnostic EGL if nothing was auto-detected
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 866f132821086359c699f0058b73b4e12e1dc2f6
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Oct 8 00:08:34 2013 -0300
+
+    videotestsrc: implement reverse playback
+    
+    Decrement the n_frames counter when doing reverse playback to
+    have timestamps and offsets reducing instead of increasing
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=701813
+
+ 
