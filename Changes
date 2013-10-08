@@ -8587,3 +8587,29 @@ Date:   Fri Jun 7 16:32:23 2013 -0400
     https://bugzilla.gnome.org/show_bug.cgi?id=701813
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 7dfb903cb4fbb6fbe1ff8bb3152ff78373b06898
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Oct 8 16:13:58 2013 -0300
+
+    videotestsrc: improve test for backwards playback
+    
+    Improve test by checking that timestamps are decreasing
+
+commit c2eb3d4e713fd8f5b9176717ccd865525a977bd7
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Oct 8 16:10:54 2013 -0300
+
+    videotestsrc: implement duration query
+    
+    Add duration query to videotestsrc, it can answer this query when
+    the num-buffers property is set.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709646
+
+ 
