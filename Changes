@@ -8476,3 +8476,29 @@ Date:   Mon Oct 7 22:49:52 2013 +0200
     discoverer: also log stream-id
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 9269bee9bd92ec82167f3b197f1a54f6474ab617
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Oct 8 09:13:50 2013 +0200
+
+    videodecoder: don't overflow in bytes<->time conversion
+    
+    fps_n and _d values can be large and this can overflow a uint. Also fix
+    copy'n'paste mistake in comments.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 0d54e5857fb5aaafa24728ffbc80ae0c51f81ecd
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Oct 8 07:56:11 2013 +0200
+
+    mpegpsdemux: log time format as name instead of the number
+
+ 
