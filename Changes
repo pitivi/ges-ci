@@ -8572,3 +8572,18 @@ Date:   Tue Oct 8 00:08:34 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=701813
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 8bcd1a2f8dcdd13ac713c2bbd540fa86f8240eb9
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Jun 7 16:32:23 2013 -0400
+
+    tests: test videotestsrc in reverse playback
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=701813
+
+ 
