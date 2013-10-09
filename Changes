@@ -8691,3 +8691,40 @@ Date:   Wed Oct 9 17:46:33 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709728
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 76d807893cca68086cd7fb49649c55a7e3078c3c
+Author: Takashi Iwai <tiwai@suse.de>
+Date:   Tue Oct 8 17:07:02 2013 +0200
+
+    alsa: Add channel map API support
+    
+    The initial support for the new ALSA chmap API.
+    Just translate the current chmap to GstAudioChannelPosition during the
+    setup.  No function to specify the channel map manually yet, so still
+    impossible to assign any non-standard positions or to configure in a
+    different order even if the hardware allows.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709755
+
+commit 6d659e3c6fe978e0400ab21d317504d18642e759
+Author: Takashi Iwai <tiwai@suse.de>
+Date:   Tue Oct 8 16:02:46 2013 +0200
+
+    audioringbuffer: Don't clear need_reorder flag too early
+    
+    gst_audio_ring_buffer_set_channel_positions() checks whether the given
+    positions are identical with the current setup and returns
+    immediately if so.  But it also clears need_reorder flag before this
+    comparison, thus this flag might be wrongly cleared if the function is
+    called twice with the same channel positions.
+    
+    Move the flag clearance after the check.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709754
+
+ 
