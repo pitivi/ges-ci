@@ -8746,3 +8746,39 @@ Date:   Mon Oct 7 14:52:00 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=709588
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 0564c1c2b8ad274692ba8358e27fcf00a3b10ce3
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Wed Oct 9 15:36:48 2013 -0300
+
+    collectpads: Call the collected function while it returns FLOW_OK
+    
+    This allows us to make sure the elements is EOS and does not have
+    remaining buffers to be drained.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709637
+
+ 
+
+====== gst-editing-services =============
+
+ commit 35acbae03395719b6d35b8e060abd73828766545
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Oct 8 13:45:55 2013 -0300
+
+    formatter: Try to use best formatter first
+
+commit d77f260f9e8e35ff9935ba15a26dbd688ae68854
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Wed Oct 9 20:07:14 2013 -0300
+
+    audiosource: Add audioconvert and audioresample before the volume element
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709777
+
+ 
