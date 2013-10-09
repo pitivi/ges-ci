@@ -8676,3 +8676,18 @@ Date:   Wed Oct 9 17:18:41 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709734
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit fa399bf834b0f9baace38b92322e1feccdb98577
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 9 17:46:33 2013 +0200
+
+    dvdemux: Send stream-start, caps and segment events in the right order
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709728
+
+ 
