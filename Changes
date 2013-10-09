@@ -8728,3 +8728,21 @@ Date:   Tue Oct 8 16:02:46 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709754
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4305e1c33e256caadae2bdbe2b8f7567b0a05abd
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Oct 7 14:52:00 2013 -0300
+
+    encodebin: Handle changes in encoding_profile::restriction during playback
+    
+    There are cases where we want to change the restrictions caps during
+    playback, handle that in encodebin.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709588
+
+ 
