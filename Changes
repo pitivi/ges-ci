@@ -8658,3 +8658,21 @@ Date:   Tue Oct 8 16:10:54 2013 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f0b5d84c544a1f36e7ea9c4b7d857b8b95eac153
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 9 17:18:41 2013 +0200
+
+    speed: Fix some bytes-per-frame vs. bytes-per-sample mixups
+    
+    Otherwise we will crash when handling multiple channels and
+    miscalculate timestamps.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709734
+
+ 
