@@ -8879,3 +8879,19 @@ Date:   Thu Oct 10 14:01:44 2013 +0100
     In gtk-videooverlay and qt-videooverlay examples.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 94a3394edffb0e27a44464625b07bebf28991b4b
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Thu Oct 10 08:30:27 2013 -0700
+
+    core: Fix max DEBUG_LEVEL incongruence on 5 vs 9
+    
+    In the docs and the autocompletion logic the maximum
+    value jumped incongruently between 5 and 9.
+
+ 
