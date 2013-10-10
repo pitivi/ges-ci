@@ -8809,3 +8809,34 @@ Date:   Wed Oct 9 20:07:14 2013 -0300
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 4429ea53c4add2a00fee625d4f7c8efa41c715d0
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Oct 10 13:19:09 2013 +0200
+
+    caps: Skip test_subset_duplication until the bug is fixed
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709253
+
+commit 0db5ae7962b2b314d9df293372f2f7051707bce9
+Author: Fabian Kirsch <derFakir@web.de>
+Date:   Thu Oct 10 12:56:54 2013 +0200
+
+    docs: Fix some reference URIs
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709804
+
+commit eb0d978e1e5ebb408cb24f62a42235832ef23c89
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Wed Oct 2 13:03:54 2013 +0200
+
+    caps: Add a testcase for subset checks on lists with duplicated items
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709253
+
+ 
