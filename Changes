@@ -8840,3 +8840,18 @@ Date:   Wed Oct 2 13:03:54 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709253
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c65a8881f9f59168af685487e303d5dfcd588599
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Thu Oct 10 13:52:35 2013 +0200
+
+    dvdec: Don't send segment event before caps
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709728
+
+ 
