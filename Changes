@@ -8855,3 +8855,27 @@ Date:   Thu Oct 10 13:52:35 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709728
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 973d1dcf39308a01f79b9bafe6bfa288523a1f0b
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Oct 10 14:09:19 2013 +0100
+
+    examples/overlay: handle the case when xvimagesink is not found
+    
+    So that ximagesink can have a chance to be found.
+    In qtgv-videooverlay.
+
+commit e0dfbe9dfaabe9ca5828885f8d8b16433223aa5f
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Oct 10 14:01:44 2013 +0100
+
+    examples/overlay: unref sink only when found
+    
+    In gtk-videooverlay and qt-videooverlay examples.
+
+ 
