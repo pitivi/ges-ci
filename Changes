@@ -8904,3 +8904,43 @@ Date:   Thu Oct 10 08:30:27 2013 -0700
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 70d83b323bcbc956e19d050e145a410f46b84e1a
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Oct 11 10:32:52 2013 +0200
+
+    mpegtspacketizer: Skip packets with corrupted length
+    
+    This is similar to what we do for packets with payload
+
+commit 5e50cd507c7140e24dcff11f8cc8c2453ed11e5a
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Oct 11 10:29:20 2013 +0200
+
+    tsdemux: Refactor language tag extraction
+    
+    subtitling descriptor needs to be used with a different method to extract
+    language codes.
+
+commit f36e0bca839797645259238c227d5561513d72e6
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Oct 11 10:21:25 2013 +0200
+
+    mpegts: Add support for parsing DVB Subtitling descriptor (0x59)
+    
+    Essentially works in the same vein as the iso639 descriptor code
+
+commit 0d577565127433174e218545680dd3ba7cb43354
+Author: Jesper Larsen <knorr.jesper@gmail.com>
+Date:   Thu Oct 10 22:46:48 2013 +0200
+
+    mpegts: Fix assertion fault in ISO 639 parsing
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709180
+
+ 
