@@ -8974,3 +8974,37 @@ Date:   Fri Oct 11 17:05:03 2013 -0300
     	tools/ges-launch.c
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2b45196042268c43fbb70f3d4275f4fae2c9f411
+Author: Stephan Sundermann <stephansundermann@gmail.com>
+Date:   Fri Oct 11 21:51:00 2013 +0200
+
+    navigation: Add missing out parameter annotations to GstNavigation
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709938
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 856c07ea0084bf249103c2b58dc61f151c3d7c98
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Mon Oct 7 14:27:21 2013 -0300
+
+    souphttpsrc: do not emit EOS when connection drops
+    
+    If the pipeline is stalled for too long, souphttpsrc will block and
+    stop fetching data from the network. This can cause the connection to
+    drop and souphttpsrc would handle it as an EOS. This patch makes it
+    persist and try to fetch more data until the end of the content length
+    or until receiving an error that it is beyong limits in case the content
+    is unknown.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=683536
+
+ 
