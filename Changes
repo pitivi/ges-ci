@@ -8944,3 +8944,33 @@ Date:   Thu Oct 10 22:46:48 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709180
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit ee36beb2445a61ca256edde16551f7927ee4d1e3
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Oct 11 17:00:22 2013 -0300
+
+    uri-asset: Check if file exists before trying it as a proxy
+    
+    This avoids:
+    
+      1- discovering file that we know do not exist
+      2- proposing the current proxy path (that failed) as a possible proxy
+         which lead to errors
+
+commit 87ca058e3f3992ac3b7e412846bc915d5af5769c
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Oct 11 17:05:03 2013 -0300
+
+    ges-launch: Remember URIS that we tried to discover
+    
+    So we do not fail several time trying to discover the same URI
+    
+    Conflicts:
+    	tools/ges-launch.c
+
+ 
