@@ -9029,3 +9029,27 @@ Date:   Sat Oct 12 16:16:09 2013 +1100
     Spotted by nemequ on IRC.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 771ffe5609c36fc6afa2d72ef2bebdb3db3f2dfa
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Sat Oct 12 20:44:31 2013 +0100
+
+    flvmux: fix broken sample pipeline
+    
+    which was muxing raw audio and video into flvmux, which won't work,
+    even if there were converters.
+
+commit 29effb522a91986ebf96c60e0c6ed0de6ffc385d
+Author: Tim-Philipp Müller <tim@centricular.net>
+Date:   Sat Oct 12 20:37:41 2013 +0100
+
+    flvmux: require stream-format=raw for mpeg-2 too, but don't require framed field
+    
+    raw implies that it's framed already. Fixes .. ! faac ! flvmux
+
+ 
