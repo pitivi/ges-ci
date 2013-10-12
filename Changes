@@ -9053,3 +9053,16 @@ Date:   Sat Oct 12 20:37:41 2013 +0100
     raw implies that it's framed already. Fixes .. ! faac ! flvmux
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2046ba220f8707c4878ddc0a2cfd6956d8e4794c
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Sat Oct 12 16:04:25 2013 -0400
+
+    pitch: Fix inverted condition in setcaps
+
+ 
