@@ -9008,3 +9008,24 @@ Date:   Mon Oct 7 14:27:21 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=683536
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 75b7387f8bb04b52eff356e8fa79cc22e34d09f4
+Author: Jan Schmidt <thaytan@noraisin.net>
+Date:   Sat Oct 12 16:16:09 2013 +1100
+
+    parse: Fix transfer annotations for parse_launch functions.
+    
+    gst_parse_launchv, gst_parse_launchv_full and gst_parse_launch_full
+    all return floating refs, the same as gst_parse_launch, which just
+    calls gst_parse_launch_full internally anyway.
+    
+    Add a unit test assertion to check it's true.
+    
+    Spotted by nemequ on IRC.
+
+ 
