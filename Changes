@@ -9084,3 +9084,21 @@ Date:   Sat Oct 12 16:04:25 2013 -0400
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 1479aba1cfa35e47aa2ab0a5d801ee148ec3fd71
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Sun Sep 29 17:35:11 2013 +0200
+
+    tests/filesrc: Set location in wrong state
+    
+    Also remove incorrect comment about code possibly not being reachable
+    that is now exercised by the filesrc unit test.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709831
+
+ 
