@@ -9134,3 +9134,35 @@ Date:   Mon Oct 14 16:23:25 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=710110
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 8a5adf9c686869cb655565dbf7e43f949c29e928
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Oct 14 18:07:17 2013 -0300
+
+    docs: Add gst_pad_store_sticky_event to sections.txt
+    
+    So it appears in the generated documentation
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 508245dfa6a199423365b4800ad102a71e25e67a
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Oct 10 15:56:32 2013 -0300
+
+    theoraenc: Do nothing when flushing the encoder when no caps were set
+    
+    In case we receive a flush event before having our caps set, we will
+    end up trying to create a theora encoder even though we are not ready.
+    Avoid that situation making sure we are initialized before accepting to
+    be flushed.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709858
+
+ 
