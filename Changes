@@ -9117,3 +9117,20 @@ Date:   Sun Sep 29 17:35:11 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c81ce6b15250f63eeb82a2f2769ad7db52f613cc
+Author: Ognyan Tonchev <ognyan@axis.com>
+Date:   Mon Oct 14 16:23:25 2013 +0200
+
+    multiudpsink: Fix memory leak
+    
+    Unmap all GstMemory of the current buffer when flushing.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710110
+
+ 
