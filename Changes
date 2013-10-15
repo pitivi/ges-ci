@@ -9166,3 +9166,27 @@ Date:   Thu Oct 10 15:56:32 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=709858
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit fdfea0d1a06647cb4620ee9382ca88ebb820e0fe
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Oct 15 09:28:08 2013 +0200
+
+    libav: Update to v9.10
+
+commit 13ffed87b1597fa60ccee293f71c3993ec59d1b2
+Author: Greg Rutz <greg@gsr-tek.com>
+Date:   Mon Oct 14 14:50:57 2013 -0600
+
+    avenc: Add compliance property
+    
+    Add a new property to GstFFMpegVidEnc and GstFFMpegAudEnc to supply
+    the "strict compliance" value to AVCodecContext
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=691617
+
+ 
