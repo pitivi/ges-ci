@@ -9230,3 +9230,45 @@ Date:   Wed Oct 9 08:04:20 2013 +0200
     qtdemux: fix typos and add more logging for unhandled parts
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 2231721dddb9ba7db3d7566f64a6fa58fdd1ff9d
+Author: Sebastian Dröge <slomo@circular-chaos.org>
+Date:   Tue Oct 15 11:44:05 2013 +0200
+
+    datetime: Make sure to include gst_private.h before glib-compat-private.h
+    
+    We need to define the GLib log domain before including glib.h, which is
+    included by glib-compat-private.h.
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 71a6d75d757132028d13a6ed3d8dbfe77ed6b635
+Author: Kishore Arepalli <kishore.arepalli@gmail.com>
+Date:   Tue Oct 15 10:57:31 2013 +0200
+
+    ges-formatter: don't use 'class' as function argument name in headers
+    
+    It's a keyword in C++ and C++ compilers won't like it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710172
+
+ 
