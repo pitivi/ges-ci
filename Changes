@@ -9190,3 +9190,43 @@ Date:   Mon Oct 14 14:50:57 2013 -0600
     https://bugzilla.gnome.org/show_bug.cgi?id=691617
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c07af869a755dfa31d7d3beb260d47bb3b7fa0ea
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Oct 14 18:45:16 2013 +0200
+
+    discoverer: also filter 'framed' field when looking for same streams
+    
+    Fixes extra streams for some mp4 files containing aac audio.
+
+commit 2055f2b7ded27cda7d3dc3f287dd8a506436cf4b
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Oct 8 21:57:11 2013 +0200
+
+    oggdemux: fix copy'n'paste in comment
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ae1150e85cf99d7482933aa6f7e4f012fe45a3ec
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Oct 15 08:16:20 2013 +0200
+
+    qtdemux: rename chunks_are_chunks to chunks_are_samples and flip the logic
+    
+    As the variable name suggests, sometimes chunks are chunks. Rename the variable
+    to tell what they are when they are not chunks.
+
+commit 6789ba1ecec3594912304b21fa52d64f7c349470
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Oct 9 08:04:20 2013 +0200
+
+    qtdemux: fix typos and add more logging for unhandled parts
+
+ 
