@@ -9281,3 +9281,34 @@ Date:   Tue Oct 15 10:57:31 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 3c8424d9ae14204d40bdd50b78d275b844fc39d8
+Author: Philip Withnall <philip.withnall@collabora.co.uk>
+Date:   Fri Oct 18 08:58:05 2013 +0100
+
+    net: Constify a parameter to gst_net_client_clock_new()
+    
+    Even though this parameter is not used, it should be const to fit in with the
+    coding standards for other similar parameters. Client code already passes in
+    const strings under the expectation that they won’t be modified.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710442
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b05a1f75fdab47dffb50e3b25f7fa10ab0c4cfbb
+Author: Chen Jie <chenj@lemote.com>
+Date:   Fri Oct 18 10:12:56 2013 +0800
+
+    androidmedia: make gst_amc_avc_profile_from_string recognize alt name
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710433
+
+ 
