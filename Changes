@@ -9353,3 +9353,88 @@ Date:   Tue Oct 22 00:56:29 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=684942
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 941cfd14d5e6ce3af8c74c9a891e5eda7e95722d
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 21 18:01:21 2013 -0700
+
+    docs: Gram and nit fixes for part-meta.txt
+
+commit 8a7ad85b237c75eccba6f289121674284195b2fc
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 22:03:50 2013 -0700
+
+    docs: Gram and nit fixes for part-element-source.txt
+
+commit 4d3b1d1558ae36a1e32c3743ceff06a1b37619ad
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 21:54:31 2013 -0700
+
+    docs: Gram and nit fixes for part-sink.txt
+
+commit a6b018a3bcb8ae8e33cc0e16daf72a3af450a674
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 18:43:40 2013 -0700
+
+    docs: Gram and nit fixes for part-conventions.txt
+
+commit 3abad718671109c26d03cd16e94333f7928a561c
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 18:34:06 2013 -0700
+
+    docs: Gram and nit fixes for part-controller.txt
+
+commit e6dda14148734a3405d8dce74080269be8a7a638
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 18:24:18 2013 -0700
+
+    docs: Gram and nit fixes for part-context.txt
+
+commit 11503e4b3fd98d3648fb7f28d9d6f6fb10efd903
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 18:13:35 2013 -0700
+
+    docs: Gram and nit fixes for part-clocks.txt
+
+commit 3d693f387fbbae7978f573b3905cb84a173fcd2c
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 18:05:43 2013 -0700
+
+    docs: Gram and nit fixes for part-caps.txt
+
+commit 72edc18465ff9f746fbf026cf08cd36cf7529d4c
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 17:44:27 2013 -0700
+
+    docs: Gram and nit fixes for part-buffer.txt
+
+commit 20c32ffbdfda39ea9a83512e08b66ab3ca610e8c
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 17:29:19 2013 -0700
+
+    docs: Gram and nit fixes for part-bufferpool.txt
+
+commit 06a79347f38a130f99a6e51e6710df18a5714acb
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Mon Oct 14 05:39:19 2013 -0700
+
+    docs: Gram and nit fixes for part-buffering.txt
+
+commit 52810aa6ee1e00c2f7c885ee2bf4f3d6a00cbe50
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Sun Oct 13 21:16:47 2013 -0700
+
+    docs: Gram and nit fixes for part-messages.txt
+
+commit eb573901989933820f966b45b1ed44796b9221f5
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@partner.samsung.com>
+Date:   Sun Oct 13 20:42:40 2013 -0700
+
+    docs: Gram and nit fixes for part-memory.txt
+
+ 
