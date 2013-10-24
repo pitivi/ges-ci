@@ -9312,3 +9312,44 @@ Date:   Fri Oct 18 10:12:56 2013 +0800
     https://bugzilla.gnome.org/show_bug.cgi?id=710433
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 673301ef4891e2f582ccc0f4f4bc25c2e1ae7eab
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Wed Oct 23 13:38:20 2013 -0300
+
+    qtdemux: use correct unref function
+    
+    Events aren't GstObjects, but GstMiniObjects
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 3de558d96bb9230ada7297074ded1ebda6c4a026
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Oct 22 15:03:15 2013 -0300
+
+    asfdemux: Keep audio error checking fields only for audio
+    
+    Video shouldn't need to be descrambled, this can cause frames data
+    to be corrupted
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=684942
+
+commit 94a183a071a53a808857ccc3ff6687bc09f1b183
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Tue Oct 22 00:56:29 2013 -0300
+
+    asfdemux: really copy the buffer data
+    
+    Pass the copy-memory flag to copy the memory for the output buffer,
+    otherwise we end with 0-sized buffers
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=684942
+
+ 
