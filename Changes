@@ -9528,3 +9528,19 @@ Date:   Fri Oct 25 21:28:30 2013 +0200
     The caps are saved in the registry.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2eec7909aa4844a7fea72f800f3662d7a4f7c8d9
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Fri Oct 25 11:30:36 2013 -0300
+
+    qtdemux: check if the end_time is defined before using it
+    
+    Avoids sending EOS too soon because of overflow. Can happen on
+    fragmented mp4 playback.
+
+ 
