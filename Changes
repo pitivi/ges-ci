@@ -9473,3 +9473,16 @@ Date:   Wed Oct 23 16:58:49 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=710759
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit bbc26fffc26b38dc6c83702d1ff1c969f33e60dc
+Author: Luis de Bethencourt <luis@debethencourt.com>
+Date:   Fri Oct 25 11:02:19 2013 -0400
+
+    docs: fix typos in gstobject
+
+ 
