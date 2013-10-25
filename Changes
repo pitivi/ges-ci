@@ -9438,3 +9438,38 @@ Date:   Sun Oct 13 20:42:40 2013 -0700
     docs: Gram and nit fixes for part-memory.txt
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 22f411378e1e43bf1e0f2af654ad710501d189f4
+Author: Matthieu Bouron <matthieu.bouron@gmail.com>
+Date:   Wed Oct 23 16:43:32 2013 +0100
+
+    videoconvert: remove unneeded guint comparaison
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710760
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e7687dbaa22ad0dd3fa3c1dfc7fff8b76ec3b273
+Author: Matthieu Bouron <matthieu.bouron@gmail.com>
+Date:   Wed Oct 23 17:11:20 2013 +0100
+
+    mpegtsmux: fix uninitialized variable warning
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710759
+
+commit 84fbc08c251de8a53d5503f2dc5acbc2d97d2c19
+Author: Matthieu Bouron <matthieu.bouron@gmail.com>
+Date:   Wed Oct 23 16:58:49 2013 +0100
+
+    mpegtsdemux: fix uninitialized variable warning
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710759
+
+ 
