@@ -9507,3 +9507,24 @@ Date:   Wed Oct 23 18:16:54 2013 +0200
     design: flesh out the tracing design a little more
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a6f60fcf2e7642747b53adc47f0cd453392c408c
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Oct 25 21:29:01 2013 +0200
+
+    registry: small cleanups and use object log variants more
+
+commit 1e586993761ec63bdb0f538400bf318fa4b33033
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Oct 25 21:28:30 2013 +0200
+
+    private: remove left-over comment
+    
+    The caps are saved in the registry.
+
+ 
