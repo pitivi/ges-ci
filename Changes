@@ -9486,3 +9486,24 @@ Date:   Fri Oct 25 11:02:19 2013 -0400
     docs: fix typos in gstobject
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit ecbe3d4f2e52acc4e35bb80ce12ff097ab1e1518
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Oct 25 18:51:53 2013 +0200
+
+    registry: use g_slice_free for slice memory
+    
+    Avoid memory list corruption, but g_free'ing slice memory.
+
+commit 0089bcd3e211b2d250a66b2faaffef120e8f4cbd
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Oct 23 18:16:54 2013 +0200
+
+    design: flesh out the tracing design a little more
+
+ 
