@@ -9583,3 +9583,44 @@ Date:   Fri Oct 25 11:11:30 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=710881
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 20c2008ef8e75d7c4291f600532d3e7312738339
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Oct 26 09:48:06 2013 +0100
+
+    docs: flesh out gst-uninstalled entry in faq some more
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709916
+
+commit d0dd23cf9ffc3c50165e3faca52a9861af739772
+Author: Fabian Kirsch <derFakir@web.de>
+Date:   Wed Oct 16 15:00:41 2013 +0200
+
+    docs: FAQ update to mention create-uninstalled-setup.sh
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709916
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit e9e31ebada6cae34169d26249da0420c96d69cb0
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Oct 26 09:34:30 2013 +0100
+
+    avaudenc: post better error message if experimental codecs don't work
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=691617
+
+commit 49d0c480ae2b0dc6527a26471cbe0a2e836707eb
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Oct 26 09:09:28 2013 +0100
+
+    codecmap: use TRUE for boolean fields in caps
+
+ 
