@@ -9544,3 +9544,42 @@ Date:   Fri Oct 25 11:30:36 2013 -0300
     fragmented mp4 playback.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 58072914fabf872b46b4787c190401acbed24c64
+Author: Alex Ashley <bugzilla@ashley-family.net>
+Date:   Fri Oct 25 11:11:30 2013 +0100
+
+    hlsdemux: fix memory leak in gst_hls_demux_get_next_fragment
+    
+    This patch fixes three memory leaks in hlsdemux, one that occurs
+    during normal operation and two that occur during error conditions.
+    
+    The gst_hls_demux_get_next_fragment function calls
+    gst_fragment_get_buffer which increments the reference count
+    on the buffer but gst_hls_demux_get_next_fragment never calls unref on
+    the buffer. This means that the reference count for each downloaded
+    fragment never gets to zero and so its memory is never released.
+    
+    This patch adds a call to gst_buffer_unref after the flags have been
+    updated on the buffer.
+    
+    There is a leak-on-error in gst_hls_demux_decrypt_fragment if it fails
+    to download the key file. If the key fails to download, null is
+    returned without doing an unref on the encrypted fragment. The
+    semantics of gst_hls_demux_decrypt_fragment is that it takes ownership
+    of the encrypted fragment and releases it before returning.
+    
+    There is a leak-on-error in gst_hls_src_buf_to_utf8_playlist in the
+    unlikely event that the gst_buffer_map fails. In the "happy path"
+    operation of gst_hls_src_buf_to_utf8_playlist the buffer gets an unref
+    before the function returns, therefore the error condition must do the
+    same.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710881
+
+ 
