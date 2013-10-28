@@ -9679,3 +9679,18 @@ Date:   Mon Oct 28 12:55:19 2013 +0000
     docs: design: fix some fixes
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ec8c141d6a558476817987a193cb77d62aadac4b
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Oct 28 13:31:34 2013 +0000
+
+    y4menc: fix uninitialized variable warning
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711011
+
+ 
