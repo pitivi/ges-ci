@@ -9624,3 +9624,18 @@ Date:   Sat Oct 26 09:09:28 2013 +0100
     codecmap: use TRUE for boolean fields in caps
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 64592da3e9ae52b944c35a9d9440144373d69bf1
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Oct 11 11:23:16 2013 +0200
+
+    tsdemux: Demote GST_ERROR to GST_WARNING
+    
+    discontinuities are not errors per-se and we handle them correctly.
+
+ 
