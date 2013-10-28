@@ -9666,3 +9666,16 @@ Date:   Mon Oct 28 09:33:16 2013 +0100
     and align.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 40872f26aef6bb9dbee01fbe942faae5148eac45
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Oct 28 12:55:19 2013 +0000
+
+    docs: design: fix some fixes
+
+ 
