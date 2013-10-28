@@ -9694,3 +9694,20 @@ Date:   Mon Oct 28 13:31:34 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=711011
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d57b9628fc94bf22f3e5af75e5cda05bb37655e1
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Oct 28 14:13:12 2013 +0000
+
+    osxvideosink: fix missing selector name warnings
+    
+    The spaces matter in ObjC
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711013
+
+ 
