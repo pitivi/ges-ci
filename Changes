@@ -9639,3 +9639,30 @@ Date:   Fri Oct 11 11:23:16 2013 +0200
     discontinuities are not errors per-se and we handle them correctly.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 0baac2ffb91f4e040294c98f3b1938ebbef526ae
+Author: Edward Hervey <edward@collabora.com>
+Date:   Mon Oct 28 09:33:47 2013 +0100
+
+    h264parse: Unify value setting
+    
+    the initial par_n = par_d = 0; was always overwritten since the switch/case
+    handles all values
+    
+    And remove the 0 case (it's the same handling as default)
+
+commit 77f254abb35dcedc3bb83ed1cc75f13fcec4265f
+Author: Edward Hervey <edward@collabora.com>
+Date:   Mon Oct 28 09:33:16 2013 +0100
+
+    h264parse: Avoid ending up with undefined values
+    
+    If caps aren't fixed, we'd end up with undefined values for format
+    and align.
+
+ 
