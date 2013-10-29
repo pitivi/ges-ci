@@ -9744,3 +9744,19 @@ Date:   Mon Oct 28 13:21:15 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=711010
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 0e35a68aa616acc10bc333a6682e33b604b96fd3
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Oct 29 07:59:22 2013 -0300
+
+    clip: Fix the find_track_element method
+    
+    What we want is to be able to find a TrackElement by its type, and
+    possibly specify a Track where to look into.
+
+ 
