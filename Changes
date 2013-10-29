@@ -9729,3 +9729,18 @@ Date:   Tue Oct 22 16:02:04 2013 +0900
     https://bugzilla.gnome.org/show_bug.cgi?id=710609
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 52d0588c21be1a9b85e531fd399cdaaf6198507e
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Oct 28 13:21:15 2013 +0000
+
+    videomixer: remove unneeded guint comparaison
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711010
+
+ 
