@@ -9711,3 +9711,21 @@ Date:   Mon Oct 28 14:13:12 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=711013
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 1e74f611ee8d1c6d65d0e7963ef5dc276a07e092
+Author: HyeJin Choi <meeshel@meeshel78@hotmail.com>
+Date:   Tue Oct 22 16:02:04 2013 +0900
+
+    asfdemux: mo_size check bug fix. mo_size is not mandatory field.
+    
+    So, don't need to check previous payload's mo_size and current
+    payload's mo_size when merging it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710609
+
+ 
