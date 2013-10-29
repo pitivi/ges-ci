@@ -9760,3 +9760,18 @@ Date:   Tue Oct 29 07:59:22 2013 -0300
     possibly specify a Track where to look into.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 4ceeee9ff8f744d1fd0edf61f08e20b1568294e8
+Author: Fabian Kirsch <derFakir@web.de>
+Date:   Tue Oct 29 18:09:32 2013 +0100
+
+    doc: fix forward reference about ghost pads
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711089
+
+ 
