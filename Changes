@@ -9775,3 +9775,18 @@ Date:   Tue Oct 29 18:09:32 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=711089
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 219154eacb16867be7d0e2274227a62072d70f39
+Author: Mathieu Duponchelle <mduponchelle1@gmail.com>
+Date:   Wed Oct 30 00:27:36 2013 +0100
+
+    track-element: add start to the position to which we wish we split the bindings.
+    
+    The bindings split is relative to the beginning of the clip.
+
+ 
