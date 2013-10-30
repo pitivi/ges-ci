@@ -9877,3 +9877,28 @@ Date:   Mon Oct 28 12:36:04 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=711003
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 7e5dc030f5e39998169166a8b1a734f3bf7efc62
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Oct 30 21:53:36 2013 +0100
+
+    utils: Add some attributes and reorganize code to fix compiler warnings
+    
+    gstutils.c:3659:41: error: format string is not a string literal
+    [-Werror,-Wformat-nonliteral]
+        gchar *expanded = g_strdup_vprintf (stream_id, var_args);
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710621
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
