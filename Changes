@@ -9902,3 +9902,33 @@ Date:   Wed Oct 30 21:53:36 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit ddf4ca22033a390fa26c16d717da8e13da3cd567
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Wed Oct 16 16:46:05 2013 -0300
+
+    playback: Add subpicture/x-dvb as raw caps
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710325
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4a8082856aca644994a9a2839bf06998340c2164
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Oct 30 22:12:45 2013 +0100
+
+    matroska-demux: Fix compiler warning
+    
+    matroska-demux.c: In function 'gst_matroska_demux_add_stream':
+    matroska-demux.c:1379:7: error: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'guint64' [-Werror=format=]
+           "%03u", context->uid);
+           ^
+
+ 
