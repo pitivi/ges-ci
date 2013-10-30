@@ -9841,3 +9841,39 @@ Date:   Fri Oct 18 11:54:12 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=711156
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit c76aaaaa1d3b9e33846ef2d07af3bcb3accef5c1
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Fri Oct 25 14:56:16 2013 +0200
+
+    pwg: rename the "samplerate" variable to make example code compilable
+    
+    In one of the examples about gst_my_filter_setcaps() there is a variable
+    declared as "rate", but then the name "samplerate" is used when setting
+    the caps.
+    
+    Use the name "rate" everywhere in gst_my_filter_setcaps().
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710876
+
+ 
+
+====== gst-plugins-base =============
+
+ commit fdfc6baf14766e14918fdbc39bc18366e7f89c59
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Mon Oct 28 12:36:04 2013 +0100
+
+    videoscale: fix adding borders when NV12 is used
+    
+    When the frame buffer is NV12 the borders are not added at all, fix that
+    and fill them to black.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711003
+
+ 
