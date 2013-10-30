@@ -9790,3 +9790,54 @@ Date:   Wed Oct 30 00:27:36 2013 +0100
     The bindings split is relative to the beginning of the clip.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 7ec5f8527ae74462aa98b7badbfbcdbb3808e31e
+Author: Matthieu Bouron <matthieu.bouron@gmail.com>
+Date:   Wed Oct 23 23:34:27 2013 +0100
+
+    applemedia-nonpublic: fix plugin name
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711135
+
+commit 1b2b879bf4571b8fd66766e63e354787833d68ec
+Author: Matthieu Bouron <matthieu.bouron@gmail.com>
+Date:   Wed Oct 23 17:22:16 2013 +0100
+
+    vtenc: use proper release callback type in CVPixelBufferCreateWithPlanarBytes
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711140
+
+commit 22eaf39c1a4961505058df5091b4f05ae8fbc79e
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Sat Sep 21 00:20:36 2013 +0100
+
+    avfvideosrc: fix truncated line
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710657
+
+commit e5385db3c910c2894b9910668d6a86cde82ec4ae
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Wed Oct 30 16:20:56 2013 +0100
+
+    eglglessink: remove unused functions in the eagl backend
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711159
+
+commit 6b49683447597f6a80c054e781fca76758a3775b
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Fri Oct 18 11:54:12 2013 +0200
+
+    androidmedia: fix access to invalid buffers in the decoding loop
+    
+    Flushing the decoder invalidates all buffers, so it should be done
+    after quiting the decoding loop. Otherwise we can jump into
+    "failed_release" and stop everything
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711156
+
+ 
