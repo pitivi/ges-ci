@@ -10057,3 +10057,18 @@ Date:   Thu Oct 31 19:15:12 2013 +0100
     These don't have the FINAL_BLOCK flag set.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2285d4440b5488af9e1fd8e481bda15acdc61d26
+Author: Reynaldo H. Verdejo Pinochet <reynaldo@sisa.samsung.com>
+Date:   Wed Oct 30 18:48:08 2013 -0700
+
+    cdaudio: port to 1.X
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711223
+
+ 
