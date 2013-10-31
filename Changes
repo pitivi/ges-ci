@@ -9932,3 +9932,20 @@ Date:   Wed Oct 30 22:12:45 2013 +0100
            ^
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 43645d5981e6d37d97473cf96a81db92e5237d0c
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Oct 30 16:49:36 2013 +0100
+
+    jitterbuffer: add new timestamp mode
+    
+    Add a new timestamp mode that assumes the local and remote clock are
+    synchronized. It takes the first timestamp as a base time and then uses the RTP
+    timestamps for the output PTS.
+
+ 
