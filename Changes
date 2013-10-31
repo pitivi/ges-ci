@@ -10003,3 +10003,42 @@ Date:   Wed Oct 30 18:25:50 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=711214
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit a22d61007aa7bf539ae735dbab6026d44729fe61
+Author: Djalma Lúcio Soares da Silva <dlucio@impa.br>
+Date:   Thu Oct 31 13:02:11 2013 -0200
+
+    hdv1394src: Make it possible to select a camera by its GUID
+    
+    The source hdv1394src has the guid property that permits select a camera
+    connected from its GUID number.
+    However when this property is setted the selected camera is not changed.
+    The source continues using the default camera.
+    
+    This problem was solved using the function iec61883_cmp_connect.
+    The reference for the function could be found here:
+    http://www.dennedy.org/libiec61883/API-iec61883-cmp-connect.html
+    
+    The solution came from dvgrab source code.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710415
+
+commit 43602e2d8a7d18c2804e883719eaaa479df1fa65
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Thu Oct 31 13:20:41 2013 -0300
+
+    tests: souphttpsrc: add explicit cast to silence warning
+    
+    Silencing this warning:
+    
+    elements/souphttpsrc.c:533:14: error: comparison between ‘SoupKnownStatusCode’ and ‘enum <anonymous>’ [-Werror=enum-compare]
+       if (status != SOUP_STATUS_OK && !send_error_doc)
+    
+    With gcc 4.8.2 (debian)
+
+ 
