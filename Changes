@@ -9949,3 +9949,16 @@ Date:   Wed Oct 30 16:49:36 2013 +0100
     timestamps for the output PTS.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e96f8f519cbb0df79ba2e8ea1a82b78fd7ecaab2
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Oct 31 10:38:35 2013 +0100
+
+    rtspsrc: proxy new buffer mode
+
+ 
