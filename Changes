@@ -9985,3 +9985,21 @@ Date:   Thu Oct 17 12:53:31 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=710392
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 786f5e4f7c7cb9da0eac06215c0c274f74eb40ce
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Wed Oct 30 18:25:50 2013 +0100
+
+    androidmedia: fix rank for more software decoders
+    
+    In Galaxy S4 the codecs list contains some OMX.SEC.foo.sw.dec
+    as software decoders
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711214
+
+ 
