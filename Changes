@@ -10072,3 +10072,35 @@ Date:   Wed Oct 30 18:48:08 2013 -0700
     https://bugzilla.gnome.org/show_bug.cgi?id=711223
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2559557ff1a12ff97dd1619e8d004d35d9266511
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Oct 31 22:43:49 2013 +0100
+
+    audioiirfilter: Don't crash if no filter coefficients are provided
+    
+    ...and by default use a identity filter.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710215
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit fa12af3d0190cd2b6b7cbcc10977e981813106ad
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Thu Oct 17 12:05:44 2013 +0200
+
+    rotate: Fix angle property help text
+    
+    The help text of the angle property was probably copied from the circle
+    plugin, fix it to mention the rotation determined by the angle.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710391
+
+ 
