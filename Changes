@@ -10042,3 +10042,18 @@ Date:   Thu Oct 31 13:20:41 2013 -0300
     With gcc 4.8.2 (debian)
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4f288a52344eee6c642e32d3877d72aafc6b9d0a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Oct 31 19:15:12 2013 +0100
+
+    wavpackenc: Fix writing of MD5 sums and other metadata blocks
+    
+    These don't have the FINAL_BLOCK flag set.
+
+ 
