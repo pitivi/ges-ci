@@ -9962,3 +9962,26 @@ Date:   Thu Oct 31 10:38:35 2013 +0100
     rtspsrc: proxy new buffer mode
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ae2231624c92953ea3dfb32a36a8ff2fb927da20
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Thu Oct 17 12:53:31 2013 +0200
+
+    geometrictransform: Fix setting black background for AYUV buffers
+    
+    When the frame buffer is AYUV writing all zeros does not set it to
+    black, in YUV colorspace 0x10 is the black level for luminance and 0x80
+    is the black level for chrominance.
+    
+    Fix setting the background to black when the out_frame format is AYUV;
+    in all the other supported formats zeroing the data with memset is still
+    the right thing to do.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710392
+
+ 
