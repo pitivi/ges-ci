@@ -10104,3 +10104,33 @@ Date:   Thu Oct 17 12:05:44 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=710391
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ab3f7d60964cef77e1248f6c479738b05d158837
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Mon Oct 28 15:04:16 2013 +0200
+
+    h264parse: Remove the explicit PAR calculation based on VUI headers
+    
+    The PAR calculation based on VUI headers is already doing by the
+    h264 codecparser and we does't need to duplicate those code.
+    
+    https://bugzilla.gnome.org//show_bug.cgi?id=711009
+
+ 
+
+====== gst-editing-services =============
+
+ commit 5a5228a25a1badc99f74f1c123c70996cf9829b0
+Author: Kishore Arepalli <kishore.arepalli@gmail.com>
+Date:   Thu Oct 17 15:16:00 2013 +0200
+
+    ges: Fix several memory leaks
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710390
+
+ 
