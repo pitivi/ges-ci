@@ -10337,3 +10337,16 @@ Date:   Fri Nov 1 18:31:36 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ea086ca36c7d804af50dca869a4bf796993f3c20
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 1 22:32:32 2013 +0100
+
+    configure: Always define AM_CONDITIONAL USE_EGLGLES
+
+ 
