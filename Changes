@@ -10270,3 +10270,31 @@ Date:   Thu Oct 31 14:05:43 2013 -0700
     https://bugzilla.gnome.org/show_bug.cgi?id=711230
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4aafc3d39f181f86e0a096764ab6aa2ee4e6f1cb
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 1 17:02:22 2013 +0100
+
+    rtspconnection: Add new API to the docs and .def file
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 15717842e426187635d934c16b1f2ddd6b96eb2a
+Author: L. Sorin <sorin@axis.com>
+Date:   Fri Oct 4 12:48:10 2013 +0200
+
+    curl: curlsftpsink - new libcurl-based sink element for SFTP
+    
+    Note: SFTP = SSH File Transfer Protocol
+    The sink acts as a client and uploads data to the SFTP server.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709795
+
+ 
