@@ -10180,3 +10180,52 @@ Date:   Fri Nov 1 10:40:06 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=710451
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a0e2eb61692c56edc84de378119c353d828bc577
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Wed Oct 23 15:56:20 2013 +0100
+
+    gst-launch: fix potential uninitialized variable warning
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710758
+
+ 
+
+====== gst-plugins-base =============
+
+ commit a4996f133b1ac7d43a135cb42b2f7f4b26eee625
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Fri Nov 1 14:22:13 2013 +0000
+
+    sdp: fix duplicate 'const' declaration warnings
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711258
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 980f5b4702e6ce9d605d7891a590f799cb2008f9
+Author: Reynaldo H. Verdejo Pinochet <reynaldo@sisa.samsung.com>
+Date:   Thu Oct 31 13:36:25 2013 -0700
+
+    cdaudio: Remove cdaudio plugin
+    
+    This element is being removed due to it been
+    considered obsolete and the functionaily it
+    provides no longer needed.
+    
+    Details on the decision can be found here:
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711223
+    
+    Fixes:
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711232
+
+ 
