@@ -10313,3 +10313,18 @@ Date:   Fri Nov 1 16:35:59 2013 +0000
     Also add a unit tests
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f180f3d1ba7783c7f71a6696e4907404479c88c1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 1 18:31:36 2013 +0100
+
+    audioiirfilter: Fix initialization coefficient handling
+    
+    Broke unit test.
+
+ 
