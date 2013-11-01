@@ -10147,3 +10147,36 @@ Date:   Thu Oct 31 16:16:48 2013 -0700
     docs: fix common typos emited/eachother/...
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 010fd8a471bc60ea1490d43bc6d32d5dcc77c18d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 1 10:41:16 2013 +0100
+
+    yadif: Fix compiler warning caused by specifying const twice
+    
+      yadif.c:49:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+      DECLARE_ASM_CONST (16, const xmm_reg, pb_1) = {
+                           ^
+      yadif.c:33:50: note: expanded from macro 'DECLARE_ASM_CONST'
+      #define DECLARE_ASM_CONST(n,t,v)    static const t __attribute__((used)) __attribute__ ((aligned (n))) v
+                                                     ^
+      yadif.c:52:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+      DECLARE_ASM_CONST (16, const xmm_reg, pw_1) = {
+                           ^
+      yadif.c:33:50: note: expanded from macro 'DECLARE_ASM_CONST'
+      #define DECLARE_ASM_CONST(n,t,v)    static const t __attribute__((used)) __attribute__ ((aligned (n)))
+
+commit 411cf48db7a2eeaf3c22ef8d47ddc1781e7ede6d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 1 10:40:06 2013 +0100
+
+    yadif: Fix build with XCode
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710451
+
+ 
