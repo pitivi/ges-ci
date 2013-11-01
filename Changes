@@ -10298,3 +10298,18 @@ Date:   Fri Oct 4 12:48:10 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709795
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 789eda5a37bd63a7a192b694af1c8824720be949
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Nov 1 16:35:59 2013 +0000
+
+    parse: Make the FATAL_ERRORS flag also work without a GError
+    
+    Also add a unit tests
+
+ 
