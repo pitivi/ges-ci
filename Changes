@@ -10229,3 +10229,44 @@ Date:   Thu Oct 31 13:36:25 2013 -0700
     https://bugzilla.gnome.org/show_bug.cgi?id=711232
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b0aad9dd849503034695bd0e36f19419e49fc0dc
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 1 16:43:56 2013 +0100
+
+    rtspconnection: Fix indention in header
+
+commit 53c7ad0c8723e2bb95aafef6f92ec59de0203d7f
+Author: Aleix Conchillo Flaque <aleix@oblong.com>
+Date:   Fri Nov 1 07:25:01 2013 -0700
+
+    rtspconnection: allow setting tls certificate validation
+    
+    Added new functions gst_rtsp_connection_set_tls_validation_flags() to
+    allow setting the TLS certificate validation flags when establishing a
+    TLS connection.
+    A getter is also available, gst_rtsp_connection_get_tls_validation_flags().
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711231
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 82b8374af8f642ea7a336ba3ce05b2900dc922e9
+Author: Aleix Conchillo Flaque <aleix@oblong.com>
+Date:   Thu Oct 31 14:05:43 2013 -0700
+
+    rtspsrc: allow setting tls certificate validation flags
+    
+    Added a new property "tls-validation-flags". If the url transport is
+    TLS, the validation flags will be set to the rtsp connection.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711230
+
+ 
