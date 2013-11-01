@@ -10134,3 +10134,16 @@ Date:   Thu Oct 17 15:16:00 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=710390
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a3431f5d8ba4419366e5bc570e2a7dc5b75ba49b
+Author: Reynaldo H. Verdejo Pinochet <reynaldo@sisa.samsung.com>
+Date:   Thu Oct 31 16:16:48 2013 -0700
+
+    docs: fix common typos emited/eachother/...
+
+ 
