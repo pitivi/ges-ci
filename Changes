@@ -10350,3 +10350,34 @@ Date:   Fri Nov 1 22:32:32 2013 +0100
     configure: Always define AM_CONDITIONAL USE_EGLGLES
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit ebca6aa84f4fbb3163fcafcb8d23893c8617ab18
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 2 15:36:19 2013 +0100
+
+    segment: resurrect sanitizing start and stop for seeking
+
+commit e10af7c4091ef1efc78443364865311b8b80c434
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 2 15:42:07 2013 +0100
+
+    basesrc: mind boggling wrap when comparing offsets
+
+commit 8da78d15958f07020586db390ea1a98233f9b0d2
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 2 15:38:13 2013 +0100
+
+    baseparse: try first frame pts and dts for a valid start timestamp
+
+commit 3aaa3fcf92ec95e7ade4bcce057ea08bfc4d6a83
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 2 15:37:30 2013 +0100
+
+    baseparse: print proper variable in debug statement
+
+ 
