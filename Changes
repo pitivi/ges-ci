@@ -10381,3 +10381,16 @@ Date:   Sat Nov 2 15:37:30 2013 +0100
     baseparse: print proper variable in debug statement
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b137f7958183a8f6837c3fec4f23867b39d11baf
+Author: Rico Tzschichholz <ricotz@ubuntu.com>
+Date:   Sat Nov 2 22:50:47 2013 +0100
+
+    rtsp: Add missing gio-2.0 deps and includes
+
+ 
