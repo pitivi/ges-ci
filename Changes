@@ -10394,3 +10394,28 @@ Date:   Sat Nov 2 22:50:47 2013 +0100
     rtsp: Add missing gio-2.0 deps and includes
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2dda08478ab2cacd1e7caeaf65ddc4d79e520ea3
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Nov 3 15:57:54 2013 +0100
+
+    audio: Add unit test for filling memory with silence samples
+
+commit 3fb235c53c60623fb91f1a72607e96f63d26c7ce
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Nov 3 12:23:12 2013 +0100
+
+    audio: Update ORC dist files
+
+commit 081f009e256459c26f88eb8f7fafdbfcd5725794
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Nov 3 12:22:33 2013 +0100
+
+    audio-format: Use ORC for filling memory with silence samples
+
+ 
