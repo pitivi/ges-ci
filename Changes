@@ -10518,3 +10518,16 @@ Date:   Mon Nov 4 13:56:37 2013 -0800
     gst-inspect: Remove some dead code
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 4072c40b8e74bbab1fb259b8d7f55d626d93c745
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 4 23:20:17 2013 +0000
+
+    avaudec: don't put bogus 0 channel-mask on output caps for mono audio
+
+ 
