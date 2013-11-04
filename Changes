@@ -10438,3 +10438,16 @@ Date:   Mon Nov 4 10:04:42 2013 +0100
     applemedia: Link with gmodule for g_module_open() and others
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit d9c39b9fe0cb53c1f7da8f5c246257225635ed70
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Mon Nov 4 11:17:30 2013 +0100
+
+    discoverer: fix -Wformat-nonliteral warning
+
+ 
