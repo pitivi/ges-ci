@@ -10451,3 +10451,29 @@ Date:   Mon Nov 4 11:17:30 2013 +0100
     discoverer: fix -Wformat-nonliteral warning
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 2b84b4bd975e177c3f08274a34a1d41e9de31173
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Mon Nov 4 11:48:47 2013 +0100
+
+    memory: explicitly cast to GstLockFlags to avoid compiler warnings
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 08bac91ae1524fa2568809509a4ecb955187d777
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Mon Nov 4 11:34:38 2013 +0100
+
+    discoverer: fix build after last commit
+    
+    Add a forward declaration for my_g_string_append_printf that specifies
+    G_GNUC_PRINTF. Turn off indent on it as it drives gst-indent crazy.
+
+ 
