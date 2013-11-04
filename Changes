@@ -10419,3 +10419,22 @@ Date:   Sun Nov 3 12:22:33 2013 +0100
     audio-format: Use ORC for filling memory with silence samples
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 10094840901e11782ee1b26ceea39530b887cced
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Nov 4 10:04:59 2013 +0100
+
+    applemedia-nonpublic: Link with gmodule for g_module_open() and others
+
+commit 831c67c07b25b9ca9dcc819f79e155dec5c8e5da
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Nov 4 10:04:42 2013 +0100
+
+    applemedia: Link with gmodule for g_module_open() and others
+
+ 
