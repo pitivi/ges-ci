@@ -10505,3 +10505,16 @@ Date:   Tue Jan 29 10:51:07 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=692787
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit afe174d38d877b5af8f24795e5ea5e0557d56f00
+Author: Reynaldo H. Verdejo Pinochet <reynaldo@sisa.samsung.com>
+Date:   Mon Nov 4 13:56:37 2013 -0800
+
+    gst-inspect: Remove some dead code
+
+ 
