@@ -10490,3 +10490,18 @@ Date:   Mon Nov 4 19:58:35 2013 +0100
     eglglessink: Query upstream first to get a EGLDisplay
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 8eceb8f32755f7a9522c9df836fa79504088165a
+Author: Paul HENRYS <visechelle@gmail.com>
+Date:   Tue Jan 29 10:51:07 2013 +0100
+
+    Add call to gst_rtp_h264_pay_clear_sps_pps() when receiving a STREAM_START event
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=692787
+
+ 
