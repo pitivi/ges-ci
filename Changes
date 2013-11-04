@@ -10477,3 +10477,16 @@ Date:   Mon Nov 4 11:34:38 2013 +0100
     G_GNUC_PRINTF. Turn off indent on it as it drives gst-indent crazy.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 19b509268517d0a16601d51d381daa42941df2b4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Nov 4 19:58:35 2013 +0100
+
+    eglglessink: Query upstream first to get a EGLDisplay
+
+ 
