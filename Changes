@@ -10630,3 +10630,21 @@ Date:   Tue Nov 5 11:23:08 2013 +0000
     From 865aa20 to dbedaa0
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 111982de2811c2c5bfb15d2d89322d9597e822c1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Nov 5 17:26:49 2013 +0100
+
+    rtpvp8pay: Make Picture ID mode configurable and default to no picture ID
+    
+    Some implementations (linphone) only support no picture at all in the
+    stream and will fail if one is provided.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711497
+
+ 
