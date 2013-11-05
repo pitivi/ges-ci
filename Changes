@@ -10531,3 +10531,102 @@ Date:   Mon Nov 4 23:20:17 2013 +0000
     avaudec: don't put bogus 0 channel-mask on output caps for mono audio
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit ee6f526404226ff9574b1b7865919e7bbe3f67a3
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:17:25 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 1af30c7673b16319ad6915e410c7a8dba5b415bb
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:18:01 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 27a2fa51e180880dc18b71bde4e99c7b154d59fb
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:18:34 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 02b2eeeb9a72452c0a38fd9cdb6c61a6a008b510
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:20:20 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 30ed37657bf039a7b96f5e746fb06c15cb76046c
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:19:37 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 40d9f00106ada79a3e7ea110630021aff4102ed2
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:21:43 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
+
+====== gnonlin =============
+
+ commit 1c93a9c581b19d682630866761f41db58b226de3
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:22:15 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
+
+====== gst-editing-services =============
+
+ commit aa86238d663cc530607d31aab0c3e0f8ec10b677
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 5 11:23:08 2013 +0000
+
+    Automatic update of common submodule
+    
+    From 865aa20 to dbedaa0
+
+ 
