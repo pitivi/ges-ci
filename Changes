@@ -10736,3 +10736,25 @@ Date:   Wed Nov 6 15:18:50 2013 +0100
     audiomixer: Add new element based on adder that does synchronized audio mixing
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b55de48843b9947a36a4f966182724e918c035c2
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Nov 4 09:55:17 2013 +0100
+
+    tagdemux: accumulate buffers in adapter
+    
+    Accumulate buffers in an adapter instead of appending them because append causes
+    a lot of memcpys.
+    Keep track of the last tagsize and accumulate enough data before attempting to
+    parse more data.
+    
+    This patch implements a minimal amount of changes in order to not change the
+    behaviour. We should really rewrite the tag handling and trimming using
+    the adapter API instead of merging and trimming into a buffer.
+
+ 
