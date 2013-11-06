@@ -10682,3 +10682,22 @@ Date:   Wed Nov 6 10:15:59 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2b9118f58c4b4c342ab63f2b639cf064788bc993
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 12:16:31 2013 +0100
+
+    adder: Free consistency checker instance in test_live_seeking test
+
+commit 69e95ffb244246ffde884e0d53dc45753d1f7819
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 12:01:14 2013 +0100
+
+    adder: Release some request pads properly in the unit test
+
+ 
