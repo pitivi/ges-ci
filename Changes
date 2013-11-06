@@ -10758,3 +10758,16 @@ Date:   Mon Nov 4 09:55:17 2013 +0100
     the adapter API instead of merging and trimming into a buffer.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c7e705dd13ad09622c913f9ae3ab185e4c5f595a
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Tue Nov 5 12:43:44 2013 +0100
+
+    aiffparse: fix seeking in push mode
+
+ 
