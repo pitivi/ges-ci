@@ -10657,3 +10657,19 @@ Date:   Tue Nov 5 17:26:49 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 058533ff9f703c0119a3c5c8f35e710c080cab44
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Nov 6 10:15:59 2013 +0100
+
+    valve: proxy caps and allocation
+    
+    Proxy the caps queries on the srcpad as well.
+    Proxy the allocation query on the sinkpad.
+
+ 
