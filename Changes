@@ -10701,3 +10701,38 @@ Date:   Wed Nov 6 12:01:14 2013 +0100
     adder: Release some request pads properly in the unit test
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit fefda4416179fefc58600010e6d570735a044712
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 15:50:08 2013 +0100
+
+    audiomixer: Don't take channel mask in consideration in mono or stereo
+    
+    This could cause negotiation to fail.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708633
+
+commit 69525a147771bcd95d1e24df3e501dad009bb126
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 15:31:31 2013 +0100
+
+    audiomixer: Add test to the .gitignore file
+
+commit e2e4e8e7414b0a92922fb2f6e08aecaa8b11ea95
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 15:18:58 2013 +0100
+
+    audiomixer: Add simply synchronization test
+
+commit caeaade7008b9716e4801afeb8a37d9ed240ccaf
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 15:18:50 2013 +0100
+
+    audiomixer: Add new element based on adder that does synchronized audio mixing
+
+ 
