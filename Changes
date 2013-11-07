@@ -10899,3 +10899,152 @@ Date:   Thu Nov 7 13:48:06 2013 +0100
     set the pipeline to PLAYING from the main loop.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 7e195cdcdca7404a739ea4b3c3f5ad2d217bb2d7
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Nov 7 13:05:08 2013 +0100
+
+    avfvideosrc: fix compiler warning in iOS
+
+commit 98e849a09230399496ac8a3bd548cdf573f1c6be
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Nov 7 12:29:34 2013 +0100
+
+    avfvideosrc: fix build in iOS with isEqualTo doesn't exists
+
+commit a2b90eeb8c673af5b53380bdcb328b075a253ca7
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Nov 7 12:20:31 2013 +0100
+
+    avfvideosrc: fix build with older SDK not supporting AVDeviceFormat
+    
+    AVDeviceFormat and AVFrameRateRange are available in iOS since 7.0
+    so we need a more dynamic approach to support compilation with older
+    SDK's. We use a NSObject to avoid referencing those types and key-value
+    coding or preformSelector to access properties.
+
+commit 46a61ea0366ce478cf8117a4137f79d9e8cad6f2
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Nov 7 01:38:20 2013 +0100
+
+    avfvideosrc: fix checks for HAVE_IOS
+
+commit 81cb13be64335c47dc267c4b25e04071f3cf1049
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Nov 7 01:37:38 2013 +0100
+
+    avfvideosrc: include config.h
+
+commit ef7f6e4654174f0e0bcffc03e3dd3ec426f3da17
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Wed Nov 6 18:53:25 2013 +0100
+
+    avfvideosrc: add more debug
+
+commit 606a50e550e3fc00c81bf31e9689fb9e73102ddd
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Wed Nov 6 18:50:46 2013 +0100
+
+    avfvideosrc: fix compilation with gcc
+    
+    The synthesize block needs to be moved to fix a compiler error
+
+commit 94d77829a4d6f24b7acbbef09a03c2f3487bc155
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Wed Nov 6 18:49:35 2013 +0100
+
+    avfvideosrc: sort caps with the highest resolution first
+    
+    When started without any caps filter we prefer the highest
+    supported resolution.
+
+commit 66334591cc29d3526400f9a8473ce9a11ed37d8e
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Nov 4 11:14:35 2013 +0000
+
+    avfvideosrc: support screen capture on OSX
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711432
+
+commit 88b5ff76f6fc2428a105294e7e0b58dce851540b
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Oct 31 13:05:40 2013 +0000
+
+    avfvideosrc: minor cosmetic
+
+commit 752d74b31f2eee5912d3659fee60315e64d3e156
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Oct 31 13:03:58 2013 +0000
+
+    avfvideosrc: use input device formats to set/get caps if available
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711211
+
+commit 35587efdc9c0c803cc2b299873f9eb63bd2fc4fa
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Oct 29 15:37:16 2013 +0000
+
+    avfvideosrc: update caps if frame size has changed
+    
+    On OSX, setting the pixel format on the output reset the capture device
+    to its native resolution, so we need to update the caps if the output
+    frame size has changed before a proper solution is found.
+
+commit fae79751ad864b64a0be5de5c70d407e5985af97
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Oct 29 15:36:06 2013 +0000
+
+    avfvideosrc: check if low preset is available
+
+commit 7f807270fadbafe9fb69b71de1ca3823529c56dd
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Oct 28 18:22:13 2013 +0000
+
+    avfvideosrc: use a dedicated queue for AVFoundation calls
+    
+    Replace the main queue with a dedicated queue for AVFoundation calls
+    so the execution on this queue won't block if the main queue
+    is not running.
+
+commit 5d612768a42d9bd862cfb0522017ea7fe9fd937c
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Oct 29 17:33:11 2013 +0000
+
+    avfvideosrc: remove trailing space
+
+commit 19844fab4701a451ce06ddedfc5b0707ef920bd6
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Wed Oct 30 14:51:50 2013 +0000
+
+    avfvideosrc: dispatch AVFoundation calls synchronously in the main queue
+
+commit 0d74dc802acb8be3d28e9c1a844e09d9801e0a16
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Wed Oct 30 12:40:01 2013 +0000
+
+    applemedia: enable avfvideosrc if AVFoundation is present
+
+commit b6925d5c56aae3a1b40e8f99fe9cd8743815f8de
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Wed Oct 30 12:39:24 2013 +0000
+
+    avfvideosrc: only enable 1920x1080 preset on iOS
+
+commit f14cdcab58647dfa2b47aa0d314f16db2d91b740
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Oct 28 11:20:27 2013 +0000
+
+    configure.ac: detect presence of AVFoundation
+
+commit 06d59e7829fca360dcbbb140ce9cb267f206b513
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Oct 28 11:53:26 2013 +0000
+
+    applemedia: port avfvideosrc to 1.0
+
+ 
