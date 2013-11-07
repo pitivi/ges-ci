@@ -10834,3 +10834,26 @@ Date:   Wed Nov 6 22:13:13 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=709373
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit fd89e36c8a1f58f36f35e492bd2a9790f73fe211
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 7 09:49:55 2013 +0100
+
+    multiudpsink: Also use the bind-port property if no bind-address was given
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2b348161edb79c71f09b50373295175fc980a1dc
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 7 09:54:40 2013 +0100
+
+    codecparsers: Remove some unused functions
+
+ 
