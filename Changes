@@ -11174,3 +11174,52 @@ Date:   Thu Nov 7 15:03:34 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 660979bbf23809d66f2c91508df752ec370cd50f
+Author: Aurélien Zanelli <aurelien.zanelli@parrot.com>
+Date:   Thu Nov 7 14:39:26 2013 +0100
+
+    codecparsers: Fix bad condition in h264 parser
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711615
+
+commit 78f104aa61d03fe5e29cc7b9c63077ba4e134d3a
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Nov 7 12:29:48 2013 +0000
+
+    applemedia: coremediabuffer: use correct retain/release functions on CMSampleBufferRef buffer
+    
+    Fixes a crash while releasing the sample buffer after the image
+    buffer it contains.
+    
+    Also fixes a minor coding style error.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711606
+
+commit c9a822455382e9b7f98b435d778b21d805caf06e
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Nov 7 14:26:22 2013 +0000
+
+    qtkitvideosrc: lower rank to GST_RANK_SECONDARY
+    
+    Makes avfvideosrc be prefered over qtkitvideosrc since it is deprecated
+    with OS X 10.9.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711614
+
+commit 314e01e83fae07242fa8b28e9617ccd0515c5b5a
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Nov 7 13:33:36 2013 +0000
+
+    avfvideosrc: set rank to GST_RANK_PRIMARY
+    
+    Makes avfvideosrc to be used with autodetection.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711614
+
+ 
