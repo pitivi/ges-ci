@@ -11102,3 +11102,26 @@ Date:   Fri Oct 25 11:42:37 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=710623
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c8db05d610be2e42ca82e1525348b88f6cf9d7f4
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Nov 7 16:17:16 2013 +0100
+
+    rtpsource: update receiver stats for sender
+    
+    An internal sender in a session is also a receiver of its own packets so update
+    the receiver stats. Other senders in the session will use this info to generate
+    correct RB blocks in their SR reports.
+
+commit 268a75e70548865c2a55b57317a52c24f1e2dd7d
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Thu Nov 7 16:13:16 2013 +0100
+
+    rtpsource: refactor receiver stats update
+
+ 
