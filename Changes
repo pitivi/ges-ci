@@ -10857,3 +10857,45 @@ Date:   Thu Nov 7 09:54:40 2013 +0100
     codecparsers: Remove some unused functions
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 21a6adf53c02e5d1d2038a616fa91dcb2359ebb7
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 7 14:12:17 2013 +0100
+
+    audiomixer: Add unit test for handling unaligned buffers
+    
+    That is, buffers that start or end in the middle of an output block.
+
+commit 24ba7af5fa7fd4fec0b6a8b96e7fe05614b32f6e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 7 14:12:00 2013 +0100
+
+    audiomixer: Fix EOS handling if we have some pending data
+
+commit c4092d4575054a345e67c4086849c17df600f68e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 7 13:57:35 2013 +0100
+
+    audiomixer: Add test for the discont handling
+
+commit 1d2a9348a1785b883011b6e111642d1d5827fdaf
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 7 13:55:32 2013 +0100
+
+    audiomixer: Refactor sync test to be more reusable
+
+commit b66ac0dea4a36f2b1662a0fafca0d2e66fe62a27
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 7 13:48:06 2013 +0100
+
+    audiomixer: Remove some racy-ness from the unit test
+    
+    We might already be EOS when we start the mainloop, so only
+    set the pipeline to PLAYING from the main loop.
+
+ 
