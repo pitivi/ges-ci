@@ -11125,3 +11125,31 @@ Date:   Thu Nov 7 16:13:16 2013 +0100
     rtpsource: refactor receiver stats update
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit d59af979303ab0fb98067ede0798629b17d01171
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Thu Nov 7 12:47:51 2013 -0300
+
+    hlssink: do not lose ref to the multifilesink
+    
+    It is needed to update location properties and it was being lost on
+    state changes, causing issues if the pipeline was to be reused
+
+commit 805e313cce90f69580704e3e604481ab416d209e
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Thu Nov 7 12:35:55 2013 -0300
+
+    hlssink: make sure it is handled as a sink
+    
+    It only gets the sink flag set when it adds the multifilesink, that
+    happens in null->ready and it might be too late. Set the flag
+    explicitly on the constructor.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711086
+
+ 
