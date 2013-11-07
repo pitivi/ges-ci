@@ -11048,3 +11048,57 @@ Date:   Mon Oct 28 11:53:26 2013 +0000
     applemedia: port avfvideosrc to 1.0
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 33ebda8ecfd976ab28879ea7fd232572d0cb1ace
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Fri Oct 25 18:22:00 2013 -0300
+
+    qtdemux: handle fragmented files with mdat before moofs
+    
+    Assume a file with atoms in the following order: moov, mdat, moof,
+    mdat, moof ...
+    
+    The first moov usually doesn't contain any sample entries atoms (or
+    they are all set to 0 length), because the real samples are signaled
+    at the moofs. In push mode, qtdemux parses the moov and then finds the mdat,
+    but then it has 0 entries and assumes it is EOS.
+    
+    This patch makes it continue parsing in case it is a fragmented file so that
+    it might find the moofs and play the media.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710623
+
+commit 0e78ffc9d61ffa0adca14be6e4214c8b08450b57
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Fri Oct 25 11:42:37 2013 -0300
+
+    qtdemux: When using a buffered mdat, store all received data for later use
+    
+    In push mode, when qtdemux can't use a seek to skip the mdat buffer it has
+    to buffer it for later use.
+    
+    The issue is that after parsing the next moov/moof, there might be some
+    trailing bytes from the next atom in the file. This data was being discarded
+    along with the already parsed moov/moof and playback would fail to continue
+    after the contents of this moov/moof are played.
+    
+    This is particularly bad on fragmented files that have the mdat before the
+    corresponding moof. So you'd get:
+    
+    mdat|moof|mdat|moof ...
+    
+    When a moof was received, it usually came with some extra bytes that would
+    belong to the next mdat (because upstream doesn't care about atoms alignment).
+    So those bytes were being discarded and playback would fail.
+    
+    This patch makes qtdemux store those extra bytes to reuse them later after the
+    mdat is emptied.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710623
+
+ 
