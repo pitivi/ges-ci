@@ -11223,3 +11223,29 @@ Date:   Thu Nov 7 13:33:36 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=711614
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 7c23a6f23c185330d74ae4ccce79c3641a2fabac
+Author: Greg Rutz <greg@gsr-tek.com>
+Date:   Thu Nov 7 10:57:22 2013 -0700
+
+    mpegvparse: Fix last start code position when input buffer is empty
+    
+    When the input buffer is empty and we need more data to determine
+    whether or not to terminate the previous frame, the last start code
+    location needs to be set to 4 bytes before the the current position
+    (size of start_code is 32-bits)
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711627
+
+ 
