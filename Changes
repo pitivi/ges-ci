@@ -10813,3 +10813,24 @@ Date:   Thu Nov 7 00:51:12 2013 +0100
     osxaudiosink: fix segfault when we can't get the channels layout
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e7e741752371cb593ade69bf47363efb48324904
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Wed Nov 6 22:13:13 2013 -0300
+
+    camerabin: Make sure video-done is post only when file is closed
+    
+    Force filesink to null before posting video-done to make sure the
+    file was closed.
+    
+    Had to do it from a separate thread to avoid calling state_change from
+    a sync message handler.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709373
+
+ 
