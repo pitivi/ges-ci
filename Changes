@@ -11153,3 +11153,24 @@ Date:   Thu Nov 7 12:35:55 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=711086
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 360ac34425539eaabfa6f6106ea1a820460f7101
+Author: Tom Greenwood <tcdgreenwood@hotmail.com>
+Date:   Thu Nov 7 15:03:34 2013 +0000
+
+    appsrc: Fix deadlock that may occur when multiple threads access appsrc at once
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711550
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
