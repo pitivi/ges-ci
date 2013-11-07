@@ -11249,3 +11249,16 @@ Date:   Thu Nov 7 10:57:22 2013 -0700
     https://bugzilla.gnome.org/show_bug.cgi?id=711627
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 24c741554c0d13f9a181387fdbbb0839b1eaa863
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Nov 4 18:57:18 2013 +0100
+
+    typefind: use g_get_prgname() for error message
+
+ 
