@@ -11275,3 +11275,16 @@ Date:   Thu Nov 7 21:37:29 2013 +0100
     coremediabuffer: keep an extra ref to the image and data buffer
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 73888f8e38f26687d0b3ee1163b227b65b5c6ba6
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 8 20:23:27 2013 +0100
+
+    mpegts: Add some more element-type annotations for g-i
+
+ 
