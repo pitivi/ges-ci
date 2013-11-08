@@ -11262,3 +11262,16 @@ Date:   Mon Nov 4 18:57:18 2013 +0100
     typefind: use g_get_prgname() for error message
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 31d7c421583afb3d797abfd5e6466dcb54daab5c
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Nov 7 21:37:29 2013 +0100
+
+    coremediabuffer: keep an extra ref to the image and data buffer
+
+ 
