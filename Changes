@@ -11288,3 +11288,21 @@ Date:   Fri Nov 8 20:23:27 2013 +0100
     mpegts: Add some more element-type annotations for g-i
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ed295e83c2cec42a878a2688b361d6458c07c447
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Nov 9 09:43:56 2013 +0100
+
+    Revert "mpegvparse: Fix last start code position when input buffer is empty"
+    
+    This reverts commit 7c23a6f23c185330d74ae4ccce79c3641a2fabac.
+    
+    The fix was not complete, see discussion in
+    https://bugzilla.gnome.org/show_bug.cgi?id=711627
+
+ 
