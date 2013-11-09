@@ -11366,3 +11366,23 @@ Date:   Sat Nov 9 09:43:56 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 0ee332378bb7c869bd80dad3cdbe6c7464f182a3
+Author: Philippe Normand <philn@igalia.com>
+Date:   Fri Nov 8 17:59:24 2013 +0100
+
+    wavenc: generate a non-empty data header
+    
+    Restore the behavior of the element to the state before commit
+    db29522a430e44450415ca3676abd1b77ee923d9. A non-empty header is
+    generated and when the EOS event is received the header is generated
+    again, this time with the correct size.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711699
+
+ 
