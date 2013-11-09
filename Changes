@@ -11423,3 +11423,46 @@ Date:   Sat Nov 9 12:18:02 2013 +0100
     audiomixer: Add test for the ORC code
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 7a1a044354716e1181da2ef37957a233de77b16f
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Nov 9 09:55:39 2013 -0300
+
+    python: Remove old material.py example
+
+commit 4367933747b25c1155f30a94c1e26237d1d9d6a5
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Nov 9 09:51:55 2013 -0300
+
+    ges-launch: Dot the pipeline on state changes and warnings
+
+commit 371740ecdfeefab173abdfc85d960ed3595b5418
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Nov 9 09:49:03 2013 -0300
+
+    framepositionner: Fix the range of properties dealing with number of pixels
+    
+    This way it is possible to interpolate those values.
+
+commit 59d83f1a93055391097e7c1fe34f5a39eb8ec625
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Nov 9 09:47:21 2013 -0300
+
+    ges: Always create a project to back a timeline
+    
+    And fix all the tests as we need to wait for the project to be loaded
+    to check the reference count of the timeline (as we keep a ref on the
+    timeline in project to later emit "loaded" on idle).
+
+commit bfc720f6c551482b4fa91ccb67e8992d5d13a567
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Sat Nov 9 09:46:10 2013 -0300
+
+    bindings: Cleanup and fix simple python example
+
+ 
