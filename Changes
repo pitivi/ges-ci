@@ -11466,3 +11466,30 @@ Date:   Sat Nov 9 09:46:10 2013 -0300
     bindings: Cleanup and fix simple python example
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 4930dc40cd8537e6004c9ec7c9f8467ee10284ad
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Sat Nov 9 13:32:21 2013 +0100
+
+    mpegvideoparse: check for same TSN only for interlaced streams (fixes unit test)
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711721
+
+ 
