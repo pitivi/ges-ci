@@ -11386,3 +11386,40 @@ Date:   Fri Nov 8 17:59:24 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=711699
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 430175f3c905f616bb3c81cbb688fef41ce8a69b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Nov 9 12:18:02 2013 +0100
+
+    audiomixer: Add test for the ORC code
+
+ 
