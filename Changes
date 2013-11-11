@@ -12211,3 +12211,50 @@ Date:   Mon Nov 11 14:10:53 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=687183
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 49d52a64d6f9532e4a1666d3006488cba4f34e17
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Mon Nov 11 13:17:25 2013 +0100
+
+    ac3parse: correctly handle timestamps when parsing x-private1-ac3
+    
+    ... the way it has always worked fine in a52dec.
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 8c1be8796e58bfcab7c9b9ac2ca089b10bf803b4
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Mon Nov 11 13:15:54 2013 +0100
+
+    mpeg2dec: graceful degradation for badly parsed input
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a3d658915b7f97b14d6cea991c7817a1e2af9c31
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sun Nov 10 12:17:18 2013 +0100
+
+    mpegvideoparse: tweak extension handling
+
+commit b57981d15baf749ae3812db734978c86d9e59891
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sun Nov 10 12:15:33 2013 +0100
+
+    mpgegdemux: do not use pushed buffer in debug message
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
