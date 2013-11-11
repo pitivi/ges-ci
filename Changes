@@ -12416,3 +12416,22 @@ Date:   Mon Nov 11 16:15:00 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711627
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 2e46e7782bae61499e4068948a9fa261381c88c4
+Author: Edward Hervey <edward@collabora.com>
+Date:   Mon Nov 11 17:29:48 2013 +0100
+
+    win32: Really update the def files
+
+commit fee7c89a6ddec4b6434632934990f33cfbdf1eb7
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Nov 11 17:02:35 2013 +0100
+
+    win32: Update def files
+
+ 
