@@ -12177,3 +12177,37 @@ Date:   Mon Nov 11 12:25:14 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711269
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 74a1970101347bda400ba16ebb563d461a3b2dce
+Author: Edward Hervey <edward@collabora.com>
+Date:   Mon Nov 11 13:27:27 2013 +0100
+
+    queue: Don't use gst_buffer_get_size() when possible
+    
+    Makes qst_queue_locked_dequeue 20% faster
+
+ 
+
+====== gst-plugins-base =============
+
+ commit cd52ff313e2c9eca0d20787f598b1d752da4c5f7
+Author: Sreerenj Balachandran <sreerenj.balachandran@intel.com>
+Date:   Mon Nov 11 14:10:53 2013 +0200
+
+    videodecoder: try to negotiate the buffer pool even though there is no o/p format
+    
+    We could have allocation query before caps event and even without caps inside
+    the query. In such cases , the downstream can return a bufferpool object with
+    out actually configuring it. This feature is helpful to negotiate the bufferpool
+    with out knowing the output video format. For eg: some hardware accelerated
+    decoders can interpret the o/p video format only after it finishes the decoding
+    of one buffer at least.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=687183
+
+ 
