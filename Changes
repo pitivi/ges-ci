@@ -12435,3 +12435,16 @@ Date:   Mon Nov 11 17:02:35 2013 +0100
     win32: Update def files
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit e30eab99a26389e78f8669070f0a351b81a52d57
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 11 16:47:06 2013 +0000
+
+    systemclock: add Since markers for new API
+
+ 
