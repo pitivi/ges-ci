@@ -12158,3 +12158,22 @@ Date:   Thu Oct 24 13:16:42 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=711829
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 02b64ee03bfcdcd75c8d405f99dd4a2f0f7df164
+Author: Wim Taymans <wim.taymans@gmail.com>
+Date:   Mon Nov 11 12:25:14 2013 +0100
+
+    systemclock: Add gst_system_clock_set_default
+    
+    Used for setting the default system clock that is obtained through
+    gst_system_clock_obtain(), which is sometimes needed for unit
+    testing.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711269
+
+ 
