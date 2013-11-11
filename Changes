@@ -12258,3 +12258,35 @@ Date:   Sun Nov 10 12:15:33 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 3623ebf01e14603154b51de1c6dc0832a05466ff
+Author: Wim Taymans <wim.taymans@gmail.com>
+Date:   Mon Nov 11 14:25:51 2013 +0100
+
+    check: add rtpsession test
+    
+    Add a basic rtpsession test to ensure that RR blocks are generated when
+    multiple SSRC senders are active.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711270
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 58be5ce16ddc3342f332e7ed4be2c198c82133f3
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Mon Nov 11 13:24:08 2013 +0000
+
+    avfvideosrc: declare missing instance variables
+    
+    Fixes build on 32-bit system.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711844
+
+ 
