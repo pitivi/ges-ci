@@ -12129,3 +12129,32 @@ Date:   Sat Nov 9 13:32:21 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b81b2efa3e4905f11136930da5191b1ac033825e
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Nov 5 10:48:33 2013 +0200
+
+    rtpjitterbuffer: fix crash when do-retransmission=true and a lot of buffers are lost
+    
+    The problem here was that the jitterbuffer lock was unlocked to push
+    the event, but that caused another thread to remove the timer currently
+    being processed, probably because the amount of rtx events
+    (and therefore timers) was getting too high. The solution is to
+    unlock and push the event only after timer processing has finished.
+    
+    fixes https://bugzilla.gnome.org/show_bug.cgi?id=711131
+
+commit b3e0b1dbcaa452c5419b3ad254a0f8cca6167f4a
+Author: Per x Johansson <perxjoh@axis.com>
+Date:   Thu Oct 24 13:16:42 2013 +0200
+
+    matroskademux: Avoid division by zero assert in gst_matroska_demux_search_pos
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711829
+
+ 
