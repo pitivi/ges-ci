@@ -12290,3 +12290,30 @@ Date:   Mon Nov 11 13:24:08 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=711844
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e4bc81d7d2ea86150cb179658f4673e42fa6ad04
+Author: Wim Taymans <wim.taymans@gmail.com>
+Date:   Mon Nov 11 15:27:18 2013 +0100
+
+    rtpsession: remove collision reconfigure event
+    
+    Remove bogus reconfigure event on collision, we don't want to send the event on
+    the receiving RTP pad and the collision event is now handling this
+    case.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=711560
+
+commit b32fc6f41629237a0c98435bbb9d3c00a167851f
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 17:04:28 2013 +0000
+
+    gstrtpsession: send custom upstream event "GstRTPCollision" on send_rtp_sink pad
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=711560
+
+ 
