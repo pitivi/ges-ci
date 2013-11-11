@@ -12317,3 +12317,102 @@ Date:   Fri Nov 1 17:04:28 2013 +0000
     See https://bugzilla.gnome.org/show_bug.cgi?id=711560
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 4813000b4d246dcb2e5014ac8e068e2c198370cf
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Nov 11 16:50:13 2013 +0100
+
+    gst-uninstalled: Also export LD_LIBRARY_PATH for gst-plugins-gl
+
+commit 49b23058b7ffb00660a8b32530841c2f16e29ddf
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Nov 5 12:22:51 2013 +0000
+
+    gst-uninstalled: export gst-plugins-gl DYLD_LIBRARY_PATH
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711488
+
+commit 959e87cf2a5d33f06cab0160f15a13c4229e020c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 18:46:19 2013 +0100
+
+    collectpads: Always send SEEK events to all pads, even if one fails
+
+commit 911af13b5c256e120e1538b5c15b778a53c930c2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 18:41:10 2013 +0100
+
+    collectpads: Update documentation for flushing seek handling
+
+commit 6250120d765154661a67ee98e5315bb09341d9bf
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 6 18:05:22 2013 +0100
+
+    collectpads: Don't leak seek events
+
+commit 7aec5739eb6cc667afde0db8b69f2f069da5e15e
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Mon Sep 16 09:55:58 2013 +0200
+
+    collectpads: implement flushing seek support
+    
+    Implement common flushing seek logic in GstCollectPads. Add new
+    API so that elements can opt-in to using the new logic
+    (gst_collect_pads_src_event_default) and can extend it
+    (gst_collect_pads_set_flush_function) to flush any internal
+    state.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=706779 and
+    https://bugzilla.gnome.org/show_bug.cgi?id=706441 for the
+    background discussion.
+    
+    API: gst_collect_pads_set_flush_function()
+    API: gst_collect_pads_src_event_default()
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708416
+
+commit f52b5ddcd2de711c1e095d6b4875566cffcc8244
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Mon Sep 16 08:35:37 2013 +0200
+
+    tests: collectpads: add flushing seek tests
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708416
+
+commit d0636238519875fa25c5b544d6af54c96892d3fd
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Mon Sep 16 08:31:47 2013 +0200
+
+    tests: collectpads: tweak stub _collect to push all buffers
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708416
+
+commit 01b4565a9a4adfeb00d9c4ce8ffcf50a1f641198
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Mon Sep 16 08:26:25 2013 +0200
+
+    tests: collectpads: update my email address
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708416
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 830a4aa7f4788f3b5a874ed68a80ceae66473c47
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Mon Nov 11 16:15:00 2013 +0100
+
+    mpegvideoparse: look beyond start code before leaping
+    
+    In case more data than a start code alone is needed to decide whether
+    it ends a frame, arrange for more input data and decide when available.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711627
+
+ 
