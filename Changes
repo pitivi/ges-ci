@@ -12448,3 +12448,18 @@ Date:   Mon Nov 11 16:47:06 2013 +0000
     systemclock: add Since markers for new API
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit bc87f39a90eb480da39637ba005f242fd8d49a90
+Author: Marc Leeman <marc.leeman@gmail.com>
+Date:   Fri Nov 8 11:09:21 2013 +0000
+
+    v4l2: init v4l2_buffer to 0x0 before ioctl
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712137
+
+ 
