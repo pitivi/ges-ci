@@ -12463,3 +12463,20 @@ Date:   Fri Nov 8 11:09:21 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=712137
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 7509343e53dbabbde7bb728becc9bc2fc9a2808a
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Nov 12 18:58:43 2013 +0000
+
+    tests: fix race in streamsynchronizer test
+    
+    Wait for thread to exit before starting to free the
+    to_push list, otherwise thread might check the final
+    to_push->next node only after we've freed it already.
+
+ 
