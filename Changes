@@ -12529,3 +12529,18 @@ Date:   Mon Nov 4 15:46:22 2013 +0100
     the config-interval expires at the same time.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit be01e80e6b8347e4d08a7105992cc77c5373ad47
+Author: Marc Leeman <marc.leeman@gmail.com>
+Date:   Wed Nov 13 10:42:21 2013 +0000
+
+    v4l2object: print FOURCC_FORMAT when enumerating
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712206
+
+ 
