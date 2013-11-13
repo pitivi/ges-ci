@@ -12502,3 +12502,30 @@ Date:   Wed Nov 13 10:23:19 2013 +0100
     rtspsrc: Use the synced buffer mode in auto mode if a clock provider is in the SDP
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2e5b462ae3ccd17e7da774df0762eb09318fa8a3
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Wed Nov 6 12:40:06 2013 +0100
+
+    jitterbuffer: advance expected seqnum after dropping
+    
+    After dropping a buffer, move our expected seqnum
+    
+    Conflicts:
+    	gst/rtpmanager/gstrtpjitterbuffer.c
+
+commit a065b4fcdef49ddcb8c5135a95416477103ecd47
+Author: Wim Taymans <wim.taymans@collabora.co.uk>
+Date:   Mon Nov 4 15:46:22 2013 +0100
+
+    gstpay: only send one caps
+    
+    Only send one caps in a packet. Two caps can happen when setcaps is called and
+    the config-interval expires at the same time.
+
+ 
