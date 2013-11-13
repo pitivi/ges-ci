@@ -12574,3 +12574,21 @@ Date:   Wed Nov 13 19:55:41 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=709253
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 76985c5e81bd206439409ed8aa34aedb4ac47fce
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 13 20:12:48 2013 +0100
+
+    rtpbuffer: Fix gst_rtp_buffer_ext_timestamp() with clang 5 on iOS/ARM
+    
+    The bitwise NOT operator is not defined on signed integers.
+    Thanks to Wim Taymans for finding the cause.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711819
+
+ 
