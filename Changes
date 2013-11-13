@@ -12557,3 +12557,20 @@ Date:   Wed Nov 13 14:28:30 2013 +0000
     eglglessink: fix non-egl display context query
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 52864794671e00e169b8c70ac957c9ae8efa8b80
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 13 19:55:41 2013 +0100
+
+    value: Lists with all equal elements are equal to a single value
+    
+    Otherwise caps containing f={X, X} are not compatible with f=X
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709253
+
+ 
