@@ -12617,3 +12617,16 @@ Date:   Tue Nov 12 18:36:04 2013 -0300
     actually use them on muxed streams.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b4f29e69457f258651f4e5142e7206dc75a6f56e
+Author: Reynaldo H. Verdejo Pinochet <reynaldo@sisa.samsung.com>
+Date:   Wed Nov 13 18:59:48 2013 -0300
+
+    codecparsers: Add -lm needed by H.265 parser
+
+ 
