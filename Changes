@@ -12592,3 +12592,28 @@ Date:   Wed Nov 13 20:12:48 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=711819
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 07ba033943fb0785c4f117770a1cbd52fe6b1310
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Wed Nov 13 17:16:04 2013 -0300
+
+    pngparse: Proxy upstream framerate on srcpad if avalaible
+    
+    If the user sets it himself with capsfilter, the information should be
+    kept and transmitted downstream.
+
+commit b148c22cec70f4cd97836ea42ef2882589fe9adf
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Nov 12 18:36:04 2013 -0300
+
+    mpegtsmux: Properly add subtitle descriptor for DVb subpicture subtitles
+    
+    We were adding an empty descriptor for them and it was not possible to
+    actually use them on muxed streams.
+
+ 
