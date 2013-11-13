@@ -12489,3 +12489,16 @@ Date:   Tue Nov 12 18:58:43 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 9ae69815789633609eae072b021fd78ee4cbcd43
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Nov 13 10:23:19 2013 +0100
+
+    rtspsrc: Use the synced buffer mode in auto mode if a clock provider is in the SDP
+
+ 
