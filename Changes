@@ -12544,3 +12544,16 @@ Date:   Wed Nov 13 10:42:21 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=712206
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 5e5bc19cca0baa83a84002b46683e5b10095597d
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Wed Nov 13 14:28:30 2013 +0000
+
+    eglglessink: fix non-egl display context query
+
+ 
