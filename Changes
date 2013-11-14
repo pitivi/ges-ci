@@ -12630,3 +12630,27 @@ Date:   Wed Nov 13 18:59:48 2013 -0300
     codecparsers: Add -lm needed by H.265 parser
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b450d31503b794579a7e555eb3ad72e99447873e
+Author: Wim Taymans <wim.taymans@gmail.com>
+Date:   Thu Nov 14 09:20:06 2013 +0100
+
+    rtpjitterbuffer: rename property to 'stats'
+    
+    This makes the unit test work.
+    We can later also add more stats, not specific to retransmission.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711411
+
+commit 22ceb80ba92a1b7ea939b10023ff874693d0f554
+Author: Torrie Fischer <torrie.fischer@collabora.co.uk>
+Date:   Tue Nov 12 11:19:25 2013 -0500
+
+    rtpjitterbuffer: implement rtx statistics
+
+ 
