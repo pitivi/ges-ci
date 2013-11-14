@@ -12667,3 +12667,20 @@ Date:   Thu Nov 14 09:02:35 2013 -0300
     mpegtsmux: Fix compilation when debug is disabled
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 1a4e7338d902245a2a64b1c8e94ffe2766479185
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Nov 14 20:54:32 2013 +0100
+
+    qtmux: fix playback regression
+    
+    In ae1150e85cf99d7482933aa6f7e4f012fe45a3ec flipping a condition misaligned the
+    else branch, where for there condition that was change there is none.
+    Fixes #712303
+
+ 
