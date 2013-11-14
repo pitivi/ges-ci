@@ -12684,3 +12684,19 @@ Date:   Thu Nov 14 20:54:32 2013 +0100
     Fixes #712303
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit cfdadd411440a001b59becc8196abf696a486a2d
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Wed Nov 13 17:11:08 2013 -0300
+
+    qtdemux: remove math operation from loop
+    
+    The elst_offset doesn't change inside the loop, so compute it
+    outside
+
+ 
