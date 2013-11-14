@@ -12654,3 +12654,16 @@ Date:   Tue Nov 12 11:19:25 2013 -0500
     rtpjitterbuffer: implement rtx statistics
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit da4f9c18ec5c497c718da06907f072038fae1689
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Nov 14 09:02:35 2013 -0300
+
+    mpegtsmux: Fix compilation when debug is disabled
+
+ 
