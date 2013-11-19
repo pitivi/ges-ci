@@ -25261,3 +25261,24 @@ Date:   Mon Nov 11 16:35:35 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=710223
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit a73644a7b941b8fa270824ef7bd9d40d60cafd10
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Nov 18 13:41:07 2013 -0300
+
+    video-uri-source: Handle interlaced videos
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710168
+
+commit e5d28fa86eae961c3b72854b2294f3212e530f8a
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Nov 14 16:17:31 2013 -0300
+
+    ges-launch: Let user set the track types to use
+
+ 
