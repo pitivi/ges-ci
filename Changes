@@ -25069,3 +25069,195 @@ Date:   Wed Nov 13 17:11:08 2013 -0300
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit f8dd5550c2da2c0eacb36f04c237e39f6ad5b83d
+Author: Wim Taymans <wim.taymans@gmail.com>
+Date:   Mon Nov 18 21:39:54 2013 +0100
+
+    pluginloader: check read/write before closed
+    
+    first try to read or write on the socket before checking the closed state. This
+    makes sure we handle all data on the socket before erroring out.
+
+commit 388f0ec06945d132265ed62e5e6d8f1bcf1155ee
+Author: Wim Taymans <wim.taymans@gmail.com>
+Date:   Mon Nov 18 21:37:06 2013 +0100
+
+    poll: improve debug
+    
+    So that we can see the return values of functions in the log.
+
+commit 47679cf2f8055f37be0b0dde1d7ea68be0972460
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 18 15:28:32 2013 +0000
+
+    tests: fix GstBus unit test with latest GLib
+    
+    g_source_remove() works on the default main context, and
+    we're doing things with a custom context. Fixes warning
+    with newer GLib versions.
+
+commit 9f669e5ea59433631e43f924d70c6001e1de3a07
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Nov 16 12:24:56 2013 +0000
+
+    docs: cosmetic since marker fixes
+
+commit e24722c52c5840fdf9e5825ba624d2e0aa129494
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 16 15:17:57 2013 +0100
+
+    baseparse: ensure to preserve upstream timestamps
+    
+    ... rather than have subclass coming up with an internally parsed one.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=707230
+
+commit 38f368e48ecbba1fc83ea8751f0fa5eb19f3c4fc
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 15 07:32:48 2013 +0100
+
+    bin: Resync iterator if necessary
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 92967c3d2ad964a3e4957d7880e8742b775ce1e1
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 18 19:27:14 2013 +0000
+
+    tests: fix input-selector-test
+    
+    Update for pad template name changes.
+
+commit b79d6b1c09a00db3833ca568bb46ade1b96dff71
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 18 16:03:07 2013 +0000
+
+    tests: fix appsrc test with latest GLib version
+    
+    With the latest GLib, g_source_remove() complains about not finding
+    the timeout source with the given ID here, since it was already
+    destroyed by returning FALSE from the timeout callback. Also return
+    FALSE from the bus watches when we don't want to be called any more.
+
+commit b1ff48c1a1c294403dc1ffc49c4a1e9e489a35d4
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Nov 16 13:06:37 2013 +0000
+
+    docs: remove old 0.10 Since markers
+    
+    They're just confusing.
+
+commit 4af1e064fe423beca2245a027c5fac53f71231d7
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Nov 16 12:29:04 2013 +0000
+
+    docs: cosmetic since marker fixes
+
+commit b13a7227460e2b277b0ae37bedf54fe48846a9da
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 16 15:24:48 2013 +0100
+
+    audioencoder: also set output buffer DTS
+
+commit 8d9dc05245c3dd92cd8f1c2c2866dc7d9988490e
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Thu Nov 14 01:53:31 2013 -0300
+
+    typefind: Fix identification of some MPEG files
+    
+    Make sure we begin by peeking at MPEG2_MAX_PROBE_LENGTH
+    bytes.
+    
+    Fixes:
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=678011
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 0c6f4efe4ab261d4717409b631e6dac88c473622
+Author: Wim Taymans <wim.taymans@gmail.com>
+Date:   Tue Nov 19 10:10:51 2013 +0100
+
+    rtpjitterbuffer: avoid mapping the buffer
+    
+    Reuse the parsed structure to get the timestamps.
+
+commit 28f524a551be99c0262713c9051ea60a0062e5be
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 18 17:13:49 2013 +0000
+
+    rtspsrc: fix 'make check'
+    
+    Fix generic/states check. Also, g_return_if_fail() is
+    not for internal state checking.
+
+commit d506409af5cf73ec5d4fe9e45030b40663207b5d
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 18 14:44:36 2013 +0000
+
+    docs: get rid of 'Since: 0.10.x' markers
+    
+    And some gtk-doc markup fixes.
+
+commit 548e756e0a6cd59e830c5317678f19b76d9e1bfb
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Nov 16 12:15:14 2013 +0000
+
+    rtpmanager: fix Since markers
+    
+    Should be next stable release series version
+
+commit 387e3b918a474ea311878bbb647475f4952e8a47
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Fri Nov 15 13:48:07 2013 +0200
+
+    rtpjitterbuffer: Fix stats property field names and documentation
+
+commit acf74435e3a713a7d0fd685abad86e6a61eef51f
+Author: Torrie Fischer <torrie.fischer@collabora.co.uk>
+Date:   Fri Nov 15 15:20:14 2013 +0100
+
+    gstrtpsession: Implement a number of feedback packet statistics
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711693
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 898966a44c0da6d2430470f093341dd902138d52
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Nov 19 00:38:33 2013 +0100
+
+    daala: Fix compilation
+
+commit 27b0086e4a06616b790e387413c5874108d0d1e1
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Wed Nov 13 22:25:59 2013 -0300
+
+    mssdemux: do not try to deinit the downloadrate while it is used
+    
+    This can cause an assertion or deadlocks.
+
+commit fe77ee47c957a563dd879387eae902deefecf86f
+Author: Thiago Santos <ts.santos@partner.samsung.com>
+Date:   Mon Nov 11 16:35:35 2013 -0300
+
+    mssdemux: also consider /manifest
+    
+    The spec says /Manifest, but /manifest is easily found on some
+    services, so handle that, too.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710223
+
+ 
