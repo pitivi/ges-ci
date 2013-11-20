@@ -25374,3 +25374,20 @@ Date:   Wed Nov 20 21:41:47 2013 +1100
     Remove qtdemux_fourcc.h and ftypcc.h and put it all in fourcc.h
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c336f7642cd83a4521a91198e6c9ccee05c84f1d
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Wed Nov 20 12:46:23 2013 +1100
+
+    dvdspu: Handle vobsub packets smaller than 4 bytes
+    
+    In particular, handle the case of an empty packet with size 0 bytes.
+    
+    Partially fixes: #712643
+
+ 
