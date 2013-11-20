@@ -25282,3 +25282,44 @@ Date:   Thu Nov 14 16:17:31 2013 -0300
     ges-launch: Let user set the track types to use
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b58ca88fb9c3c3e1efd5a19c0c339cbe56987655
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Nov 19 20:18:48 2013 -0500
+
+    srtpenc: Set the first session flag to false once one is create
+    
+    Otherwise it always thinks it's the first session.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711495
+
+commit 2b75eb85c4610fdb00e89041946fbc62f0080556
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Nov 19 20:12:54 2013 -0500
+
+    srtpdec: Make sure that stream-id/caps/segment are sent before buffers
+    
+    It may be possible that only one of the two sink pads is linked in that case,
+    the events need to be created from the other pad.
+
+commit de1fb842e66001149ef78365768b41efbe9b2919
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Nov 19 19:10:06 2013 -0500
+
+    srtpdec: Pass is_rtcp to setcaps function
+
+commit 8c76d7c77e2f4fc8172d19f4fbda78fca3def1aa
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Thu Apr 4 17:59:01 2013 -0400
+
+    srtp: Implement SRTCP demultiplexing
+    
+    Separate multiplexed RTP and RTCP if they arrive
+    on the rtp_sink pad.
+
+ 
