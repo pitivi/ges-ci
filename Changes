@@ -25332,3 +25332,45 @@ Date:   Thu Apr 4 17:59:01 2013 -0400
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 81e2c8130a7a2a9316cd79d3f84d97979c7010b6
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Thu Nov 21 02:28:27 2013 +1100
+
+    isomp4: Handle mp4s subpicture streams better.
+    
+    Clean up the handling of mp4s streams. Use the generic esds
+    descriptor function to extract the palette, instead of hard coding
+    a wrong magic offset.
+    
+    Add some more size safety checks when parsing ES descriptors, and
+    replace magic numbers with the descriptive constants that are already
+    defined.
+    
+    Enhance dump output for stsd atoms.
+    
+    Streams from both bug 712643 and historic bug 568278 now both work
+    correctly.
+    
+    Fixes: #712643
+
+commit 217d2d8debae0c96e101aa3f1bf530e9a5a12c02
+Author: Jan Schmidt <thaytan@noraisin.net>
+Date:   Wed Nov 20 22:08:25 2013 +1100
+
+    qtdemux: Sort fourcc declarations and remove duplicates
+
+commit b6f581eecc2d49cc6d263869ca5cb1123bac7949
+Author: Jan Schmidt <thaytan@noraisin.net>
+Date:   Wed Nov 20 21:41:47 2013 +1100
+
+    qtdemux: Merge all the fourcc headers into one
+    
+    Remove qtdemux_fourcc.h and ftypcc.h and put it all in fourcc.h
+
+ 
