@@ -25417,3 +25417,30 @@ Date:   Thu Nov 21 11:30:28 2013 +0100
     Remove the size restriction on the payloader.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 8162a583a4dd68582bf186e2e47a8f0d68fa1980
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Nov 21 14:13:16 2013 +0100
+
+    ghostpad: copy sticky events to SRC ghostpads
+    
+    Update the sticky events on SRC ghostpads when retargeting. This ensures
+    that the ghostpad has the exect same sticky events as the target pad. We
+    don't want to do this for SINK ghostpads, they got the events from
+    downstream and we don't want to overwrite them with the target pad
+    events.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=707621
+
+commit e5c5d3de7e543ef9bf12952d848ad0b96d158821
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Nov 21 12:28:00 2013 +0100
+
+    pad: move debug function closer to the enum it debugs
+
+ 
