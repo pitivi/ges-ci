@@ -25516,3 +25516,26 @@ Date:   Thu Nov 21 15:54:32 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=712811
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 60e87090eb1f91e298f4e1005a6f6953b592709f
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Nov 21 16:34:25 2013 +0000
+
+    tests: add unit test for samiparser issue
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712805
+
+commit a81b2380cfcb3dc97eca08318b1b405e477ec8f1
+Author: Jihyun Cho <jihyun.jo@gmail.com>
+Date:   Thu Nov 21 22:04:46 2013 +0900
+
+    subparse: fix null pointer access in sami parser
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712805
+
+ 
