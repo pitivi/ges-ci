@@ -25391,3 +25391,29 @@ Date:   Wed Nov 20 12:46:23 2013 +1100
     Partially fixes: #712643
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 3a1199c2f774450608061c7c70317cd60fa071cb
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Nov 21 11:32:15 2013 +0100
+
+    rtpvorbisdepay: handle packets > 0xffff
+    
+    Handle input packet sizes larger than 16 bits in the depayloader.
+    Remove size restrictions on the payloader.
+
+commit 43e9b561223f1da28c21235b4e2cef3b4a0471d8
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Nov 21 11:30:28 2013 +0100
+
+    rtptheoradepay: handle packets > 0xffff
+    
+    Reorganize some things in the depayloader so that it can handle packets larger
+    than 16 bits.
+    Remove the size restriction on the payloader.
+
+ 
