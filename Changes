@@ -25483,3 +25483,36 @@ Date:   Thu Nov 21 15:19:47 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d9c2914c90c1d7a566154a2a922105cbd8a00a1f
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Nov 21 15:30:34 2013 +0000
+
+    g_memmove() is deprecated
+    
+    Just use plain memmove(), g_memmove() is deprecated in
+    recent GLib versions.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712811
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 1698d3254d2b4e08ff27df1fa69a55d2b02fe0d1
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Nov 21 15:54:32 2013 +0000
+
+    qtwrapper: g_memmove() is deprecated
+    
+    Just use plain memmove(), g_memmove() is deprecated in
+    recent GLib versions.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712811
+
+ 
