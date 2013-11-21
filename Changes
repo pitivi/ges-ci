@@ -25539,3 +25539,20 @@ Date:   Thu Nov 21 22:04:46 2013 +0900
     https://bugzilla.gnome.org/show_bug.cgi?id=712805
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f8f2fc3e86fcf55b80d93acebfcdb444ec34b0bc
+Author: Michael Olbrich <m.olbrich@pengutronix.de>
+Date:   Mon Nov 18 14:27:48 2013 +0100
+
+    v4l2: clear cached caps on close
+    
+    A different device with different caps may be used for the next open.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712611
+
+ 
