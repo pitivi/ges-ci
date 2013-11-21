@@ -25444,3 +25444,42 @@ Date:   Thu Nov 21 12:28:00 2013 +0100
     pad: move debug function closer to the enum it debugs
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 4afa63a8baf3fcc1e841b5a58cd18293f2827cac
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Nov 21 15:04:04 2013 +0000
+
+    gst: g_memmove() is deprecated
+    
+    Just use plain memmove(), g_memmove() is deprecated in
+    recent GLib versions.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712811
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 5d7125413e2656e1dc8edf10cbea8222458539e1
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Nov 21 15:19:47 2013 +0000
+
+    subparse: g_memmove() is deprecated
+    
+    Just use plain memmove(), g_memmove() is deprecated in
+    recent GLib versions.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712811
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
