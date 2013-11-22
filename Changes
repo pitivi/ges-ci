@@ -25606,3 +25606,66 @@ Date:   Fri Nov 22 01:35:18 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=714989
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 0f8040862f5b8527027e733596b57fd57a09429a
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Nov 22 21:00:21 2013 +0000
+
+    tools: play: add --shuffle command line option
+
+ 
+
+====== gst-editing-services =============
+
+ commit e7a45f0eef880a5530431c8ae1984a85169921d6
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Nov 22 17:49:49 2013 -0300
+
+    Remove GESSimplerLayer, that API should land into GESLayer in the end
+    
+    The priority handling of clip is now handled by GESLayer itself, and
+    handling clip as a ordered list should be implemented in GESLayer itself
+    too, this way the user can decide to switch mode at any time instead of
+
+commit 04071e72145a12aa87e02224f05108cf615e4deb
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Nov 22 17:36:12 2013 -0300
+
+    layer: Set clip start to the duration of the layer if == TIME_NONE
+    
+    In the provided start of a clip is GST_CLOCK_TIME_NONE in
+    ges_layer_add_asset, it means that we want the clip to be
+    added at the end of the layer
+
+commit 4c411761fd22ab7faad8fbb246b51803152513f4
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Nov 22 17:33:18 2013 -0300
+
+    layer: Add an API to get the total duration of the layer
+    
+    API:
+        ges_layer_get_duration
+
+commit 4b94efa246ba1d165f416583f870889a2a32952a
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Nov 22 17:23:31 2013 -0300
+
+    Remove the android/ toplevel directory
+    
+    To build gstreamer for android we are now using androgenizer which
+    generates the needed Android.mk files. Androgenizer can be found here:
+    
+     * http://cgit.collabora.com/git/android/androgenizer.git/
+
+commit 7b1df27c869e15f068ad561b482a3c670fb19d7e
+Author: Lubosz Sarnecki <lubosz@gmail.com>
+Date:   Wed Nov 13 13:18:00 2013 +0100
+
+    gir: fix warnings
+
+ 
