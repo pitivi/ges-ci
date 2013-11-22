@@ -25589,3 +25589,20 @@ Date:   Fri Nov 22 12:26:21 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 7a073cdcda5be725da8f763e6445b1b12e4a1339
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Fri Nov 22 01:35:18 2013 +0100
+
+    gstutils: Escape stream id format in comments
+    
+    These must be escaped for gtk-doc to parse the comments without warnings.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=714989
+
+ 
