@@ -25556,3 +25556,18 @@ Date:   Mon Nov 18 14:27:48 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=712611
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4c9474905b264e73c77acf2e3dce5a88b2e44b08
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Nov 22 12:26:21 2013 +0100
+
+    rtpjitterbuffer: pass downstream flowreturn to upstream
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712722
+
+ 
