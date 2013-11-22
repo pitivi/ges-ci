@@ -25669,3 +25669,57 @@ Date:   Wed Nov 13 13:18:00 2013 +0100
     gir: fix warnings
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 83f8ee1d41a238b2fc54c127eee8dee33390d08f
+Author: MathieuDuponchelle <mathieu.duponchelle@epitech.eu>
+Date:   Sat Sep 14 03:27:09 2013 +0200
+
+    videomixer2: Merge tag events to send them in collected.
+    
+    Otherwise there were race conditions where we would send tags
+    on a flushing srcpad.
+    
+    We have a test for that in GES, but this should be tested
+    systematically with harness in the future as I believe it
+    is useful for exactly that kind of cases.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708165
+
+commit a45d470236a7675de82d874bd6595e77a35be6bc
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Nov 14 17:29:50 2013 -0300
+
+    qtdemux: Use GstVideoInfo helper to create caps for raw video
+    
+    This way we do not miss mandatory fields in caps.
+    At the same time use the gst_pb_utils_get_codec_description
+    helper to get codec description.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712335
+
+commit 6ff7522ba29625ff52d1a0d2dcd6c8d250f2694e
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Nov 14 16:11:38 2013 -0300
+
+    matroskademux: Use GstVideoInfo helper to create caps for raw video
+    
+    This way we do not miss mandatory fields in caps.
+    At the same time use the gst_pb_utils_get_codec_description helper to
+    get codec description.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712328
+
+commit 1fc591238bd7018a93d16e977dfeaf5f68092059
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Wed Nov 13 20:18:17 2013 -0300
+
+    multifilesrc: Implement seeking in case of multiple images
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712254
+
+ 
