@@ -25776,3 +25776,35 @@ Date:   Sat Nov 23 14:35:06 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712219
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a90585c686a8499d9eecc7c5fd1d1df2d1580c47
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Nov 23 18:37:00 2013 +0100
+
+    openexr: Add OpenEXR decoder element
+    
+    This currently converts from ARGB64_F16 (16 bit float per component)
+    to ARGB64 by clipping. We should add support for the F16 format and
+    implement a conversion filter element that can apply gamma curves,
+    change exposure, etc.
+
+commit da65dccd78b6840c632fba92b5e62a5fde72fd40
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Nov 23 11:29:08 2013 +0100
+
+    openexr: Add OpenEXR plugin
+    
+    See http://www.openexr.com
+
+commit f8db818a8dd6856adf898c55ac676b1a006f1f07
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Nov 23 11:35:35 2013 +0100
+
+    openjpeg: Fix names of debug categories
+
+ 
