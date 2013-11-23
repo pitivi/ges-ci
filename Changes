@@ -25836,3 +25836,16 @@ Date:   Thu Nov 21 21:33:59 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712796
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit eb7cae8033ec6a9b1d873bb9ddb0181facadad3d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Nov 23 11:25:28 2013 +0100
+
+    typefind: Add typefinder for OpenEXR
+
+ 
