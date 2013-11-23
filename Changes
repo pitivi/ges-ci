@@ -25821,3 +25821,18 @@ Date:   Sat Nov 23 19:11:42 2013 +0100
     openexrdec: Consider the pixel aspect ratio stored in the file
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit ee86a91957b73e57c1d9b540c53b21e0fc49def4
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Thu Nov 21 21:33:59 2013 +0100
+
+    videodecoder: avoid descending output timestamps
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712796
+
+ 
