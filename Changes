@@ -25740,3 +25740,22 @@ Date:   Sat Nov 23 11:23:35 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=667564
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 643e6fdc363b48af7b62536cd084215e66178393
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 23 12:15:40 2013 +0100
+
+    matroskamux: correctly handle negative relative timestamps
+    
+    ... rather than scaling these as unsigned.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712744
+    
+    Based on patch by Krzysztof Kotlenga <pocek@users.sf.net>
+
+ 
