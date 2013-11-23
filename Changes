@@ -25759,3 +25759,20 @@ Date:   Sat Nov 23 12:15:40 2013 +0100
     Based on patch by Krzysztof Kotlenga <pocek@users.sf.net>
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit db915754c15009dfe61bbc016b801f5bb63b1e84
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 23 14:35:06 2013 +0100
+
+    dvdspu: pop new packet when invalid next command block
+    
+    ... to prevent staying stuck on current command block and busy looping.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712219
+
+ 
