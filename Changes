@@ -25808,3 +25808,16 @@ Date:   Sat Nov 23 11:35:35 2013 +0100
     openjpeg: Fix names of debug categories
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit de3abac8eda9addcf07b604828bc78dfb66a002a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Nov 23 19:11:42 2013 +0100
+
+    openexrdec: Consider the pixel aspect ratio stored in the file
+
+ 
