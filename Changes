@@ -25723,3 +25723,20 @@ Date:   Wed Nov 13 20:18:17 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=712254
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit fac0f1f668aaa5c39d4d64618c309ca3f732c28a
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Nov 23 11:23:35 2013 +0100
+
+    mpeg4videoparse: accept VideoObjectLayer as start of frame and config
+    
+    ... which it deserves as much as VideoObject.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=667564
+
+ 
