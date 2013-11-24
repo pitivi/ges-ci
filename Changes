@@ -25849,3 +25849,27 @@ Date:   Sat Nov 23 11:25:28 2013 +0100
     typefind: Add typefinder for OpenEXR
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit d6a6c2a3b1941eb01af89402518da245573bded8
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Nov 24 13:49:04 2013 +0000
+
+    tools: play: add keyboard controls for next/previous item in list
+    
+    Make the '>' and '<' keys skip to the next or previous item in
+    the playlist.
+
+commit 5a36b793d6747b960e53703aae69eef3bf52aa2a
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Nov 24 01:08:48 2013 +0000
+
+    tools: play: add --interactive switch and basic keyboard handling
+    
+    Only pause/play with spacebar for now.
+
+ 
