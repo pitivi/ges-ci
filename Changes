@@ -25873,3 +25873,26 @@ Date:   Sun Nov 24 01:08:48 2013 +0000
     Only pause/play with spacebar for now.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 68afb292a2cc613066b056ff66d06758e1488be6
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Nov 24 14:38:25 2013 +0000
+
+    tools: play: implement seeking via console in interactive mode
+    
+    Arrow left and right to seek back of forward.
+
+commit aab687505ed5704d6a041818f4b3ce22c6d1cb0e
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Nov 24 14:33:24 2013 +0000
+
+    tools: play: fix endless loop on unhandled keys
+    
+    When debugging output is not enabled.
+
+ 
