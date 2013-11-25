@@ -25896,3 +25896,20 @@ Date:   Sun Nov 24 14:33:24 2013 +0000
     When debugging output is not enabled.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 901ec6346288a3c4cfe89804c5fc6643a66326c4
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Nov 25 00:34:21 2013 +0000
+
+    rtpjitterbuffer: fix wake-up when new buffers come in after running empty
+    
+    Spotted by 'gratias' on IRC. Probably introduced in recent refactoring.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=715039
+
+ 
