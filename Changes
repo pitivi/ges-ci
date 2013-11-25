@@ -25972,3 +25972,32 @@ Date:   Thu Nov 14 15:32:59 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 81471099d22e7f1d9e2a9b4ac1182b259cc7fb3a
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Oct 29 14:40:23 2013 -0300
+
+    videodecoder: error out if no frames are decoded before eos
+    
+    Raise an error in case no frames are decoded before EOS and we
+    have input, meaning that data was received but it was somehow invalid.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711094
+
+commit 0765962fbc963ea9c2c506b4d5b50a80cdcdae5e
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Oct 29 14:11:51 2013 -0300
+
+    videodecoder: allow using -1 for infinite tolerated errors
+    
+    Allows using -1 to make videodecoder never post an error message
+    after decoding errors.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711094
+
+ 
