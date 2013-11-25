@@ -26065,3 +26065,37 @@ Date:   Mon Nov 25 11:45:33 2013 -0300
     number of errors to tolerate.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 75aa78ca701a504928a30a39f916c1615a35cb5d
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Tue Nov 26 02:43:54 2013 +1100
+
+    netclock: Fix C99 comment
+
+commit 5b2df52c6a9a4f4575bbcb234308475a4580b807
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Tue Nov 26 02:17:36 2013 +1100
+
+    netclock: Implement rolling-average filter on observations.
+    
+    Keep a rolling average of the round trip time for network clock
+    observations, favouring shorter round trips as being more accurate.
+    
+    Don't pass any clock observation to the clock slaving if it has a
+    round-trip time greater than 2 times the average.
+    
+    Actual shifts in the network topology will be noticed after some
+    time, as the rolling average incorporates the new round trip times.
+
+commit 5db5fc42273a6a59d6c2b59ae1a931906ddeaa69
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Mon Nov 25 20:33:42 2013 +1100
+
+    basesink: Add debug into gst_base_sink_default_query() for accept_caps
+
+ 
