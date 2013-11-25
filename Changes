@@ -26142,3 +26142,18 @@ Date:   Wed May 29 15:44:31 2013 -0400
     https://bugzilla.gnome.org/show_bug.cgi?id=712754
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c42bc9efa083913fa3f9f30de3e79ded57cdd731
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Mon Nov 25 14:03:21 2013 -0500
+
+    videoflip: Set default method at contruction
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712333
+
+ 
