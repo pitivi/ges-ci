@@ -26049,3 +26049,19 @@ Date:   Mon Nov 25 15:49:07 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=709800
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 6bb6a5cdf4039cb443bb487bc1b93a49ea5d390f
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Nov 25 11:45:33 2013 -0300
+
+    jpegdec: deprecate max-errors
+    
+    The property wasn't use internally, let the base class handle the
+    number of errors to tolerate.
+
+ 
