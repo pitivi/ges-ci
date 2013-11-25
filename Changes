@@ -26099,3 +26099,20 @@ Date:   Mon Nov 25 20:33:42 2013 +1100
     basesink: Add debug into gst_base_sink_default_query() for accept_caps
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 29d9b1e7de198fefe41ba3d5785fb676ea530291
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Nov 25 17:38:06 2013 +0100
+
+    check: fix jitterbuffer check
+    
+    Don't advance the clock to 240ms too early.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=710013
+
+ 
