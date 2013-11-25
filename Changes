@@ -26116,3 +26116,29 @@ Date:   Mon Nov 25 17:38:06 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=710013
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 90ac945dccebc36d9f8ae13e79ad75f151576dda
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.co.uk>
+Date:   Wed May 29 15:57:09 2013 -0400
+
+    v4l2object: Use space instead of tabs
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712754
+
+commit f18290226a7a45ef09bb05f688844994b56d6c3c
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.co.uk>
+Date:   Wed May 29 15:44:31 2013 -0400
+
+    v4l2object: Fix header indentation so it's readable again
+    
+    It's unfortunate to have to do this, but with the mix of tabs and space, plus all the random
+    indentation this header has become very hard to read.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712754
+
+ 
