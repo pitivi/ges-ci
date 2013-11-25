@@ -26030,3 +26030,22 @@ Date:   Mon Oct 28 21:28:33 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=710762
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 710d1f3a2acb0245e6a0cfe37319fca4606901a4
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Nov 25 15:49:07 2013 +0100
+
+    rtpjitterbuffer: improve clear-pt-map handling
+    
+    Don't reset the expected output seqnum when clearing the pt map because this
+    could stall the jitterbuffer forever.
+    Add a unit test for this.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=709800
+
+ 
