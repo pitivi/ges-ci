@@ -26001,3 +26001,32 @@ Date:   Tue Oct 29 14:11:51 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=711094
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit be2f2f196abd510830a46db1191be50a0b654f76
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Oct 28 21:33:22 2013 -0300
+
+    jpegdec: let the base class decide when to return an error
+    
+    The base videodecoder class has an error counting feature to tolerate
+    a few errors before posting an error message. So don't force the
+    error and let the base class decide when it should happen
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710762
+
+commit 673b8ca1c1d3b2ef0499d6225415e173b37ab43e
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Oct 28 21:28:33 2013 -0300
+
+    jpegdec: Add data skipping on input
+    
+    Add missing bytes skipping when bad input is received.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710762
+
+ 
