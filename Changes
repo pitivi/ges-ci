@@ -25948,3 +25948,27 @@ Date:   Mon Nov 25 15:17:33 2013 +1100
     buffer, so make sure to call gst_buffer_unmap before it.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6e4cab65418bb5b16fe6ae31b3d79e5d535cbff5
+Author: Philippe Normand <philn@igalia.com>
+Date:   Thu Nov 14 15:32:59 2013 +0100
+
+    gst-launch: exit with an error code when an error occured
+    
+    If the pipeline failed to pre-roll or the user interrupted the
+    execution then set the exit code to a positive value.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712300
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
