@@ -25913,3 +25913,22 @@ Date:   Mon Nov 25 00:34:21 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=715039
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit fdfc6a2a86dfd95f2d059b1b031e694cce09f67f
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Mon Nov 25 12:13:43 2013 +1100
+
+    qtdemux: Discard 2 byte subpicture packets
+    
+    As for text subtitles and as suggested in #712643, throw
+    away the 2 byte terminator packets that some encoders insert.
+    
+    This will make things better when remuxing and causes generation
+    of gap events.
+
+ 
