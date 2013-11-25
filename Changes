@@ -25932,3 +25932,19 @@ Date:   Mon Nov 25 12:13:43 2013 +1100
     of gap events.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit d92b6f799595fcb8ad5ac6518565e745d00a0cd6
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Mon Nov 25 15:17:33 2013 +1100
+
+    dvdspu: Don't unmap an unreffed buffer
+    
+    gst_dvd_spu_finish_spu_buf drops the reference to the current
+    buffer, so make sure to call gst_buffer_unmap before it.
+
+ 
