@@ -26303,3 +26303,23 @@ Date:   Thu Nov 21 22:54:42 2013 +1100
     https://bugzilla.gnome.org/show_bug.cgi?id=712798
 
  
+ 
+
+ 
+
+====== gst-python =============
+
+ commit 2ad767a74c4dc950344865513604b87d6202dc46
+Author: Simon Farnsworth <simon.farnsworth@onelan.co.uk>
+Date:   Mon Nov 25 17:01:48 2013 +0000
+
+    Update FSF address
+    
+    The FSF has moved since these files were created. Update the address, in
+    order to keep packaging tools such as rpmlint quiet.
+    
+    Signed-off-by: Simon Farnsworth <simon.farnsworth@onelan.co.uk>
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=715182
+
+ 
