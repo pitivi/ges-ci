@@ -26170,3 +26170,16 @@ Date:   Mon Nov 25 19:04:38 2013 -0500
     query: Fix gi annotations of gst_structure_new_custom()
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 20ad174679925f6f52baf79163be5e3aa717649f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Nov 26 10:20:31 2013 +0100
+
+    matroska-demux: Use gst_util_double_to_fraction() instead of GValue magic
+
+ 
