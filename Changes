@@ -26283,3 +26283,23 @@ Date:   Tue Nov 26 12:20:33 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2e84acce582a33cd2268d87b969d4bacff705233
+Author: Matthew Waters <ystreet00@gmail.com>
+Date:   Thu Nov 21 22:54:42 2013 +1100
+
+    videometa: add GstVideoGLTextureUploadMeta buffer pool option
+    
+    allows configuration of whether GstVideoGLTextureUploadMeta is
+    added to buffers resulting from a buffer pool.  This is sperate
+    to the caps feature in that an element may want to add the upload
+    meta itself rather than allowing the buffer pool to.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712798
+
+ 
