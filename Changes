@@ -26199,3 +26199,30 @@ Date:   Tue Nov 26 11:17:42 2013 +0100
     some Matroska files out there with 33.333331ms per frame for 30fps.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 0e9806a03eab477d78ee97e65cadc5a0cc7446ae
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Nov 26 12:03:24 2013 +0100
+
+    playsink: Fix visualizations if no visualization plugin was set
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712280
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
