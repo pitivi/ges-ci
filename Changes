@@ -26323,3 +26323,16 @@ Date:   Mon Nov 25 17:01:48 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=715182
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 37c73391ef2b3424938ca5788971de1ff8cf9a98
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.co.uk>
+Date:   Wed May 29 16:06:05 2013 -0400
+
+    gitignore: Updated to ignore *.swp and .dirstamp
+
+ 
