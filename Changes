@@ -26157,3 +26157,16 @@ Date:   Mon Nov 25 14:03:21 2013 -0500
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=712333
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 2a720d2e557d608f5da7411c638452dfbf6f38a9
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Nov 25 19:04:38 2013 -0500
+
+    query: Fix gi annotations of gst_structure_new_custom()
+
+ 
