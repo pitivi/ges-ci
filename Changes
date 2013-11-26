@@ -26226,3 +26226,60 @@ Date:   Tue Nov 26 12:03:24 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit f8477e6b88fdb364809bef70ac3909aba878978f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Nov 26 12:29:30 2013 +0100
+
+    audiodecoder: error out if no frames are decoded before eos
+    
+    Raise an error in case no frames are decoded before EOS and we
+    have input, meaning that data was received but it was somehow invalid.
+    
+    Based on the videodecoder change, merged here for consistency.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711094
+
+commit b0788ce054d9521b9d9a658e47064f5475a42046
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Nov 26 12:20:33 2013 +0100
+
+    audiodecoder: Allow using -1 for infinite tolerated errors
+    
+    Allows using -1 to make audiodecoder never post an error message
+    after decoding errors.
+    
+    Based on the videodecoder change, merged here for consistency.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711094
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
