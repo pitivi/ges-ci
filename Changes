@@ -26183,3 +26183,19 @@ Date:   Tue Nov 26 10:20:31 2013 +0100
     matroska-demux: Use gst_util_double_to_fraction() instead of GValue magic
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit fb14f66696854e4f5a9346b80c635b7d3ada3392
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Nov 26 11:17:42 2013 +0100
+
+    matroska-demux: Allow a bit more variation when detecting common framerates
+    
+    Instead of +/- 1ns we allow 2ns now. Due to rounding errors there are
+    some Matroska files out there with 33.333331ms per frame for 30fps.
+
+ 
