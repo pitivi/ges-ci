@@ -26372,3 +26372,46 @@ Date:   Tue Nov 26 11:56:46 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=712385
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c4fbff50dfa99e0f725a8690b0d0ff8509300a95
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Thu Oct 31 17:16:14 2013 +0100
+
+    mssdemux: fix setting codec_data when using WaveFormatEx
+    
+    When using WaveFormatEx the actual codec private data is at the end of
+    the wav header structure, after the cbSize field, see for example the
+    notes at http://wiki.multimedia.cx/index.php?title=WAVEFORMATEX
+    
+    The previous code was erroneously passing the whole WAVEFORMATEX
+    structure as codec_data.
+    
+    The smoothstreaming specifications[1,2,3] always mention WAVEFORMATEX
+    and never smaller structures like WAVEFORMAT or PCMWAVEFORMAT, so the
+    buffer can assumed to be at least 18 bytes and always consuming the wav
+    header gives the (possibly empty) codec private data.
+    
+    [1] http://web.archive.org/web/20120907004742/http://www.iis.net/community/files/media/smoothspecs/%5BMS-SMTH%5D.pdf
+    [2] http://download.microsoft.com/download/B/0/B/B0B199DB-41E6-400F-90CD-C350D0C14A53/%5BMS-SSTR%5D.pdf
+    [3] http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5BMS-SSTR%5D.pdf
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=699924
+
+commit f02e7a24394541c0585dedb53325bb2b5cdf349f
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Thu Oct 31 15:58:27 2013 +0100
+
+    mssdemux: use mssdemux_debug debug category for gstmssmanifest.c too
+
+commit 8345c5acfbb7cf9bfcd356682c550a64d6348538
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Wed Oct 16 16:22:36 2013 +0200
+
+    mssdemux: fix coding style
+
+ 
