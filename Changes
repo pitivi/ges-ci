@@ -26415,3 +26415,16 @@ Date:   Wed Oct 16 16:22:36 2013 +0200
     mssdemux: fix coding style
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 532598e360baa62ad510b149ed550dd5b99ce5a0
+Author: Mathieu Duponchelle <mduponchelle1@gmail.com>
+Date:   Wed Nov 27 16:15:12 2013 +0100
+
+    videomixer: explicitly fail when alpha information would have been lost.
+
+ 
