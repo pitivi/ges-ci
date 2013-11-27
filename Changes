@@ -26336,3 +26336,39 @@ Date:   Wed May 29 16:06:05 2013 -0400
     gitignore: Updated to ignore *.swp and .dirstamp
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 73a58cb0a2b861df6c20a8c30747117562fa7523
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Wed Nov 27 18:32:22 2013 +1100
+
+    netclock: Fix docstring for round-trip-limit and uninit access warning.
+    
+    Fix a typo in a doc string - the property is round-trip-limit, not
+    roundtrip-limit.
+    
+    Remove a bogus GST_WARNING that can print an uninitialised variable
+    and is redundant anyway.
+
+commit 1ce704d45d96bd016835e4b2adf92f0a288260b6
+Author: Carlos Rafael Giani <dv@pseudoterminal.org>
+Date:   Tue Nov 26 11:56:46 2013 +0100
+
+    netclock: Add round-trip-limit parameter
+    
+    Sometimes, packets might take a very long time to return. Such packets
+    usually are way too late and destabilize the regression with their
+    obsolete data. On Wi-Fi, round-trips of over 7 seconds have been observed.
+    
+    If the limit is set to a nonzero value, packets with a round-trip period
+    larger than the limit are ignored.
+    
+    Signed-off-by: Carlos Rafael Giani <dv@pseudoterminal.org>
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712385
+
+ 
