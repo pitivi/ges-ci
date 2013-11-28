@@ -26544,3 +26544,40 @@ Date:   Thu Nov 28 11:58:42 2013 -0500
     https://bugzilla.gnome.org/show_bug.cgi?id=719497
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 289b04f170ddfa28ec4bc01794a8ef444b61a8b4
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Nov 28 15:13:06 2013 -0300
+
+    ges: Reimplement 'always create a project to back a timeline'
+    
+    Keeping it simple, and making sure everything is synchronous
+
+commit 6e9e9338ae169969363dc69e3f5006362b880d96
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Nov 28 15:08:33 2013 -0300
+
+    Revert "ges: Always create a project to back a timeline"
+    
+    This reverts commit 59d83f1a93055391097e7c1fe34f5a39eb8ec625.
+    
+    Conflicts:
+    	tests/check/ges/backgroundsource.c
+    	tests/check/ges/effects.c
+    	tests/check/ges/overlays.c
+    	tests/check/ges/simplelayer.c
+    	tests/check/ges/text_properties.c
+    	tests/check/ges/titles.c
+
+commit 99a36b2b695ef8d595beb8a610b7a99f9fbeab6a
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Nov 25 15:17:33 2013 -0300
+
+    timeline: Add all assets of the clip added to the timeline to the project
+
+ 
