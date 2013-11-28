@@ -26479,3 +26479,20 @@ Date:   Thu Nov 28 15:10:16 2013 +0100
     for every NALU.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e8edecc56eb71d88a89a953489ba55a946a926ec
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Nov 28 16:50:42 2013 +0100
+
+    rtpsession: don't unref buffer twice
+    
+    Cleaning the packet info will already unref the buffer.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=715078
+
+ 
