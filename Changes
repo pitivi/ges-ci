@@ -26444,3 +26444,19 @@ Date:   Thu Nov 28 11:25:20 2013 +0100
     that the events are copied.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b3b89dfec120b24f6267efd3c102f84e906dfba8
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Thu Nov 28 22:35:02 2013 +1100
+
+    qtdemux: Add HydrogenAudio ReplayGain tags
+    
+    Identical to the itunes (tm) version, but labelled with
+    org.hydrogenaudio.replaygain as the producer.
+
+ 
