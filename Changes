@@ -26599,3 +26599,18 @@ Date:   Wed Nov 27 17:02:00 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=719434
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ef9d363dfefc9d7bd343cd2b2562104116b5b14d
+Author: Lubosz Sarnecki <lubosz@gmail.com>
+Date:   Mon Nov 25 16:57:00 2013 +0000
+
+    pngparse: Don't try to set framerate if not from upstream
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=715166
+
+ 
