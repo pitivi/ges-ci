@@ -26460,3 +26460,22 @@ Date:   Thu Nov 28 22:35:02 2013 +1100
     org.hydrogenaudio.replaygain as the producer.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 1b747bfecb6d36854aa19fbc6293676cc5eef390
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Nov 28 15:10:16 2013 +0100
+
+    h264parse: Fix splitting of multiple NALU per buffer
+    
+    Conversion to byte-stream/nal crashes without that because the
+    baseparse frame of all NALUs is finished for the first NALU, then
+    used again for parsing the second NALU. Just that now the buffer
+    of the frame is already gone. Instead we create temporary frames
+    for every NALU.
+
+ 
