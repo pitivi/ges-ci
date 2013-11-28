@@ -26581,3 +26581,21 @@ Date:   Mon Nov 25 15:17:33 2013 -0300
     timeline: Add all assets of the clip added to the timeline to the project
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 0ab0421759815e8f04e4e48ac81e25f7cf2c7288
+Author: Jonas Holmberg <jonashg@axis.com>
+Date:   Wed Nov 27 17:02:00 2013 +0100
+
+    rtph264pay: Map inbuffer once only
+    
+    Do not call gst_buffer_extract() twice since each call will map and
+    unmap the biffer.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719434
+
+ 
