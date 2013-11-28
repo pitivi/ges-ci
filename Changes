@@ -26428,3 +26428,19 @@ Date:   Wed Nov 27 16:15:12 2013 +0100
     videomixer: explicitly fail when alpha information would have been lost.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 65e492a40338e4bcb7c404b0ee26636eef20ebf1
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Nov 28 11:25:20 2013 +0100
+
+    decodebin2: activate ghost pad before targetting
+    
+    Activate the decodebin2 pad before setting the target. This makes sure
+    that the events are copied.
+
+ 
