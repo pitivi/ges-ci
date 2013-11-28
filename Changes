@@ -26526,3 +26526,21 @@ Date:   Thu Nov 28 16:09:04 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=719497
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 77833b886d1ac162cb75d749e3e4d912823cabd5
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Nov 28 11:58:42 2013 -0500
+
+    videoflip: Add unit test for the 'automatic' method
+    
+    These new tests send a tag event before seding the buffer. Tested case are an
+    empty tag list, a tag list with orientation-180 set and an invalid orientation value.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719497
+
+ 
