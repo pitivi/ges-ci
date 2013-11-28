@@ -26496,3 +26496,33 @@ Date:   Thu Nov 28 16:50:42 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=715078
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 1d40b1d2bb68963941720c588bfcc94d6fa3f939
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Nov 28 16:22:01 2013 +0000
+
+    tcp: fix compilation with MSVC
+    
+    error C2440 at line 165 of gsttcpserversink.c
+    type cast error: cannot convert from GSocket* to GstMultiSinkHandle
+
+ 
+
+====== gst-plugins-good =============
+
+ commit b8f689a9d97b7a90a3c40d5249c964e35a000b4a
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Nov 28 16:09:04 2013 +0000
+
+    videoflip: don't crash on tag events without orientation tag
+    
+    Would crash in g_free() trying to free an uninitialised pointer.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719497
+
+ 
