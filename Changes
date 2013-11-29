@@ -26816,3 +26816,36 @@ Date:   Mon Nov 18 18:11:56 2013 -0300
     streams doesn't have data all the time.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 220a947dc73d14f8773dc69dfc57f53be4e4be1b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 29 19:57:46 2013 +0100
+
+    videomixer: Simplify NV12/21 blending code macros
+
+commit b0529e0fe8b99e63145c1f1237ca13d9e4503767
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 29 19:50:24 2013 +0100
+
+    videomixer: Fix segfault when filling the background of a UYVY frame
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712401
+
+ 
