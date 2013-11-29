@@ -26750,3 +26750,24 @@ Date:   Fri Nov 29 15:49:29 2013 +0000
     gst-launch-1.0 videotestsrc ! x264enc
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit fe36be1c03d71008bccadf1ff73ae336631b430b
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Nov 29 17:02:41 2013 +0100
+
+    Revert "ghostpad: copy sticky events to SRC ghostpads"
+    
+    This reverts commit 8162a583a4dd68582bf186e2e47a8f0d68fa1980.
+    
+    Automatically copying the sticky events makes it impossible for apps
+    and elements to filter the events with event probes. This causes
+    regressions (See #719437). The best option is to let the app/element
+    copy and filter the events themselves after the ghostpad target is
+    set.
+
+ 
