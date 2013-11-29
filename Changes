@@ -26771,3 +26771,22 @@ Date:   Fri Nov 29 17:02:41 2013 +0100
     set.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6db3b535eb32032598830e4ba49eac50a5e27dd9
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Nov 29 17:30:09 2013 +0100
+
+    uridecodebin: copy sticky events
+
+commit a7151d0b3ea01c8c4d2e081cf12ad88bebf1956b
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Nov 29 17:26:13 2013 +0100
+
+    decodebin2: copy sticky events
+
+ 
