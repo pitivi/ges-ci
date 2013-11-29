@@ -26849,3 +26849,20 @@ Date:   Fri Nov 29 19:50:24 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=712401
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 3c4d54fd885ee352d16cdcce60323f01a22721e1
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Nov 29 14:00:35 2013 -0500
+
+    parse: Manually insert priv_gst_parse_yyget/set_column prototypes for older flex
+    
+    Older versions of flex (before 2.5.36) don't add the prototype, so it must
+    be added manually. We can't check by the version number, because Debian/Ubuntu
+    patched it into their 2.5.35 at some point.
+
+ 
