@@ -26644,3 +26644,38 @@ Date:   Fri Nov 29 09:50:33 2013 +0100
     gnlcomposition: Fix typo
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 9011bc1b54ba3f54255b3171f005eda29f7bac5c
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Nov 29 09:04:20 2013 +0000
+
+    tools: gst-play: quit on Q or Esc key
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4278ab18ff04afce90648bd9fea0ee72e327488b
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Nov 29 09:21:52 2013 +0000
+
+    qtdemux: fix compilation with gst debuging disabled
+    
+    qtdemux.c:9452:1: error: label at end of compound statement
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 00dec2e74368dba0f6efbeeb99ae4a0112c019d9
+Author: Christian Fredrik Kalager Schaller <uraeus@linuxrising.org>
+Date:   Fri Nov 29 10:14:43 2013 +0100
+
+    Update spec file with latest changes
+
+ 
