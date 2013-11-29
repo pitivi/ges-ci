@@ -26727,3 +26727,26 @@ Date:   Fri Nov 29 13:22:56 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=719553
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 88b27e30c98563deeb74b3032d7701adef89883d
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Nov 29 15:51:49 2013 +0000
+
+    x264enc: fix compiler warning
+    
+    Compiler warns rightly about possibly uninitialized variable.
+
+commit 20d6dbd2f620d987737349b9c321bc18d05587e8
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Nov 29 15:49:29 2013 +0000
+
+    x264enc: fix crash on NULL caps when negotiation happens without a downstream peer
+    
+    gst-launch-1.0 videotestsrc ! x264enc
+
+ 
