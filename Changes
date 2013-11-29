@@ -26704,3 +26704,26 @@ Date:   Fri Nov 29 13:32:55 2013 +0100
     that must come in order after the CAPS event.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a27b79cbe46e6a738306be50990ea8da0ab5212e
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Nov 29 13:23:40 2013 +0000
+
+    rtpasfpay: init rtp buffer fixing rtp packet creation
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719553
+
+commit bc7989071fbee7959a21860192aacf5dcc6ce31b
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Nov 29 13:22:56 2013 +0000
+
+    asfmux: don't use buffer after giving away ownership
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719553
+
+ 
