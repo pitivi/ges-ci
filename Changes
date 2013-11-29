@@ -26866,3 +26866,58 @@ Date:   Fri Nov 29 14:00:35 2013 -0500
     patched it into their 2.5.35 at some point.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 079dde49ed3fb67c833c1baa77e144958b7f889d
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Nov 29 11:26:05 2013 -0300
+
+    qtdemux: Use the timestamp of the moof as the base fragment start
+    
+    In SmoothStreaming fragmented scenario, the timestamps are calculated
+    starting from the fragment buffer timestamp. When there is a not-linked
+    return from downstream, qtdemux will return upstream and will keep the
+    non-pushed data into its adapter.
+    
+    On a new fragment buffer pushed to qtdemux, the new buffer timestamp
+    would overwrite the previous one that should be used on the still
+    to be pushed buffers. Because of this, this patch will also
+    update the fragment_start timestamp from the adapter last pts
+    to make sure the moof and timestamps are in sync and will result
+    in correct timestamps for all fragments.
+
+commit 45c16599ff4a3d674bd651cdb3babbc00af8d06c
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Nov 15 08:54:07 2013 -0300
+
+    qtdemux: avoid re-reading the same moov and entering into loop
+    
+    In the scenario of "mdat | moov (with fragmented artifacts)" qtdemux
+    could read the moov again after the mdat because it was considering the
+    media as a fragmented one.
+    
+    To avoid this loop this patch makes it store
+    the last processed moov_offset to avoid parsing it again.
+    And it also checks if there are any samples to play before
+    resturning to the mdat, so that it knows there is new data to be played.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=691570
+
+commit fcc78aa3bdff35574425e2953e8bd119279d6354
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Nov 15 00:52:53 2013 -0300
+
+    qtdemux: do not free streams if they were not created locally
+    
+    When parsing a trak only free streams on failures if those streams
+    were created locally. They could have been created from a previous
+    fragment, in this case we they have valid info from the other fragment.
+    Including pads.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=691570
+
+ 
