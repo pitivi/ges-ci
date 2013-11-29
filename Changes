@@ -26688,3 +26688,19 @@ Date:   Fri Nov 29 10:14:43 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 1d4cf74e0b15f653a1aa983d6dbf3ea58c345eae
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 29 13:32:55 2013 +0100
+
+    theoraparse: Fix event handling
+    
+    Send CAPS event before any SEGMENT events or any other events
+    that must come in order after the CAPS event.
+
+ 
