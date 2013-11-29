@@ -26631,3 +26631,16 @@ Date:   Tue Nov 19 15:03:35 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=712679
 
  
+ 
+
+ 
+
+====== gnonlin =============
+
+ commit dd148c43ad4c8d09a659093024e210949e5eb1e0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Nov 29 09:50:33 2013 +0100
+
+    gnlcomposition: Fix typo
+
+ 
