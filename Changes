@@ -26921,3 +26921,56 @@ Date:   Fri Nov 15 00:52:53 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=691570
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 40fc3060174bc402fdd9584b09b917d696a40724
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Tue Nov 26 20:50:33 2013 +0100
+
+    videodecoder: make _release_frame external API
+    
+    ... so subclasses can release a frame all the way (also from frame list)
+    without having to pass through _finish_frame or _drop_frame.
+    The latter may not be applicable, or may or may not have already
+    been called for the frame in question.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=693772
+
+commit 614d35d7951a7836a1de856ecfc8511addd03bfa
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Tue Nov 26 20:51:58 2013 +0100
+
+    videodecoder: fix spelling error in debug message
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit fa5865c0cdab48c6701fdf6f437ccaea3ab3286a
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Tue Nov 26 20:57:37 2013 +0100
+
+    avviddec: discard unused input frames
+    
+    ... to avoid these piling up in list of pending frames.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=693772
+
+commit 2ec4008ea5f3296f50d56b11422ed5d56de6692b
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Tue Nov 26 20:55:43 2013 +0100
+
+    avviddec: really release frame at proper time
+    
+    ... by also removing it from the pending list of frames,
+    where it may still be in if it has never been submitted to _finish.
+    This could happen if is a decode-only frame, or in skipped decoding
+    situation, ...
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=693772
+
+ 
