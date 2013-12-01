@@ -26987,3 +26987,16 @@ Date:   Sun Dec 1 12:37:52 2013 +0100
     videodecoder: add new API to docs and defs
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c58dd9df73037b9f7424381da4552bd137bd5c4e
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 1 22:32:09 2013 +0000
+
+    asfmux: microoptimisation: avoid unnecessary gst_buffer_get_size() calls
+
+ 
