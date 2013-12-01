@@ -26974,3 +26974,16 @@ Date:   Tue Nov 26 20:55:43 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=693772
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 5218956e8bd8939505b8d29d72e820732cfa9f57
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sun Dec 1 12:37:52 2013 +0100
+
+    videodecoder: add new API to docs and defs
+
+ 
