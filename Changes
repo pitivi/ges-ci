@@ -27100,3 +27100,32 @@ Date:   Mon Dec 2 20:21:34 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=704161
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit b40fa2b8c3485a8374186ca047622ab518e09485
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Sat Nov 30 14:52:40 2013 +0100
+
+    docs: cosmetic changes in references/decriptions
+    
+     * fix typo GstBufferFlag -> GstBufferFlags
+     * fix typo GstFeatures -> GstCapsFeatures
+     * fix typo GstAllocatorParams -> GstAllocationParams
+     * fix typo GstContrlSources -> GstControlSource
+     * do not refer to gstcheck as an object
+     * make references gtk_init() and tcase_set_timeout() not be references
+     * gst_element_get_pad() renamed gst_element_get_static_pad()
+     * gst_clock_id_wait_async_full() renamed gst_clock_id_wait_async()
+     * _drop_element() is really gst_queue_array_drop_element()
+     * gst_pad_accept_caps() was removed, do not refer to it
+     * separate GST_META_TAG_MEMORY_STR declaration from description
+     * do not describe removed gst_collect_pads_collect()
+     * correctly link to GstElementClass' virtual set_context()
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719614
+
+ 
