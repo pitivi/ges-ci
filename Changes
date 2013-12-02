@@ -27000,3 +27000,28 @@ Date:   Sun Dec 1 22:32:09 2013 +0000
     asfmux: microoptimisation: avoid unnecessary gst_buffer_get_size() calls
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 63b0e84addc44dcbf643836f7632ec1cee266d82
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 1 23:32:20 2013 +0000
+
+    deinterlace: fix off-by-one crash when downstream caps contain a list of framerates
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719544
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 40c10dc59ef4b6ad3296907a287f9b4d8c8552dc
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 1 23:31:25 2013 +0000
+
+    mpeg2enc: avoid list for one single value in template caps
+
+ 
