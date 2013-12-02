@@ -27038,3 +27038,38 @@ Date:   Mon Dec 2 00:10:43 2013 +0000
     deinterlace: microoptimisation: avoid some unnecessary GValue copies
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 9945e2bee6ad1408ca8a3ef99235b20ff9f2caf2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 2 10:28:28 2013 +0100
+
+    geometrictransform: G_DEFINE_TYPE() already calls g_type_class_peek_parent() for us
+
+commit 426c26f7080555ee808bff83bd7cc8ede2aaf9ec
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 2 10:25:57 2013 +0100
+
+    geometrictransform: Remove empty GObject::finalize() implementations
+    
+    Also don't use GST_DEBUG_FUNCPTR for GObject vfuncs
+
+commit 8de96a2fbbb1e56dae298887a3a71e6c4572f148
+Author: Antonio Ospite <ospite@studenti.unina.it>
+Date:   Sun Oct 20 22:04:38 2013 +0200
+
+    geometrictransform: Add a 2D perspective transform plugin
+    
+    The perspective plugin applies a 2D perspective (also called projective)
+    transform to the frame buffer.
+    
+    A perspective transform can be used for instance to perform keystone
+    correction when playing the content with a video projector.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710810
+
+ 
