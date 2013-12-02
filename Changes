@@ -27073,3 +27073,30 @@ Date:   Sun Oct 20 22:04:38 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=710810
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 387e5f0c142fcbd3338fb86d97443b3671afc538
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Mon Dec 2 20:35:04 2013 +0100
+
+    audiodecoder: use segment start as fallback ts if no other available
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=709965
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 039b608b249f5d8ccc820dce25c931a807538b20
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Mon Dec 2 20:21:34 2013 +0100
+
+    avviddec: only use upstream framerate if really specified
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=704161
+
+ 
