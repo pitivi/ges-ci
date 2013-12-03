@@ -27320,3 +27320,16 @@ Date:   Tue Dec 3 21:29:13 2013 +0100
     audioparsers: refactor code to remove caps fields
 
  
+ 
+
+ 
+
+====== gst-python =============
+
+ commit d643c9f7ba169807b43e7e9c7a0bbe5c7bc91fbd
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Dec 3 17:36:07 2013 -0500
+
+    Add *.so to gitignore
+
+ 
