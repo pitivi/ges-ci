@@ -27241,3 +27241,22 @@ Date:   Mon Dec 2 11:17:02 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=708914
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a90ce304c823ac47f8a31b33a61db826c548d217
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Mon Dec 2 22:22:36 2013 -0500
+
+    multiqueue: Wake up on reconfigure event
+    
+    After patch bda406c4, the state of the singlequeue was set to OK, but nothing
+    would then wake up the thread, as the other wakeup functions only look at
+    singlequeues that are marked as having received as not-linked.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708200
+
+ 
