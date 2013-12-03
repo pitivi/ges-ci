@@ -27260,3 +27260,63 @@ Date:   Mon Dec 2 22:22:36 2013 -0500
     https://bugzilla.gnome.org/show_bug.cgi?id=708200
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 34db3528792a36e1befdd415c8df0db8b0b1ebb1
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 3 21:46:19 2013 +0100
+
+    pad: add ACCEPT_INTERCEPT flag
+    
+    Make a new flag on the pad that tweaks the default behaviour of the
+    accept-caps function. By default it will check for a subset of the
+    query-caps result but this is not always desirable. The query-caps
+    result contains all the constraints to make a good caps decision
+    upstream but sometimes, like for parsers, not all the constrained caps
+    fields are known upstream and then a subset check would fail. Switching
+    to an intersection makes this work again.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=705024
+        https://bugzilla.gnome.org/show_bug.cgi?id=677401
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e0a5c07e8d404e72654e016fa0a6c88d573f51f1
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 3 21:41:28 2013 +0100
+
+    audioparsers: use ACCEPT_INTERSECT flag
+    
+    The parser can accept input that is not completely specified. Use the
+    ACCEPT_INTERSECT flag on the sinkpad to tweak the acceptcaps function to
+    check for intersection only. This allows us to proxy downstream
+    constraints while still allowing non-subset caps as input.
+    We can then also remove the appended template caps workaround.
+    Make a unit-test to check the new feature.
+    
+    This reverts commit 26040ee38cb9e7c42f3d9a0282b3e5cace7ca42d
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=705024
+
+commit e3f393f7e647d16bb7ba555690f23923747095f7
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 3 21:36:54 2013 +0100
+
+    audioparsers: remove fields from filter
+    
+    We need to remove the fields from the filter when we can convert
+    between them.
+
+commit e8313a1e701a15cdcf809e3aeabc52f5256a258e
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 3 21:29:13 2013 +0100
+
+    audioparsers: refactor code to remove caps fields
+
+ 
