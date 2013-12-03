@@ -27333,3 +27333,16 @@ Date:   Tue Dec 3 17:36:07 2013 -0500
     Add *.so to gitignore
 
  
+ 
+
+ 
+
+====== gst-python =============
+
+ commit 8542c4b21929b2ed84272deb3ae49a2766c82035
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Dec 3 17:49:11 2013 -0500
+
+    Gst: Add python version of GST_TIME_ARGS
+
+ 
