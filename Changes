@@ -27151,3 +27151,16 @@ Date:   Sat Nov 30 12:15:37 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=719614
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit c6d56ca24c3a27cc97af66e1b96d1e6b2409d61b
+Author: Christian Fredrik Kalager Schaller <uraeus@linuxrising.org>
+Date:   Tue Dec 3 13:16:49 2013 +0100
+
+    Update spec file with latest changes
+
+ 
