@@ -27129,3 +27129,25 @@ Date:   Sat Nov 30 14:52:40 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719614
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 49950e57ad5f6eadbbe9d45d0ab3f7f7b4ce7577
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Sat Nov 30 12:15:37 2013 +0100
+
+    docs: add missing docs, fixing doc errors
+    
+     * add many missing declarations to sections
+     * GstController has been removed, update docs
+     * skip GstIndex when generating documentation
+     * rephrase so gtkdoc doesn't imagine return value
+     * add missing argument description for gst_context_new()
+     * document GstOutputSelectorPadNegotiationMode and move to header-file
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719614
+
+ 
