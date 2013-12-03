@@ -27164,3 +27164,80 @@ Date:   Tue Dec 3 13:16:49 2013 +0100
     Update spec file with latest changes
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 26bf14c9fd5eaefefcd1d4ffa7d65b793e1aabdd
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 3 14:53:24 2013 +0100
+
+    openni2src: Check color format
+
+commit 4b3d2a1b09f4b09593d8c273ab3c7710ce2e52a5
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 3 14:47:32 2013 +0100
+
+    openni2src: Add support for the video meta
+
+commit dbb64a69f4138dc37c75d0c8eab02946c312e84a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 3 14:46:25 2013 +0100
+
+    openni2src: Use GstVideoFrame API for better handling of strides
+    
+    And do proper stride conversion.
+
+commit 39c82d0dec8bed2adc067a027d011484d66d49f1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 3 14:35:57 2013 +0100
+
+    openni2src: Fix buffer handling to actually work and properly timestamp buffers
+
+commit 7a3eaa8f8a6ba7e091453f36302406318acab91f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 3 14:35:42 2013 +0100
+
+    openni2src: Don't shut down library when finalizing an element instance
+
+commit 04e8d63597f7017509f0f3ef0b50d9925bc2df8e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 3 14:35:21 2013 +0100
+
+    openni2src: Fix negotiation and creation of a video buffer pool
+
+commit 034757e936c2150ca706029f9b4fb58ca9040b90
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 3 14:34:56 2013 +0100
+
+    openni2src: Use debug category properly
+
+commit 6450d87c63daae107f2f3c7a1d954b6616f17a15
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 2 17:03:46 2013 +0100
+
+    openni2src: Classification of the element should be Source/Video
+
+commit 4b7bead2d41fdf3ed4786dd3ea865541ce219f51
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 2 17:01:36 2013 +0100
+
+    openni2src: Use GstVideoInfo to create caps and don't leak them
+
+commit 1ba3edf682c9c7a40833e60600baf6f82bdb0f96
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 2 16:59:14 2013 +0100
+
+    openni2src: Some random cleanup and minor fixes
+
+commit 64675f07127016f77a1414456f58065f8b4a8bf3
+Author: Miguel Casas-Sanchez <miguelecasassanchez@gmail.com>
+Date:   Mon Dec 2 11:17:02 2013 +0100
+
+    openni: Add OpenNNI2 plugin
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=708914
+
+ 
