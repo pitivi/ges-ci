@@ -27346,3 +27346,21 @@ Date:   Tue Dec 3 17:49:11 2013 -0500
     Gst: Add python version of GST_TIME_ARGS
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 249a775d2b6486d3888071d9c9370149a0c831d4
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Wed Dec 4 00:10:36 2013 +0100
+
+    docs: add missing files for distribution
+    
+     * add some documentation files in docs/design
+     * add docs/list-ulink.xsl so check in docs/manual works
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719814
+
+ 
