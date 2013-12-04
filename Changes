@@ -27514,3 +27514,20 @@ Date:   Tue Dec 3 15:08:25 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=719783
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4a81e22607ddefb8d05cd8587ac895f350359f6a
+Author: Justin Joy <justin.joy.9to5@gmail.com>
+Date:   Thu Dec 5 00:27:14 2013 +0900
+
+    convertframe: Fix trivial memory leak in debug statement
+    
+    gst_element_get_name() requires the caller to g_free() the return value
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719850
+
+ 
