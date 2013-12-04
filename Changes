@@ -27546,3 +27546,50 @@ Date:   Wed Dec 4 19:24:08 2013 +0100
     See https://bugzilla.gnome.org/show_bug.cgi?id=709965
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d585bd7bbdb8a262a1c31f268090e18842fc9579
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 4 21:57:48 2013 +0100
+
+    rtptheorapay: Don't send headers twice if we got them from the caps already
+
+commit d105de6e0f2326932dac8d9748dff14ce0abf536
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 4 21:57:04 2013 +0100
+
+    rtptheorapay: Don't leak config data when receiving a second CAPS event
+
+commit 0915d696c7a3bfc3bca370b0920d12a0bb5855c4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 4 21:55:53 2013 +0100
+
+    rtpvorbispay: Don't send headers twice if we got them from the caps already
+
+commit 967280df42b536381f7715640d7ca852783de80d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 4 21:54:16 2013 +0100
+
+    rtpvorbispay: Don't leak config data when receiving a second CAPS event
+
+commit d87f6cf48386af4a62097b1ddc6f315e908eba52
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 4 21:17:03 2013 +0100
+
+    rtpstreamdepay: Add RFC4571 RTP stream depayloading element
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719829
+
+commit c5284dc0475701aa3df7749e29a965c684727be2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 4 10:12:46 2013 +0100
+
+    rtpstreampay: Add RFC4571 RTP stream payloading element
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719829
+
+ 
