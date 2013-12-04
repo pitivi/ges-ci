@@ -27608,3 +27608,19 @@ Date:   Wed Dec 4 16:23:43 2013 -0500
     https://bugzilla.gnome.org/show_bug.cgi?id=719811
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a6bf25faa5a6ed2e5c3808260974b88b71c9f914
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 4 22:38:20 2013 +0100
+
+    openexrdec: Instead of trying to parse the bitstream, just look for the next header
+    
+    This should be more robust and allows us to handle new versions of the
+    file format if the library supports it.
+
+ 
