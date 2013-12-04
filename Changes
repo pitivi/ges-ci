@@ -27593,3 +27593,18 @@ Date:   Wed Dec 4 10:12:46 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=719829
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit dc782af133f1167b8b1ad77c3f30eda939098079
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Dec 4 16:23:43 2013 -0500
+
+    pulsesink: Free device_info in accepts caps
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719811
+
+ 
