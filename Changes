@@ -27624,3 +27624,36 @@ Date:   Wed Dec 4 22:38:20 2013 +0100
     file format if the library supports it.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit ccba91308dd323f1c9d9caaf8e92951c5c840c03
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Dec 4 17:35:18 2013 -0500
+
+    info: Make sure the same category is not added twice
+
+commit e0317288ba75ec5ff41f12a834c76d74ca390e2c
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Dec 4 17:35:02 2013 -0500
+
+    info: Protect __categories list in get_category with lock too
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a167173063ce7407d9a46196d90b512bfff1f5fe
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Wed Dec 4 17:31:27 2013 -0500
+
+    mpegvideoparser: Also initialize debug category in parse_sequence_header
+    
+    Also remove the useless initialized flag, this is already done by the macro
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719657
+
+ 
