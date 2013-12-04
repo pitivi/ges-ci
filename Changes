@@ -27478,3 +27478,39 @@ Date:   Wed Nov 13 12:05:40 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 1fd094d96ba9b77921b087600912475edb31b985
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 3 15:08:25 2013 -0300
+
+    qtdemux: improve fragment-start tracking
+    
+    Some buffers can have multiple moov atoms inside and the strategy
+    of using the gst_adapter_prev_pts timestamp to get the base timestamp
+    for the media of the fragment would fail as it would reuse the same
+    base timestamp for all moofs in the buffer instead of accumulating
+    the durations for all of them.
+    
+    Heres a better explanation of the issue:
+    qtdemux receives a buffer where PTS(buf) = X
+    buf -> moofA | moofB | moofC
+    
+    The problem was that PTS(buf) was used as the base timestamp for
+    all 3 moofs, causing all buffers to be X based. In this case we want
+    only moofA to be X based as it is what the PTS on buf means, and the
+    other moofB and moofC just use the accumulated timestamp from the
+    previous moofs durations.
+    
+    To solve this, this patch uses gst_adapter_prev_pts distance
+    result, this allows qtdemux to calculate if it should use the
+    resulting pts or just accumulate the samples as it can identify
+    if the moofs belong to the same upstream buffer or not.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719783
+
+ 
