@@ -27364,3 +27364,43 @@ Date:   Wed Dec 4 00:10:36 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719814
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 0d55724a2bc0be00dc154b438fafce6a28de8747
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 4 09:12:07 2013 +0100
+
+    audioparsers: don't leak template caps
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 9ac2cee2dba7b125d398efcbbb4606fd1135ae29
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 4 09:13:31 2013 +0100
+
+    videoparsers: use ACCEPT_INTERSECT
+    
+    We can also accept caps with missing fields.
+
+commit e9dd2df3f493431b17661e04d01424c30cf858a2
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 4 09:03:45 2013 +0100
+
+    videoparsers: remove fields from filter
+    
+    Don't filter out the caps properties we can convert between when
+    proxying the getcaps query to the downstream peer pad.
+
+commit d5a16bccac7fdc30daef3e31fbb499131f21b4b7
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 4 09:00:43 2013 +0100
+
+    videoparsers: refactor remove_fields in getcaps
+
+ 
