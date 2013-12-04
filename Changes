@@ -27531,3 +27531,18 @@ Date:   Thu Dec 5 00:27:14 2013 +0900
     https://bugzilla.gnome.org/show_bug.cgi?id=719850
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6e639b73ffd0043ff6804e65c1331661d5730579
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Wed Dec 4 19:24:08 2013 +0100
+
+    audiodecoder: no fallback to segment start for reverse playback
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=709965
+
+ 
