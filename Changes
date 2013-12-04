@@ -27404,3 +27404,62 @@ Date:   Wed Dec 4 09:00:43 2013 +0100
     videoparsers: refactor remove_fields in getcaps
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 3c70741e45da94e76b7015c367857312861886ba
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Nov 21 12:29:28 2013 +0000
+
+    v4l2bufferpool: add support for multi-planar V4l2 API in DMABUF mode
+    
+    Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=712754
+
+commit 303cec48db41f6e1ac422ac4faf979a26b51d277
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Nov 19 17:16:27 2013 +0000
+
+    v4l2: refactor by emulating one v4l2_plane in non-MPLANE mode
+    
+    so that the buffer informations can be retrieved the same way
+    in both MPLANE and non-MPLANE mode.
+    
+    Here "emulating" means "manually fill in the plane".
+    
+    Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=712754
+
+commit 61ae84b50dc319a53b513e5474c1578d7127c67c
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Wed Nov 13 12:05:40 2013 +0000
+
+    v4l2: add support for multi-planar V4L2 API
+    
+    This api is in linux kernel since version 2.6.39,
+    and present in all version 3.
+    
+    The commit that adds the API in master branch of the
+    linux kernel source is:
+    https://github.com/torvalds/linux/commit/f8f3914cf922f5f9e1d60e9e10f6fb92742907ad
+    
+    v4l2 doc: "Some devices require data for each input
+    or output video frame to be placed in discontiguous
+    memory buffers"
+    
+    There are newer structures 'struct v4l2_pix_format_mplane'
+    and 'struct v4l2_plane'.
+    So the pixel format is not setup with the same API when using
+    multi-planar.
+    
+    Also for gst-v4l2, one of the difference is that in GstV4l2Meta
+    there are now one mem pointer for each maped plane.
+    
+    When not using multi-planar, this commit takes care of keeping
+    the same code path than previously. So that the 2 cases are
+    in two different blocks triggered from V4L2_TYPE_IS_MULTIPLANAR.
+    
+    Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=712754
+
+ 
