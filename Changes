@@ -29330,3 +29330,46 @@ Date:   Thu Dec 5 11:51:27 2013 +0100
     avviddec: Use new gst_video_decoder_set_needs_format() API
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit df3718ea2b4b19d87c7a74bd811b10bb678ef5cd
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Dec 5 16:17:22 2013 +0100
+
+    audiobasesink: handle the RESYNC flag
+    
+    Also resync when a buffer with the RESYNC flag is seen.
+
+commit e68317f070caf533c582c9fe2795e21b75f4747f
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Dec 5 14:39:57 2013 +0000
+
+    audiodec/enc: clear reconfigure flag if negotiate succeeds
+    
+    So that it avoids to send an allocation query twice.
+    One from an early call to gst_audio_encoder_negotiate from a
+    subclass, then one from gst_audio_encoder_allocate_output_buffer.
+    Which means that previously gst_audio_encoder_negotiate was not
+    clearing the GST_PAD_FLAG_NEED_RECONFIGURE even on success.
+    
+    Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=719684
+
+commit 79ef75888c88c5883b8963c9e85d4260fd57f72d
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Dec 5 14:31:25 2013 +0000
+
+    videodec/enc: clear reconfigure flag if negotiate succeeds
+    
+    So that it avoids to send an allocation query twice.
+    One from an early call to gst_video_encoder_negotiate from a
+    subclass, then one from gst_video_encoder_allocate_output_frame.
+    Which means that previously gst_video_encoder_negotiate was not
+    clearing the GST_PAD_FLAG_NEED_RECONFIGURE even on success.
+    
+    Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=719684
+
+ 
