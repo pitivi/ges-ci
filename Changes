@@ -29139,3 +29139,194 @@ Date:   Wed Dec 4 17:31:27 2013 -0500
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 208e303568a11ad0419b2632d6a3c90517487abb
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Dec 5 00:26:13 2013 +0000
+
+    tools: gst-launch: don't try to remove already-removed GSource from main loop
+    
+    It's considered a programming error in recent GLib versions now.
+    We may already have removed the source by returning FALSE from
+    the callback if it was fired. Fixes warning with newer GLibs
+    when interrupting a pipeline with Control-C.
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4a37d90e9d499dc86fb0ee259f7944511740ab6a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:39:07 2013 +0100
+
+    theoradec: Use new gst_video_decoder_set_needs_format() API
+
+commit 400d4baf92a0ce8267710991b2baa8204d2392c8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:37:09 2013 +0100
+
+    audiodecoder: Use FALSE instead of 0
+
+commit 5acc0994794944e1bf8260e804155250eff8eafa
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:34:36 2013 +0100
+
+    videodecoder: Add API to allow subclasses to specify that they needs caps before any buffers
+
+commit 820d7d779848d9bcba3718ce291fe687410672eb
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:25:47 2013 +0100
+
+    videoencoder: Return not-negotiated if we don't have caps when the first buffer arrives
+    
+    Otherwise things like filesrc ! jpegenc ! fakesink just crash with
+    a segmentation fault because subclasses expect caps to be there.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f3c3dee14819a5d8c33e4dc09d896fcf8ec3dbcb
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:15:29 2013 +0100
+
+    mulawdec: Require caps to be set before accepting any data
+
+commit d9deb95012393466bf9c055550b04405002e4f20
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:15:19 2013 +0100
+
+    wavpackdec: Require caps to be set before accepting any data
+
+commit c880e36779b961aa2bbe0f7e5df95ea6f492fd3d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:13:33 2013 +0100
+
+    speexdec: Require caps to be set before accepting any data
+
+commit 774e56b051147cf46f8d6eddb510b15a9bcc001d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:13:10 2013 +0100
+
+    flacdec: Require caps to be set before accepting any data
+
+commit 5c8163a685615a0938be0bc4a1cdb597e3999e59
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:42:15 2013 +0100
+
+    vpx: Use new gst_video_decoder_set_needs_format() API
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 4fb63af272099ef1d3ff619a0bde97389100dbc0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:16:45 2013 +0100
+
+    amrwbdec: Remove some dead code
+
+commit 4b3199bb8e65a3c66101f4a217ce01d9bbe4b7c3
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:16:38 2013 +0100
+
+    amrnbdec: Remove some dead code
+
+commit b378c171ff7536f476f2386dd5f2004d1d5f3cb2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:09:04 2013 +0100
+
+    amrnbdec: Use gst_audio_decoder_set_needs_format() instead of custom code
+
+commit cf32f8f6a58beb1333203b7e3f82d43e1a0cca81
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:08:46 2013 +0100
+
+    amrwbdec: Use gst_audio_decoder_set_needs_format() instead of custom code
+
+commit 6049866ca688212c400fd592c74de70072806df2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:44:10 2013 +0100
+
+    mpeg2dec: Use new gst_video_decoder_set_needs_format() API
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c635cb233f62b34d7320387ee032e2522f6a995f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:05:30 2013 +0100
+
+    sbcdec: Require caps to be set before any data processing
+
+commit e83a9b62e7fb03b40e167b236f223d68bdb45e1a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:05:21 2013 +0100
+
+    adpcmdec: Require caps to be set before any data processing
+
+commit 08852721cb2ce4dbb2acd49ba06cf58e1bf5fb10
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:05:09 2013 +0100
+
+    sirendec: Require caps to be set before any data processing
+
+commit 2e80c88129ce118384aad206625273e76fae2e23
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:04:59 2013 +0100
+
+    opusdec: Require caps to be set before any data processing
+
+commit f1d863c29690b253685eb6100408a524ae5bec0f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:04:39 2013 +0100
+
+    mpg123audiodec: Require caps to be set before any data processing
+
+commit f8caef577288b553a0ff76ef61856bd04490f206
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 12:04:23 2013 +0100
+
+    gsmdec: Require caps to be set before any data processing
+
+commit 219275dbb64016a88b78dab9b5f29d961e056494
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:49:41 2013 +0100
+
+    amcvideodec: Use new gst_video_decoder_set_needs_format() API
+
+commit edf89926d6d4303d5caf31f1ee857577197f357c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:49:31 2013 +0100
+
+    mfcdec: Use new gst_video_decoder_set_needs_format() API
+
+commit 0fbe76c4b51c048c524fe114ec46e022075f6060
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:49:14 2013 +0100
+
+    openjpegdec: Use new gst_video_decoder_set_needs_format() API
+
+commit 23735c703d2d8c7cf5259d04539d320f41b9ceb7
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:45:36 2013 +0100
+
+    daaladec: Use new gst_video_decoder_set_needs_format() API
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 423d9dcd71feeb773058dd0e4079c85152ae2901
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 5 11:51:27 2013 +0100
+
+    avviddec: Use new gst_video_decoder_set_needs_format() API
+
+ 
