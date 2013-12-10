@@ -30057,3 +30057,353 @@ Date:   Thu Dec 5 14:31:25 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 60b94c649830adfbdb3ca983ae034a7c1a93a55a
+Author: Edward Hervey <edward@collabora.com>
+Date:   Tue Dec 10 18:25:22 2013 -0500
+
+    gst-inspect: Index features are no more
+    
+    So remove code that will never be used
+
+commit 3ea6b04c10b10fde9d62190068f274b940edef07
+Author: Edward Hervey <edward@collabora.com>
+Date:   Tue Dec 10 17:53:24 2013 -0500
+
+    gstvalue: Fix comparision of double range
+    
+    Checking twice the lower bound is great (you never know, it might change
+    between the two calls by someone using emacs butterfly-mode), but it's a bit
+    more useful to check the higher bound are also identical.
+    
+    Detected by Coverity
+
+commit b363ab17e7a34fb1040481b9aadabf2ad6c93901
+Author: Edward Hervey <edward@collabora.com>
+Date:   Tue Dec 10 17:09:07 2013 -0500
+
+    controller: Fix out-of-bounds detection
+    
+    We want to abort if we higher than the maximum *OR* lower than the minimum
+    accepted value.
+    
+    Detected by Coverity.
+
+commit 9a62f007fc21bf4eddcdffa8b2b1ab242d7ff6a0
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Dec 7 19:04:16 2013 +0000
+
+    tests: add unit test for registering the same category twice
+
+commit 24a766a13b05a2d06bf9db24abf77eafe3f1f000
+Author: Víctor Manuel Jáquez Leal <vjaquez@igalia.com>
+Date:   Sat Dec 7 19:32:58 2013 +0100
+
+    info: return existing category if a debug category is registered twice
+    
+    If a category with the same name is found when creating a new
+    one, the found category is returned instead of an invalid pointer.
+    Fixes issue with gst-vaapi (which uses an internal copy of the
+    codec parsers) caused by commit ccba9130.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720036
+
+commit 53ae1b2c9c160a98a338adbb8a7ded0cad8eeebe
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Sat Dec 7 15:38:19 2013 +0100
+
+    docs: Fix typos in function/object descriptions
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=720029
+
+commit e8ecf3c407e6733232013fafc52af8c98e931bc6
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Sat Dec 7 15:40:32 2013 +0100
+
+    Fix some typos in code comments and debug messages
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720029
+
+commit e7f514efbc32646b86024de4d42aa120de52d971
+Author: Stewart Brodie <stewart@eh.org>
+Date:   Fri Dec 6 20:50:19 2013 +0000
+
+    docs: clarify encoding of strings in GstStructures and taglists
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709262
+
+commit 68697682ce92155bcbea90b42d313258649dd4ca
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Tue Jul 2 20:27:59 2013 -0400
+
+    basesrc: Set format to TIME if do-timestamp is TRUE
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=702842
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 1966b85b208174683810cd7c37ec6b0a5e9e2c88
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Tue Dec 10 00:13:55 2013 +0100
+
+    tests: Add test for rtpbasepayload/-depayload
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=720162
+
+commit c734f9fba8179e7978c0b03b83097a5e1b377c05
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Tue Dec 10 00:56:07 2013 +0100
+
+    rtpbuffer: Allow subbuffering of empty buffers
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=720162
+
+commit 9ec4eaa86666d8941a14aa6a59c8043cd5351c0f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 9 16:34:22 2013 +0100
+
+    convertframe: Fix indention
+
+commit 729e3c8a1034ad7cb53e69d6578de66fdc342d6e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 9 16:33:40 2013 +0100
+
+    videoencoder: Add sink_query() src_query() virtual functions
+    
+    Based on the videodecoder change by Nicolas Dufresne and applied
+    here for consistency.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720103
+
+commit 09a6ca97d246c798be267478b3a85d90d1ccde9b
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Nov 27 16:39:52 2013 -0500
+
+    videodecoder: Add sink_query() src_query() virtual
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720103
+
+commit da6d3cfacf155c60bf050ed3ce9d27f93cd86814
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Dec 9 13:55:28 2013 +0000
+
+    tools: play: fix compiler warning on windows
+
+commit d273d0c156fe6421a14821e1ddebbcc213432b6f
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Dec 6 19:27:04 2013 -0500
+
+    videocodecframe: Correct function name in doc
+
+commit 779e360352a234c60355f9265c414d22788e3945
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Dec 6 16:23:46 2013 -0500
+
+    videoencoder: Remove gst_video_encoder_set/get_discont
+    
+    They've never existed outside the header file.
+
+commit 86a8c59733f6fbcf98788fccda1ab13f23c96f7a
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Wed Dec 4 01:08:13 2013 +0100
+
+    docs: add missing files for distribution
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=720015
+
+ 
+
+====== gst-plugins-good =============
+
+ commit eee515cb2c1367b4bd60f3e19251f42c3edd6ffe
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 10 11:57:37 2013 +0100
+
+    rtpjitterbuffer: serialize events in the buffer
+    
+    Serialize events into the jitterbuffer by inserting them with a -1
+    seqnum.
+    Update unit test to expect events from the streaming thread.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=652986
+
+commit 36e78bc5caed49950d0cc6b320b9992cbc1c62eb
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 10 11:04:06 2013 +0100
+
+    rtpjitterbuffer: detect -1 seqnum
+    
+    Keep the seqnum as a full guint so that we can check for -1 entries and
+    deal with them correctly.
+    Immediately try to push -1 seqnum.
+
+commit 4a2e0f4ff48d63c70655ff416ae1903bf2a50365
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 10 11:01:03 2013 +0100
+
+    rtpjitterbuffer: reorganize jitterbuffer items
+    
+    Keep the oldest item at the head and the newest items on the tail. This
+    makes it easier to deal with -1 seqnums.
+
+commit ea2a222cef0fe0a3461ed876c0b4d7006d6ccbcc
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 9 23:34:10 2013 +0100
+
+    jitterbuffer: correctly check for invalid values
+    
+    Check for -1 on the guint from the buffer item instead of on the guint16
+    or guint32.
+    Also insert -1 seqnum at the head of the jitterbuffer.
+
+commit fdf8ac40d84544ed8466e3c012bfe493b1eb9b10
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sun Dec 8 16:49:55 2013 +0100
+
+    osxvideosink: fix segfault when dealing with padded frames
+    
+    Fixes crashes with vtdec ! osxvideosink where VideoToolbox outputs padded UYVY
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 8cca2d55f5a4ff2a441922e71c49d83b23bf9b97
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Tue Dec 10 23:06:53 2013 +1100
+
+    soundtouch: Call default event handler for basetransform
+    
+    Make pipeline end properly at EOS and not leak by passing events
+    to the default event handler.
+
+commit d56d00cccd539941c0d2a7c4ff4f00491b78e346
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Fri Dec 6 00:45:50 2013 +1100
+
+    resindvd: Remove racy glib warning.
+    
+    Sometimes, the pad probes can be called twice - for OOB events
+    travelling downstream. Clear out the pad block id, so it only
+    gets removed once.
+
+commit 621bf0d22e6861e5ef1b2b72f68e6ccfc2dec7ea
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Dec 6 00:22:20 2013 +0000
+
+    gsmdec: fix decoding of audio/ms-gsm variant
+    
+    Alternates between 33 and 32 byte frames, but must start
+    with a 33 byte frame. This has been broken for ages since
+    the element was ported to the audio decoder base class.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709416
+
+commit 7dffa2e1f22ee4c94fb989aebf5ef48796cacee0
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Tue Dec 10 11:10:54 2013 +0100
+
+    applemedia: vtdec: set the correct video format in the video meta
+    
+    Fixes all kinds of weird bugs when videoconvert is used with the decoder.
+
+commit 631d5d94ed404afa04c5e62dc105d4798166e09f
+Author: Cong Zhong <congx.zhong@intel.com>
+Date:   Wed Apr 17 10:44:48 2013 +0800
+
+    codecparsers: h264: fix picture level scaling lists derivation (rule B).
+    
+    Fix picture level scaling lists derivation from fall-back rule set B,
+    as specified in 7.4.2.2. More precisely, the sequence level scaling
+    lists need to be used but intra and inter lists arguments were swapped.
+    
+    This fixes FRExt/freh5.264 from conformance testing.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720099
+    
+    Signed-off-by: Gwenole Beauchesne <gwenole.beauchesne@intel.com>
+
+commit ffeb719d4c821b47f02a2f8e85a8ab2ce8a97001
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sun Dec 8 16:46:58 2013 +0100
+
+    applemedia: corevideobuffer: set the correct stride for packed formats
+
+commit 839970e07cc9ecede711131b960a115a764bc0c9
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sun Dec 8 15:31:09 2013 +0100
+
+    applemedia: vtdec: fix mpeg2 video support
+
+commit 938ce6a23d5b7d200a40c0b82ca212135df5abb5
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sun Dec 8 15:25:27 2013 +0100
+
+    applemedia: vtdec: make jpeg decoding actually work
+
+commit 1cd62000f5a84c3a51913686f9c699a291d9842e
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sun Dec 8 15:24:58 2013 +0100
+
+    applemedia: vtdec: fail gracefully when not negotiated
+
+commit b1a756fda730d5edde0d6d83df723d8923008f98
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sat Dec 7 23:55:13 2013 +0100
+
+    applemedia: rewrite VideoToolbox decoder based on GstVideoDecoder
+
+commit 4a5a1e568e07c27316e75b321283664c512881a1
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Dec 6 21:11:32 2013 -0500
+
+    vmcndec: Add missing header file
+    
+    Forgot to add header file to previou commit
+
+commit 60d3af6fbda0916562bff9e3b6da5ebd1866e852
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Dec 6 20:58:48 2013 -0500
+
+    vmncdec: Port to GStreamer 1.0 API
+
+commit 5733a04766838d05584bf34ddb053f89a987ed67
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Dec 6 17:58:13 2013 -0500
+
+    stereo: Port to GStreamer 1.0 API
+
+commit 06ed17674eca3d3d7f3de81f9e9cb1dc59e0dc3b
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Dec 6 17:10:39 2013 -0500
+
+    jp2kdecimator: Port to GStreamer 1.0 API
+
+commit 0a970f1cd11c3fd3d070bd52bbde3216aa697335
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Thu Dec 5 16:50:27 2013 -0500
+
+    rtpasfpay: Use GstRTPBasePayload method to push buffer
+    
+    This way the event is also pushed.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719553
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 1aa253cd3bdf34968f8333da83e90afe3306cf0e
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Dec 7 12:10:13 2013 +0100
+
+    avvidenc: plug input_state leak
+
+ 
