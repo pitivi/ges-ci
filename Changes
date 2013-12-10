@@ -30407,3 +30407,19 @@ Date:   Sat Dec 7 12:10:13 2013 +0100
     avvidenc: plug input_state leak
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 12b3a37b5e7d352b6f082d11f34ce01846289d34
+Author: Edward Hervey <edward@collabora.com>
+Date:   Tue Dec 10 18:30:03 2013 -0500
+
+    gst-launch: Handle taglist copy failure
+    
+    If we couldn't copy the tags, just return instead of trying to use bogus
+    values.
+
+ 
