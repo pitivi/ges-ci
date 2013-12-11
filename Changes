@@ -30461,3 +30461,19 @@ Date:   Wed Dec 11 07:58:23 2013 +0100
     don't know how to compute the latter without parsing every group of pictures.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit e5a73cc2ffec5146171fc8aeb691e0c5580b4266
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 11 14:42:34 2013 +0100
+
+    queue: don't ignore event return value
+    
+    Pass the event return value upstream.
+    Remove strange goto construct.
+
+ 
