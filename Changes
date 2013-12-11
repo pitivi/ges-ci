@@ -30495,3 +30495,16 @@ Date:   Wed Dec 11 16:49:35 2013 +0100
     It is __NOT__ intended to be used as a format field on video/x-raw caps.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit de60453a3337a1f888c9cad28dcd58e1fee59e8f
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Wed Dec 11 18:52:53 2013 +0100
+
+    applemedia: vtdec: fix compiler warning (uninitialized variable)
+
+ 
