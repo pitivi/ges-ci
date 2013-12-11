@@ -30477,3 +30477,21 @@ Date:   Wed Dec 11 14:42:34 2013 +0100
     Remove strange goto construct.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 5fcdabd907ca45595b64131bbae0ea963e259a7c
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Wed Dec 11 16:49:35 2013 +0100
+
+    video: specify/restrict usage of GST_VIDEO_FORMAT_ENCODED
+    
+    GST_VIDEO_FORMAT_ENCODED was added to support *extracting* video-related
+    information (like width, height, framerate,...) from caps.
+    
+    It is __NOT__ intended to be used as a format field on video/x-raw caps.
+
+ 
