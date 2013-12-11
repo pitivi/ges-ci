@@ -30432,3 +30432,32 @@ Date:   Tue Dec 10 18:30:03 2013 -0500
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 00392a6d16aa1f3782fecfe794b1f7f732f88851
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Wed Dec 11 08:11:50 2013 +0100
+
+    applemedia: vtdec: rename reorder_queue_frame_delay to reorder_queue_length
+
+commit 596aa8e05a4e3f8d2c83f32dafdcaecc3fde572c
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Wed Dec 11 08:10:19 2013 +0100
+
+    applemedia: vtdec: report latency
+
+commit 733a780e9d35b5aa45c92c4c3b90cbc39ef7aae1
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Wed Dec 11 07:58:23 2013 +0100
+
+    applemedia: vtdec: set reorder queue length to the max DPB length
+    
+    Set reorder_queue_frame_delay from the DPB size (in frames). Still not optimal,
+    as the DPB size is larger than the max bframe forward prediction length, but I
+    don't know how to compute the latter without parsing every group of pictures.
+
+ 
