@@ -30654,3 +30654,27 @@ Date:   Fri Nov 1 17:07:57 2013 +0000
     It checks the payloader changes its ssrc when collision happens
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f9b7f44938312ee3532c42da36db2b6fc250fd57
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Nov 14 16:23:35 2013 +0200
+
+    tests/check: add an rtpsession unit test to verify all RBs are included in all SRs, roundrobin
+    
+    This test checks that when we have multiple internal sender sources
+    in rtpsession, SRs contain RBs for every other sender source, and that
+    they are included roundrobin when they exceed ST_RTCP_MAX_RB_COUNT,
+    which is the max number of RBs that can fit in a SR.
+
+commit b4ebf8ca504d3c8166b8ecb156561342bc19743e
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Dec 12 16:01:10 2013 +0100
+
+    docs: improve docs
+
+ 
