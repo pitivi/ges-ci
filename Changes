@@ -30568,3 +30568,24 @@ Date:   Mon Nov 4 11:48:21 2013 +0000
     In this case T_dither_max is set to 0 according to RFC 4585
 
  
+ 
+
+ 
+
+====== gst-python =============
+
+ commit c889037e40bb3568ef8cd9456123d744b25a919b
+Author: Simon Farnsworth <simon.farnsworth@onelan.co.uk>
+Date:   Thu Dec 12 11:20:12 2013 +0000
+
+    Fix zip code of new FSF address
+    
+    I missed the zip code last time round - fix it. Thanks to Michael Schwendt
+    in https://bugzilla.redhat.com/show_bug.cgi?id=1034341#c11 for pointing this
+    out to me.
+    
+    Signed-off-by: Simon Farnsworth <simon.farnsworth@onelan.co.uk>
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720317
+
+ 
