@@ -30622,3 +30622,35 @@ Date:   Thu Dec 12 13:42:59 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711560
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit a0df8b8fce1a8acb98c7daa250b0363f2d193830
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Nov 5 18:03:48 2013 +0000
+
+    doc: add design-rtpcollision.txt that explains when GstRTPCollision is created
+    
+    It also talks about "BYE only the corresponding source, not the whole session."
+
+commit d562263852cfc4abbc48b479b860bb6ecc7d925b
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Nov 5 12:31:54 2013 +0000
+
+    tests/check: improve rtpcollision::test_master_ssrc_collision to ensure that a collision does not BYE the whole session
+    
+    Conflicts:
+    	tests/check/elements/rtpcollision.c
+
+commit 7b001e35ed9ffb25bc9b6f4f8e7a991b86129534
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 17:07:57 2013 +0000
+
+    tests/check: add rtpcollision::test_master_ssrc_collision unit test
+    
+    It checks the payloader changes its ssrc when collision happens
+
+ 
