@@ -30508,3 +30508,63 @@ Date:   Wed Dec 11 18:52:53 2013 +0100
     applemedia: vtdec: fix compiler warning (uninitialized variable)
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c78a115154de60354f740e923a623786a99a305d
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 12 10:38:43 2013 +0100
+
+    rtpsession: keep extra stats for scheduling BYE
+    
+    Keep an extra stats structure for scheduling the BYE packets. When we
+    decide to schedule BYE, make a copy of the current stats into the
+    bye_stats. Then while we schedule the BYE, update and use only the
+    bye_stats. When we finished scheduling the BYE packet, we use the
+    regular stats again.
+
+commit 282028e7537b53b1155d5ede7083cf9ba5de18b2
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 12 10:34:38 2013 +0100
+
+    rtpsession: when we schedule BYE, only deal with BYE sources
+    
+    When we are doing the RTCP timeout to schedule BYE packets, don't
+    generate RTCP for all sources but only for the sources marked as BYE.
+
+commit 6a421c3d81b74b808dcc67886cdf5a28b8bc1f41
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 12 10:32:48 2013 +0100
+
+    rtpsession: reset state after scheduling BYE
+    
+    After we do RTCP, we are not scheduling bye anymore.
+
+commit 0a0ff100efe0960639c31216390321c19aa6dd3c
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 12 10:31:38 2013 +0100
+
+    rtpsession: also count NACKS when no signal was pending
+
+commit bec9c04ea045dcb89d5c6389d5d0299ab26c53f3
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 12 10:09:25 2013 +0100
+
+    session: ignore RTCP packets for the BYE sources
+    
+    When we are scheduling BYE packets, ignore all RTCP for the sources that
+    are scheduling a BYE packet. Other sources that are not scheduling BYE
+    should continue receiving RTCP packets as usual.
+
+commit 33b398e345744ed9ef754db8f35e0694fcf5c14a
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Mon Nov 4 11:48:21 2013 +0000
+
+    rtpsession: determine if the session is doing point-to-point
+    
+    In this case T_dither_max is set to 0 according to RFC 4585
+
+ 
