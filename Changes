@@ -30589,3 +30589,18 @@ Date:   Thu Dec 12 11:20:12 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=720317
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6f614e12255cfa4c66e1363f45a06d899af318c1
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Dec 12 13:06:30 2013 +0100
+
+    rtpbasepayload: implement src_event function
+    
+    Add a srcpad event handler and call the src_event vmethod.
+
+ 
