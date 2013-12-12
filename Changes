@@ -30678,3 +30678,34 @@ Date:   Thu Dec 12 16:01:10 2013 +0100
     docs: improve docs
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 6a2de911fa665151c5a45781455b8aecd80f538b
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Nov 14 16:19:29 2013 +0200
+
+    rtpsession: fix rb blocks disappearing after the first rtcp cycle with multiple senders
+    
+    Previously, when the session had multiple internal sender SSRCs, it would
+    issue SR reports with RB blocks only on the first RTCP timeout and afterwards
+    SR reports would be sent empty. This was because the "generation" number
+    in RTPSource would increase more than once during the same cycle and afterwards
+    it would always be greater than the session's generation, which would cause
+    it to be skipped from being included in RBs.
+    
+    This commit fixes this problem by:
+    1) Increasing the RTPSource generation only at the end of each cycle,
+    which essentially fixes the problem but only when the internal senders
+    are less than GST_RTCP_MAX_RB_COUNT.
+    2) Keeping for each RTPSource a set of SSRCs which stores which SSRC's
+    SR the given RTPSource has been reported in, which also fixes the problem
+    when the internal senders are more than GST_RTCP_MAX_RB_COUNT. This is
+    necessary because of the fact that any RTPSource is marked as reported
+    in itself's SR and makes it impossible to know if it has been reported
+    in other SRs too or not, and which.
+
+ 
