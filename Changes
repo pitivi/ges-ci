@@ -30604,3 +30604,21 @@ Date:   Thu Dec 12 13:06:30 2013 +0100
     Add a srcpad event handler and call the src_event vmethod.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 71788c143296fc681dfdab95d138022b3fbb735b
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Dec 12 13:42:59 2013 +0100
+
+    rtpbasepayload: change SSRC on GstRTPCollision event
+    
+    Change our SSRC and update the caps when we receive a GstRTPCollision
+    event from downstream.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711560
+
+ 
