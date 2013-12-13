@@ -30768,3 +30768,28 @@ Date:   Fri Dec 13 10:06:25 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b5d26f3907d2b96f064b95488b672c36ce072c71
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Dec 13 14:36:41 2013 +0100
+
+    videodecoder: gst_video_decoder_release_frame() is available since 1.2.2
+
+ 
+
+====== gst-plugins-ugly =============
+
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
