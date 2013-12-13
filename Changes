@@ -30709,3 +30709,25 @@ Date:   Thu Nov 14 16:19:29 2013 +0200
     in other SRs too or not, and which.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b3910cabaf3cc0e606a307411e496c9136dbfccc
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Dec 12 13:21:15 2013 +0000
+
+    gsmdec: process all available input frames in one go
+    
+    Instead of parsing, decoding and sending out
+    lots os little 20ms audio buffers one by one.
+
+ 
