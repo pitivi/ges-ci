@@ -30828,3 +30828,49 @@ Date:   Fri Dec 13 15:57:36 2013 -0500
     Fixes a regression introduced by commit 57c27ec3
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit d92361ba5228970af718f068b96600177a1195d5
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Dec 13 22:51:32 2013 +0000
+
+    docs: moving plugins: minor 0.10 -> 1.0 fix
+    
+    Spotted by Jay Fenlason
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ada6ea668b00d1c9836a401b8e964578b0420ab1
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Dec 13 17:36:36 2013 -0500
+
+    rtpsession: Add error message if the app tries to set the internal-ssrc
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit fefd021ee2916531b8c0698c14787c2e810e9324
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Fri Dec 13 14:16:49 2013 -0800
+
+    srtp: add 256-bit key support
+    
+    * ext/srtp/gstsrtp.[ch]: added GST_SRTP_CIPHER_AES_256_ICM to
+      GstSrtpCipherType and new function cipher_key_size.
+    
+    * ext/srtp/gstsrtpenc.c: maximum key size is now 46 characters (14 for
+      the salt plus the key). If different ciphers are chosen for RTP and
+      RTCP the maximum needed key size is expected.
+    
+    * ext/srtp/gstsrtpdec.c: minor documentation updates.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720434
+
+ 
