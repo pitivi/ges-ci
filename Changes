@@ -30746,3 +30746,16 @@ Date:   Thu Dec 12 13:21:15 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2942b53cf6b8ab6ad90896445dfd9dd46065f76e
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Dec 13 10:06:25 2013 +0000
+
+    tools: play: allow parse-launch strings for audio and video sink
+
+ 
