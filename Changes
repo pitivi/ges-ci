@@ -30977,3 +30977,21 @@ Date:   Sat Dec 14 13:30:01 2013 +0100
     Fixes compilation with newest xcode.
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 47d5c2b6d699e4cb6608693a1ad9d4af4469e0a7
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Dec 7 11:35:09 2013 +0100
+
+    avviddec: improve buffer handling and semantics
+    
+    ... so as to focus on providing *a* buffer rather than one (too) tied
+    to a frame, in particular allowing multiple allocations related to a frame.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=697806
+
+ 
