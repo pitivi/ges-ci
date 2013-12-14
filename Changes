@@ -31014,3 +31014,34 @@ Date:   Sat Dec 14 18:42:11 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=680700
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a400dd2f47730f45e2ea1a44e759ee5936f8cbda
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Dec 14 19:08:35 2013 +0100
+
+    parse: Don't define yyscan_t twice
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720316
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit d5eccb22855ff1a84ac587ff54821c388f9f0fc8
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sat Dec 14 15:55:42 2013 +0100
+
+    applemedia: vtdec: handle level 3 in get_dpb_max_mb_s_from_level. oops.
+
+commit 44e62613db1a17fa8860f2da52f0e6fdcc1313c4
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sat Dec 14 15:55:22 2013 +0100
+
+    applemedia: atdec: fix mp3 caps
+
+ 
