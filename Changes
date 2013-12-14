@@ -31045,3 +31045,28 @@ Date:   Sat Dec 14 15:55:22 2013 +0100
     applemedia: atdec: fix mp3 caps
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 430df345c4c86579bbcc0079c7776ad687018994
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Dec 14 21:20:45 2013 +0000
+
+    tests: add unit test for bitreader, bytereader and bytewriter with no inlining used
+
+commit fcfe7085b9b2506b6a969c0c9a41cdb2ff75a598
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Dec 14 18:38:41 2013 +0000
+
+    bytereader: add inline variant of gst_byte_reader_init()
+
+commit a6010a915544c0c28f776c6dab85bdc7f549685f
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Dec 14 18:31:38 2013 +0000
+
+    docs: fix docs for gst_queue_array_peek_head()
+
+ 
