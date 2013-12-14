@@ -30874,3 +30874,24 @@ Date:   Fri Dec 13 14:16:49 2013 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=720434
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 6cf1f629a34340a2c60871b6940f5b76e27c7e5f
+Author: Benjamin Gaignard <benjamin.gaignard@linaro.org>
+Date:   Fri Dec 13 11:49:52 2013 +0100
+
+    dvbsuboverlay: fix reading of display window in display definition segment
+    
+    From ETSI EN 300 743 V1.3.1 (2006-11) 7.2.1 Display definition segment specifictations
+    the parameters of display window are in this order: Xmin, Xmax, Ymin, Ymax.
+    
+    Signed-off-by: Benjamin Gaignard <benjamin.gaignard@linaro.org>
+    Signed-off-by: Pierre-Yves Mordret <pierre-yves.mordret@st.com>
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720382
+
+ 
