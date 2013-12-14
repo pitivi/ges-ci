@@ -30895,3 +30895,29 @@ Date:   Fri Dec 13 11:49:52 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720382
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 821c3edca8fd5d5c65d277e3b118b9fb4c424dc9
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 10 11:27:52 2013 -0300
+
+    asfparse: add timestamps to packets
+    
+    re-enable the code that adds timestamps to packets after baseparse's
+    port
+
+commit 04134671c930cc2c6ba04d5980c4d2155b07e677
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 10 10:34:02 2013 -0300
+
+    asfparse: port to baseparse
+    
+    asfparse was not really functional after the port to 1.0
+    
+    Now porting it to baseparse to get it working again
+
+ 
