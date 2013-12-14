@@ -30995,3 +30995,22 @@ Date:   Sat Dec 7 11:35:09 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=697806
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 234f3c73dc4ded22de9e5650865c45c5be4a0873
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Dec 14 18:42:11 2013 +0100
+
+    decklinksrc: Set GST_ELEMENT_FLAG_SOURCE on the source
+    
+    As it does not inherit from basesrc, this flag is not automatically set
+    and e.g. gst_bin_iterate_sources() and other code does not consider this
+    element a source.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=680700
+
+ 
