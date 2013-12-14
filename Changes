@@ -30954,3 +30954,26 @@ Date:   Thu Dec 12 17:49:24 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=664443
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 91787ce4f06134fa48d3eb38df37195b7a739694
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sat Dec 14 13:32:26 2013 +0100
+
+    configure.ac: add missing AM_CONDITIONAL for OPENEXR and SBC
+    
+    Makes my automake (1.14) happier.
+
+commit f387bd03421f6be8c14e7141e9ffdc553be7b16c
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sat Dec 14 13:30:01 2013 +0100
+
+    applemedia: always include <Foundation/Foundation.h>
+    
+    Fixes compilation with newest xcode.
+
+ 
