@@ -30921,3 +30921,36 @@ Date:   Tue Dec 10 10:34:02 2013 -0300
     Now porting it to baseparse to get it working again
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 6af387cd5ab2c946025e5499903e75ee87b063a9
+Author: Matej Knopp <matej.knopp@gmail.com>
+Date:   Thu Dec 12 17:49:24 2013 +0100
+
+    h264parser: not all startcodes should have 3-byte 0 prefix
+    
+    The parser assumes that every time there is a 0 before the startcode,
+    it is part of the startcode. But that's not true.
+    
+    From the specification
+    
+    Byte stream NAL unit syntax
+    zero_byte is a single byte equal to 0x00.
+      When any of the following conditions are fulfilled, the zero_byte syntax
+      element shall be present.
+      – the nal_unit_type within the nal_unit( ) is equal to 7 (sequence parameter
+        set) or 8 (picture parameter set)
+      – the byte stream NAL unit syntax structure contains the first NAL unit of an
+        access unit in decoding order, as specified by subclause 7.4.1.2.3.
+    
+    The problem with doing this for all startcodes is that a trailing zero can mess
+    up timestamps. The trailing zero gets prepended to the startcode, which will
+    carry the PTS and DTS of previous buffer.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=664443
+
+ 
