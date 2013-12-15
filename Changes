@@ -31070,3 +31070,18 @@ Date:   Sat Dec 14 18:31:38 2013 +0000
     docs: fix docs for gst_queue_array_peek_head()
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 44b94295161c2433b7f45ac882bc6c85b4c518de
+Author: Todd Agulnick <todd@agulnick.com>
+Date:   Sat Dec 14 18:12:53 2013 -0500
+
+    decklinksrc: Process EOS even when there are no incoming video frames.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=680700
+
+ 
