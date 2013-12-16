@@ -31220,3 +31220,18 @@ Date:   Mon Dec 16 11:51:00 2013 +0100
     id3tag: Write image-type into the APIC tag
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit f7da59dd9fd6d7bde708c8eda61dacfd6c069797
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Dec 12 17:17:40 2013 +0000
+
+    gst-uninstalled: add gstreamer-vaapi paths
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720337
+
+ 
