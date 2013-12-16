@@ -31272,3 +31272,54 @@ Date:   Mon Dec 16 11:14:29 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720532
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 38d8fa12a5f31b9e6898338e916bcb32719e4282
+Author: Todd Agulnick <todd@agulnick.com>
+Date:   Sun Dec 15 21:01:42 2013 -0800
+
+    Some compiler warning fixes to satisfy XCode compiler
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720513
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 8bab119af9cbac3840a127392e7ff808e61a08bf
+Author: Todd Agulnick <todd@agulnick.com>
+Date:   Sun Dec 15 21:04:11 2013 -0800
+
+    Some compiler warning fixes to satisfy XCode compiler
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720513
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ccd9a9cb89919d1ce0b67095e52e3104d08274e4
+Author: Todd Agulnick <todd@agulnick.com>
+Date:   Sun Dec 15 21:05:31 2013 -0800
+
+    vc1parse: Some compiler warning fixes to satisfy XCode compiler
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720513
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 4cc981de3788b1cf8b2e4b2c76c3581087adab51
+Author: Todd Agulnick <todd@agulnick.com>
+Date:   Sun Dec 15 21:17:26 2013 -0800
+
+    Some compiler warning fixes to satisfy XCode compiler
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720513
+
+ 
