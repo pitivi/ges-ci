@@ -31085,3 +31085,112 @@ Date:   Sat Dec 14 18:12:53 2013 -0500
     https://bugzilla.gnome.org/show_bug.cgi?id=680700
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2927805749393bc90647dc24cf8f13cba4640850
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:02:37 2013 +0100
+
+    wavpackparse: Post AUDIO_CODEC tag
+
+commit 753d3c23a21db76f2d13d4378fd911e6da211bd1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:00:37 2013 +0100
+
+    sbcparse: Post AUDIO_CODEC tag
+
+commit 05e196cbb62848d9cc72b14249e4b0316fd3fdd5
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 09:58:31 2013 +0100
+
+    flacparse: Post AUDIO_CODEC tag
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720512
+
+commit 29f2cae129c84ac3159a350b991050b0937f201d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 09:56:29 2013 +0100
+
+    dcaparse: Post AUDIO_CODEC tag
+
+commit d2ab5199bcd3da6424d64064dc6f77e65d47c674
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 09:54:38 2013 +0100
+
+    amrparse: Post AUDIO_CODEC tag
+
+commit 6f89b430ea9f85dc4f46396402b5910a72750565
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 09:49:48 2013 +0100
+
+    ac3parse: Post AUDIO_CODEC tag
+
+commit b3abbe3f5ec42c5c654e6d634c016f764aebc5ff
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 09:46:16 2013 +0100
+
+    aacparse: Post AUDIO_CODEC tag
+
+commit c07424a534cb59b4e47065d894fba5dcd47191c8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 09:41:14 2013 +0100
+
+    mpegaudioparse: Use pbutils functionality to create the AUDIO_CODEC tag
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit b3f198b67d022ee1a9bbbf6b77cedea578881c96
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:25:22 2013 +0100
+
+    vc1parse: Post VIDEO_CODEC tag
+
+commit 3faa8920cef0a920f01dd316b0e4bf79c9232806
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:24:28 2013 +0100
+
+    pngparse: Post VIDEO_CODEC tag
+
+commit 6fbc101d193e97e78a15beab1eaf1d94a19d3128
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:22:24 2013 +0100
+
+    mpegvideoparse: Use pbutils API to create the VIDEO_CODEC tag string
+
+commit 188b445fdd6437dd729ce4ef4abffbd6990f795a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:21:00 2013 +0100
+
+    mpeg4videoparse: Post VIDEO_CODEC tag
+
+commit 843de8ddf47124ac63be5e6883eac0e002896522
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:19:36 2013 +0100
+
+    h265parse: Post VIDEO_CODEC tag
+
+commit 6934c7e2fc7d06534419d22c3dbb964287c81ab0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:18:23 2013 +0100
+
+    h264parse: Post VIDEO_CODEC tag
+
+commit bdfaf62a4ab0c828ae0641bdebf1c7f906f4acea
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:16:14 2013 +0100
+
+    h263parse: Post VIDEO_CODEC tag
+
+commit e65b9b974a7abf0bd80b0608d3197f9de254462a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 10:13:36 2013 +0100
+
+    diracparse: Post VIDEO_CODEC tag
+
+ 
