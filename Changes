@@ -31235,3 +31235,40 @@ Date:   Thu Dec 12 17:17:40 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=720337
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 92c3211c7944b2fe3f57bd1f411fedf414318fb4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 16:17:07 2013 +0100
+
+    id3v2mux: Set picture type in the APIC frames
+
+commit d60ac3cfeab561ddf1950012b351c4f2ec699e0e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 16:14:52 2013 +0100
+
+    id3v2mux: Set image-description from the info struct, not the caps
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a27d8d00a61e919b746b5696ba92f6f3862fb52c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 16:07:44 2013 +0100
+
+    id3tag: Read image-description from the info structure, not the caps
+
+commit 588b0e342b96eb6f9086d50adf9a696989e4ea40
+Author: Aurélien Zanelli <aurelien.zanelli@parrot.com>
+Date:   Mon Dec 16 11:14:29 2013 +0100
+
+    configure.ac: Fix typo in bz2 check
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720532
+
+ 
