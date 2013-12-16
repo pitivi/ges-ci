@@ -31194,3 +31194,29 @@ Date:   Mon Dec 16 10:13:36 2013 +0100
     diracparse: Post VIDEO_CODEC tag
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 5a48fb7cdb2ff34fcf8523bd7a3ae0f5587361ed
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 11:35:12 2013 +0100
+
+    vorbistag: Read image-type from the GstSample info struct
+    
+    But for backwards compatibility keep reading it from the caps and only
+    use the info struct if the caps don't contain the image-type.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2ce2017650bed25e1b090933b79b845276023964
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 16 11:51:00 2013 +0100
+
+    id3tag: Write image-type into the APIC tag
+
+ 
