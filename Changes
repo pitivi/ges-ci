@@ -31323,3 +31323,21 @@ Date:   Sun Dec 15 21:17:26 2013 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=720513
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2e38741b94f7a226ee32945b6f14ea439c987719
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Mon Dec 16 15:53:41 2013 +0000
+
+    videodecoder: release buffer pool and allocator on full reset
+    
+    It allows to release the buffer pool sooner (i.e. when going
+    to GST_STATE_READY). Previously it was released in finalize.
+    
+    Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=720389
+
+ 
