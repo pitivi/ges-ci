@@ -31341,3 +31341,22 @@ Date:   Mon Dec 16 15:53:41 2013 +0000
     Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=720389
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 46b62c72d873fdaa51d7c69ad008962e00d3df0f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 17 10:23:15 2013 +0100
+
+    decklinksink: Give preference to the order of the filter caps when querying caps
+
+commit 007807d149611059a96d567cca758f4093b487aa
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 17 10:21:26 2013 +0100
+
+    decklinksink: Only intersect with the filter caps if there actually is a filter
+
+ 
