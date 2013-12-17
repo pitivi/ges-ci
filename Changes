@@ -31414,3 +31414,39 @@ Date:   Tue Dec 17 12:06:13 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 27c1261c723cfe0e3a2d0841356d32194496ca2a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 17 17:25:07 2013 +0100
+
+    video-format: Document usage of GST_VIDEO_FORMAT_ENCODED
+    
+    This must only ever be used in caps in combination with a non-system
+    memory GstCapsFeatures, and where it does not make sense to specify
+    any of the other video formats. Examples of this would be in gst-vaapi.
+
+commit 8499a0e35aaeea1dd23c5b15c03caaec78de485a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 17 17:23:19 2013 +0100
+
+    Revert "video: specify/restrict usage of GST_VIDEO_FORMAT_ENCODED"
+    
+    This reverts commit 5fcdabd907ca45595b64131bbae0ea963e259a7c.
+    
+    Instead of making it impossible to use the ENCODED format we should
+    just document that it must not be used for capsfeature-less caps.
+    
+    Also this commit broke API/ABI.
+
+commit 3e61449c86e3def31998386394076b4912bdf17c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 17 17:09:02 2013 +0100
+
+    videoencoder: Release the allocator on hard resets
+
+ 
