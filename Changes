@@ -31375,3 +31375,42 @@ Date:   Tue Dec 10 15:53:54 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720199
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit d111f37f74b9e0656f5755c7692195f60a94a2e5
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 17 12:17:51 2013 +0100
+
+    curl: Fix indention
+
+commit 23ab7d8c4979bff05e37e2e4aff5a74da2b36c3a
+Author: Haridass Selvaraj <haridasj@axis.com>
+Date:   Tue Dec 17 12:06:13 2013 +0100
+
+    curlftpsink: Optionally create a temporary file during FTP transfer/upload
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711620
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
