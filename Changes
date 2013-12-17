@@ -31471,3 +31471,19 @@ Date:   Tue Dec 17 18:03:40 2013 +0100
     descriptions: longer version of two audio codec descriptions
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c62229ae2dc017e461fab2aac8f68051677b3b5f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 17 18:28:25 2013 +0100
+
+    vpx: Mark VP9 support as non-experimental
+    
+    There was a libvpx release with VP9 support now and the bitstream
+    is frozen too.
+
+ 
