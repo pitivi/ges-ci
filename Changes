@@ -31450,3 +31450,24 @@ Date:   Tue Dec 17 17:09:02 2013 +0100
     videoencoder: Release the allocator on hard resets
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 51038d70aacb27b71ecccbd11f3a9ddfeb0bdd43
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Dec 17 18:04:33 2013 +0100
+
+    pbutils: add typefinder and descriptions for audio/x-xi
+    
+    xi files can be read by libsndfile.
+
+commit e09253724b4de3a52386f14554c0aa6e890c80d9
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Dec 17 18:03:40 2013 +0100
+
+    descriptions: longer version of two audio codec descriptions
+
+ 
