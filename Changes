@@ -31487,3 +31487,20 @@ Date:   Tue Dec 17 18:28:25 2013 +0100
     is frozen too.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 7a7ae7d5f4e709e45596a11402e0356522262045
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Tue Dec 10 13:54:28 2013 -0800
+
+    sdp: parse encryption key field
+    
+    * gst-libs/gst/sdp/gstsdpmessage.c: parse encryption key field (k).
+    
+      https://bugzilla.gnome.org/show_bug.cgi?id=720215
+
+ 
