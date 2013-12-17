@@ -31360,3 +31360,18 @@ Date:   Tue Dec 17 10:21:26 2013 +0100
     decklinksink: Only intersect with the filter caps if there actually is a filter
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 892d36211fac3a2c663d9a1198c8a75a2dc3645e
+Author: David Svensson Fors <davidsf@axis.com>
+Date:   Tue Dec 10 15:53:54 2013 +0100
+
+    basesrc: use segment start if DTS for first buffer is unset
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720199
+
+ 
