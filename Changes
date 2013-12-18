@@ -31580,3 +31580,16 @@ Date:   Wed Dec 18 15:07:47 2013 +0100
     subparse: Add typefinder for LRC subtitles
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 692a053ef8a3540ba1b4134a11ca92d17dac7c3f
+Author: Luis de Bethencourt <luis@debethencourt.com>
+Date:   Wed Dec 18 16:26:17 2013 -0500
+
+    mpegvideoparse: Fix documentation of GstMpegVideoSequenceScalableMode
+
+ 
