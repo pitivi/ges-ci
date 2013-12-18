@@ -31593,3 +31593,137 @@ Date:   Wed Dec 18 16:26:17 2013 -0500
     mpegvideoparse: Fix documentation of GstMpegVideoSequenceScalableMode
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 628461b4d1df47aa6a208d48a6cce7ecf315d053
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 17 17:55:58 2013 -0300
+
+    mssdemux: fix segfault when trying to access codec_data
+    
+    Check if codec_data was obtained before trying to use it to
+    prevent a segfault
+
+commit 5948a073244d868186840a37deb03b14a9eb77c9
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 17 17:54:31 2013 -0300
+
+    mssdemux: also generate caps from audiotag attribute
+    
+    Some audio will have its audio format defined by the AudioTag
+    instead of the Fourcc. Fallback to using AudioTag if Fourcc
+    isn't available
+
+commit 26acbbcca96e000ada75671bec866c96b47a6ad3
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 17 16:31:52 2013 -0300
+
+    mssdemux: make sure streams stop properly on cancelled
+    
+    specially when the gst_task_join is waiting for the task
+    to go stop and the task itself sets its back to paused, causing
+    a deadlock on exit.
+
+commit 99c8fb73303ecbefc845b812e2b1d7ba61617aeb
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 17 13:16:58 2013 -0300
+
+    mssdemux: track segments per stream
+    
+    As streams now flow independently, the GstSegment needs to be put
+    on each stream so they can track the position of each one correctly
+    instead of being mixed in a single segment
+
+commit f44c6ed52666d4c0529ebeb1ecd44828816e15e3
+Author: Guillaume Desmottes <guillaume.desmottes@collabora.co.uk>
+Date:   Thu Nov 14 15:23:42 2013 +0100
+
+    mssdemux: push language code tag
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712358
+
+commit d6a9f17d8afe81aebdc96ad4bb7815fdcefdd4c0
+Author: Guillaume Desmottes <guillaume.desmottes@collabora.co.uk>
+Date:   Thu Nov 14 15:14:18 2013 +0100
+
+    mssmanifest: store the language of the stream
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712358
+
+commit 67f3190301bfdd6673cbfd4ceb20d9791187df17
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Dec 16 16:14:24 2013 -0300
+
+    mssdemux: remove the stream loop task
+    
+    Download and push from the same task, makes code a lot simpler
+    to maintain. Also pushing from separate threads avoids deadlocking
+    when gst_pad_push blocks due to downstream queues being full
+
+commit 4e6e1315da7b12a31ae535d889652101611d9f6b
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Dec 13 17:31:11 2013 -0300
+
+    mssdemux: Improve logging
+    
+    Show the stream's pad on log messages to make easier to debug
+    issues in the multiple threads
+
+commit 056420940e62bf41ce0451cc4b8417acba500454
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 10 18:08:40 2013 -0300
+
+    mssdemux: improve flow return handling
+    
+    Handle different flow returns both from the streaming and the
+    downloading loops
+
+commit e847bea1e1e2d7d68ee2830861201f5957ede7ee
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Dec 10 15:41:00 2013 -0300
+
+    mssdemux: remove stream locks
+    
+    Simplify the locking by using a single lock instead of having one
+    lock per stream. This still works and is simpler to maintain.
+
+commit 2ce4f6a8e4c8aa33d08d9f5fe28a83779fadf03f
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Nov 12 09:58:31 2013 -0300
+
+    mssdemux: avoid downloading not-linked streams
+    
+    When a stream gets a not-linked return, it will be marked as so and
+    won't download any more new fragments until a reconfigure event
+    is received. This will make mssdemux expose all pads, but only download
+    fragments for the streams that are actually being used.
+    
+    Relying on the pads being linked/unlinked isn't enough in this scenario
+    as there might be an input-selector downstream that is actually discarding
+    buffers for a given linked pad.
+    
+    When streams are switching, the old active stream can be blocked because
+    input-selector will block not-linked streams. In case the mssdemux's
+    stream loop is blocked pushing a buffer to a full queue downstream it will
+    never unblock as the queue will not drain (input-selector is blocking).
+    
+    In this scenario, stream switching will deadlock as input-selector is
+    waiting for the newly active stream data and the stream_loop that would
+    push this data is blocked waiting for input-selector.
+    
+    To solve this issue, whenever an stream is reactivated on a reconfigure
+    it will enter into the 'catch up mode', in this mode it can push buffers
+    from its download thread until it reaches the currrent GstSegment's position.
+    This works because this timestamp will always be behind or equal to the maximum
+    timestamp pushed for all streams, after pushing data for this timestamp,
+    the stream will go back to default and be pushed sequentially from the main
+    streaming thread. By this time, the input-selector should have already
+    released the thread.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711849
+
+ 
