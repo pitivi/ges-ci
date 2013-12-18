@@ -31553,3 +31553,30 @@ Date:   Wed Dec 18 13:45:22 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720673
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4f4ff6bda695b501ea0933ea488c93475919b141
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 18 15:52:09 2013 +0100
+
+    subparse: Add unit test for LRC subtitles
+
+commit 218d0702c921b6353c3bae4b1e14348ca2dba9d5
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 18 15:24:02 2013 +0100
+
+    subparse: Add support for parsing LRC subtitles
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=678590
+
+commit bc2342e4adaac9652054a52cccb4dac12b0b929c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 18 15:07:47 2013 +0100
+
+    subparse: Add typefinder for LRC subtitles
+
+ 
