@@ -31517,3 +31517,18 @@ Date:   Tue Dec 17 10:01:42 2013 +0100
     applemedia: vtdec: Enable hardware accelerated decoding on 10.9
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 26df7fa26d197e9c5bc13972f19d4ed5de350a21
+Author: William Jon McCann <william.jon.mccann@gmail.com>
+Date:   Wed Dec 18 05:19:46 2013 -0500
+
+    docs: fix project links
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720665
+
+ 
