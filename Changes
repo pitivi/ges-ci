@@ -31532,3 +31532,24 @@ Date:   Wed Dec 18 05:19:46 2013 -0500
     https://bugzilla.gnome.org/show_bug.cgi?id=720665
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 73c40d6c627d979321263682742d6b27dbdce221
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Dec 18 13:48:54 2013 +0100
+
+    pkgconfig: Don't include libraries in the generic gst-plugins-bad pc file
+
+commit d5b438a984f8eb9468c00f42d874871046354788
+Author: Mariusz Buras <mariusz.buras@youview.com>
+Date:   Wed Dec 18 13:45:22 2013 +0100
+
+    mpegts: Install generated headers
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720673
+
+ 
