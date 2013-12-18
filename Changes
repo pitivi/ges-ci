@@ -31504,3 +31504,16 @@ Date:   Tue Dec 10 13:54:28 2013 -0800
       https://bugzilla.gnome.org/show_bug.cgi?id=720215
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 72e989f2da0fc35d6d8b974a660933a273519566
+Author: Davide Bertola <dade@dadeb.it>
+Date:   Tue Dec 17 10:01:42 2013 +0100
+
+    applemedia: vtdec: Enable hardware accelerated decoding on 10.9
+
+ 
