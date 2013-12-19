@@ -31793,3 +31793,46 @@ Date:   Thu Dec 19 07:54:07 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 9c9efffd8cc32e0810b9b95cda75dcb2d7acf1f5
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Dec 19 16:50:10 2013 +0000
+
+    udpsrc: on receive error only unmap and unref buffer if one was alloced and mapped
+    
+    coverity CID 1139866.
+
+commit 627109ce4d9f1fb5a5d904dfd3dbb69d1e7aedfa
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Dec 19 12:47:22 2013 +0000
+
+    multiudpsink: fix misleading comment
+    
+    Those are not allocated on the stack.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 30c93d504cf85fc192b3dce18cc639e3d0b167f3
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 19 21:59:09 2013 +0100
+
+    audiomixer: Also resync timestamps on the RESYNC flag
+
+commit d9525c134bd424b1e1107e92ef13d69e248f70a7
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Dec 19 21:36:50 2013 +0100
+
+    eglglessink: Don't set the EAGLContext of the main thread and don't reuse it either
+    
+    ... instead create a new context for every sink instance.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720421
+
+ 
