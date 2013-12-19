@@ -31744,3 +31744,25 @@ Date:   Thu Dec 19 11:11:28 2013 +1100
     macro.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit cf2cf20cc353a2d12a5dd3e69138ff45e1725310
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Thu Dec 19 08:57:41 2013 +0100
+
+    applemedia: corevideobuffer: fix for planar formats
+
+commit a75ddf446b0a6e8f8547882f42ab8852a365ca8b
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Thu Dec 19 07:54:07 2013 +0100
+
+    applemedia: vtdec: remove silly stride requirement
+    
+    This is legacy from the 0.10 times, and it isn't clear how it was useful back
+    then also.'
+
+ 
