@@ -31727,3 +31727,20 @@ Date:   Tue Nov 12 09:58:31 2013 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=711849
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 81ad21d63ecf08c274b61e0a9663e00541dde4b9
+Author: Jan Schmidt <thaytan@noraisin.net>
+Date:   Thu Dec 19 11:11:28 2013 +1100
+
+    directfb: Add hack to fix compile with broken DirectFB define
+    
+    Compilation breaks because some versions of DirectFB redefine
+    __no_instrument_function__, which is used in the G_GNUC_NO_INSTRUMENT
+    macro.
+
+ 
