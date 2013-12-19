@@ -31836,3 +31836,16 @@ Date:   Thu Dec 19 21:36:50 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720421
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 86b0a0d6d0a277f5e55e06ea6bb2bf9397fb4e9a
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Thu Dec 19 17:41:31 2013 -0300
+
+    gstaudiobasesink: Refactor alignment computation for clarity
+
+ 
