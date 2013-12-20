@@ -31849,3 +31849,53 @@ Date:   Thu Dec 19 17:41:31 2013 -0300
     gstaudiobasesink: Refactor alignment computation for clarity
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 1f71f191bec611541623545eee4adb7774e2b671
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Nov 18 10:46:00 2013 -0300
+
+    multiqueue: post 100% buffering if single queue is not linked
+    
+    This makes buffering stop in case a stream switch happens. This is
+    important for adaptive streams that can disable not-linked streams
+    to avoid consuming the network bandwidth.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719575
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 6348113777ace37ee60cff0999361e631ecccb27
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Dec 20 00:39:34 2013 -0300
+
+    mssdemux: updating docs explaining how it works
+    
+    mssdemux changed a lot and the docs were not correct anymore.
+    
+    Also adds the 'Adaptive' category to its details
+
+commit ff1e88ce93270a93c4ca8f688a88c733a24b62fd
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Dec 19 14:30:13 2013 -0300
+
+    mssdemux: do not push event holding object lock
+    
+    Can lead to deadlocks as the push might block downstream in
+    serialized event cases.
+
+commit aa612513715b8feec8b54ad315d85648ea50c35e
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Dec 19 14:29:42 2013 -0300
+
+    mssdemux: lock around 'cancelled' flag
+    
+    Prevents race conditions when pipeline is seeking near eos
+
+ 
