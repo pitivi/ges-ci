@@ -32037,3 +32037,50 @@ Date:   Tue Dec 17 17:56:32 2013 +0100
     Add a sfdec for a start. Instead of a source plugin, this is a demuxer/decoder combination. This makes it work with auto-plugging.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 21190b9749b1afbcde3403d248201f2580299a8f
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 18:06:25 2013 -0300
+
+    gstaudiobasesink: Always reset last_align
+    
+    Should be done for all the reset_sync() cases. Not
+    only for the READY to PAUSED one.
+
+commit 032779ff13f1488dd6eddfd7c81183aa76ef17f2
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 18:02:42 2013 -0300
+
+    gstaudiobasesink: Reset last_align to 0, not -1
+    
+    This is the expected behavior in READY -> PAUSED
+
+commit c1de7cdefb6220cd1a274cebedff73d620a21092
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 17:58:43 2013 -0300
+
+    gstaudiobasesink: Always reset avg_skew on _reset
+    
+    Only case in which it wasn't (READY to PAUSED) should
+    have had this value reseted too.
+
+commit adf800087c6e67af086761811f24648fff479f9b
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 17:10:44 2013 -0300
+
+    gstaudiobasesink: Retarget FIXME to 2.0
+    
+    Properly fixing this one would break API
+
+commit d35db352581ea98c69f83a256e17c5697deb691b
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 15:13:54 2013 -0300
+
+    gstaudiobasesink: Factor out reset sync routine
+
+ 
