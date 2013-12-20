@@ -31986,3 +31986,54 @@ Date:   Fri Dec 20 00:09:22 2013 -0300
     - Some spelling
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 0e3917b9c0d7f4d75042c35a3e6d2bad1fb906f0
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Dec 20 18:12:53 2013 +0100
+
+    modplug: small seeking code reshuffle
+    
+    Put the code that checks stop values together. Don't clamp a cur value of -1 to 0 (should not happen right now).
+
+commit a18ad22b47c63725341bed2a58faef01ca767de2
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Dec 20 18:10:14 2013 +0100
+
+    sfdec: make _stop() non fatal when we have an error already
+    
+    Having no open file in _stop() is okay. Just reset state.
+
+commit 0c34d807d471778870703ef7cbb771c89a03c6dd
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Dec 20 18:08:33 2013 +0100
+
+    sfdec: add event function and seeking support
+
+commit bf956c487f4d8c6995a43ec635fe59f8e7b8b092
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Dec 18 08:12:07 2013 +0100
+
+    sfdec: add taglist support
+    
+    Map the metadata strings and a bunch of info-fields to GStreamer tags.
+
+commit b884eac02ca2f81b6331c1b1929aef23207cd3b9
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Dec 17 22:25:03 2013 +0100
+
+    sfdec: add query implementation for position and duration
+
+commit 5f89bee7497749812e73be7e4e91adf74690f59a
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Dec 17 17:56:32 2013 +0100
+
+    sndfile: rewrite sndfile for 1.0
+    
+    Add a sfdec for a start. Instead of a source plugin, this is a demuxer/decoder combination. This makes it work with auto-plugging.
+
+ 
