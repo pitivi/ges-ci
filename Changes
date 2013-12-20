@@ -31957,3 +31957,32 @@ Date:   Fri Dec 20 08:41:45 2013 -0500
     https://bugzilla.gnome.org/show_bug.cgi?id=720810
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b324d67586ee8f1c1134445bd8290c4142c7a2f1
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 01:06:33 2013 -0300
+
+    gstaudiobasesink: Drop dead _sink_async_play() code
+
+commit 2f04733a4b8baa64bf27c5fe1e639128596acf68
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 01:03:14 2013 -0300
+
+    gstaudiobasesink: Break some too long lines
+
+commit 187b1062028d33175d4e51fb76922dd265cdbd01
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 00:09:22 2013 -0300
+
+    gstaudiobasesink: Cosmetics, grammar/spelling
+    
+    - Drop repeated 'yet' from debug msg
+    - Drop repeated 'to' from param desc
+    - Some spelling
+
+ 
