@@ -31899,3 +31899,16 @@ Date:   Thu Dec 19 14:29:42 2013 -0300
     Prevents race conditions when pipeline is seeking near eos
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 593719972677d48e52dbb9e95df06756afaaa6bd
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Dec 20 11:37:53 2013 +0100
+
+    funnel: Proxy CAPS and ALLOCATION queries
+
+ 
