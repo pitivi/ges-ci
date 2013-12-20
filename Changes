@@ -31912,3 +31912,48 @@ Date:   Fri Dec 20 11:37:53 2013 +0100
     funnel: Proxy CAPS and ALLOCATION queries
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 62932b17d7bab69ea0e7030faf52aad01d3eb5a4
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Dec 20 14:41:06 2013 +0100
+
+    utils: Add round down 128 macro for completeness
+
+commit 59bb1f58bbbc946ddeced646356be9c8e81a7551
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Nov 13 17:06:23 2013 -0500
+
+    utils: Add round up 128 macro
+
+commit 0199cd5dbf346307a107858ddf15712152ebe62b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Dec 20 14:30:22 2013 +0100
+
+    funnel: Setting the PROXY_CAPS flag on the srcpad does not make much sense
+    
+    funnel outputs whatever one of the upstreams currently outputs, a caps
+    query to a random upstream does not give the right answer here.
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b97c711defc9f8f7bb77f7cc4dfb4d85fb33b7f8
+Author: Edward Hervey <edward@collabora.com>
+Date:   Fri Dec 20 08:41:45 2013 -0500
+
+    audio/video: Initialize all {audio|video}info fields
+    
+    Fixes "Unitialized Scalar Variable" issues reported by Coverity.
+    
+    Has the added advantage of detecting whether somebody *does* use those
+    fields (ending up with a invalid address).
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720810
+
+ 
