@@ -32141,3 +32141,22 @@ Date:   Fri Dec 20 15:13:54 2013 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit cd90748c5b0a915484269db65a8d6e6098757bb3
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sun Dec 22 17:46:40 2013 +0100
+
+    applemedia: vtdec: set the correct stride in the video meta
+
+commit 7a8d918472c217f1a8949eaed5a785c79406e34a
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Sun Dec 22 17:44:01 2013 +0100
+
+    applemedia: atdec: fix aac decoding on Mavericks
+
+ 
