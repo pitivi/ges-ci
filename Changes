@@ -32160,3 +32160,78 @@ Date:   Sun Dec 22 17:44:01 2013 +0100
     applemedia: atdec: fix aac decoding on Mavericks
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a4459ef372384b2402f77d652006c4b3cc592e29
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 22 22:04:37 2013 +0000
+
+    po: update for string changes
+
+commit cd26b328224065bf084f9e612e1aaa2c8ad75983
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 22 21:56:03 2013 +0000
+
+    po: set gettext domain in Makevars so we don't have to patch the generated Makefile.in.in
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705455
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6159360ea0ae2dd607d3418b1cbb8dec37c4cac9
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 22 21:56:03 2013 +0000
+
+    po: set gettext domain in Makevars so we don't have to patch the generated Makefile.in.in
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705455
+
+commit d24f554a3c35034a9df87af446ef24769427d50a
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 22 22:07:43 2013 +0000
+
+    tests: make git ignore new test binary
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ecaede0ce602a386d74d3ad543b6896f04647c13
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 22 21:56:03 2013 +0000
+
+    po: set gettext domain in Makevars so we don't have to patch the generated Makefile.in.in
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705455
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit a46bd0eff82c5d8888a084f7baeac39acdfb1b10
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 22 21:56:03 2013 +0000
+
+    po: set gettext domain in Makevars so we don't have to patch the generated Makefile.in.in
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705455
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c96c7a5315111c26cdf5095fc83750aab80a8a93
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Dec 22 21:56:03 2013 +0000
+
+    po: set gettext domain in Makevars so we don't have to patch the generated Makefile.in.in
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705455
+
+ 
