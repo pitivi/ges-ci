@@ -32334,3 +32334,26 @@ Date:   Sun Dec 22 22:36:16 2013 +0000
     From dbedaa0 to d48bed3
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit cd4602ecfa1622a8261cfb180af82af3d8ae7709
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 23 14:54:02 2013 +0100
+
+    videoconvert: Fix I420 to BGRA fast-path alpha setting
+    
+    This fast-path was adding 128 to every component including
+    alpha while it should only be done for all components except
+    alpha. This caused wrong alpha values to be generated.
+    
+    Also remove the high-quality I420 to BGRA fast-path as it needs
+    the same fix, which causes an additional instruction, which causes
+    orc to emit more than 96 variables, which then just crashes.
+    This can only be fixed in orc by breaking ABI and allowing more
+    variables.
+
+ 
