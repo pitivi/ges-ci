@@ -32404,3 +32404,20 @@ Date:   Mon Dec 23 15:33:42 2013 +0100
     Otherwise this will just error out if we only set caps on the srcpad.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c0852624f7591d19cd44013e729e49f24473b12d
+Author: Brendan Long <b.long@cablelabs.com>
+Date:   Mon Dec 23 12:23:27 2013 -0600
+
+    vp9dec: Require vpx >= 1.3.0 for building vp9dec and vp9enc
+    
+    Previous versions did not have a stable bitstream for VP9.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720986
+
+ 
