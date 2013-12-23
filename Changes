@@ -32357,3 +32357,50 @@ Date:   Mon Dec 23 14:54:02 2013 +0100
     variables.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4baf8080f2cbd2b6cebdefd4f6d723c762dc1ef9
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 23 15:46:48 2013 +0100
+
+    matroskamux: Use correct codec id for ADPCM/DVI
+
+commit 7cae8922cb1d622cd9fcf2563e165ec81465f8a8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 23 15:44:30 2013 +0100
+
+    matroskademux: Check for the correct size of codec_data in the ACM case
+
+commit 00ea1cb00398ac79f14f771f00ba4cfbaeb1ca34
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Sat Jan 14 19:58:17 2012 +0100
+
+    matroskamux: basic adpcm support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=664339
+
+commit 371482a90c089f5d302747933cfb6d1fc327a168
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Dec 20 11:45:38 2013 +0100
+
+    qtdemux: Fix calcuation of descriptor length
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720813
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2d17cd62ef13d42acae6122c37e338bc1f6fb1a0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 23 15:33:42 2013 +0100
+
+    adpcmenc: Properly set output format
+    
+    Otherwise this will just error out if we only set caps on the srcpad.
+
+ 
