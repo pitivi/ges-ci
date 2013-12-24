@@ -32421,3 +32421,28 @@ Date:   Mon Dec 23 12:23:27 2013 -0600
     https://bugzilla.gnome.org/show_bug.cgi?id=720986
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit aedca7acfcfd4c25cebae3b84b8b7526f758b41c
+Author: Lionel Landwerlin <llandwerlin@gmail.com>
+Date:   Tue Dec 24 01:20:25 2013 +0000
+
+    colorbalance: add missing annotation for list_channels()
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720999
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 5b1108dd5f88bfa67655f90d7de9a8308a183f19
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Tue Dec 24 00:43:39 2013 +0100
+
+    matroskamux: adpcm max block align is 8192
+
+ 
