@@ -32725,3 +32725,48 @@ Date:   Thu Dec 26 12:16:26 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 01c7fb11ba17bd70bd00ab5c2db6639ea9da3458
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Dec 26 17:41:00 2013 +0100
+
+    rtsptransport: add more profiles
+    
+    Add support for Feedback profiles
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
