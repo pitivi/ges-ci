@@ -32770,3 +32770,27 @@ Date:   Thu Dec 26 17:41:00 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c24a1254c9f1f73e23a1471ce9dd08f513618c8b
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Thu Dec 26 23:21:45 2013 +1100
+
+    audiodecoder: Choose a default initial caps before sending GAP
+    
+    If there are no caps from the audio decoder when handling a GAP
+    event - as when one is received right at the start on a DVD without
+    initial audio - then choose any default caps for downstream and
+    then send the GAP, so the audio sink has a configured format in
+    which to start the ringbuffer.
+    
+    Also, make the audio sink reject a GAP without caps with a clearer
+    error message.
+    
+    Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=603921
+
+ 
