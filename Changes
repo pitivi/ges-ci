@@ -32668,3 +32668,18 @@ Date:   Thu Dec 26 11:21:36 2013 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=721003
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 2cbab400b2b64481d7ba4d4645d42ec6598850cb
+Author: Erik Andresen <erik@vontaene.de>
+Date:   Thu Dec 26 11:39:27 2013 +0100
+
+    docs: fix memory leak of appsink example in manual
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721076
+
+ 
