@@ -32650,3 +32650,21 @@ Date:   Tue Dec 24 11:51:16 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit bf878d75d110fd0e32898c26d617b85ac1603539
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Dec 26 11:21:36 2013 +0100
+
+    rtspsrc: use aggregate control for PLAY/PAUSE/TEARDOWN
+    
+    Use the aggregate control instead of the original request url to perform
+    PAUSE/PLAY and TEARDOWN.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=721003
+
+ 
