@@ -32683,3 +32683,18 @@ Date:   Thu Dec 26 11:39:27 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721076
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit d2e595364327ca77b198f54d0126fbe7041ba47c
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Dec 26 12:16:26 2013 +0000
+
+    scripts: create-uninstalled-setup: re-use existing master branch if it exists
+    
+    When creating separate checkout for non-master branches.
+
+ 
