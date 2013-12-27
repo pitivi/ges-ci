@@ -32876,3 +32876,25 @@ Date:   Fri Dec 27 10:25:30 2013 +0000
     mpegts: fix g-i annotations and gtk-doc markup
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 8025ac289bee401f6511ee319c2d6c9c93a97322
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Dec 27 12:06:28 2013 +0100
+
+    configure.ac: Remove warning when building against a system version of libav
+    
+    Nowadays libav has proper releases and API/ABI guarantees.
+    We're not living in last decade.
+
+ 
