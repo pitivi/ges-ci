@@ -32863,3 +32863,16 @@ Date:   Tue Dec 24 14:34:09 2013 +0100
     ges: Add padding for API extension where missing
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit ec3c4cb1c7a712894613d4fcf95835bb293c53de
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Dec 27 10:25:30 2013 +0000
+
+    mpegts: fix g-i annotations and gtk-doc markup
+
+ 
