@@ -32819,3 +32819,47 @@ Date:   Thu Dec 26 21:43:34 2013 -0300
     shout2send: Retarget FIXME to 2.0
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 14a2f5943d97318ce87d268f9dd17629a94c5800
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Dec 27 10:08:47 2013 +0100
+
+    base-xml-formatter: Emit 'loaded' right after a project with empy timeline is loaded
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720040
+
+commit d00283f3097a266f7c2a9465e75a23996d9dcb19
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Dec 24 15:34:51 2013 +0100
+
+    track-element: Remove constructors for TrackElement from the API
+    
+    Most of the time the user should not create GESTrackElements
+    himself, instead he should add a GESAsset to a layer, that will
+    result in a clip creation and the proper TrackElements to be
+    created and added to the tracks.
+    
+    The case of effects and overlays is a bit different as the user should
+    create the TrackElement and add them to a clip.
+
+commit b774783af8b014eddb2756d66feab15f50a14df7
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Dec 24 15:08:24 2013 +0100
+
+    ges: Remove versionning infos now that we start on the 1.X API serie
+    
+    They are now meaningless, all the current symbols are the basic
+    ones for the 1.X serie.
+
+commit 35cefaad1b54656ab4fd6a31bc40d58f201bbd65
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Dec 24 14:34:09 2013 +0100
+
+    ges: Add padding for API extension where missing
+
+ 
