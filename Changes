@@ -32913,3 +32913,28 @@ Date:   Fri Dec 27 12:55:02 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720100
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit dedb95dc6face4941eb674fc79efdc9eb5fa9390
+Author: Víctor Manuel Jáquez Leal <vjaquez@igalia.com>
+Date:   Tue Dec 24 23:15:28 2013 +0000
+
+    mfc: fix input dequeue for odroid
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721027
+
+commit 585a6c4addd2a1caf37f710256876cd524553f6a
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Fri Dec 27 14:29:46 2013 +0000
+
+    opusenc: increase max payload size to 4000 bytes
+    
+    1275 is the maximum size of a frame, but the encoder may return
+    up to 3 frames, and we need a few extra bytes for TOC, etc. We
+    use 4000, which is a bit more, and suggested in the libopus docs.
+
+ 
