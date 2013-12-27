@@ -32794,3 +32794,28 @@ Date:   Thu Dec 26 23:21:45 2013 +1100
     Fixes bug https://bugzilla.gnome.org/show_bug.cgi?id=603921
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 9dd6e22ba9563d6cac008d65d5e1c14edda66589
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Thu Dec 26 23:21:47 2013 -0300
+
+    shout2send: drop IP only requirement for _set_host()
+    
+    libshout2 (we require > 2.0 at config time) supports
+    both IP and hostname for _set_host(). Dropped an
+    outdated FIXME regarding this limitation, adjusted
+    some comments and changed the param blurb to reflect
+    this too.
+
+commit 786f87ef30c0dfc852a63b6bb9cfb0e74ad6f598
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Thu Dec 26 21:43:34 2013 -0300
+
+    shout2send: Retarget FIXME to 2.0
+
+ 
