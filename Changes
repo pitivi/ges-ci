@@ -32977,3 +32977,44 @@ Date:   Thu Dec 12 10:50:27 2013 -0300
     had received is pushed before pushing EOS.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 5f07c1ed4e58ad52adf53ce58b808a061badd321
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 19:48:06 2013 -0300
+
+    audiobasesrc: Bunch of cosmetic/grammar fixes
+
+commit 0a6d6e1fff2afddf2872d5467810306304815abe
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 18:58:43 2013 -0300
+
+    audiobasesrc: Retarget FIXME to 2.0
+    
+    Properly fixing this one would break API.
+
+commit aa1883d5d7e1631ed74d3dd79a7bb37f3faa7ef3
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 18:54:39 2013 -0300
+
+    audiobase*: Drop trailing withespaces
+
+commit d1b3454299ab2eb300d3d7d93d837b20ff394c98
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 18:53:13 2013 -0300
+
+    audiobasesrc: Break some too long lines
+
+commit 6b17d866923737ca1aaa7199d40f4a400f0278fe
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 20 18:41:59 2013 -0300
+
+    audiobasesrc: Add FIXME for times in NSECONDS
+    
+    Timebase is in nanoseconds pretty much everywhere else
+
+ 
