@@ -32938,3 +32938,42 @@ Date:   Fri Dec 27 14:29:46 2013 +0000
     use 4000, which is a bit more, and suggested in the libopus docs.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c1cd2f81f98cfe62f03c9a2c8eee5484667400bf
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Dec 27 02:14:02 2013 -0300
+
+    qtdemux: improve mss_mode/fragmented special handling
+    
+    Make it clear what should be handled purely by mss mode:
+    1) Expose the streams on the first moof as there are no moov atoms
+    2) Properly cleanup streams on flushes
+    
+    Add a note about the meaning of upstream_newsegment and mss_mode
+    for future reference.
+    
+    Make all other special fragment handling shared for both dash
+    and mss streams.
+
+commit a82f3418fdc1e7787828f0a2a946b12e6f00332f
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Dec 12 10:50:27 2013 -0300
+
+    qtdemux: drain the adapter before pushing EOS
+    
+    In a fragmented scenario, qtdemux is operating in push mode
+    and it gets a fragmented buffer. While processing its data
+    downstream gets unlinked (or a input-selector changes its
+    active pad and returns not-linked). Qtdemux stops processing
+    this fragment and returns not-linked upstream, leaving the
+    remaining data in its adapter.
+    
+    When it gets an EOS it should make sure that all the data it
+    had received is pushed before pushing EOS.
+
+ 
