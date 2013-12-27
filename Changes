@@ -32898,3 +32898,18 @@ Date:   Fri Dec 27 12:06:28 2013 +0100
     We're not living in last decade.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit c3181fa5df967cc67f3323b20c3cc2f71aff4b03
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Dec 27 12:55:02 2013 +0100
+
+    parse: Use GLib malloc/free/realloc functions
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720100
+
+ 
