@@ -33027,3 +33027,20 @@ Date:   Fri Dec 20 18:41:59 2013 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit fd803921c95a47111da1323acccbcc9bb8c71947
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Dec 28 12:39:25 2013 +0100
+
+    opusparse: Don't send caps in GstBaseParse::start()
+    
+    This is too early and will confuse the event order. The other
+    code that sets the caps is at the right position and does it
+    properly already.
+
+ 
