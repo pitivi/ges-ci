@@ -33059,3 +33059,19 @@ Date:   Sun Dec 29 13:31:53 2013 +0100
     Reported by kwm on IRC.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit e5067fd9aa3b2d7c9682b608e2c658f159f1c9cc
+Author: Pedro Côrte-Real <pedro@pedrocr.net>
+Date:   Sun Dec 29 14:06:55 2013 +0000
+
+    scripts: git-update.sh: fix for non-master branches
+    
+    Pull from tracking branch instead of origin/master, so
+    that this works with e.g. 1.2 as well.
+
+ 
