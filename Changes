@@ -33044,3 +33044,18 @@ Date:   Sat Dec 28 12:39:25 2013 +0100
     properly already.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit bab7bca634dc1411e6089213b99dbf4d9114acbf
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Dec 29 13:31:53 2013 +0100
+
+    opencv: The plugin works with 2.4.7 too
+    
+    Reported by kwm on IRC.
+
+ 
