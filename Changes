@@ -33423,3 +33423,75 @@ Date:   Mon Dec 30 15:49:57 2013 +0100
     basenote.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit af6fd4f5bb8ad17dfe932ad078c68cb12acee3fc
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 16:47:32 2013 +0100
+
+    queue: Remove unneeded checks
+    
+    item is guaranteed to be non-null.
+    
+    COVERITY CID 1037152
+    COVERITY CID 1037153
+
+commit 9649cd4ca19a75d0319117a77a7609e4b8c96533
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 16:34:08 2013 +0100
+
+    nettimeprovider: Remove dead code
+    
+    err is always NULL by the point we reach this line
+    
+    COVERITY CID 1037151
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e721d26c6868a6743ff56cfcf0ef48d90c16f95d
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 16:59:20 2013 +0100
+
+    rtpbin: add Since tags
+
+commit 5a2bc1405eff43493682721ceb8cb8bf94806242
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 16:52:28 2013 +0100
+
+    rtpbin: add signal for new jitterbuffer
+    
+    Emit a signal when a new jitterbuffer is created so that the app can
+    have a chance to configure it.
+
+commit 3f3b2d0886a6581c4e590cf132f49fe41275bb30
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 16:28:57 2013 +0100
+
+    rtpbin: handle multiple encoder instances
+    
+    Keep track of elements that are added to multiple sessions and make sure
+    we only add them to the rtpbin once and that we clean them when no
+    session refers to them anymore.
+
+ 
+
+====== gnonlin =============
+
+ commit 5d52548056b05a0a2fb7fd901c6b8623c2a1b642
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 16:29:54 2013 +0100
+
+    gnloperation: Remove dead code
+    
+    ret is only set before leaving the loop.
+    
+    COVERITY CID 1139661
+    COVERITY CID 1139662
+
+ 
