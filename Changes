@@ -33308,3 +33308,58 @@ Date:   Thu Dec 26 11:04:29 2013 +0200
     rtpsession: allow setting internal-ssrc again
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit b571f3ad7dd13f3092f30556325c405a5bf73bc7
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Dec 30 14:47:19 2013 +0100
+
+    taglist: fix since marker again (1.3 -> 1.4)
+    
+    Since markers should point to the appropriate stable version.
+
+commit e8023bf470fcebc56304e41b05312ea419e28d6e
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Dec 30 14:40:40 2013 +0100
+
+    taglist: fix since-marker in docs (we're in 1.3.X)
+
+commit cb218f28271613cf87f95e0f8fccc3ef356c43af
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Dec 30 14:22:37 2013 +0100
+
+    taglist: add a tag for midi base note numbers
+    
+    Audio files containing sampled instruments can have metadata describing the note
+    that was played on the instrument.
+
+ 
+
+====== gst-plugins-base =============
+
+ commit bc8213e21efb1b58745f3ba21d1d5f9d7e10656b
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Dec 30 14:30:23 2013 +0100
+
+    riff: add two chunk-ids for samples instruments
+    
+    Wav files can have 'smpl' and 'inst' chunks.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2e277bb34173b988c10a9f43d39f223a50a9da94
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Dec 30 14:36:45 2013 +0100
+
+    wavparse: emit midi-base-note tag from data in 'smpl' chunk
+    
+    Add parsing of the 'smpl' chunk. Right now we only grab the midi-base-note and
+    emit it as a tag.
+
+ 
