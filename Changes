@@ -33363,3 +33363,47 @@ Date:   Mon Dec 30 14:36:45 2013 +0100
     emit it as a tag.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 76e4cbc7538be36ec9929c1af54b5515220b5224
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 15:16:09 2013 +0100
+
+    tests: add unit test for encoder element
+
+commit 05c8edc17499d9abc17956b964be536298ec9264
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 15:15:43 2013 +0100
+
+    rtpbin: fix memory leaks
+
+commit bcd1589a913735eba546968a95344f6dcfb6de63
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 15:03:34 2013 +0100
+
+    tests: fix leak
+
+commit 9345c2280a427d34911cbf75d8b40aa388482af5
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 15:00:50 2013 +0100
+
+    rtpbin: expect the pads on the encoders
+    
+    Don't use request pads for the encoder elements, the signal handler
+    should request the pads and make sure they are available with the right
+    name.
+
+commit cbc80d10dd4ce955af616eee34ceb549cf4754c5
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 14:56:07 2013 +0100
+
+    rtpbin: request-rtp-encoder are no action signals
+    
+    The request-rtp-encoder signals are not action signals so mark them
+    correctly and use an accumulator to collect the result value.
+
+ 
