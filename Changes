@@ -33283,3 +33283,28 @@ Date:   Mon Dec 30 13:28:52 2013 +0100
     'parse' is already provided by the parent variable
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 5ddf6a5e3274d433409f4cbd7d4c6a942df1376e
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 26 12:05:19 2013 +0200
+
+    gstrtpsession: suggest upstream to use the new "internal-ssrc" after a collision
+    
+    When a collision is found on the internal ssrc, we have to change it.
+    Ideally, we want also the payloader upstream to follow this change and use
+    the new internal ssrc. Ideally we want this condition to be always met:
+    if there is one payloader sending on this session, its ssrc should match the
+    internal ssrc.
+
+commit 17517ca491e5bc07d36613112a4e987e7bb16609
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 26 11:04:29 2013 +0200
+
+    rtpsession: allow setting internal-ssrc again
+
+ 
