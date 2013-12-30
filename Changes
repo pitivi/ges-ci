@@ -33588,3 +33588,30 @@ Date:   Mon Dec 30 18:44:24 2013 +0100
     at that time.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit d04c8b6d2e0f94b1a31769cae118e61c2078b385
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 19:03:22 2013 +0100
+
+    pad: Keep an extra ref of the pad when calling an IDLE probe immediately
+    
+    The callback might destroy the pad.
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 40fe5dcc84ff2cc7dbe0112d7830a33fd764d4e1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 19:12:53 2013 +0100
+
+    test-effect-switch: Change one of the pad blocks to and idle probe
+    
+    Just because we can.
+
+ 
