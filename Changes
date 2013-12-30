@@ -33495,3 +33495,59 @@ Date:   Mon Dec 30 16:29:54 2013 +0100
     COVERITY CID 1139662
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 2ddbe8df492a71d5030309d9ad87c44ac17498fd
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Dec 30 16:10:08 2013 +0000
+
+    nettimeprovider: remove unnecessary NULL check
+    
+    Error is never NULL when we break out of the loop.
+    
+    COVERITY CID 1037151
+
+commit 0735c052e178e6a318a19df6622ee767ed063786
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Dec 30 16:05:47 2013 +0000
+
+    Revert "nettimeprovider: Remove dead code"
+    
+    This reverts commit 9649cd4ca19a75d0319117a77a7609e4b8c96533.
+    
+    This is not right, and it's also not what coverity
+    is complaining about.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 711c73290c308b320f36bd541e3c16c5d7c648f2
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 17:23:22 2013 +0100
+
+    avimux: Add missing break
+    
+    I guess no-one noticed we no longer could mux WMV3 ...
+    
+    COVERITY CID 1139759
+
+commit 91c5b09fb4563e095f21c160501ea351344fb049
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 17:20:37 2013 +0100
+
+    rtpvrawpay: Add missing break
+    
+    COVERITY CID 1139762
+
+commit ee7f41ba2eb19ce44aa5cec65ee56e87931da18c
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 17:00:45 2013 +0100
+
+    rtpsession: internal-ssrc is no longer deprecated
+
+ 
