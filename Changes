@@ -33551,3 +33551,20 @@ Date:   Mon Dec 30 17:00:45 2013 +0100
     rtpsession: internal-ssrc is no longer deprecated
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b08598da1c44c3f5eebd5e4007ae25f0b6ae791b
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 17:30:15 2013 +0100
+
+    encoding-profile: Add missing break statement
+    
+    And do a minor cleanup
+    
+    COVERITY CID 1139753
+
+ 
