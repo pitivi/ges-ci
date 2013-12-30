@@ -33102,3 +33102,32 @@ Date:   Mon Dec 30 10:14:09 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720810
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 901cd5560c4e4b483376d60b29c6aba27759f4a1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 10:01:39 2013 +0100
+
+    pad: Don't ignore probe callback return value when immediately calling IDLE probe
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721096
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 58592a2af37bf146d54c1565e22207a0a3395574
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 10:53:24 2013 +0100
+
+    audio/video-info: Properly initialize the info structures in set_format()
+    
+    And don't assume in other code that set_format() preserves any fields at
+    all. These assumptions were already made here for fields that were changed
+    by set_format().
+
+ 
