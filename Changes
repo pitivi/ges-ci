@@ -33084,3 +33084,21 @@ Date:   Sun Dec 29 14:06:55 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 65732d9c97dd2091994c88167501e85de5e5755d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 10:14:09 2013 +0100
+
+    audio/video-info: Initialize the complete struct to 0 in the beginning
+    
+    Instead of only initializing some parts in some code paths. Also
+    makes it easier to use the reserved bits of the structs later.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720810
+
+ 
