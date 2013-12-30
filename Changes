@@ -33220,3 +33220,66 @@ Date:   Thu Dec 5 15:53:52 2013 -0800
       https://bugzilla.gnome.org/show_bug.cgi?id=719938
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 213596cc852df3dd3169d3ad50e6adb1184dc888
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 13:46:34 2013 +0100
+
+    riff-media: Fix array read
+    
+    nbchannels ranges from 1 to 8, therefore use '- 1' to get the proper
+    array value.
+
+commit ed59e06c57c6c6b6b03f197bdbf586e02c0f5904
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 13:33:00 2013 +0100
+
+    videorate: Remove useless assignement
+    
+    Was already set before
+
+commit 6108407db1b2d4e7dd9d41244f2f555cc57c0e43
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Thu Dec 26 17:47:46 2013 +0200
+
+    gstrtpbasepayload: use the session's suggested ssrc after a collision, if the session provides one
+    
+    Conflicts:
+    	gst-libs/gst/rtp/gstrtpbasepayload.c
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e732b86b8ef0be2b6316ca4645962c93c7521a34
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 13:31:45 2013 +0100
+
+    y4mencode: Remove dead code
+    
+    set/get property isn't used
+
+commit ac40045d0d3c9bcd0421ea5052309602c1cb0bb6
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 13:30:24 2013 +0100
+
+    rtpqcelpdepay: Remove uneeded variable
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 46cb19404df451bf420403de0dc0c900ae5f5e82
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Mon Dec 30 13:28:52 2013 +0100
+
+    jpegparse: Remove unneeded call
+    
+    'parse' is already provided by the parent variable
+
+ 
