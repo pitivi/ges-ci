@@ -33615,3 +33615,27 @@ Date:   Mon Dec 30 19:12:53 2013 +0100
     Just because we can.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit eff7866dd01207930c2af7365e8f7f9e0a3850c9
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 19:48:29 2013 +0100
+
+    videotestsrc: Always set pixel-aspect-ratio and interlace-mode in the fixed caps
+    
+    Otherwise our caps will not be compatible with elements that require a
+    1/1 pixel-aspect-ratio or progressive video.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721103
+
+commit eff2119e6ac13657b75a42deede0b2643a9abc92
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 19:40:29 2013 +0100
+
+    test-effect-switch: Don't put two format fields into the first capsfilter
+
+ 
