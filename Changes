@@ -33568,3 +33568,23 @@ Date:   Mon Dec 30 17:30:15 2013 +0100
     COVERITY CID 1139753
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 0324358ebc8122a41ab499a3ef7973b61c3e621b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 18:44:24 2013 +0100
+
+    pad: Only call IDLE probes if we are actually idle
+    
+    Also only check the data types for non-IDLE probes. When we
+    are idle, we have no data type obviously.
+    
+    Previously we were calling IDLE probes during data flow whenever
+    a non-blocking probe would be called. The pad was usually not idle
+    at that time.
+
+ 
