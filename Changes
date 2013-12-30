@@ -33195,3 +33195,28 @@ Date:   Mon Dec 30 11:06:38 2013 +0100
     wavpackdec: Send a CAPS event in the unit test
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 47c65fc269c0f83f710b88b446d8430fcd7ca231
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Thu Dec 5 15:53:52 2013 -0800
+
+    rtpbin: allow dynamic RTP/RTCP encoders/decoders
+    
+    * gst/rtpmanager/gstrtpbin.[ch]: four new action signals have been
+      added (request-rtp-encoder, request-rtp-decoder, request-rtcp-encoder
+      and request-rtcp-decoder). The user will be able to provide encoders
+      or decoders dynamically. The encoders must follow the srtpenc API and
+      the decoders the srtpdec API. Having separate signals for RTP and RTCP
+      allows the user to use different encoders/decoders or provide the same
+      one (e.g. that would be the case for srtpenc).
+    
+      Also, rtpbin now allows application/x-srtp in its pads.
+    
+      https://bugzilla.gnome.org/show_bug.cgi?id=719938
+
+ 
