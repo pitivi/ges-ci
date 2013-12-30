@@ -33131,3 +33131,67 @@ Date:   Mon Dec 30 10:53:24 2013 +0100
     by set_format().
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 98e0dec7151bb8798c783f43bc2b963ce1089c51
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Tue Dec 10 15:19:14 2013 +0000
+
+    playback: add ANY caps features to default audio/video raw caps
+    
+    Allows elements using audio/video caps features to be used by playbin.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f48bbabafc0c2c5c19dd6735b067216257447aac
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Dec 27 16:51:32 2013 +0100
+
+    rtpjitterbuffer: dynamically recalculate RTX parameters
+    
+    Use the round-trip-time and average jitter to dynamically calculate the
+    retransmission interval and expected packet arrival time.
+    
+    Based on patches from Torrie Fischer <torrie.fischer@collabora.co.uk>
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711412
+
+commit 416bd9a2c3377fe1bf3a0b59c84f583bc72c9069
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Dec 27 16:50:52 2013 +0100
+
+    rtpjitterbuffer: calculate average jitter
+
+commit 7181a21ca912f74ac2e11280ac09f50b14ee7919
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Dec 27 16:48:48 2013 +0100
+
+    rtpsession: use RTT from the Retransmission event
+    
+    Place the estimated RTT in the Retransmission event and let the session
+    manager use that instead of the hardcoded value.
+
+commit e996f73d0cc71311b6058f2ec8bc276dbb777e2b
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Dec 27 15:57:39 2013 +0100
+
+    jitterbuffer: take more accurate running-time for NACK
+    
+    Don't use the current time calculated from the tmieout loop for when we
+    last scheduled the NACK because it might be unscheduled because of a max
+    packet misorder and then we don't accurately calculate the current time.
+    Instead, take the current element running time using the clock.
+
+commit 29840bfd96c657e0b4b46d045ae0abd4f4cc87d0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Dec 30 11:06:38 2013 +0100
+
+    wavpackdec: Send a CAPS event in the unit test
+
+ 
