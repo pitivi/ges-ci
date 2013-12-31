@@ -33735,3 +33735,39 @@ Date:   Tue Dec 31 10:25:28 2013 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 1df82fc14fe79ed24301e078425d3e3e30aabb0c
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Tue Dec 31 23:18:54 2013 +1100
+
+    androidmedia: Add new color format, and enhance debug output
+    
+    Add a new color format seen on my Galaxy S3
+    (OMX_SEC_COLOR_FormatNV12Tiled = 0x7fc00002) to the table,
+    but don't actually implement it - the decoder doesn't choose it.
+    
+    Remove an assert that makes the plugin fail noisily and take the app down
+    if it sees a color format it doesn't recognise (just skip the codec instead)
+    
+    Modify the debug output when plugin scanning to print color format info to
+    make this sort of thing easier in the future.
+
+commit 14a56b6964b87e66bc2e242ace03ac385bfe1e12
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Thu Dec 19 23:00:12 2013 +1100
+
+    mpegtsmux: Don't disrupt buffer state in the clip function
+    
+    Collectpads assumes that it can pass any buffer to the clip function
+    for adjustment, some of which are artificially injected - so don't
+    adjust global timestamp tracking there. Instead, only adjust the
+    buffer timestamps and use them directly in the collection function.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=698748
+
+ 
