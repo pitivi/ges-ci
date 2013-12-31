@@ -33639,3 +33639,22 @@ Date:   Mon Dec 30 19:40:29 2013 +0100
     test-effect-switch: Don't put two format fields into the first capsfilter
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 230307f842a2a5dce52178e79b953c921ff0bcc8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 31 09:37:36 2013 +0100
+
+    Revert "test-effect-switch: Change one of the pad blocks to and idle probe"
+    
+    This reverts commit 40fe5dcc84ff2cc7dbe0112d7830a33fd764d4e1.
+    
+    Using an idle probe here is not ideal because we'll send an EOS event
+    from the application thread... which might block for quite some time.
+    Go back to a block probe.
+
+ 
