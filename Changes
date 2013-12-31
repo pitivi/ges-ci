@@ -33683,3 +33683,40 @@ Date:   Tue Dec 31 10:07:22 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721245
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 9f3becdf52ad06c5d30a58501480036059820d24
+Author: Stéphane Cerveau <scerveau@gmail.com>
+Date:   Tue Dec 31 10:17:55 2013 +0100
+
+    riff: Add id3 tag
+    
+    Add id3 tag for wavparse
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721241
+
+ 
+
+====== gst-plugins-good =============
+
+ commit e7912641c3cf3513a13382a5a78ca18bc5ebb476
+Author: Stéphane Cerveau <scerveau@gmail.com>
+Date:   Tue Dec 31 10:25:28 2013 +0100
+
+    wavparse: Skip id3 tag
+    
+    Skip id3 tag during wav parse.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721241
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
