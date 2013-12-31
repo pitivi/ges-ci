@@ -33658,3 +33658,28 @@ Date:   Tue Dec 31 09:37:36 2013 +0100
     Go back to a block probe.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 5b1c0a4cfd52ee25b6d6caa2851f7699a736b187
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Dec 31 10:10:05 2013 +0100
+
+    osx: Make OSX version checks more consistent
+    
+    And especially also consider update versions, e.g. 10.5 with updates
+    will be 1051 or similar and thus bigger than MAC_OS_X_VERSION_10_5 but
+    still won't have the API we want to use.
+
+commit 3d163680f0c84db3ba9424a1bee5df78e548ff90
+Author: Jeremy Huddleston <jeremyhu@freedesktop.org>
+Date:   Tue Dec 31 10:07:22 2013 +0100
+
+    osxvideosink: Fix build on updated OS X Leopard
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721245
+
+ 
