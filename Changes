@@ -33771,3 +33771,63 @@ Date:   Thu Dec 19 23:00:12 2013 +1100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=698748
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c83ed4f61e882b0170d4c5a4b38d1883aebc6551
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 31 14:57:27 2013 +0100
+
+    tests: add AUX receiver unit test
+
+commit b91e0096b7a4adfa162172542d3b3ef3d11a08d0
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 31 13:20:01 2013 +0100
+
+    tests: improve rtpbin test
+
+commit bb2d37b11d68b788d1ddaeecdc90ae4985cab764
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 31 13:16:46 2013 +0100
+
+    rtpbin: add some docs about AUX elements
+
+commit 3e83e6a33d0430bdfdf4cc754e44bace80cb56cc
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 31 13:01:22 2013 +0100
+
+    tests: add AUX sender unit test
+
+commit d08e05b4ef8dae23fd8b5f551c6514db5fe222cb
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 31 12:31:25 2013 +0100
+
+    rtpbin: add support for AUX sender and receiver
+    
+    AUX elements are elements that can be inserted into the rtpbin
+    pipeline right before or after 1 or more session elements.
+    
+    The AUX elements are essential for implementing functionality such
+    as error correction (FEC) and retransmission (RTX).
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711087
+
+commit 841f9ad0504011876c82811642adc95835f247c8
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Dec 31 12:22:39 2013 +0100
+
+    tests: add decoder test
+
+commit ae22c958819abd75f0da25892ceb1ae84476ba1b
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Dec 30 17:36:42 2013 +0100
+
+    rtpbin: make request_element method internally
+    
+    We can use the same method to create encoder and decoder elements, they
+    are just internal elements that we create.
+
+ 
