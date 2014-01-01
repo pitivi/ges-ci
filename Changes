@@ -33846,3 +33846,25 @@ Date:   Tue Dec 31 22:38:03 2013 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721293
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 472ded1cf333a35e328a21084f46a28dd5febfef
+Author: William Grant <wgrant@ubuntu.com>
+Date:   Fri Nov 15 14:17:03 2013 +0000
+
+    configure: Prevent the NEON check in configure from passing under aarch64.
+    
+    The test verifies that the NEON C intrinsics work, but the rest of the
+    codebase uses lots of direct ARMv7 NEON assembly. The same intrinsics
+    work in A64, but the assembly is slightly different.
+    
+    Prevent the check from passing so that we don't use this where it won't
+    work.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712367
+
+ 
