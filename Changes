@@ -33831,3 +33831,18 @@ Date:   Mon Dec 30 17:36:42 2013 +0100
     are just internal elements that we create.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 8663611af50f0b510b432e8318ef0f019292a5e6
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Tue Dec 31 22:38:03 2013 +0100
+
+    po: update POTFILES
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721293
+
+ 
