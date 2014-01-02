@@ -33898,3 +33898,31 @@ Date:   Wed Jan 1 12:23:50 2014 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=721245
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 34f8b4d6f3e6a61519f23e8ef0644a6fdfc99daa
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 2 11:13:27 2014 +0100
+
+    tee: Remove dyn lock
+    
+    It was used for pad-alloc in 0.10 but currently is completely unused
+    and not necessary. All pad access is protected by the tee object lock
+    and keeping another reference to the current pad.
+
+commit e80fd39947c697d591789feee918cd6a27f1ca15
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 2 11:09:59 2014 +0100
+
+    tee: Keep another ref to our one and only srcpad around while pushing
+    
+    A pad probe on that pad might otherwise just release the pad, drop
+    the last reference and cause great misery.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721300
+
+ 
