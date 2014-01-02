@@ -33926,3 +33926,34 @@ Date:   Thu Jan 2 11:09:59 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721300
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 9e125e7bab92259d2d3317c2bf47da081c03ba8a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 2 13:34:52 2014 +0100
+
+    pad: Add unit test for adding/removing blocking probes while a pad is blocked
+    
+    And make sure that these new probes are actually called if they should
+    instead of silently blocking the pad forever.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721289
+
+commit 93ce90f83320e845867d28b9cbeea5b596a1ef04
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 2 13:33:20 2014 +0100
+
+    pad: Check if new probes need to be called when adding/removing some
+    
+    This allows blocking a pad, add a new blocking probe, removing
+    the first probe and then having the second probe called. Which
+    could then decide that data-flow should actually continue
+    instead of blocking now.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721289
+
+ 
