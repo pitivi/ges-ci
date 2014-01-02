@@ -33957,3 +33957,20 @@ Date:   Thu Jan 2 13:33:20 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721289
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit f0b655e1ad2af1d1d6c1944a63e1b7040c1e0251
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Fri Jan 3 02:18:20 2014 +1100
+
+    audiobasesrc: Avoid unnecessary configuration
+    
+    Port a change from audiobasesink from def07410, to ignore setcaps
+    when the caps don't actually change, and avoid a reconfiguration
+    and reset of the ringbuffer in that case.
+
+ 
