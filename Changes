@@ -33868,3 +33868,33 @@ Date:   Fri Nov 15 14:17:03 2013 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=712367
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2bc631bcd0051cbb6cf2e519bf103cfdf3c33f08
+Author: Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+Date:   Wed Jan 1 12:11:43 2014 -0800
+
+    osxvideo: unifdef -DRUN_NS_APP_THREAD
+
+commit 6fe2115d77b2c67bf5f12a52f456f92496e6556a
+Author: Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+Date:   Wed Jan 1 12:10:01 2014 -0800
+
+    osxvideo: Assume SDK and deployment target are at least Snow Leopard
+
+commit aeb3fa72b2ddded8add89480a80c2b5bb2cb6aa3
+Author: Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+Date:   Wed Jan 1 12:23:50 2014 -0800
+
+    configure: Disable osxvideo on Leopard and earlier
+    
+    This also moves the "other platforms" check in OS X video to before the
+    variable is read
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721245
+
+ 
