@@ -33987,3 +33987,49 @@ Date:   Thu Jan 2 20:17:58 2014 +0100
     design/part-toc.txt: update design docs
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit e02c00a58a7f1577c8dab92d6823a1408d5b5f0a
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 2 16:22:37 2014 -0300
+
+    baseparse: remove pending_segment as it was being misused
+    
+    It wasn't required, instead baseparse was using it to check the media
+    caps to identify if it was handling audio or video.
+    
+    The pending_segment was removed and a checked_media boolean
+    replaced it for a more accurate naming.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721350
+
+commit accaadf52ac7cdb9c30383d70a9418bc258fd35d
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 2 13:43:54 2014 -0300
+
+    baseparse: push pending events before GAP event
+    
+    A GAP event is handled as an empty buffer by sinks and they expect
+    to receive start up events before GAP events (like a segment).
+    
+    This is important specially if there is a GAP at the beginning of
+    a stream (before any buffers) so that the segment event can be
+    pushed downstream before the GAP
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721350
+
+commit d917eb7160d0043db970d4d599a32020c69ae63c
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 2 13:41:25 2014 -0300
+
+    baseparse: refactor pending events pushing
+    
+    Refactor code repeated 3 times to a common function
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721350
+
+ 
