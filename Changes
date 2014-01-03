@@ -34078,3 +34078,57 @@ Date:   Fri Jan 3 09:59:34 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721382
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 1de533735b93ec8cbad346267f99e6519d0e3cc8
+Author: YanpingZhang <zhangyanping210@163.com>
+Date:   Fri Jan 3 11:47:23 2014 +0800
+
+    multiqueue: Fix hanging if shut down while handling a serialized query
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721253
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 0bbdb9bb1d9408dbbe753b47c3b919ddc285511c
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Fri Dec 6 17:08:54 2013 +0000
+
+    deinterlace: support any video formats and any caps features if deinterlace mode allows it
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719636
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit cd11a38bf0780da9b20aac5e46f980f47c57786d
+Author: Stefan Ringel <linuxtv@stefanringel.de>
+Date:   Thu Oct 10 18:25:46 2013 +0200
+
+    dvbsrc: Add dvb-s2, dvb-t2 support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709414
+
+commit e34df02115574084c13cc88caa47198bcc0856fc
+Author: Stefan Ringel <linuxtv@stefanringel.de>
+Date:   Thu Oct 10 18:23:20 2013 +0200
+
+    dvbsrc: Change from deprecated frontend type field to DTV_ENUM_DELSYS
+    
+    -add delsys property
+    -add delivery system capability to the gstreamer adapter structure
+    -ready for add new delivery systems
+    
+    Application must ask the adapter structure to know which delivery systems are avaible.
+    The property delsys must be set.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709414
+
+ 
