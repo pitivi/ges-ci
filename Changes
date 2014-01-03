@@ -34132,3 +34132,74 @@ Date:   Thu Oct 10 18:23:20 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=709414
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 1409e1692b8c9b2c2169918204281f526259b35d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:28:44 2014 +0100
+
+    av: Update for CodecID -> AVCodecID related changes
+
+commit fc57f7fb1b0ccb009550d9364d37ab73f0e314dc
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:28:02 2014 +0100
+
+    avcfg: Update config parameters a bit to fix compilation
+    
+    This needs a major rework and should use the new configuration
+    interface where useful.
+
+commit 0a819702c0cd611d15df40ed4358b06837143eba
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:27:34 2014 +0100
+
+    avenc: Stop using the removed inter_threshold field
+
+commit 0400f7cc288bf8024161468ae673bce2b8924220
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:27:11 2014 +0100
+
+    avviddec rebase
+
+commit 8fc3da62c17a022df40938456ab268e0be19b683
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:26:10 2014 +0100
+
+    avauddec: Stop using AVCODEC_MAX_AUDIO_FRAME_SIZE
+    
+    And properly use the have_data variable. It's a boolean.
+
+commit 28d1c135bb9ce679f735957f95994b6b849ab3ff
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:25:39 2014 +0100
+
+    avdemux: Stop using r_frame_rate field
+    
+    It was removed and quite meaningless anyway.
+    Use the average framerate instead.
+
+commit 53966ee30456c80be1e542d48b71fbbe928a1f40
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:24:28 2014 +0100
+
+    avvidenc: Port to av_encode_video2()
+    
+    av_encode_video() is deprecated and an ugly API anyway.
+
+commit 291fa98dcbf5f0ccfa69ceb64b5d1988562104f1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 3 16:23:26 2014 +0100
+
+    libav: Update to libav master (libav 10 API)
+
+ 
