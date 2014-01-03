@@ -34309,3 +34309,254 @@ Date:   Tue Dec 31 15:00:22 2013 -0300
     gdkpixbufoverlay: remove spurious @see_also
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 70d3ff2f79642edf58e528967f646179cb58d3db
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 16:41:43 2013 +0000
+
+    rtprtxsend/rtprtxreceive: generate gtk doc
+
+commit 94e4cd203b5a294c0bf055c3edbf06060b3b2270
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Mon Dec 2 11:26:09 2013 +0100
+
+    test/check: Verify rtprtxsend::ssrc-map property works as expected
+
+commit 92260912354f7518a9a02f78d142a0a321a24d84
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Fri Nov 29 19:35:44 2013 +0100
+
+    rtprtxreceive: modify to use a payload-type map like rtprtxsend
+
+commit c8a04bc7b2f4ccdfe9be39d031f8605eeae43936
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Fri Nov 29 19:58:26 2013 +0100
+
+    rtprtxsend: do not keep history of packets with an unknown payload type
+    
+    This allows to disable retransmission per payload type by not putting
+    a certain payload type in the map.
+
+commit 130ad1b1faf49c684606dd2cd666982394e3afda
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 2 15:18:52 2014 +0100
+
+    rtprtxsend: Allow SSRC-multiplexing and multiple payload types in the original stream
+    
+    Conflicts:
+    	tests/examples/rtp/server-rtpaux.c
+
+commit 41285697ac549a21e924885db94e7e53e3813b63
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Mon Nov 25 15:00:45 2013 +0100
+
+    rtprtxsend: Add an rtx-ssrc property to allow external control of the ssrc
+    
+    This is useful when one needs to know the SSRC beforehands, so that it can
+    be used for SRTP for example.
+
+commit e29b5f8b41bbadbcb0ac7dd18f783b33c0a6d42f
+Author: Torrie Fischer <torrie.fischer@collabora.co.uk>
+Date:   Wed Nov 13 15:11:35 2013 -0500
+
+    examples: rtp: Add end-to-end rtpbin example with RTX elements
+    
+    This example demonstrates how to use rtpbin with retransmission (rtx)
+    elements set in the place of rtpbin's "aux" elements in order to
+    enable RTP retransmission according to the rules of RFC4588.
+
+commit d2edee4b49f1ef4480a1dec1348ef68ea7ef7210
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Nov 5 17:35:01 2013 +0000
+
+    doc: add design-rtpauxiliary.txt to describe how rtpbin deals with auxiliary elements
+
+commit 679b5a86825830e5e165f3a782be87d704a340bb
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 2 14:48:49 2014 +0100
+
+    session: also push EOS event to RTCP srcpad
+
+commit 03e4a180da96c7177223e983024e861792a7a9c8
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 2 14:46:11 2014 +0100
+
+    session: place SSRC in Retransmission event
+
+commit 5f360f3b133301fcd33cbc3998c369354134e2bc
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 16:57:15 2013 +0000
+
+    tests/check: add rtpaux::test_simple_rtpbin_aux
+    
+    It shows how to use "set-aux-receive" and "set-aux-send"
+    properties of rtpbin to set rtprtxsend and rtprtxreceive
+    
+    Build 2 pipelines, one for rtpbin as a sender and one for
+    rtobin as a receive. Then transmit an audio stream.
+    
+    It also drops some packets to activate restransmission and
+    check they are actually retransmited.
+
+commit 68149d14e1325c6a9b842127ef2b6c376cc77140
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 17:09:42 2013 +0000
+
+    tests/check: add rtpcollision::test_rtx_ssrc_collision unit test
+    
+    check that rtxrtpsend changes its retransmission ssrc when
+    collision happens
+
+commit 123bc46b607a848e818248522156693eaa42ee72
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Wed Nov 6 12:34:13 2013 +0200
+
+    tests/check: add rtprtx::test_rtxreceive_data_reconstruction
+    
+    This unit test verifies that retransmitted rtp packets coming out
+    of rtprtxreceive are the same as the original ones.
+
+commit 0a8b149e9e9cf1b4a9f9c1f748f8a4c8264d5dce
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Nov 5 09:33:51 2013 +0200
+
+    rtprtxsend: use a realistic limit for the value of max-size-packets
+    
+    G_MAXINT16 is chosen because if the queue contains more than
+    G_MAXINT16 packets, seqnum comparison will not work properly.
+
+commit 51edc07127b2ef7ca260fdc73f136e503a90f35c
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Mon Nov 4 20:05:03 2013 +0200
+
+    rtprtxsend: use a GSequence to implement the buffer queue
+    
+    This has the advantage that searching the queue to find the
+    buffer with the requested seqnum is done with binary search.
+
+commit 487fa8c9894c431c546a71877acb83fe91d1aab4
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Mon Nov 4 18:38:24 2013 +0200
+
+    rtprtxsend: retransmit packets in the same order as the rtx requests
+
+commit 3e818e218be62259ab567df9a30e3454da598b17
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Sat Nov 2 19:56:44 2013 +0200
+
+    tests/check: Add unit test for rtxsend's max_size_time property
+
+commit 7d530ab59fb343e93eb8abed71e134a40eca20eb
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Oct 29 18:27:00 2013 +0100
+
+    rtprtxsend: Handle the max_size_time property
+    
+    This property allows you to specify the amount of buffers
+    to keep in the retransmission queue expressed as time (ms)
+    instead of buffer count (which is the max_size_buffers property).
+
+commit 920a55532c50a9326c37a7b0af5a3175f6f42693
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Sat Nov 2 15:21:08 2013 +0200
+
+    rtprtxsend: keep important buffer information in a private structure
+    
+    This is to avoid mapping a buffer every time we need to read a seqnum
+    or a timestamp.
+
+commit f7277db9e47b2f4d8f07808f87e7a136ae380426
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Fri Nov 1 11:58:47 2013 +0100
+
+    tests/check: Add rtprtx::test_rtxsender_packet_retention
+    
+    This unit test verifies that the rtxsend element correctly maintains
+    a buffer of already transmitted rtp packets and that it can
+    re-transmit all of them correctly on demand. It also verifies
+    that the limit of this buffer (max-size-packets property) is respected.
+
+commit 71bdb5e088850479a56790d2b671c88e0cc2b7c9
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 16:22:13 2013 +0000
+
+    tests/check: add rtprtx::test_drop_multiple_sender unit test
+    
+    Several senders / one receiver
+    
+    Similar than test_drop_one_sender but with multiple senders
+    mixed through the funnel element.
+    It drops some packets and checks that they are retransmited
+    correctly.
+
+commit 2a2fa7ebc00a7c5bc9e3b9126f9cbcb436002935
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 16:21:00 2013 +0000
+
+    tests/check: add rtprtx::test_drop_one_sender unit test
+    
+    Test for one sender / one receiver
+    
+    Build the pipeline
+    videotestsrc ! rtpvrawpay ! rtprtxsend ! rtprtxreceive ! fakesink
+    and drop some buffers between rtprtxsend and rtprtxreceive
+    Then it checks that every dropped packet has been re-sent.
+    It also checks that not too much requests has been sent.
+
+commit 2e4ce28443fab6a02bb8730dce2809c357c4830b
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 16:17:51 2013 +0000
+
+    tests/check: add rtprtx::test_push_forward_seq
+    
+    add simple unit test that manually push buffers
+    in rtprtxsend connected to rtprtxreceive.
+    Drops some buffers and make sure they are retransmisted.
+
+commit 5a1aa75961e56a0e07d1c5c89015f69a96d1ef34
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Nov 1 15:52:03 2013 +0000
+
+    rtpmanager: add new rtprtxsend / rtprtxreceive elements
+    
+    The purpose of the sender RTX object is to keep a history
+    of RTP packets up to a configurable limit (in time). It will
+    listen for custom retransmission events from downstream. When
+    it receives a request for retransmission, it will look up the
+    requested seqnum in its list of stored packets. If the packet
+    is available, it will create a RTX packet according to RFC 4588
+    and send this as an auxiliary stream.
+    
+    The receiver will listen to the custom retransmission events
+    from the downstream jitterbuffer and will remember the SSRC1
+    of the stream and seqnum that was requested. When it sees a
+    packet with one of the stored seqnum, it associates the SSRC2
+    of the stream with the SSRC1 of the master stream. From then
+    on it knows that SSRC2 is the retransmission stream of SSRC1.
+    This algorithm is stated in RFC 4588. For this algorithm to
+    work, RFC4588 also states that no two pending retransmission
+    requests can exist for the same seqnum and different SSRCs or
+    else it would be impossible to associate the retransmission with
+    the original requester SSRC.
+    When the RTX receiver has associated the retransmission packets,
+    it can depayload and forward them to the source pad of the element.
+    
+    RTX is SSRC-multiplexed
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=711084
+
+commit 19c0e9203198f39bedb040ac842cc5db500d417c
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Nov 5 16:36:46 2013 +0000
+
+    doc: add design for rtp retransmission
+    
+    Describe how rtprtxsend and rtprtxreceive generally work
+    but also how the association algorithm is implemented.
+
+ 
