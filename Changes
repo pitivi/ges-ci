@@ -34051,3 +34051,30 @@ Date:   Thu Jan 2 13:41:25 2014 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 3f8b4235168dea3314c9d0d77bb3f23cf8eb9713
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Tue Dec 31 13:31:52 2013 +0100
+
+    v4l2: Handle v4l2_ioctl() errors even in error handling
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=721268
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e944195b64d766fb17b586a3dd0303c4a1a7978d
+Author: Miguel París Díaz <mparisdiaz@gmail.com>
+Date:   Fri Jan 3 09:59:34 2014 +0100
+
+    srtpdec: Fix GstCaps memory leak
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721382
+
+ 
