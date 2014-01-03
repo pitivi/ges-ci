@@ -34203,3 +34203,54 @@ Date:   Fri Jan 3 16:23:26 2014 +0100
     libav: Update to libav master (libav 10 API)
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 12509f4a80a4469430bcc6e6f5847955ae60440f
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 3 16:20:11 2014 +0000
+
+    asfdemux: only add "format" field with fourcc to WMV caps
+    
+    Doesn't make sense for e.g. H264 or MJPEG.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 77b339bf5c0039ff8080dbc9beb25c0fcfadc5dd
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Jan 3 11:18:06 2014 -0500
+
+    shmsink: Document that socket-path may change
+
+commit 93abc06ae85cbb91422e3848ddc6ec3416c37ec0
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Fri Jan 3 11:16:42 2014 -0500
+
+    shmsink: Change default shm size to 64 MiB
+    
+    The original size of 256k was too small for anything where
+    one would want to use shm. If the buffer's size needs to be limit, it is
+    better to use buffer-time in most cases anyway.
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 8770f227359897e42000ea044ff99f0c4a9daccc
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 3 15:58:26 2014 +0000
+
+    avcodecmap: fix regression with wmv3 video in WMVA format
+    
+    The VC-1 decoder should handle that. Before avdec_wmv3 handled
+    it, but then we added format=WMV3 to its sink pad template
+    caps, at which point nothing handled WMVA any longer.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=697665
+
+ 
