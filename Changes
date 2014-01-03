@@ -34254,3 +34254,58 @@ Date:   Fri Jan 3 15:58:26 2014 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=697665
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 0e159e3b035e5d5b7fd1fc37adb7d0f6f8d20793
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Thu Jan 2 20:23:05 2014 -0300
+
+    souphttpsrc: use status code macro instead of 407
+    
+    Rest of the code is using the _PROXY_AUTHENTICATION_REQUIRED
+    macro too. Easier to understand if you don't recall HTTP
+    error codes by heart.
+
+commit ac7d3463551026d8b51eb9afec1107dfa99f2f25
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Tue Dec 31 21:31:43 2013 -0300
+
+    shout2send: change audio_format field to format
+    
+    This element and the underlying libshout2 library
+    can handle video media files too. The code already
+    handles video/webm so the name gets confusing. Also
+    add and use DEFAULT_FORMAT macro Instead of hardwiring
+    SHOUT_FORMAT_VORBIS at init
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721342
+
+commit 667c8037309bc18432e80bf02d846a125207e326
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Tue Dec 31 20:09:29 2013 -0300
+
+    shout2send: clarify meaning of the URL prop
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721342
+
+commit e6321ecb741e61af68393aa46677e045683263cb
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Fri Dec 27 12:27:32 2013 -0300
+
+    shout2send: docs, add a sample pipeline
+    
+    And finish adding shout2send to the docs while at it
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721342
+
+commit 4182f42f7b5ee29599114286bf92af866b66badd
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Tue Dec 31 15:00:22 2013 -0300
+
+    gdkpixbufoverlay: remove spurious @see_also
+
+ 
