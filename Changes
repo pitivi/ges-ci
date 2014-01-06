@@ -34845,3 +34845,261 @@ Date:   Tue Nov 5 16:36:46 2013 +0000
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 74adc33982e08dd3bf1c1a991f8519dd821df549
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 21:04:32 2014 +0100
+
+    basesrc: demote error to warning
+    
+    This is not an error. A subclass returning FALSE for is_seekable() is one way of
+    saying that we can't operate in pull mode.
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 86e6f10781aae8532ed7c606ab8af307d251e5ed
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 23:35:52 2014 +0100
+
+    typefind: add support of BWF RF64  a 64bit wav variant
+    
+    Detect and describe the RF64 Broadcast Wave Format.
+    Fixes #519220
+
+commit 28ce2c40533c8fde77487d978ce1766b9fe94609
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 21:39:52 2014 +0100
+
+    riff: remove new parse_ncdt api again
+    
+    This chunk is avi specific, no need to expose this as public api.
+
+commit f1c233b6250b4606ade44f45908dc5e4d374acbf
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sat Jan 4 22:30:17 2014 +0100
+
+    win32: export new riff api
+
+commit 1fee60277de0a900c36f0d93ab9fbe77518ef33e
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sat Jan 4 21:54:10 2014 +0100
+
+    riff: fix indentation messup from previous commit
+
+commit f653aa8c8562dda69e2be13d2b305a0ff4361690
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sat Jan 4 21:31:07 2014 +0100
+
+    riff: add support for nikon tags
+    
+    Nikon cameras store metadata in a custom format. Add parsing of the chunk and
+    extract some initial data.
+    API: gst_riff_parse_ncdt()
+    Fixes #636143
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d1223ebd10148132214d9c3783b6cedd4abbf421
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 21:12:17 2014 +0100
+
+    wavparse: split the test
+    
+    This way one failure won't shadow the other test and also if one fails we get
+    better disgnostics through the test-name.
+
+commit 5506dc307603c7b078a4d6b97305aae9785428a6
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 14:54:46 2014 +0100
+
+    matroskamux: Add HEVC / h265 support
+
+commit 77745289c49216d0daa10096e9159bc070e7ef32
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 14:54:38 2014 +0100
+
+    matroskademux: Add HEVC / h265 support
+
+commit 73fe1d1f6fde90f55287f12c8b9af9d537dc6756
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 13:36:38 2014 +0100
+
+    wavparse: remove ifdef'ed code
+    
+    We do have adtl and cue parse as part of toc handling alreday. The fmt code is a left over from <0.10 times.
+
+commit 9dde5e29da8a1c72f49dec629aeb830c994f6fe1
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 13:32:58 2014 +0100
+
+    avidemux, waveparse: more logging for unhandled chunks
+    
+    Always print a warning with the tag and if possible do a memdump.
+
+commit addf5c79a28fc277d1c6510e1c44dc85e24128d8
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 22:47:42 2014 +0100
+
+    avidemux: expose 'strn' - stream name - as title tag
+
+commit 5384da2a1f821ee1272eeaf2dbda0983eb8ec708
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 22:41:24 2014 +0100
+
+    avidemux: parse fuji strd
+    
+    We can get maker, model and capture date from this chunk.
+    Fixes #636143
+
+commit 1be2922802ca8c8c63943a2057523334f5dab137
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 21:46:33 2014 +0100
+
+    avidemux: ... and use the local api both times
+
+commit 9a203fceeb6d5e6a45088a10a55e3482c016d008
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 21:38:14 2014 +0100
+
+    avidemux: copy the riff api for ncdt into the element
+    
+    This chunk is avi specific, no need to expose this as public api.
+
+commit a4a7dafc32223e52eb597f4dfe5c0d0db7c3a726
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Jan 5 10:28:21 2014 +0100
+
+    matroskamux: Add missing semicolon from last commit
+
+commit b3aa8755fe07639f22e4104f4932d769d6c9075a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Jan 5 10:22:37 2014 +0100
+
+    matroskamux: Use the running time for container timestamps, not buffer timestamps
+    
+    Buffer timestamps have no real meaning here, and for selecting the next
+    buffer we already use the running time anyway.
+
+commit f48bb20b4f2852166d897ac03fa89b4a3a396b59
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sat Jan 4 21:34:38 2014 +0100
+
+    avi: use new riff api to extract nikon metadata
+    
+    Fixes #636143
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c894c2d721a9bc96789c2163b8ffdd9791a3d565
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 22:15:24 2014 +0100
+
+    sfdec: skip '\0' strings for metadata
+    
+    libsndfile does not filter empty strings. We get a warning from gstreamer when
+    setting this as a tag.
+
+commit a59d2c481713dd194cbedb5a6853be1a8cd435c2
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 15:15:27 2014 +0100
+
+    sfdec: break long method
+    
+    Extract taglist creation into separate funtion.
+
+commit 0d9690ba1ea12d3635297c36fef4ff8d11aa6975
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Jan 6 15:01:22 2014 +0000
+
+    mpegts: make headers usable with c++ compiler
+    
+    Add G_BEGIN_DECLS G_END_DECLS
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=671136
+
+commit b1ddd2e682cacba4604d819e36fbe5de5b2b377b
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 15:02:30 2014 +0100
+
+    sfdec: remove left over property-id enum
+
+commit 63fee31a3f95021fa0bb2429c723f5356c9b3c4b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 14:52:54 2014 +0100
+
+    h265parse: Allows hvc1 version 0 and fix reading of NAL count in codec_data
+
+commit 57c195eed8de53ee4552d59f5f3a752475df7908
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 14:48:26 2014 +0100
+
+    h265parse: Fix some more debug output
+    
+    And don't access invalid memory
+
+commit bacef9cbc4659617bf05dc3832cb264a1861c842
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 14:47:43 2014 +0100
+
+    h265parser: Fix debug output
+
+commit 84bd65b9bd7851289e8aed63a792468b82a75a55
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 13:51:01 2014 +0100
+
+    tsdemux: Add HEVC / h265 support
+
+commit f12705b2f5d21f0f28b346ca5239b7ddb899fccb
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 23:44:36 2014 +0100
+
+    aiffparse: typo fix in comment
+
+commit 18ec1c9bd76d352945c0bc5689791aa16d666b2c
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 23:43:25 2014 +0100
+
+    sfdec: the read functions already return frames_read
+    
+    Fixes choppy output.
+
+commit ef2eef0365e836521edec6b0f9c74f946bd23644
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Jan 5 23:41:26 2014 +0100
+
+    sndfile: enable rf64 format
+
+commit 207a18493163af212738e4cc93f1035b1cf8a709
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 2 21:02:27 2014 +0100
+
+    sfdec: add date to taglist
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 9887521a326ae7d0af041dbb2b00013414684a35
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 13:36:39 2014 +0100
+
+    av: Enable HEVC / h265 support
+
+commit 050723c2ebc5f841adcdd551a922cee6f89fe7a2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 6 13:02:07 2014 +0100
+
+    libav: Update to v10_alpha1 tag
+
+ 
