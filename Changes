@@ -35160,3 +35160,18 @@ Date:   Mon Jan 6 13:02:07 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 5b13c5b464cad4dc2954b0dff7cba988363417ad
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 7 11:51:01 2014 +0100
+
+    rtsptransport: add GType for Profile
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=720696
+
+ 
