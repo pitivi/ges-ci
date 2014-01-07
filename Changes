@@ -35286,3 +35286,20 @@ Date:   Tue Jan 7 15:04:02 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit c80ea6895d344764150b1300d8cb78b013123009
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 7 16:18:37 2014 +0100
+
+    filesrc: don't try to seek to -1 offset
+    
+    The offset can be -1 when we are configured in TIME format. Instead of
+    failing the seek and erroring, do what and offset of -1 is supposed to
+    do and simply read from the current offset.
+
+ 
