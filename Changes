@@ -35175,3 +35175,32 @@ Date:   Tue Jan 7 11:51:01 2014 +0100
     See https://bugzilla.gnome.org/show_bug.cgi?id=720696
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 594dd4287bd132ac250dba447abaf47930b84fc4
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 7 14:46:05 2014 +0100
+
+    rtsptransport: calculate default lower transport
+    
+    Add an internal method to calculate the default lower transport whan it
+    is missing.
+
+commit 124cf22d5d2ddc5b3c5d1a3e5495e12c193fa9a9
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 7 14:31:09 2014 +0100
+
+    rtsptransport: add method to get media-type from transport
+    
+    Add a method to make a media-type from the transport. Deprecate the old
+    method that only used the mode.
+    
+    Based on patch from Aleix Conchillo Flaqué <aleix@oblong.com>
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=720219
+
+ 
