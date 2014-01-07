@@ -35204,3 +35204,28 @@ Date:   Tue Jan 7 14:31:09 2014 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=720219
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2d98528af32d1108698a338cefc4c6a48a10dd09
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 7 15:01:14 2014 +0100
+
+    defs: update for new symbols
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2e9e80badf35906cdf512658b41880629b2a9c50
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 7 15:04:02 2014 +0100
+
+    rtspsrc: use new method to get media-type
+    
+    Use the new method to get the media type of a transport.
+
+ 
