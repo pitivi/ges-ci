@@ -35391,3 +35391,24 @@ Date:   Tue Jan 7 12:13:51 2014 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=719938
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit fc992874724b58d41e15463b5a81335182f9b061
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 8 10:41:24 2014 +0100
+
+    configure: Fix AC_COMPILE_IFELSE usage
+
+commit ae08e9a4cf10ddd9c6a4fa19bed2cbfabf878561
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 8 10:31:18 2014 +0100
+
+    osxvideosink: Improve configure check for OSX >= 10.6
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721245
+
+ 
