@@ -35448,3 +35448,42 @@ Date:   Wed Jan 8 11:28:04 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6d3fc584d5573ae99c090bf3d169d4edee6be89a
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 14:57:04 2014 +0100
+
+    pad: use new segment offset method to apply the offset
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=721422
+
+commit dc0176e4a072888aec029f008e6ab4357ad09e96
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 14:54:47 2014 +0100
+
+    segment: add method to offset the segment running-time
+    
+    Add a method that can apply an offset to the calculated running-time of
+    a segment.
+
+commit 888ab2396873c338f62c64a458799848d3b5da99
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 14:52:04 2014 +0100
+
+    collectpads: take offset into account for expected segment position
+    
+    The firt valid segment position is start + offset.
+    Also add some more debug and a FIXME
+
+commit 42d36b9495a436905aa1dd108b8b4a0d8acb0aa8
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 14:50:29 2014 +0100
+
+    info: debug segment offset field as well
+
+ 
