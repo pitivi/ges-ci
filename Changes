@@ -35487,3 +35487,34 @@ Date:   Wed Jan 8 14:50:29 2014 +0100
     info: debug segment offset field as well
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6c95262447d32458fec0db008af219d46d344fbf
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 15:47:10 2014 +0100
+
+    tests: improve check, also check stream-time
+
+commit b5e4e24e7534df8382483c81e4c8b1a34e527820
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 15:31:28 2014 +0100
+
+    tests: add unit test for segment _offset_running_time()
+    
+    Add a unit test to check that positive and negative offsets are applied
+    correctly in various cases.
+
+commit f664fbd198e049eeea07ee63067b0439ea6af703
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 15:23:00 2014 +0100
+
+    segment: take offset into account in _to_position()
+    
+    Take the offset into account when converting between running-time and
+    segment positions.
+
+ 
