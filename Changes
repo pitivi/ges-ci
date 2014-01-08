@@ -35303,3 +35303,29 @@ Date:   Tue Jan 7 16:18:37 2014 +0100
     do and simply read from the current offset.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c564d5b2c978b12baeee974827ef755248884e07
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 7 22:04:20 2014 -0300
+
+    tests: videodecoder: add check for serialization of events
+    
+    Tests that events are properly serialized with buffers, also checks
+    that the usual events are sent (stream start, caps, segment and eos).
+
+commit 27530a0196a760ac65711051881b7a1d45b0701f
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 7 16:28:18 2014 -0300
+
+    tests: videodecoder: add simple playback test
+    
+    Add a simple playback test that makes sure that video decoder pushes
+    buffers in the same order it receives and that it respects the
+    set timestamps and durations
+
+ 
