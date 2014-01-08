@@ -35518,3 +35518,16 @@ Date:   Wed Jan 8 15:23:00 2014 +0100
     segment positions.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 38e1541466d40b845bc78b17c603947670d55e64
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 16:20:12 2014 +0100
+
+    videoconvert: remove unused code
+
+ 
