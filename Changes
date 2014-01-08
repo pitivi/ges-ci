@@ -35546,3 +35546,23 @@ Date:   Wed Jan 8 16:20:12 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 51fa54a281f55da78e491f2bef522a28f0cb9f53
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 8 16:28:54 2014 -0300
+
+    baseparse: do not ignore TIME segments
+    
+    TIME segments are being ignored and a standard initialized
+    segment is used instead. This causes issues as not properly detecting
+    reverse playback or not cliping output based on the segment.
+    
+    This seems to be a regression from one of the GstSegment/GstEvent
+    redesigns on the 0.10 -> 1.0 transition
+
+ 
