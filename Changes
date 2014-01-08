@@ -35412,3 +35412,24 @@ Date:   Wed Jan 8 10:31:18 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721245
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 7f8c4dceb449b5fbb8bd8a8cfc58d218d2e0cd00
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Jan 8 11:28:04 2014 +0100
+
+    Revert "matroskamux: Use the running time for container timestamps, not buffer timestamps"
+    
+    This reverts commit b3aa8755fe07639f22e4104f4932d769d6c9075a.
+    
+    We are already using the running-time because they were placed on the
+    buffers with gst_collect_pads_clip_running_time(). Arguably it would be
+    better to not modify the incomming buffers but collectpads seems to want
+    to use absolute timestamps from the buffers for finding the best buffer
+    (this can be changed with a custom compare function..).
+
+ 
