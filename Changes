@@ -35329,3 +35329,48 @@ Date:   Tue Jan 7 16:28:18 2014 -0300
     set timestamps and durations
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit c343ebd454e0e5846f6d5b3a22ed0dd3ffdd98e8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 8 09:53:09 2014 +0100
+
+    multiqueue: Allow growing a queue if all other queues are not linked
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=719893
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 3a8c1b3550383b613afa692a5720e8f956ae4964
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Fri Jan 3 15:24:29 2014 +0100
+
+    riff: Add G726 ADPCM support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720995
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2cddf3a0a9008bf78f9c418bc6d87843a0627eab
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 8 09:46:55 2014 +0100
+
+    matroskamux: Error out if ADPCM caps don't contain the layout field
+
+commit bbb5a2853e26d09a95edbc8091f27d46ced0e418
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Fri Jan 3 15:25:23 2014 +0100
+
+    matroskamux: Add support for g726 ADPCM
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720995
+
+ 
