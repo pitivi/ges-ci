@@ -35374,3 +35374,20 @@ Date:   Fri Jan 3 15:25:23 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=720995
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 441f286e28bf79859e2b4df21645c11d4e944657
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Tue Jan 7 12:13:51 2014 -0800
+
+    rtpbin: remove unused list of decoders
+    
+    remove list of decoders, which are already handled by the list of elements.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719938
+
+ 
