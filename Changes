@@ -35590,3 +35590,42 @@ Date:   Thu Jan 9 07:56:55 2014 +0100
     changes. Add a FIXME-2.0 and a doc blob on the property. See #693281.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 3d2f3bcf6230e81b0f1119efd584c96c359200a9
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 9 09:13:48 2014 -0300
+
+    dashdemux: remove unnecessary variable
+    
+    Instead of using 2 indexes that were actually the same, use only
+    one. Saves a variable.
+
+commit cea909b87728e70c64184a5ade9c22f7e4f07c26
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 9 09:11:23 2014 -0300
+
+    dashdemux: fix seeking when the mpd uses a segment template
+    
+    Remove the dashdemux seeking function to use the one implemented
+    in mpdparser as it is more complete. This also makes dashdemux not
+    crash when seeking on streams that use segment templates.
+
+commit 4e283dbb6255a9442621978c42b51a59ba5752d2
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 8 16:33:05 2014 -0300
+
+    mpeg4videoparse: do not lose DISCONT flag if buffer isn't pushed
+    
+    mpeg4videoparse might not push buffers while parsing. If those buffers
+    contain the DISCONT flag, it gets lost and downstream won't get any
+    buffer with the flag.
+    
+    Fix it by adding the DISCONT to the next pushed buffer.
+    This makes backwards playback work.
+
+ 
