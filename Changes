@@ -35629,3 +35629,18 @@ Date:   Wed Jan 8 16:33:05 2014 -0300
     This makes backwards playback work.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit dc2778734bef10340f3f476c44fd842edf95bc3a
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 9 08:18:07 2014 +0100
+
+    aiffparse: misc code cleanups
+    
+    Fix the launch examples for 1.0. Turn more logging into _OBJECT variants.
+
+ 
