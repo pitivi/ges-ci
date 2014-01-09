@@ -35644,3 +35644,22 @@ Date:   Thu Jan 9 08:18:07 2014 +0100
     Fix the launch examples for 1.0. Turn more logging into _OBJECT variants.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 5adedf9f5a2bd4f3914b7ad5487c143f39416440
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 9 11:56:31 2014 -0300
+
+    qtmux: respect the HDLR box string format for mov and isomedia
+    
+    Mov spec says it uses a pascal style string, while isomedia uses
+    a null terminated one. Store the current atoms flavor into the HDLR
+    to be able to generate the correct output.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=705982
+
+ 
