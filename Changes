@@ -35679,3 +35679,18 @@ Date:   Thu Jan 9 16:38:13 2014 +0100
     Fixes #721869
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 03dff9de0b7ad2baadd25fc82a1797a35e979a9e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 9 17:32:15 2014 +0100
+
+    configure: Include AvailabilityMacros.h for osxvideo check
+    
+    Otherwise MAC_OS_X_VERSION_MIN_REQUIRED might not be defined
+
+ 
