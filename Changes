@@ -35694,3 +35694,31 @@ Date:   Thu Jan 9 17:32:15 2014 +0100
     Otherwise MAC_OS_X_VERSION_MIN_REQUIRED might not be defined
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 14b5999bca16d9ac18bdcd5905c472bec2fe247e
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 9 18:12:00 2014 +0100
+
+    videoconvert: rework YUV->RGB fastpaths
+    
+    Rework the orc code to be around 10% faster and support arbitrary matrices.
+    Pass the matrix parameters to the YUV->RGB functions to make them work
+    for all matrices. This enables more and faster fastpath conversions.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=721701
+
+commit 5ca04cb79836ce817ce88189e97a1c41f3424686
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 9 18:08:41 2014 +0100
+
+    videoconvert: fix I420 to BGRA fast-path some more
+    
+    Calculate alpha value differently so that we can avoid running out
+    of registers.
+
+ 
