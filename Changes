@@ -35722,3 +35722,22 @@ Date:   Thu Jan 9 18:08:41 2014 +0100
     of registers.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 1c6ee3fba47fb8efb8c312239cc9cb7673371351
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Thu Jan 9 18:25:04 2014 +0000
+
+    matroskamux: write subtitle codec ID and data at start when known
+    
+    This avoids issues with writing dummy data first, then having
+    to come back and write correct data later. Doing so prevents
+    the muxed stream from being actually streamable.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712134
+
+ 
