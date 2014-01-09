@@ -35566,3 +35566,27 @@ Date:   Wed Jan 8 16:28:54 2014 -0300
     redesigns on the 0.10 -> 1.0 transition
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6a05291ca2ec8f232f14c7c393bd5bdd1d24fda3
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 6 21:47:22 2014 +0100
+
+    basesrc: don't confuse GST_PAD_MODE_NONE and PULL
+    
+    Use a switch-case to explicitly handle all pad-modes. This way we don't log an error when the pad is not yet activated.
+
+commit 46b18f7a8b5765d934ce6034ef31e2d273264b17
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 9 07:56:55 2014 +0100
+
+    gstobject: add FIXME and docs for the disabled notify on parent
+    
+    We haven't found a way to re-enable emitting notify and deep-notify for parent
+    changes. Add a FIXME-2.0 and a doc blob on the property. See #693281.
+
+ 
