@@ -35663,3 +35663,19 @@ Date:   Thu Jan 9 11:56:31 2014 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=705982
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 8b1bd860008a8f7668dfbb4b6750317c01b55d48
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 9 16:38:13 2014 +0100
+
+    configure: check for good enough dvb kernel headers
+    
+    Recent changes are using new dvb api. Don't built the plugin, if we can't.
+    Fixes #721869
+
+ 
