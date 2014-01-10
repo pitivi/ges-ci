@@ -35941,3 +35941,25 @@ Date:   Fri Jan 10 13:16:20 2014 +0100
     There's no reason why this decoder should not be autoplugged
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 0d66d05c98994214e0c862182d7b23ecbeef2ca8
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Fri Jan 10 14:24:12 2014 +0000
+
+    videotestsrc: fix unit test breaking on duration query
+    
+    The new switch caused breaks to not break of the main switch
+    anymore, causing fall through.
+
+commit b21a67f99eae83c7ed2b40f7409f67d269d8a6f4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 10 15:06:23 2014 +0100
+
+    videoconvert: Update disted orc files once again
+
+ 
