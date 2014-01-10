@@ -35989,3 +35989,16 @@ Date:   Fri Jan 10 17:18:53 2014 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=721077
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 88ac735af33293d5d8e6b2cbc7b9061185d7fc69
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 10 14:16:00 2014 +0000
+
+    matroskademux: don't leak TOC chapter list
+
+ 
