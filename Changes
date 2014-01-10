@@ -35844,3 +35844,18 @@ Date:   Fri Jan 10 00:05:01 2014 +0000
     .gitignore: add test driver and more test binaries
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2e9e8b5c62adf75b933be28c258c6c718b98e40f
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Fri Jan 10 08:58:27 2014 +0100
+
+    dvb: Use DVB_API_VERSION to know if we have recent enough version
+    
+    We end up with the same end-result but it's more comprehensible
+
+ 
