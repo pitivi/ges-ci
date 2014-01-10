@@ -35907,3 +35907,22 @@ Date:   Fri Jan 10 09:53:21 2014 +0000
        matroskamux name=mux ! filesink location=test.mkv
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 04ee9bbe1a0c3770b80c5c82224f838447805f94
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 10 11:17:38 2014 +0000
+
+    tools: gst-play: add dot file dumping for pipeline graph debugging
+
+commit 448c006b02d374d8e571a685b360756adf324d85
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 10 11:17:04 2014 +0000
+
+    textoverlay: don't leak GAP events
+
+ 
