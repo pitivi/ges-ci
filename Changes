@@ -36002,3 +36002,16 @@ Date:   Fri Jan 10 14:16:00 2014 +0000
     matroskademux: don't leak TOC chapter list
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 105d901c12d4e9e1f6cdf0681a9e961d80bb6a1e
+Author: Mathieu Duponchelle <mduponchelle1@gmail.com>
+Date:   Thu Jan 9 18:13:00 2014 +0100
+
+    track-element: clamp interpolated keyframe values.
+
+ 
