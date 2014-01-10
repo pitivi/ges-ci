@@ -35831,3 +35831,16 @@ Date:   Thu Jan 9 23:55:16 2014 +0000
     Coverity CID 1151680
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 58bdd19cd4a93d2b4c0c99d4099365b927655e38
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 10 00:05:01 2014 +0000
+
+    .gitignore: add test driver and more test binaries
+
+ 
