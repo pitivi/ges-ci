@@ -35889,3 +35889,21 @@ Date:   Fri Jan 10 08:52:16 2014 +0000
     so we always write the correct data in the first place.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 1185fbd29acfa207cb32b8015014f5cd70cbfa9a
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Fri Jan 10 09:53:21 2014 +0000
+
+    videotestsrc: do not set TIME duration when asked for another format
+    
+    This fixes asserts in pipelines such as:
+    
+    gst-launch-1.0 videotestsrc num-buffers=1000 ! x264enc ! h264parse ! \
+       matroskamux name=mux ! filesink location=test.mkv
+
+ 
