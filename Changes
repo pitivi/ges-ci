@@ -35963,3 +35963,29 @@ Date:   Fri Jan 10 15:06:23 2014 +0100
     videoconvert: Update disted orc files once again
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 81cef109e20cbce285bacaf673597aef57fc30f3
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Jan 10 17:18:53 2014 +0100
+
+    avviddec: release buffers when not direct rendering
+    
+    New libav will not call the release_buffer callback anymore when
+    avcodec_default_get_buffer() is called from get_buffer. Releasing of the
+    memory in a picture should now be done by registering a callback to the
+    avbuffer objects in the picture. There is some compatibility code to
+    wrap the memory we provide in get_buffer in avbuffer with a callback to
+    release_buffer but that is not done when avcodec_default_get_buffer()
+    is called.
+    
+    Work around this by adding a dummy avbuffer object to the picture that
+    will release the frame.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=721077
+
+ 
