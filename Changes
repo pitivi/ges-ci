@@ -35926,3 +35926,18 @@ Date:   Fri Jan 10 11:17:04 2014 +0000
     textoverlay: don't leak GAP events
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 1e65aac1a44c4e4abc513221dcbb79b5d8d17962
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 10 13:16:20 2014 +0100
+
+    avauddec: Give MP3 decoder a MARGINAL rank too
+    
+    There's no reason why this decoder should not be autoplugged
+
+ 
