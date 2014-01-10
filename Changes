@@ -36015,3 +36015,385 @@ Date:   Thu Jan 9 18:13:00 2014 +0100
     track-element: clamp interpolated keyframe values.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 55da3bc8850c0af826067ac31ae42b13681b4acf
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Jan 7 11:58:23 2014 +0000
+
+    v4l2bufferpool: check set_config return value in gst_v4l2_buffer_pool_new
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit b39c838eceb32e76323c04040048ab298817a276
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Fri Jan 10 12:40:31 2014 -0500
+
+    v4l2object: Add parsed=1 field for encoded output
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 5be7d39a3f53671184818237d90cecb6a076085d
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Fri Jan 10 12:39:16 2014 -0500
+
+    v4l2object: Don't leak empty caps
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit a54b34121f77f809642f9e24be9d8777eaadf09f
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Wed Jan 8 16:51:21 2014 +0000
+
+    v4l2bufferpool: do not stop a stream not previously started
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 986e5b460d5174db22d238248485c7559203a1cf
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 12 16:27:21 2013 -0500
+
+    v4l2object: Don't enforce dimension field on encoded formats
+    
+    Don't enforce having width, height and framerate in template caps for encoded
+    formats. These don't always need to be exposed and may break negotiation for
+    decoder and decoding sink. If needed, these field will be automatically added
+    when probed caps are known.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit ba81eeb16bea849ab0d1383de2376f38c0e6bb54
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Thu Dec 12 17:09:59 2013 +0000
+
+    v4l2object: unref downstream pool
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit c701dcd16c2d4eb4ddc05f62897ea5d55ff6a558
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Wed Dec 18 13:37:23 2013 -0500
+
+    v4l2bufferpool: add gst_v4l2_buffer_pool_flush
+    
+    STREAMOFF set all v4l2buffers to DEQUEUE state.
+    
+    Then for CAPTURE we call QBUF on each buffer.
+    For OUTPUT the buffers are just push back in the GstBufferPool
+    base class 's queue.
+    But the loop actually looks like the same.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 062f4f87107c7870dc2dce021c1fb8117c98923d
+Author: Benjamin Gaignard <benjamin.gaignard@linaro.org>
+Date:   Mon Dec 16 17:29:30 2013 -0500
+
+    v4l2object: Add vp8 support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit e01766664522aa10f0d7ca4ecc780010ef49784d
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 12 16:46:09 2013 -0500
+
+    v4l2object: Don't force framerate field for OUTPUT
+    
+    If there is nothing that seems to force a certain framerate on output device, it is
+    preferable to simply not set that feild. This allow negotiation with tsdemux in a
+    decoder for example.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 97cf8f4d170767f4f83ee24d19572cee7192c9b6
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 12 14:07:03 2013 -0500
+
+    v4l2object: _v4l2fourcc_to_structure() can be static
+    
+    This function is not used anymore outside v4l2object.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit fdd7bcc78c8ba97f482c259ef5aae81efafa824b
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 12 14:22:26 2013 -0500
+
+    v4l2object: Add MPEG1/2 support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 0c8ec43a121ab35392a45d7f0dc5bb481aeca8ad
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 12 12:18:45 2013 -0500
+
+    v4l2object: Ask for a decent buffer size when dealing with encoded formats
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 86646ce03b3dcff6dce2617ee51598c92aa428b1
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Sat Dec 7 14:03:53 2013 -0500
+
+    v4l2bufferpool: On warn on size change if n_planes > 1
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 79f2c06883701dcdfeb4f4fdf92d504973caf3aa
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Dec 31 16:38:09 2013 +0000
+
+    v4l2object: check if translated format is valid
+    
+    Also add a FIXME in gst_v4l2_object_setup_format
+    to note that the whole function has to be improved
+    in order to support ENCODED formats.
+    It requires to have an encoder device which we do not
+    have right now.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 520dda092a0c6aaf749bca32499ee38220cc8812
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Sat Dec 7 10:31:15 2013 -0500
+
+    v4l2object: Validate returned dimensions
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 61ce7b1a62795c438f41e0a02dbeb7ea555abda4
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 5 19:36:25 2013 -0500
+
+    v4l2object: Ensure max is not smaller then min in decide_allocation
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit b261287745e92d2387039d7934961cbfe1e3037c
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 5 19:36:06 2013 -0500
+
+    v4l2object: Don't keep the max paramter when using our own pool
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 994c5d2c936cfbc79e6c24bdb47318303edc5918
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 5 19:34:44 2013 -0500
+
+    v4l2bufferpool: Respect the suggested min buffer
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit a77d2a64c1f2251fb8afcd041c7d37815fcb3ed1
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 5 18:48:44 2013 -0500
+
+    v4l2object: Allocate pool if needed in decide_allocation
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit d79eea15fa958783bddabe584b6a2b113098d816
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 5 18:49:19 2013 -0500
+
+    v4l2object: Add V4L2_CID_MIN_BUFFERS_FOR_CAPTURE support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 3cf85c9083291d89eace8a3968e79043bd687024
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 5 18:48:15 2013 -0500
+
+    v4l2: Move decide allocation into v4l2object
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 34a8cb09c82867a8d9a4d0a2f46d1160664dff68
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Dec 5 13:51:13 2013 -0500
+
+    v4l2object: Implement _setup_format()
+    
+    This method allow setting up the object from the currently configured format on the
+    device. This is useful for M2M element where input data decides the format that will
+    be set on capture side.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 41c37a2c6c4568c419c6c9e575c9ddcad01505f9
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Tue Dec 10 14:34:17 2013 -0500
+
+    v4l2object: Split out saving format from set_format()
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 582f91366781117d6554e8df2ba06432d29e8bec
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Tue Dec 31 15:37:26 2013 +0000
+
+    v4l2object: set only one plane for encoded format
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit e2c32ec99750ca6e2a0bce3e1153d772588ca8aa
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Dec 4 16:49:13 2013 -0500
+
+    v4l2object: Move code block where it belongs
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 689672ef17d7ee41c079b11be5f8c5acc426791f
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Dec 4 16:26:12 2013 -0500
+
+    v4l2object: Don't check format specific information
+    
+    The number of plane, and the stride does not represent a capability change. Same caps
+    can have different stride from the default GstVideoInfo and the number of planes will
+    never change for 1 format.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 5faa20b044f2f4ca2206c0d0eaa8fc8a65ca5a4d
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Dec 4 16:23:18 2013 -0500
+
+    v4l2object: Move the extrapolation of stride at the right place
+    
+    Now that we have a stride array, we should extrapolate only when
+    eeded (non multi-planar buffer).
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 5f1e47da246d48feff9ec4811d9a45aaebce7353
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Dec 4 15:09:44 2013 -0500
+
+    v4l2object: Move back assertions where they should be
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit a64de44a0cf3b99285851bae02e1f9e7f5093050
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Dec 4 15:09:10 2013 -0500
+
+    v4l2object: Move mplane logic into gst_v4l2_object_get_caps_info()
+    
+    It makes the gst_v4l2_object_set_format() slightly simplier and will make that
+    logic reusable. Note that gst_v4l2_object_has_mplane() will always return the
+    same value for one device. There is no need to check against the caps as this
+    has already been done by _open.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 4956b46bab4c896d0ba5bf1264071cdc94506318
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Tue Dec 3 18:27:47 2013 -0500
+
+    v4l2object: Split _v4l2fourcc_to_video_format
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit e1be685c34255e9da761bc265aff9cc98406d674
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Mon Dec 2 18:05:11 2013 -0500
+
+    v4l2bufferpool: Request buffers only once
+    
+    VIDIOC_REQBUFS allocates buffer, it has no place inside set_config. Also, some driver do
+    no allow multiple calls to this ioctl.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit b80169a16abb8526e5d766fa3e7cc04c6667db3e
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Mon Dec 2 15:26:50 2013 -0500
+
+    v4l2object: Don't validate dimension for encoded format
+    
+    We set the dimensions just in case but don't validate them
+    afterwards. For some codecs the dimensions are *not* in the
+    bitstream, IIRC VC1 in ASF mode for example.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 4a85f90c7949e5ef0ec1dfd3ac502cba8d5b3aa7
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Nov 28 17:10:29 2013 -0500
+
+    v4l2object: Quirks for dev without initial format
+    
+    Most M2M have undefined behaviour initially when VIDIOC_G_FMT is called.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 080f58166e6f14e10cd9c2680a58aaa326c09efb
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Nov 28 17:09:26 2013 -0500
+
+    v4l2object: Add gst_v4l2_object_open_shared()
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit cf32d6ec4344ead1da7f56373b5805c5477e7ded
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Nov 28 17:07:05 2013 -0500
+
+    v4l2object: Implement gst_v4l2_dup()
+    
+    This will duplicated the FD from another object and copy over the probed result.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 7fd6dc08b975233c61c8f84b025f4b5f4c7edf22
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Thu Nov 28 16:59:59 2013 -0500
+
+    v4l2object: make IO_MODE enum public
+    
+    This is to allow adding a second io-mode property on M2M device like decoder so
+    input and output can be controlled separatly.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 203e2451346d1161d95ee318479fd8e1ea892ab1
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.co.uk>
+Date:   Tue Jun 4 23:42:24 2013 -0400
+
+    v4l2: better handle quirks activation
+    
+    This way we can activate deactivate those quirks all at once at one
+    place.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit 092e7605d3b534510291a4dbf3ff9930afa756b3
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.co.uk>
+Date:   Tue Jun 4 23:34:04 2013 -0400
+
+    v4l2: Fix h264 caps
+    
+    V4L2_PIX_FMT_H264 is documentated as byte-stream (with start code). The ensure proper
+    negotiation with element like h264parse.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+commit e821de34940a529d920267e6249a668b31b3c4c9
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Fri Dec 6 14:44:51 2013 -0500
+
+    v4l2object: Split caps in different categories
+    
+    This is need to correctly expose capabilities on specialized devices
+    like decoders and encoders.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720568
+
+ 
