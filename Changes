@@ -35872,3 +35872,20 @@ Date:   Fri Jan 10 09:21:08 2014 +0100
     videoconvert: Update disted orc files
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f8158baa93f46ac0ac3f3b0477fe2b9ad839cbd9
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Fri Jan 10 08:52:16 2014 +0000
+
+    matroskamux: remove obsolete write-dummy-and-overwrite-on-eos code
+    
+    The need for rewriting apparently is obsolete 0.10 leftover.
+    We now have caps for subtitles when we create the headers,
+    so we always write the correct data in the first place.
+
+ 
