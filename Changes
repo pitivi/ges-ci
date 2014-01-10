@@ -35816,3 +35816,18 @@ Date:   Thu Jan 9 18:25:04 2014 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 335b619cd5726d553d48241859db04dafe1028c3
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Thu Jan 9 23:55:16 2014 +0000
+
+    rtprtxsend: remove duplicate assignment
+    
+    Coverity CID 1151680
+
+ 
