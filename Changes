@@ -44281,3 +44281,403 @@ Date:   Fri Dec 6 14:44:51 2013 -0500
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 4f70bd5a5a408f247a85b426e1d916a2205941ab
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Mon Jan 13 20:48:32 2014 +0100
+
+    docs: ensure GstBufferPools shows up as with GObject features
+    
+    GstBufferPool is a GstObject, add the _get_type function to the types file.
+
+commit 4f9d382a0aa71d8ef8413d89b98018ee89e66d1e
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 13 08:37:37 2014 -0300
+
+    tests: baseparse: add test for reverse playback on passthrough
+    
+    Baseparse stores buffers for reverse playback to push on the next
+    DISCONT, the issue was that it wouldn't ever check for a discont
+    on passthrough mode as it skips all real parsing. This test
+    was create to verify this issue and prevent it from happening again
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721941
+
+commit aad8123ff95cd6edc845dc0527512c042f54bc9a
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Sat Jan 11 10:49:17 2014 -0300
+
+    tests: baseparse: add basic test for baseparse
+    
+    Just a small test to check that basic playback works
+
+commit a3ff2976cc4a29e785563d3a683054748be23e6f
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 10 09:10:06 2014 -0300
+
+    baseparse: do not accumulate buffers on passthrough mode
+    
+    If on passthrough during reverse playback, do not accumulate buffers as
+    baseparse will never check for DISCONT flag to push those buffers.
+    So just push buffers downstream as if it was forward playback.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721941
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 103bb93154affa5cd300fc38d87b34af76f470f3
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Jan 13 16:28:23 2014 +0000
+
+    win32: add new API to .def file
+
+commit ecac298e4e53df93beb11622c9def98c1e978ba9
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Jan 13 16:29:00 2014 +0100
+
+    videodecoder: only copy chroma_site when known
+    
+    Only overwrite the chroma-site if we have a valid value in the reference
+    format.
+
+commit 1fa70ac02d59970ae114d16b789c16444ffe4d13
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Jan 13 16:20:55 2014 +0100
+
+    videoconvert: don't interpolate chroma in I420 -> RGB
+    
+    Don't try to interpolate the chroma samples, the used algorithm only
+    works for horizontal cositing. Let's switch to a faster and safer
+    version until we handle chroma siting correctly in the fastpaths.
+
+commit fba783a5febd2c32a171446f4abd758224e3dd91
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Jan 13 12:16:01 2014 +0100
+
+    videoutils: add some debug
+
+commit 016e5285c7354601dc67e8a1c94ac280e2c9e4cb
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Jan 8 19:43:01 2014 -0500
+
+    doc: Add new sections introduce for tile format
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 595bcfb4d7026a8d2000f8f00a7e075e5d1bea46
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Jan 8 19:42:35 2014 -0500
+
+    video: Generate types for tile enumeration
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit f52fd7a68b8b6e5814aa076fcade6f0d5a7ef066
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Wed Jan 8 19:41:56 2014 -0500
+
+    video: Don't use extra plane and componenent for tile format
+    
+    Instead of using extra plane, we encode the number of tiles in x and y in the stride of
+    each planes (i.e. y_tiles << 16 | x_tiles) and introduce tile_mode, tile_width and
+    tile_height into GstVideoFormatInfo structure.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit d899e6df5ac162709f8d2cf53c23d0fa8ce3f09f
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Jan 3 22:36:13 2014 +0100
+
+    video: rename NV12T -> NV12_64Z32
+    
+    Is a bit more descriptive and allows us to add more tiled types
+    later.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit c8597330a95b35822ac54575fd2df7a669645612
+Author: Nicolas Dufresne <nicolas.dufresne at collabora.co.uk>
+Date:   Fri Jan 3 22:29:09 2014 +0100
+
+    video-frame: scale vertical tiles based on subsampling
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 53605e35f4d5748c5a433a36b8f0286a10143577
+Author: Nicolas Dufresne <nicolas.dufresne at collabora.co.uk>
+Date:   Fri Jan 3 22:18:08 2014 +0100
+
+    video-frame: fix tiled pixel stride
+    
+    Pixel stride is per component, not per plane. We get the tile mode from
+    the pixelstride of the TILE component.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 61cbdf379bcafdcf1aac1af793046fcd6a8d47c8
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Dec 26 17:40:05 2013 +0100
+
+    format: improve docs
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 12eedf86e880935d8f93e6327b73396baed5f00b
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 25 16:22:32 2013 +0100
+
+    tests: fix videoscale test for NV12T
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit f3e989179bd32eb3615c9d0a8a124113fa09afa0
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 25 16:06:43 2013 +0100
+
+    video-format: fix off-by-one for tiled coordinates
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit fb0fecbf48b1a43821484991ec26f6d0d7b9f7ca
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 25 15:22:24 2013 +0100
+
+    video-tile: improve docs
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 33c486e5c1d9472e0844de6fae08272c36a6dbfe
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 25 14:57:30 2013 +0100
+
+    video-format: use shifts when possible
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 980811c1201c1ca9c8d10bbf2f0d3ef4d02d9a9f
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 25 14:23:04 2013 +0100
+
+    video-frame: fix copy of tiled formats
+    
+    Add code to copy tiled planes.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 3ceb7dfe22c0f4247fd4e4949223cfa1e3ace33c
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Wed Dec 25 14:11:57 2013 +0100
+
+    video-tile: add tile mode and helper functions
+    
+    Move the tile helper functions to their own file. Make it possible to
+    make other tiling modes later.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit f8d3b9b4fcc5e08b771314fa95e9ed8f750b54e6
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Dec 20 21:27:46 2013 +0100
+
+    video: add NV12T support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 67a271723562eb259f67bece7f08a1af090d166e
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Dec 19 16:11:50 2013 +0100
+
+    Add tiled color format support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=707361
+
+commit 5bf2a444967262df15a1cf3b83e3df7756fca1a0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 13 15:32:23 2014 +0100
+
+    encoding-profile: Fix typo in the docs
+
+commit 561a4fff158c6ab718b574d39bb7e5383129fb23
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Sat Jan 11 01:14:19 2014 -0300
+
+    tests: videodecoder: check that segment events are not dropped
+    
+    Adds a test that simulates a scenario where the first buffers after
+    a segment can't be decoded and the decoder asks for those frames
+    to be released. The videodecoder base class should make sure that
+    the events attached to those first buffers are pushed even if the
+    buffers aren't going to be.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721835
+
+commit 672cda66db65174489e315ad8937f8e0ea7c7d81
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Sat Jan 11 01:24:44 2014 -0300
+
+    videodecoder: do not lose events when dropping frames
+    
+    Events must be persisted after a frame is dropped to avoid
+    losing obligatory information for the stream.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721835
+
+commit b1e728a8540d6aab44d4b7c489120b3acf896385
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 8 11:29:29 2014 -0300
+
+    tests: videodecoder: add test for reverse playback
+    
+    Checks that buffers are pushed backwards in reverse playback
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721666
+
+commit 5b8e1925b566b57b516c76f12610d42e6ad2b791
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 6 20:53:15 2014 -0300
+
+    videodecoder: use new segment earlier for reverse playback
+    
+    For reverse playback, the segment event will only be pushed when
+    the first buffer is actually pushed. But for decoding frames and storing
+    those into the list to be pushed the output_segment.rate value is used
+    to determine if it is forward or reverse playback.
+    
+    In case a previous segment event (or none) is in use it will mistakenly
+    think it is doing forward playback and push the buffers immediatelly and
+    try to clip buffers based on an old segment (or an uninitialized one, leading
+    to an assertion)
+    
+    This patch fixes this by copying the segment earlier if on reverse playback
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721666
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c6d0f122c90cd7cf0b7a4f2afa77f4559ba77c62
+Author: Justin Joy <justin.joy.9to5@gmail.com>
+Date:   Tue Jan 14 19:08:49 2014 +0900
+
+    osshelper: Don't leak fd when getting card name
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722163
+
+commit 2ad1f20e7b430985091ea2f4e8ba753f9e908c46
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Tue Jan 14 09:43:33 2014 +0000
+
+    Revert "aacparse: relax the detection of ADTS"
+    
+    This was pushed by mistake along with the V4L2 fix.
+    
+    This reverts commit 8eb4b032bef444397c4d211f2095c173ba114187.
+
+commit 70be4fa24a9385bc615cb4a37d0600f4d32c302e
+Author: Justin Joy <justin.joy.9to5@gmail.com>
+Date:   Tue Jan 14 15:42:01 2014 +0900
+
+    rtpg726pay: don't leak encoding_name string
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722159
+
+commit b80e3a4690e88868439fe4d2a412369a2da20215
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Mon Jan 13 09:14:00 2014 +0000
+
+    v4l2: fix build break using V4L2_CAP_VIDEO_M2M_MPLANE
+    
+    This may not be defined. Since the previous version used
+    only the other define (V4L2_CAP_VIDEO_OUTPUT_MPLANE), fall
+    back on this only when not available.
+
+commit 8eb4b032bef444397c4d211f2095c173ba114187
+Author: Akihiro Tsukada <atsukada@users.sourceforge.net>
+Date:   Wed Feb 27 01:45:52 2013 +0900
+
+    aacparse: relax the detection of ADTS
+    
+    According to ISO/IEC 13818-7, "channel_config" field in ADTS header
+    may have value of 0, as in the case of frame with PCE.
+    gst_aac_parse_detect_streams() returned FALSE for those frames
+    and discarded them.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e8d569f54de1af7f788a7ecb33fbb91e01a2f098
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 10:38:37 2014 +0100
+
+    faceblur: set maximum feature size to 0x0
+    
+    Previously faces would only be detected if they were at least 30x30 pixels
+    large and at most 32x32 pixels. We keep the minimum setting (maybe needs
+    a property as in facedetect) but disable the maximum feature size.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=722158
+
+commit b33b1390cc0d8fa242b739d5bcde1320ad6d50ff
+Author: Kipp Cannon <kcannon@cita.utoronto.ca>
+Date:   Tue Jan 14 01:06:02 2014 -0500
+
+    facedetect: set maximum feature size to 0x0
+    
+    This disables the "max feature size" feature. The current configuration
+    is totally busted: The max feature size is hard-coded to 2 pixels more
+    than the user-supplied min feature size which pretty much means you need
+    to guess the size of the person's face to within a few pixels to get the
+    code to find it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722158
+
+commit 4d957e53e4415c72440af0281b4a479101a3dc63
+Author: Andrey Utkin <andrey.krieger.utkin@gmail.com>
+Date:   Tue Jan 14 02:19:12 2014 +0200
+
+    tsdemux: fix memleak of PCROffsetCurrent
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722145
+
+commit 6587e924f1ed90cc2608d4599db9cae8e9d64f0c
+Author: Justin Joy <justin.joy.9to5@gmail.com>
+Date:   Mon Jan 13 21:50:16 2014 +0900
+
+    h265parser: prevent to overrun chroma_weight_l0_flag
+    
+    The index of elements cannot exceed or equal to the size of elements.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722101
+
+commit d1877b0b953e5a0a182c2aa6c19cf0911c41fc12
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Mon Jan 13 10:01:43 2014 +0000
+
+    schroenc: set buffer offset to buffer timestamp
+    
+    oggmux expects this to order incoming buffers
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722078
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit ead14945aa8d033ce44b86e45a45fbafc4922888
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Jan 13 16:31:05 2014 +0100
+
+    avviddec: set output chroma-site
+    
+    Use libav provided chroma-site and place it on the output caps.
+
+ 
