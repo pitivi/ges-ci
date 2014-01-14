@@ -44890,3 +44890,18 @@ Date:   Tue Jan 14 15:52:26 2014 +0100
     from it.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a8151d78fc946c142d63682055adad9534083ac6
+Author: duhui.lee <duhui.lee@lge.com>
+Date:   Tue Jan 14 23:21:25 2014 +0900
+
+    h265parser: Fix segfault when parsing VPS
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722081
+
+ 
