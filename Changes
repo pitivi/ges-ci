@@ -44869,3 +44869,24 @@ Date:   Mon Jan 13 16:33:11 2014 -0300
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit f15f4ec8aa4e1b98652e582ea34c4a4834faf947
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 15:52:26 2014 +0100
+
+    parse: Make sure to create and link chains in the order as written
+    
+    Make this work again:
+    audiotestsrc ! tee name=t  t.src_0 ! queue ! fakesink  t.src_1 ! queue ! fakesink
+    and this fail again:
+    audiotestsrc ! tee name=t  t.src_1 ! queue ! fakesink  t.src_0 ! queue ! fakesink
+    
+    as tee just counts itself and does not care about the pad names we request
+    from it.
+
+ 
