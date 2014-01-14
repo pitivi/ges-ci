@@ -44681,3 +44681,36 @@ Date:   Mon Jan 13 16:31:05 2014 +0100
     Use libav provided chroma-site and place it on the output caps.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 335e6e888d14d980f0a925fa6f158ada8241fbb6
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 13:17:26 2014 +0100
+
+    videoverlay: Don't mention gconf elements and add a sentence about playbin/playsink
+    
+    playbin/playsink now implement the video overlay interface
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
