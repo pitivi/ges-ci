@@ -44928,3 +44928,22 @@ Date:   Tue Jan 14 16:45:53 2014 +0100
     the new one is not.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 25ec217cf9e73cac25e5e7609c3a47de0c99234b
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Tue Jan 14 17:08:36 2014 +0000
+
+    configure: fix (again) check for DB API: 5.4 is Not Recent Enough
+    
+    Maybe testing the version is clearer, but testing for < 5 is not
+    enough, my version is 5.4 and does not yet have those new enums.
+    
+    If you git blame to this and have a version > 5.4 that does not
+    either, please feel free to join along and bump the version.
+
+ 
