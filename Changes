@@ -44905,3 +44905,26 @@ Date:   Tue Jan 14 23:21:25 2014 +0900
     https://bugzilla.gnome.org/show_bug.cgi?id=722081
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 96f454d0ba7374d884abff8dba51b76ffd5f3459
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 16:47:38 2014 +0100
+
+    tee: Add unit test for requesting pad names
+
+commit 24a3102b2149663e1ba93c66b033ffb623832852
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 16:45:53 2014 +0100
+
+    tee: Make sure to give pads the name that was requested
+    
+    Also check for uniqueness and make sure we create a new
+    pad index properly if some were requested with names but
+    the new one is not.
+
+ 
