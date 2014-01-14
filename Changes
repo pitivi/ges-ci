@@ -44980,3 +44980,36 @@ Date:   Wed Oct 9 17:49:06 2013 +0200
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit ba7de077fbbd4a2fd641fb8c236b5b3fd1eb5121
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Tue Jan 14 16:15:21 2014 -0500
+
+    doc: Update sections with the new rounding macros
+
+commit abddae152dd449f9d11d979ee7d4a9608e806978
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Tue Jan 14 16:15:02 2014 -0500
+
+    util: Add GST_ROUND_UP_N and GST_ROUND_DOWN_N
+    
+    These are generic rounding macro that works for any power of two.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4cffae36e3ca05e1ffc3a2db3c22eb7481b9b74d
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Tue Dec 10 14:29:55 2013 -0500
+
+    v4l2: Add NV12_64Z32 support
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722127
+
+ 
