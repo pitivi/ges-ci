@@ -44947,3 +44947,21 @@ Date:   Tue Jan 14 17:08:36 2014 +0000
     either, please feel free to join along and bump the version.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit c9abe8c50d4eba199f3982abf8cf9e0035bd3586
+Author: Jorge Zapata <jorgeluis.zapata@gmail.com>
+Date:   Wed Oct 9 17:49:06 2013 +0200
+
+    amcvideodec: Add the divx variant for mpeg4 video
+    
+    Looks like all the mpeg4 video decoders also accept the divx
+    variants. So we better add those caps too
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711163
+
+ 
