@@ -44714,3 +44714,149 @@ Date:   Tue Jan 14 13:17:26 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 156d925cff38d6e99a90c5ecc9cb50aeabcb978a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 13:45:34 2014 +0100
+
+    parse: Remove some C99-style comments
+
+commit dd086a4e6e5e8d63fa57310129007600de2610d4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 13:44:11 2014 +0100
+
+    parse: Use GSlice for allocating and freeing links and chains
+
+commit 748690aba17a1163eee4ffbe24072babe353c156
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 13:42:20 2014 +0100
+
+    parse: Add comment about why we disable the "tracing"
+    
+    It did not print anything useful before anyway, everything
+    was commented out.
+    
+    Also remove some unneeded struct members.
+
+commit c47f0f2ec528b4fdb9f593dab28b8fd217821be6
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Jan 14 13:36:24 2014 +0100
+
+    parse-launch: Add some more failing pipelines
+    
+    Also convert some comments about valgrind warnings to
+    FIXME comments. These were leaking since some time already.
+
+commit 2b33d3318519fd613dd5a4ebbd7c308609904e68
+Author: Fabian Kirsch <derFakir@web.de>
+Date:   Fri Jan 10 21:10:17 2014 +0100
+
+    parse: Refactor grammar, make it more consistent and fix conflicts
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710034
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b532ce16a52dfc7e1a806ed559aab5d77735dcd8
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Tue Jan 14 12:05:46 2014 +0000
+
+    oggdemux: fix broken seeking reading the whole file
+    
+    A change in gst_ogg_demux_do_seek caused oggdemux to wait for
+    a page for each of the streams, including a skeleton stream if
+    one was present. Since Skeleton only has header pages, that
+    was never going to end well.
+    
+    Also, the code was skipping CMML streams when looking for pages,
+    so would also have broken on CMML streams.
+    
+    Thus, we change the code to disregard Skeleton streams, as well
+    as discontinuous streams (such as CMML and Kate). While it may
+    be desirable to consider Kate streams too (in order to avoid
+    losing a subtitle starting near the seek point), this may be
+    a performance drag when seeking where no subtitles are. Maybe
+    one could add a "give up" threshold for such discontinuous
+    streams, so we'd get any page if there is one, but do not end
+    up reading preposterous amounts of data otherwise.
+    
+    In any case, it is important that the code that determines
+    the amount of streams to look pages for remains consistent with
+    the "early out" conditions of the code that actually parses
+    the incoming pages, lest we never decrease the pending counter
+    to zero.
+    
+    This fixes seeking on a file with a skeleton track reading all
+    the file on each seek.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719615
+
+commit 25bf5a13f0436b491b596ebd772c53b4bffd02f7
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Mon Jan 13 15:14:14 2014 +0000
+
+    oggdemux: use an adaptive chunksize for performance reasons
+    
+    Ogg data is read chunk by chunk, and the chunk size used was
+    originally taken from libvorbisfile. However, this value leads
+    to poor performance when used on an Ogg file with large pages
+    (Ogg pages can be close to 64 KB).
+    
+    We can't just use a larger chunk size, since this will decrease
+    performance on small page streams, so we use an adaptive scheme
+    where the chunk size is twice the largest page size we've seen
+    so far in the stream. For "typical" Ogg/Vorbis, this gives us
+    almost the same chunk size (a bit lower), and this lets us get
+    better performance on streams with large pages.
+
+commit 95a56dbda7de40dd9ad91991119545aa58b57a67
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 13 20:47:02 2014 -0300
+
+    audiodecoder: avoid parsing caps event if it is not used
+    
+    Saves some cpu
+
+commit 8cf8332b91a2caf3b23f711ea1eecd7430a0bfa5
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 13 20:44:23 2014 -0300
+
+    audiodecoder: make sure caps is set before forwarding gap event
+    
+    Before trying to generate a default fixated caps when handling a gap
+    event, make sure that the same strategy that is used when handling
+    a buffer has been attempted. Otherwise audiodecoder will ignore
+    upstream caps settings such as rate and channels and will likely
+    end with a caps with channels=1 and rate=1.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722144
+
+commit bbbd9f7d49ac0635776eba816af08bb533be9ea1
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 13 19:40:49 2014 -0300
+
+    tests: audiodecoder: check that negotiation works buffers and gaps
+    
+    Adds 2 tests to verify that output caps are the expected value, reusing
+    input structure values for both buffers and gaps
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722144
+
+commit 755414ed1e6994358dc1c6c24983531e23fe9724
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 13 16:33:11 2014 -0300
+
+    tests: audiodecoder: add basic playback test for audio decoder
+    
+    Simple test that just check that audio decoding works as expected
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722144
+
+ 
