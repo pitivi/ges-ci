@@ -45013,3 +45013,150 @@ Date:   Tue Dec 10 14:29:55 2013 -0500
     https://bugzilla.gnome.org/show_bug.cgi?id=722127
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 8a143dfcbcc4cc63c88bec141692d5d852f8f9a5
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Thu Dec 12 23:05:43 2013 -0500
+
+    tests: Remove usage of the system clock from the rtprtx test
+
+commit f0a4f26fa79ce1d43b8da4e8a99982ac36a0f921
+Author: Olivier Crête <olivier.crete@collabora.com>
+Date:   Thu Dec 12 23:22:41 2013 -0500
+
+    tests: Initial segment in rtpcollision test
+
+commit a7823bc5220c1fe76b5b41e39e1e31aef07e1ebb
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 15:56:42 2014 +0100
+
+    examples/*-rtpaux: specify payload type association for the audio stream, so that rtx works also for audio
+
+commit 397c4ed7a09aa0a366d881698641ade01b49746b
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 13:08:18 2014 +0100
+
+    rtprtxsend: remove wrong check for payload type not having been set
+    
+    1) pt can be lower than 96
+    2) there is no point in checking that because rtprtxsend will not
+       even store buffers for payload types that it doesn't know about,
+       so this case will never be reached
+
+commit 55746eaa4c96e8652d3a78b49848365c6a28f359
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 13:01:41 2014 +0100
+
+    rtprtxsend: fix data locking when creating rtx packets
+    
+    This patch moves the creation of rtx packets to be done early,
+    in the src_event() function, when they are requested. The purpose
+    is to run gst_rtp_rtx_buffer_new() with the object locked to
+    protect internal data, because if it is done at the pushing stage,
+    we would have to lock and unlock multiple times in a row while we
+    are pushing the rtx buffers.
+    
+    Previously there was no locking at all, which was terribly wrong.
+
+commit 3d9ca102c9c06b72c8b2805754edb51e3e3e9fdf
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:50:23 2014 +0100
+
+    rtprtxsend: lock access to internal data in sink_event() function
+
+commit ee8ae3000e39ab6a02058c6d510fc0b044b7016b
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:44:06 2014 +0100
+
+    rtprtxsend: remove unnecessary call to reset() from finalize()
+    
+    ...and use _free_full() on the pending buffers queue now that
+    reset() is not being called
+
+commit f9f7e6e721b86e8e9beedda0c892444c8d23ddd9
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:38:51 2014 +0100
+
+    rtprtxsend: remove unused parameter from the internal reset() method
+
+commit 6d588ad6bbd701dbaab0f5e114fbcbc29b2eec94
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:32:38 2014 +0100
+
+    rtprtxsend: Use g_slice_* for allocating internal structures
+
+commit 75859ae92440f53ca9252ca9a17a237017d84dbd
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:28:01 2014 +0100
+
+    rtprtxreceive: remove stupid mutex unlock in the middle of chain()
+
+commit bf347dc50c5c802d131b49837ed0bf9a67c80323
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:25:36 2014 +0100
+
+    rtprtxreceive: use GST_DEBUG_OBJECT / GST_WARNING_OBJECT instead of GST_DEBUG / g_warning
+
+commit 47788929d3e66458d49513c61ee23ac2c2ffd61d
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:19:58 2014 +0100
+
+    rtprtxreceive: fix integer format specifiers in GST_DEBUG
+    
+    seqnum in this function is 32-bit, so G_GUINT16_FORMAT would
+    produce undefined output on big endian systems
+
+commit 252dfc34c8664678afde13d0adee06e54a360f7f
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:13:49 2014 +0100
+
+    rtprtxsend: change the rtx_pt_map directly in set_property() instead of delaying it for chain()
+    
+    The same lock is held, so there is no point in complicating it...
+
+commit 8a0ae00ea8dcf18926996ade9ce5f49a2fbacf3d
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 12:07:58 2014 +0100
+
+    rtprtxreceive: change the rtx_pt_map directly in set_property() instead of delaying it for chain()
+    
+    The same lock is held, so there is no point in complicating it...
+
+commit 513ffc45b5a6cec2f23ff68a673e75f92e8a3c8c
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 11:55:00 2014 +0100
+
+    rtprtxreceive: simplify the code of finalize()
+
+commit 0fdae5f2f71fdd218ef49eab2c7502e350642a7a
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 11:52:21 2014 +0100
+
+    rtprtxreceive: use the GstObject lock instead of a new one
+
+commit c945200ff2a174abd2746352b8181684d83611ca
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 14 11:45:52 2014 +0100
+
+    rtprtxsend: use the GstObject lock instead of a new one
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit ca1b5d85765be8df27d0a87a45426c7925ce1f29
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Wed Jan 15 09:02:33 2014 +0000
+
+    gst-libav: fix context leaks
+    
+    A AVCodecContext needs cleaning up before being freed.
+    Go through all of the allocations/setups to ensure none of them
+    can leak a context or its contents.
+
+ 
