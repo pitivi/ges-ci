@@ -45355,3 +45355,24 @@ Date:   Fri Jan 3 10:59:35 2014 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=345830
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 809d1059820aae5eec87ebffbd1608c12c44575d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 15 22:47:12 2014 +0100
+
+    matroskademux: Don't skip all video frames until the first keyframe
+    
+    Instead do it like all other demuxers and let parsers and decoders
+    handle that. The keyframe information inside the container might
+    be completely wrong like in the sample file of the bug report,
+    and if it is correct and we push no keyframes, then the parsers
+    and decoders will handle that properly anyway.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=682276
+
+ 
