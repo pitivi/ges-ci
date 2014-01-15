@@ -45217,3 +45217,30 @@ Date:   Tue Jan 14 23:55:53 2014 +0000
     resindvdsrc: fix minor memory leak when creating title info message
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 139c96c129149266669c9799ad3b30d84f62065b
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 15 00:12:26 2014 -0300
+
+    multiqueue: prevent buffering forever with playbin
+    
+    When prerolling/buffering, multiqueue has its buffers limit set
+    to 0, this means it can take an infinite amount of buffers.
+    
+    When prerolling/buffering finishes, its limit is set back to 5, but
+    only if the current level is lower than 5. It should (almost) never be
+    and this will cause prerolling/buffering to need to wait to reach the
+    hard bytes and time limits, which are much higher.
+    
+    This can lead to a very long startup time. This patch fixes this
+    by setting the single queues to the max(current, new_value) instead
+    of simply ignoring the new value and letting it as infinite(0)
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712597
+
+ 
