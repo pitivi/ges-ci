@@ -45204,3 +45204,16 @@ Date:   Tue Jan 14 23:07:34 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 078b82d6d1c609257b6528a9c4efb1ed4acd2bb8
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Jan 14 23:55:53 2014 +0000
+
+    resindvdsrc: fix minor memory leak when creating title info message
+
+ 
