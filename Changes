@@ -45302,3 +45302,56 @@ Date:   Tue Jan 14 13:05:54 2014 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 52fc07831026e6e439e93a0baf8a279a6ae6b052
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 13 10:08:09 2014 -0300
+
+    qtdemux: remove elst_offset variables
+    
+    They are not used anymore
+
+commit 5fe1b3eb28f9960b2980e149b5f721dae466a4d8
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 6 21:36:17 2014 -0300
+
+    qtdemux: remember reverse playback when verifying the segment end
+    
+    Check if the rate is positive or negative to correctly compare the current
+    position with the segment to make reverse playback work
+
+commit 90a5565229f39b181e8644c4b5482c614dbcb0fd
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 3 10:59:35 2014 -0300
+
+    qtdemux: do not ignore empty segments
+    
+    Make sure empty segments are used and pushed with a gap event
+    to represent its data (or lack of it)
+    
+    Each QtSegment is mapped into a GstSegment with the corresponding
+    media range. For empty QtSegments a gap event is pushed instead
+    of GstBuffers and it advances to the next QtSegment.
+    
+    To make this work with seeks, need to keep track of the starting
+    'base' to make sure it remains consistently increasing when
+    pushing new segment events.
+    For example: if a seek makes qtdemux start from 5s, the first
+    segment will have a base=0. When the next segment is activated,
+    its base time will be QtSegment.time - qtdemux.segment_base so
+    that it doesn't include the first 5s that weren't played and
+    shouldn't be accounted on the running time
+    
+    This purposedly will remove the fix made for
+    https://bugzilla.gnome.org/show_bug.cgi?id=700264, at this
+    point it was decided to respect the gaps, even if they cause
+    a delay on playback, because that's the way the file was crafted.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=345830
+
+ 
