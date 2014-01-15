@@ -45160,3 +45160,47 @@ Date:   Wed Jan 15 09:02:33 2014 +0000
     can leak a context or its contents.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 1d6136b9301030ac517c75cc4bda6048ec2b8bd8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 15 11:12:08 2014 +0100
+
+    segment: gst_segment_offset_running_time() will be available in 1.2.3
+
+ 
+
+====== gst-plugins-base =============
+
+ commit ae4338bd35d8aee3ecf1e5f5e24a5a51e914881d
+Author: Holger Kaelberer <hk@getslash.de>
+Date:   Tue Jan 14 23:07:34 2014 +0100
+
+    xvimagesink: don't recreate xvcontext
+    
+    A xvcontext can be created early in gst_xvimagesink_set_window_handle().
+    In this case don't recreate, i.e. overwrite it in gst_xvimagesink_open().
+    Otherwise XEvents won't be handled in the xevent listener thread.
+    
+    Fixes a regression when setting the window handle on the sink in
+    the very beginning before changing its state.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=715138
+
+ 
+
+====== gst-plugins-bad =============
+
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
