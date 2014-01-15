@@ -45253,3 +45253,43 @@ Date:   Wed Jan 15 00:12:26 2014 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 36efe20679c85ad72733e55c291df56bc9740f03
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 14 13:02:28 2014 -0300
+
+    tests: audiodecoder: add another test for negotiation with gap event
+    
+    Check that even if the subclass doesn't call set_output_format, the base
+    class should use upstream provided caps to fill the output caps that is
+    pushed before the gap event is forwarded, otherwise it ends again fixating
+    the rate and channels to 1.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722144
+
+commit 695ddbd56f95b13e4ed1861bee8531e5079c61ac
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 14 13:05:54 2014 -0300
+
+    audiodecoder: copy rate and channels from input before fixating output caps
+    
+    For default caps generation when handling gap events that are sent
+    before any buffer, try to use caps that are closer to what upstream
+    provided to avoid fixating rate or channels to 1 as default.
+    
+    So there are the steps:
+    1) Try to set rate, channels and channel-mask from upstream if provided
+    2) Fixate the rate and channels to the default rate and channels from
+       audio lib
+    3) Fixate the caps just to be sure everything is fixed
+    4) If no channel-mask was provided and channels > 2, use a default
+       channel-mask (taken from audioconvert code)
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722144
+
+ 
