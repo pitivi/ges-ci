@@ -46200,3 +46200,23 @@ Date:   Thu Jan 16 13:44:56 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=722290
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 204bd715d2d1d7d1325bea96b496d6da7c46774c
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 21 17:52:44 2014 +0100
+
+    rtpjitterbuffer: handle expected packet being an RTX packet
+    
+    If the expected packet (do_next_seqnum is TRUE) is the one we requested
+    for retranmission earlier, do the logic to update the retransmission
+    statistics as well before setting up the timers for the next expected
+    packet.
+    Also reset the retransmission counter if the timer is reused for another
+    seqnum.
+
+ 
