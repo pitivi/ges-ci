@@ -45547,3 +45547,656 @@ Date:   Wed Jan 15 22:47:12 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 702e5d11c3308d6e4f143aa37dfc76a5dabece1a
+Author: Fabian Kirsch <derFakir@web.de>
+Date:   Mon Jan 20 15:26:54 2014 +0100
+
+    parse: Additional tests for parser
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710034
+
+commit bac1202cf7c8a3aeef14a1328f0651393f52175b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 18 14:48:35 2014 +0100
+
+    iterator: Properly copy mutexes around when creating a copy of a filter iterator
+
+commit af84535569342e2e4b35e700e60463335e676c72
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 18 14:34:45 2014 +0100
+
+    iterator: Add unit tests for filtering, recursive filtering and locking
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711138
+
+commit f77d79f2f8eae2e10b664ef83e7ea97a4b9e762b
+Author: Stewart Brodie <stewart@eh.org>
+Date:   Sat Jan 18 14:43:20 2014 +0100
+
+    iterator: Preserve the master lock when creating recursive iterator filters with the same lock
+    
+    This way we make sure that a) the lock is always taken when checking
+    the cookie and calling the iterator's next functions and b) it is
+    not taken while calling any of the iterator filter functions.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711138
+
+commit 75fe1004a52435afbe5abf68c1128ec5db62c3d6
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 17 22:53:01 2014 -0300
+
+    pad: fix sticky event leak after sticky_events_foreach
+    
+    events_foreach adds an extra ref when giving the event to the
+    user function. In case it was unrefed by the user, this extra ref
+    disappeared, but events_foreach still should unref again to
+    lose its own ref before removing the event from the array.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722467
+
+commit 0264bbdb46526ef08e3bc8e5c1b93d2142c9aa7f
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 16 20:11:03 2014 +0100
+
+    info: move some env-var checks from gst to gstinfo as well
+    
+    We were doing some log related initialisation in gst.c after calling
+    _priv_gst_debug_init(). Just move it there for consistency.
+
+commit 210b0629fc2cb56336a63c4b309d5a75a5d94b2d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 16 18:16:35 2014 +0100
+
+    capsfilter: Only set caps on the srcpad if it's activated in push mode
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722289
+
+commit ffe072f694266f6226821c4760adb4f7a95d02f6
+Author: Fabian Kirsch <derFakir@web.de>
+Date:   Thu Jan 16 12:28:47 2014 +0100
+
+    parse: Some minor fixes
+    
+    Fix destructor segfaulting
+    Expect 0 grammar-ambiguities
+    Fix order of bin-properties assignment
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710034
+
+commit 1d87a5244c28945b7cb832dcfb56f3496b688c7c
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 15 19:28:01 2014 -0300
+
+    inputselector: removing duplicate field position
+    
+    It is already stored inside the GstSegment struct and
+    was only duplicating information. Also removed some
+    weird positon if/else that would possibly change the
+    segment that was going to be pushed downstream
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6a88d6f8cdf640d827f1082e4f498fc375fad781
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 21 11:21:56 2014 +0100
+
+    audiobasesink: make _get_time more threadsafe
+    
+    We call the _get_time function from the provided clock and we don't lock
+    the sink object for performance reasons. Make sure we only read and
+    check variables once so that they don't change while we are executing
+    the code.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=720661
+
+commit 4e3d101aa854cfee633a9689efeb75e5001baa5e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 20 16:11:04 2014 +0100
+
+    audioresample: It's HAVE_EMMINTRIN_H, not HAVE_XMMINTRIN_H for SSE2
+
+commit daa194b71ea6f9e8ee522ab02e8c56150b7e62b3
+Author: Antoine Jacoutot <ajacoutot@gnome.org>
+Date:   Mon Jan 20 15:44:09 2014 +0100
+
+    audioresample: Fix build on x86 if emmintrin.h is available but can't be used
+    
+    On i386, EMMINTRIN is defined but not usable without SSE so check for
+    __SSE__ and __SSE2__ as well.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=670690
+
+commit bf4a72a4e6aad203113d8d6f1b87b9bf518fb88f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 20 10:30:36 2014 +0100
+
+    configure: Initialize Qt variables
+
+commit 5dd8e9cdd4d6b9c8c936630ab49da5bcec4728a1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 20 09:46:15 2014 +0100
+
+    examples: Port Qt examples to Qt5
+
+commit 26e3c92093892729f6a3bd9d4a98d6291050c25a
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Sat Jan 18 19:22:12 2014 +0100
+
+    riff: Fix G726 caps creation
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720995
+
+commit 26a57f9a89a2fc8b0607ee7115ab95f64d96cc55
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Jan 18 00:18:51 2014 +0000
+
+    discoverer: minor docs fix
+    
+    Can use a custom main context as well if needed.
+
+commit 87829debe49317829a18f9972184b43148b2c9f4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 18 13:54:22 2014 +0100
+
+    videodecoder: Add API to get the currently pending frame size for parsing
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719890
+
+commit c2746d753eb7420f55a1f766c9190e3236f0bb6f
+Author: Wonchul Lee <chul0812@gmail.com>
+Date:   Sat Jan 18 21:20:51 2014 +0900
+
+    playbin: Remove unnecessary assignment
+    
+    Remove duplicated assignment
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722491
+
+commit 4f8f5918be3a72ed627dd37939aa1fa26735fd73
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 18 13:31:06 2014 +0100
+
+    playbin: Insert decoders without GstAVElement information between the other decoders
+    
+    Otherwise they would be preferred over all decoders independent
+    of their ranks.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722316
+
+commit 6b46019abfe57308ebc297322dcd89e7b7c144eb
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 18 13:12:16 2014 +0100
+
+    playbin: Only put parsers and sinks first, not all non-decoders
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722316
+
+commit 1d75bdca92997a564a18315d32703c7147a415dc
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 17 11:08:32 2014 -0300
+
+    tests: videodecoder: plug a few leaks
+    
+    Remove leaks of caps and events references
+
+commit 47f720a8f00d3e942fc378c873bed0ab62ba5cf1
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 17 10:17:29 2014 -0300
+
+    videodecoder: plug leak when frames are released on subclass stop
+    
+    They end up stored in the 'pending_events' list and should be
+    freed after calling stop
+
+commit 2aa26a9807c25c0f5f4515ccff2409bc6a21e95a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 17 15:10:42 2014 +0100
+
+    gst-play: Handle CLOCK_LOST message
+    
+    It is necessary for playbin gapless playback when switching
+    between audio-only and video-only files for example.
+
+commit 5df274f824b1ce493c66fb1a922c47f56cfbc7b2
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 16 16:32:34 2014 +0100
+
+    streamsplitter: handle ACCEPT_CAPS query correctly
+    
+    We can accept a caps when one of the downstream peers can accept the
+    caps. This is not the same as checking a subset of the getcaps
+    result because parsers might accept broader caps than what their getcaps
+    function returns (See https://bugzilla.gnome.org/show_bug.cgi?id=677401).
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=722330
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ddb0b9c42257b5282ad153614efa1fd033131679
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 21 15:48:20 2014 +0100
+
+    rtpbin: add a caps accumulator for the request-pt-map signal
+    
+    Add an accumulator that stops the signal emission as soon as a caps has
+    been retrieved. Otherwise the default handler would continue emitting
+    the signal and possibly overwrite the result with NULL again.
+
+commit ef20dfe03186223cf318fe949332edd401dc765e
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 21 15:25:54 2014 +0100
+
+    rtxreceive: copy flags and timestamps from original buffer
+
+commit 9a3d4d7cbe58b7fb86ea9b91d04b8fdb09936a31
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 21 15:24:52 2014 +0100
+
+    rtpjitterbuffer: ignore invalid timestamps in rtt calculation
+    
+    When the input buffer does not have a valid timestamp, don't try to
+    calculate the round-trip-time.
+
+commit cf0c780138fc70f9cefb38102eaeb7c7f3af0d58
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Thu Jan 16 14:23:13 2014 -0300
+
+    matroskaparse: better default caps when none set
+    
+    Uses information gathered during EBML parsing to
+    forge a more suitable set of caps instead of blindly
+    assuming everything is video/x-matroska.
+    
+    For consistency, stream type reset was added to
+    matroska-demux too.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722311
+
+commit 016e1562a683628a19cb4c47de450e311ddba993
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Wed Jan 15 17:29:35 2014 +0100
+
+    tests: rtprtx::test_rtxreceive_data_reconstruction: remove useless code for triggering retransmission
+    
+    There is no need anymore to push yet another buffer in rtxsend
+    in order to trigger the previously requested retransmissions
+    to actually happen.
+
+commit 184553151da57dd6d760fdb1881a6b32046467c3
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Wed Jan 15 17:27:19 2014 +0100
+
+    tests: rtprtx::test_rtxreceive_data_reconstruction: fix race condition
+    
+    Now with rtprtxsend pushing rtx buffers from a different thread,
+    this is necessary to ensure that the result of the test is deterministic.
+    
+    This code makes use of GstCheck's global GMutex and GCond that are
+    being used inside GstCheck's sink pad chain() function in order
+    to synchronize with it.
+
+commit 7677aec2faa0844dd35c5d94445f0b9849b717b1
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Wed Jan 15 17:17:57 2014 +0100
+
+    tests: rtprtx::test_rtxsender_packet_retention: fix race condition
+    
+    Now with rtprtxsend pushing rtx buffers from a different thread,
+    this is necessary to ensure that the result of the test is deterministic.
+    
+    This code makes use of GstCheck's global GMutex and GCond that are
+    being used inside GstCheck's sink pad chain() function in order
+    to synchronize with it.
+
+commit 7011f98d7e9415fc9265654431f2d74051ff138f
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Wed Jan 15 11:26:33 2014 +0100
+
+    tests: rtprtx::test_push_forward_seq: fix race condition
+    
+    Now with rtprtxsend pushing rtx buffers from a different thread,
+    this is necessary to ensure that the result of the test is deterministic.
+    
+    This code makes use of GstCheck's global GMutex and GCond that are
+    being used inside GstCheck's sink pad chain() function in order
+    to synchronize with it.
+
+commit c702e370911aaa77f92c23e8e0d9b2306cc1c4e0
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Wed Jan 15 09:47:03 2014 +0100
+
+    tests: rtprtx::test_push_forward_seq: fix buffer refcounting
+
+commit 1a300eb50967e88ad73ffeeb44a84e268d4705b8
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Tue Jan 21 13:42:38 2014 +0100
+
+    rtprtxsend: ensure that no rtx buffers are sent after EOS
+    
+    To do that, enqueue the EOS event to be sent from the srcpad task
+    thread and flush the queue right afterwards, so that no more rtx
+    buffers can be sent, even if there are more requests coming in.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=722370
+
+commit 133913a11ae35656797a7101ad0e01d484bea46b
+Author: George Kiagiadakis <george.kiagiadakis@collabora.com>
+Date:   Wed Jan 15 09:46:14 2014 +0100
+
+    rtprtxsend: run a new GstTask on the src pad
+    
+    The reason behind this is to minimize the retransmission delay.
+    Previously, when a NACK was received, rtprtxsend would put a
+    retransmission packet in a queue and it would send it from chain(),
+    i.e. only after a new buffer would arrive.
+    
+    This unfortunately was causing big delays, in the order of 60-100 ms,
+    which can be critical for the receiver side.
+    
+    By having a separate GstTask for pushing buffers out of rtxsend,
+    we can push buffers out right after receiving the event, without
+    waiting for chain() to get called.
+
+commit 4480a258448fbbde926bae42e10861edd05ee876
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 3 17:47:55 2014 +0000
+
+    shout2send: error out if no caps were received
+    
+    Instead of assuming that input is ogg.
+
+commit d7210befdc97e9f4defa24e5c938fb54da7ba2d3
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Jan 3 17:30:12 2014 +0000
+
+    shout2send: accept audio/webm, audio/ogg and video/ogg as well
+    
+    Those are advertised in the template caps, but the
+    setcaps handler didn't handle them. But then oggmux
+    and oggparse at least for now still always output
+    application/ogg anyway, so that wasn't a real problem.
+
+commit e178cf60ae6ebee9d77598eea8aa733cbe1e43cd
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 20 10:12:45 2014 +0100
+
+    rtpvp8pay: Don't leak input buffers
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722414
+
+commit 829cec51c70fa5192b626ee36b47eef933a60379
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sun Jan 19 17:40:56 2014 +0100
+
+    avimux: reset some more audio pad data when needed
+
+commit 3ea338ce271e1f6a96d2ed49d4472b091f6f8b7e
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sun Jan 19 17:38:59 2014 +0100
+
+    avimux: write correct blockalign for vbr audio
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=720659
+
+commit cdbb2ba6b8550d1527acdc5baaf0184658489ecc
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Thu Jan 16 17:36:12 2014 -0800
+
+    rtpjitterbuffer: do not drop serialized events when latency is set
+    
+    Serialized events are now queued in the jitter buffer, so we don't
+    want to drop them even latency is set.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722372
+
+commit 447556fe6bd109a3538d71420a24e6f55e647d4d
+Author: Michael Olbrich <m.olbrich@pengutronix.de>
+Date:   Wed Dec 11 09:36:22 2013 +0100
+
+    avimux: don't make the buffer writable unless absolutely necessary
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722396
+
+commit 3978f6ae6c97e0ae77c4d44c9108f20afcfdb395
+Author: Michael Olbrich <m.olbrich@pengutronix.de>
+Date:   Thu Sep 12 16:56:56 2013 +0200
+
+    v4l2: set GST_BUFFER_FLAG_DELTA_UNIT when appropriate
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722394
+
+commit 3d2bd4ff4975baac82885a258fa4ac21e90c7660
+Author: Michael Olbrich <m.olbrich@pengutronix.de>
+Date:   Fri Jan 17 07:46:09 2014 +0100
+
+    v4l2bufferpool: don't ref the newly created allocator
+    
+    Otherwise the allocator will never be deleted.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712612
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 0bb2e2f74fbfaa4ea299a286e0d34de48b5b32eb
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Jan 21 10:27:20 2014 +0100
+
+    mpegpsmux: update last_ts to mux correctly
+    
+    We use last_ts to decide what buffer to mux next so make sure that it
+    always contains the last known valid timestamp.
+
+commit 686c2f8e7950df9f7d8c527a21b640c96991f0b0
+Author: duhui.lee <duhui.lee@lge.com>
+Date:   Tue Jan 21 10:58:35 2014 +0900
+
+    h265parser: Initialize pointer correctly that is never assigned but freed in error cases
+    
+    Fixes crash on broken streams.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722669
+
+commit d96999328ad80941fbdb51f64d46fa540463ca62
+Author: Alexey Chernov <4ernov@gmail.com>
+Date:   Tue Jan 21 09:44:00 2014 +0100
+
+    d3dvideosink: First destroy the window, then unregister the class
+    
+    It's impossible to create another pipeline with d3dvideosink after disposing
+    the previous one due to some problem in d3dvideosink. The message is: "Unable
+    to register Direct3D hidden window class".
+    
+    I've evaluated the problem and it's that UnregisterClass() in working thread is
+    called before DestroyWindow() and UnregisterClass() does nothing.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722622
+
+commit e58a00b2a2ec637b61cea808537d469b3649a116
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Jan 20 16:25:51 2014 +0100
+
+    mpegpsmux: fix timestamp handling
+    
+    If the first buffer that we handle for a stream has no timestamp, we
+    would never consider this pad again for muxing which causes queues to
+    fill up and pipelines to stall. Instead, try to mux pads with -1
+    timestamps as soon as possible.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=722330
+
+commit 4e10667aad93ee049337f458d6069a7e6229f1cf
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Jan 20 16:23:49 2014 +0100
+
+    mpegpsmux: return GST_FLOW_EOS when we pushed EOS
+    
+    Return GST_FLOW_EOS from the collected function when we pushed EOS or
+    else it simply keeps on calling our collected function.
+
+commit 0d794993fb8a5d2f838ea50ec6b424b9500667af
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 20 10:38:16 2014 +0100
+
+    applemedia: Actually the enc/decbins are not used anywhere currently
+    
+    Code is commented out.
+
+commit 1107e158f78741f03a98feff14ea1e20a0ddbdde
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Jan 20 10:34:57 2014 +0100
+
+    applemedia: Fix build on iOS and probably also on OSX
+    
+    The video toolbox is not available on iOS, and also on OSX
+    we should probably build all source files that are used for
+    it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722590
+
+commit cd8c0227c8e5b4322052097131da20c04dbf68d0
+Author: duhui.lee <duhui.lee@lge.com>
+Date:   Mon Jan 20 15:21:42 2014 +0900
+
+    h265parse: Update caps when receive VPS/SPS/PPS
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722240
+
+commit 13a397a0b92b4c68cbe328095947887c10335e7e
+Author: duhui.lee <duhui.lee@lge.com>
+Date:   Mon Jan 20 17:03:09 2014 +0900
+
+    h265parser: Fix segfault when parsing HRD parameter
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722240
+
+commit 7548d5f7f9e9687260cd33b01bc382555fdbe73c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 18 13:56:28 2014 +0100
+
+    openexrdec: Don't start scanning for the header from the start again each time
+    
+    This will be incredible slow if the upstream block size is very small. Instead
+    continue scanning for the header where we previously stopped.
+    
+    For the standard filesrc block-size this made decoding a file about
+    3 times faster.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719890
+
+commit 1f9c30569467c77c64b8ba34ff10f274db6e4e9b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 18 13:06:29 2014 +0100
+
+    sfdec: This is a decoder, not a demuxer
+    
+    Don't confuse autopluggers!
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722316
+
+commit 0caa4cdfd876b13748a91f119543261062af43ea
+Author: Andrey Utkin <andrey.krieger.utkin@gmail.com>
+Date:   Sat Jan 18 01:19:36 2014 +0200
+
+    tsdemux: Fix leak of PCROffsetGroup
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722462
+
+commit dfd23a3182e68c268c5ab3f040a772c9e1ffadb8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 16 12:18:45 2014 +0100
+
+    audiomixer: Remove some useless assignments and skip the current part of the buffer if the pad is muted
+
+commit 9d31536adf5ca5775d66c49c72544e30bbc0373a
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Thu Jan 16 20:16:47 2014 +1100
+
+    resindvd: Merge changes across from master mpegdemux
+    
+    Merge various changes and fixes from the master mpegdemux
+    Performance improvement from the way streams are organised,
+    return flow combining, language tag event generation,
+    adjustments and fixes in debug output, and things like that.
+
+commit d52b0f922b0637c975be5df0a08cb8279e9e3742
+Author: Jan Schmidt <jan@centricular.com>
+Date:   Thu Jan 16 20:14:48 2014 +1100
+
+    mpegdemux: Merge some changes from the resindvd copy
+    
+    One bug fix, some debug changes and other inconsequential changes
+    just to reduce the diff between the 2 copies a bit.
+
+commit aa3eb10ceea5296f5abe12ca8be35b875f58d0eb
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 15 23:30:28 2014 +0100
+
+    audiomixer: Fix and simplify overlap calculation
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 520221c47a64e46c23cf120b9e8a497b6af157da
+Author: Tim 'mithro' Ansell <mithro@mithis.com>
+Date:   Tue Jan 21 22:58:42 2014 +1100
+
+    avmux: Force DV audio input format to 48kHz, 2 channels
+    
+    libavformat only supports muxing 16bit, 48kHz stereo into DV containers.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=722672
+
+commit 77c33a45cce8e079c307275dbb6d5f8f27189693
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Jan 19 10:33:01 2014 +0100
+
+    libav: Update to version 10_alpha2
+
+commit 60f7b00db39cefd236ef199cde54d5d2d3b5ed2c
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Fri Jan 17 12:38:23 2014 -0800
+
+    avviddec: Add output-corrupt property
+    
+    The output-corrupt property will set the CODEC_FLAG_OUTPUT_CORRUPT flag
+    in the codec context. The user can now decide whether libav outputs
+    corrupt frames or not.
+    
+    Previous libav versions had this flag always set.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722453
+
+commit d494f6f9837d1fff575d0959cdb2e817855d8d6e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 16 13:45:58 2014 +0100
+
+    avauddec: Mark frames as corrupted if libav tells us they are
+    
+    This is currently only implemented by the h264 codec and no audio codec.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722290
+
+commit b278ca55bec70bafbd5c1d2ba9a8a1d4fa24ec7f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 16 13:44:56 2014 +0100
+
+    avviddec: Mark frames as corrupted if libav tells us they are
+    
+    This is currently only implemented by the h264 codec.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722290
+
+ 
