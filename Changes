@@ -46251,3 +46251,24 @@ Date:   Wed Jan 22 11:10:01 2014 +0100
     check_sticky()!=GST_FLOW_OK.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 4f0fc9a16fe0e340c48107cf62d17f75302d30d0
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Jan 20 17:24:54 2014 -0300
+
+    h264parser: remove trailling 0x00 bytes as the spec doesn't allow them
+    
+    The spec states that the last byte of a NAL 'shall not' be 0x00
+    and it is allowed for byte-stream format to add padding 0x00 for
+    alignment.
+    
+    So our parser should strip any trailling 0x00.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721384
+
+ 
