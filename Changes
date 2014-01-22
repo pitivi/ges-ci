@@ -46220,3 +46220,18 @@ Date:   Tue Jan 21 17:52:44 2014 +0100
     seqnum.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 99c2aa14c363c087ca690a698c40e11fb84ca118
+Author: Justin Joy <justin.joy.9to5@gmail.com>
+Date:   Tue Jan 21 23:42:58 2014 +0900
+
+    mpegtsmux: don't leak pad name when treating events
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722699
+
+ 
