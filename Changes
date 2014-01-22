@@ -46235,3 +46235,19 @@ Date:   Tue Jan 21 23:42:58 2014 +0900
     https://bugzilla.gnome.org/show_bug.cgi?id=722699
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit ba7089cf0483f13eb76ef1c4a91c0e785c2276a1
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Jan 22 11:10:01 2014 +0100
+
+    pad: Minor code cleanup
+    
+    !check_sticky()==GST_FLOW_OK is a bit confusing, compared to
+    check_sticky()!=GST_FLOW_OK.
+
+ 
