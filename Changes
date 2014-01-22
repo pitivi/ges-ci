@@ -46281,3 +46281,21 @@ Date:   Mon Jan 20 17:24:54 2014 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 24c87b18c242c75162e775ff7a729edce88b6a28
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 22 10:26:32 2014 -0300
+
+    h265parser: remove trailling 0x00 bytes as the spec doesn't allow them
+    
+    Just like h264, the spec doesn't allow the last bytes of a NAL to be 0x00.
+    So remove it as it is probably just padding.
+    
+    This is related to https://bugzilla.gnome.org/show_bug.cgi?id=721384
+
+ 
