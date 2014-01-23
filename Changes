@@ -46299,3 +46299,21 @@ Date:   Wed Jan 22 10:26:32 2014 -0300
     This is related to https://bugzilla.gnome.org/show_bug.cgi?id=721384
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 8ac3dbc4f312daefbac48373c964c2cb6e99ff6e
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 23 10:45:00 2014 +0100
+
+    video-chroma: don't crash on NULL resamplers
+    
+    Make dummy resamplers for all cases and only execute the horizontal
+    resampler instead of crashing.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=722742
+
+ 
