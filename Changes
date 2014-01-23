@@ -46317,3 +46317,24 @@ Date:   Thu Jan 23 10:45:00 2014 +0100
     See https://bugzilla.gnome.org/show_bug.cgi?id=722742
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit af78b45979564035ce4f2535d7257201112f776b
+Author: Aurélien Zanelli <aurelien.zanelli@parrot.com>
+Date:   Fri Jan 3 09:44:28 2014 +0100
+
+    h264parse: Fix multiple SEI messages in one SEI RBSP parsing.
+    
+    An SEI RBSP could contains more than one SEI message as specified in
+    7.4.2.3.1.
+    
+    This commit change the parser API: the gst_h264_parser_parse_sei()
+    function now create and fill a GArray containing GstH264SEIMessage.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721715
+
+ 
