@@ -46338,3 +46338,42 @@ Date:   Fri Jan 3 09:44:28 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721715
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 454ee04a2271dbbc272ea47a0947ceb5a4d8d38f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 24 09:28:05 2014 +0100
+
+    multiqueue: Break the loop immediately if we found an empty queue
+    
+    No need to continue looking at all the others
+
+commit 4f928547a8f13b5755f19caaf4fe55d8dd1c9b94
+Author: Per x Johansson <perxjoh@axis.com>
+Date:   Thu Jan 23 15:47:23 2014 +0100
+
+    multiqueue: Allow growing a queue if all other queues are not linked
+    
+    In the case where one singlequeue is full and all other are not linked, the
+    growing of the full queue does not work correctly. The result depends on if
+    the full queue is last in the queue list or not.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722891
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 9f7b1128b1f00a2b87a232ff890867549ab95ba5
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Thu Jan 23 15:17:58 2014 -0800
+
+    rtspsrc: Proxy rtpjitterbuffer do-retransmission property
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722866
+
+ 
