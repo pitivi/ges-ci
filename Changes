@@ -46502,3 +46502,19 @@ Date:   Fri Jan 24 01:07:45 2014 -0300
     Moves common code from h264 and h265 to a separate file
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 78d13b6642968fc1d98f505a3e6d79e3777796da
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 24 13:20:49 2014 -0300
+
+    basesrc: do not forget to clear the forced_eos flag
+    
+    otherwise it will always use the seqnum of the event
+    sent by the application
+
+ 
