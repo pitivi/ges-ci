@@ -46394,3 +46394,26 @@ Date:   Fri Jan 24 10:21:11 2014 +0100
     See https://bugzilla.gnome.org/show_bug.cgi?id=722866
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4c8e211e57146f00fff325403c07217274e9b2f1
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Jan 24 12:19:43 2014 +0100
+
+    videoconvert: tweak the scoring algorithm
+    
+    Make a little table of conversions and manually score them. Use this
+    info to define better weights for the scoring algorithm.
+    give separate scores for doing changes and the impact of the change,
+    This allows us to avoid conversion when we can but still allow fairly
+    lossless changes.
+    The old code did not penalize GRAY conversions, PAL conversions were
+    punished too low and depth conversions too high.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=722656
+
+ 
