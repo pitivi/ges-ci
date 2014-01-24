@@ -46518,3 +46518,36 @@ Date:   Fri Jan 24 13:20:49 2014 -0300
     sent by the application
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f6da7ea8bb865861c8bf4b9ce885f4a16a7e138c
+Author: Sjoerd Simons <sjoerd@luon.net>
+Date:   Fri Jan 24 21:41:25 2014 +0100
+
+    mxfdemux: Don't go into pull mode when the sequential flag is set
+    
+    When the scheduling query results has GST_SCHEDULING_FLAG_SEQUENTIAL set
+    in its flags don't go into pull mode to prevent over-eager seeking.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722934
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 1b5895c9365e2c02f65a1a9bdffcee327beaee18
+Author: Sjoerd Simons <sjoerd@luon.net>
+Date:   Fri Jan 24 21:58:35 2014 +0100
+
+    avdemux: Don't go into pull mode when the sequential flag is set
+    
+    When the scheduling query results has GST_SCHEDULING_FLAG_SEQUENTIAL set
+    in its flags don't go into pull mode to prevent over-eager seeking.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722935
+
+ 
