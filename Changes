@@ -46377,3 +46377,20 @@ Date:   Thu Jan 23 15:17:58 2014 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=722866
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 43feb82feb30192ca973949502d81318fb0ca9a7
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Jan 24 10:21:11 2014 +0100
+
+    rtspsrc: add signal to notify of new manager
+    
+    So that you can configure and connect to signals on the rtpbin.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=722866
+
+ 
