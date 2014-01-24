@@ -46417,3 +46417,22 @@ Date:   Fri Jan 24 12:19:43 2014 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=722656
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 8054cd5df344eafe3b3c4f80e10c47d85797bac2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Jan 24 12:37:39 2014 +0100
+
+    Revert "rtspsrc: Proxy rtpjitterbuffer do-retransmission property"
+    
+    This reverts commit 9f7b1128b1f00a2b87a232ff890867549ab95ba5.
+    
+    This should be handled automatically be rtspsrc if the AVPF profile
+    is used, and manual enabling of it can be done with the new-manager
+    signal.
+
+ 
