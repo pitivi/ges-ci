@@ -46436,3 +46436,41 @@ Date:   Fri Jan 24 12:37:39 2014 +0100
     signal.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit fdfc6dc98385816fa3a3765841f40e6c73af58d3
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 23 15:52:51 2014 -0300
+
+    basesrc: preserve seqnum of eos events sent by the user
+    
+    Store the eos event seqnum and use it when creating the
+    new eos event to be pushed downstream. To know if the eos
+    was caused by the eos events received on send_event, a
+    'forced_eos' flag is used to use the correct seqnum on
+    the event pushed downstream.
+    
+    Useful if the application wants to check if the EOS message
+    was generated from its own pushed EOS or from another source
+    (stream really finished).
+    
+    Also adds a test for this
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722791
+
+commit 5880c9c4c38911bced21854383a5b836d2875f71
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 23 15:34:27 2014 -0300
+
+    docs: design: add part-seqnums
+    
+    Hopefully clarifies how seqnums should be used and copied from
+    events to events/messages when those are handled.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722791
+
+ 
