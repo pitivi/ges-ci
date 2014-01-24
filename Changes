@@ -46551,3 +46551,27 @@ Date:   Fri Jan 24 21:58:35 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=722935
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 43237ad0e25ffa4adb949cbde397cd00aa9c180d
+Author: Sjoerd Simons <sjoerd.simons@collabora.co.uk>
+Date:   Fri Jul 26 15:44:28 2013 +0200
+
+    uridecodebin: Drop hardcoded list of media suitable for download buffering
+    
+    Discussion on IRC indicated that the main reason for this list was to
+    prevent demuxers that can trigger a lot of seeking from using
+    progressive buffering using queue2 (which due to being seekable triggers
+    that behaviour).
+    
+    However given that upstream can indicate seeks are possible but should
+    be avoided via a scheduling query, this extra whitelisting shouldn't be
+    necessary for well-behaved demuxers.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=704933
+
+ 
