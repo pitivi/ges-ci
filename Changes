@@ -46474,3 +46474,31 @@ Date:   Thu Jan 23 15:34:27 2014 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=722791
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 68ce96a9e402c3e21990db318436b24d5ebbb901
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 24 12:36:59 2014 -0300
+
+    tests: h264parse: fix tests after leading 0x00 removal
+    
+    Commit 6af387cd5ab2c946025e5499903e75ee87b063a9 made h264parse
+    strip a leading 0x00 byte from some output scenarios. This broke
+    tests as bs_to_nal test expects one more byte on the output.
+    
+    Fix this by comparing the output with the expected stripped version,
+    too.
+
+commit 61192a1619a2f1042a2c701de7864fcdf54cdf2c
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 24 01:07:45 2014 -0300
+
+    codecparsers: refactor common nal parsing to nalutils
+    
+    Moves common code from h264 and h265 to a separate file
+
+ 
