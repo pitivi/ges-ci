@@ -46590,3 +46590,21 @@ Date:   Sat Jan 25 17:40:46 2014 +0100
     And also just stop the task for FLUSHING.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit a46f667853fecd34ffbbcfd0920295af930a80b7
+Author: Ryan Lortie <desrt@desrt.ca>
+Date:   Sat Jan 25 02:06:00 2014 -0500
+
+    v4l2: guard use of ENODATA with #ifdef
+    
+    Not all systems with v4l have ENODATA defined, so check that we have it
+    before attempting to use it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722953
+
+ 
