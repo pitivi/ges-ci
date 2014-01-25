@@ -46575,3 +46575,18 @@ Date:   Fri Jul 26 15:44:28 2013 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=704933
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 30d80bf6580b8e09a755c8a9a4aecd405c19d028
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Jan 25 17:40:46 2014 +0100
+
+    androidmedia: Don't handle FLUSHING or NOT_LINKED as error
+    
+    And also just stop the task for FLUSHING.
+
+ 
