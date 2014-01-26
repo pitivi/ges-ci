@@ -46665,3 +46665,16 @@ Date:   Sat Jan 25 02:06:00 2014 -0500
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 1122b56ff613d52e1f6e8ea321975487382973c1
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sun Jan 26 14:42:52 2014 +0100
+
+    mpegts: install but nodist for generated header
+
+ 
