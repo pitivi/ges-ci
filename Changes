@@ -46687,3 +46687,21 @@ Date:   Sun Jan 26 14:42:52 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit fa393e5d60bcb61ba0e48905b19a3b76847d31ee
+Author: Sebastian Rasmussen <sebrn@axis.com>
+Date:   Thu Jan 16 21:49:59 2014 +0100
+
+    rtpbasepayload: Add statistics property
+    
+    This property allows for an atomically retrieved set of properties that
+    can e.g. be used to generate RTP-Info headers.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719415
+
+ 
