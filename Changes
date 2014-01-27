@@ -46705,3 +46705,26 @@ Date:   Thu Jan 16 21:49:59 2014 +0100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719415
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a93615aea1a85d5059de43614d5e6148f6ae4054
+Author: Arnaud Vrac <avrac@freebox.fr>
+Date:   Fri Jan 24 19:19:08 2014 +0100
+
+    multiqueue: do not reduce single queue below current level
+    
+    When the single queue size was just bumped by 1 to allow more buffers to
+    be added, the buffers limit could be reduced to the current level when
+    setting the max-size-buffers property. This would result in a stall
+    since the queue would not grow anymore at this point.
+    
+    Prevent this by not reducing a single queue size below the current
+    number of buffers + 1.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=712597
+
+ 
