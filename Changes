@@ -46728,3 +46728,19 @@ Date:   Fri Jan 24 19:19:08 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=712597
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit d25a183ccc93d37376ede58096216eb43424ecb8
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Mon Jan 27 20:05:42 2014 +0100
+
+    ac3parse: custom get_sink_caps handling for private stream caps
+    
+    ... now that those are transformed rather than parsed, some transforming
+    of caps is required as well to make auto-plugging succeed.
+
+ 
