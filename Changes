@@ -46785,3 +46785,46 @@ Date:   Mon Jan 27 23:55:57 2014 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=722096
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 125b9c19c0e23864ac8723e30bc1662701f43f32
+Author: Sebastian Rasmussen <sebrn@axis.com>
+Date:   Tue Nov 26 01:13:45 2013 +0100
+
+    rtpbasepayload: Do cosmetic changes to rtptime calculations
+    
+     * Change running time type to guint64
+     * Use GST_CLOCK_TIME_NONE() to check for invalid timestamps
+     * Name variables so ns-based and hz-based timestamps are evident
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719383
+
+commit 0142cd5e35b7fcb5232e35342052f540ca51f47e
+Author: Sebastian Rasmussen <sebrn@axis.com>
+Date:   Tue Jan 28 00:40:38 2014 +0100
+
+    rtpbasepayload: Expose running-time of payloaded stream
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719415
+
+commit 865a5d1c8fb8107da53bb3ea943f2def2782f12d
+Author: Sebastian Rasmussen <sebrn@axis.com>
+Date:   Wed Jan 22 17:47:02 2014 +0100
+
+    rtpbasepayload: Improve documentation for perfect-rtptime
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719383
+
+commit 713dfe0d704917e7af6df53dbbd1967a09d5b13f
+Author: Sebastian Rasmussen <sebrn@axis.com>
+Date:   Thu Jan 16 16:58:43 2014 +0100
+
+    rtpbasepayload: Fix typos in documentation for properties
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=719383
+
+ 
