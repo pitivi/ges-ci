@@ -46744,3 +46744,26 @@ Date:   Mon Jan 27 20:05:42 2014 +0100
     of caps is required as well to make auto-plugging succeed.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6a699b6c40cd6da3be5e669909093caab7cd174e
+Author: Alessandro Decina <alessandro.d@gmail.com>
+Date:   Tue Jan 28 00:19:07 2014 +1100
+
+    decodebin: make it possible to register multiple handlers for autoplug-select
+    
+    Change the way autoplug-select is accumulated so that it's possible to have
+    multiple handlers. The handlers keep getting called as long as they keep
+    returning GST_AUTOPLUG_SELECT_TRY.
+    
+    One practical example of when this is needed is when hooking into playbin's
+    uridecodebin, which is perhaps not very elegant but the only way to influence
+    which streams playbin autoplugs/exposes.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=723096
+
+ 
