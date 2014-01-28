@@ -46767,3 +46767,21 @@ Date:   Tue Jan 28 00:19:07 2014 +1100
     Fixes https://bugzilla.gnome.org/show_bug.cgi?id=723096
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 44a87d210934c7ab2d899245de778238f318bf56
+Author: Amaury Medeiros <amaurymedeiros@gmail.com>
+Date:   Mon Jan 27 23:55:57 2014 -0300
+
+    tsdemux: Fix flags comparison operator precedence
+    
+    Fix operator precedence, so the whole operation is
+    negated instead of only flags variable.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722096
+
+ 
