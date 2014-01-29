@@ -46913,3 +46913,80 @@ Date:   Wed Jan 29 10:50:40 2014 +0100
     And make check-exports will complain
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 5d62ead83ce8e7f9de9001882531f572c7e806d4
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 28 11:58:53 2014 -0300
+
+    tests: capsfilter: add test for pending_events pushing
+    
+    make sure that pending events are pushed when caps are already
+    set when a buffer is received
+
+commit 00da86036b7ee3d488db5383767844db7a8bcc72
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 28 11:12:56 2014 -0300
+
+    capsfilter: do not forget to push pending events
+    
+    Push pending events before buffers if caps is already
+    set
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2fbc04e7bc00ae5d528a296b9df0a85d942c4c13
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 29 13:58:07 2014 -0300
+
+    streamsplitter: push pending events before eos
+    
+    Push any pending events downstream before pushing eos
+
+commit 1ae733fd4e03d0e8fabf4912ce74b507673b5ce3
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 29 12:33:21 2014 -0300
+
+    tests: audioencoder: add tests analogous to the videoencoder ones
+
+commit e00dc5b879d22dc13fb1c739660834358d112cfb
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Jan 29 12:32:16 2014 -0300
+
+    audioencoder: push pending events and tags before EOS
+    
+    if there are tags or events pending and an EOS is received, push those
+    events and tags before the EOS.
+
+commit 4fefd48f05c903e0a0f5e94d954a6ce20e8fe1d2
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 28 15:25:05 2014 -0300
+
+    tests: videoencoder: check that tags are pushed before eos
+    
+    Check that if a new tag event is received right before eos it
+    is pushed before the eos
+
+commit da54836a33b22c5776795a6d4a273ff12dc6a784
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 28 15:30:35 2014 -0300
+
+    videoencoder: push tags and events before eos
+    
+    if any tags or events are pending, push them before pushing eos
+
+commit 6684aa42cdc2e24587f182e698410597ab9a9c99
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Jan 28 15:06:39 2014 -0300
+
+    tests: videoencoder: basic videoencoder base class test
+    
+    Adds a single test for video encoding
+
+ 
