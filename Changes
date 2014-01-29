@@ -46990,3 +46990,42 @@ Date:   Tue Jan 28 15:06:39 2014 -0300
     Adds a single test for video encoding
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 826a4e3535eb4b220edbaf3d6b556d291b05324d
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Wed Jan 29 13:20:19 2014 +0100
+
+    gst-uninstalled: use print as function
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723229
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 659939f0f0ff6cd8b75c9f042165a5a4f798dbe9
+Author: Mike Sheldon <elleo@gnu.org>
+Date:   Fri Jan 24 01:52:08 2014 +0000
+
+    wavparse: Ignore Broadcast Wave Format (BWF) tags when searching for 'fmt' chunk
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723125
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 3248dff5fa506fa9420f57c63485e1b4a8ec3a36
+Author: Nicola Murino <nicola.murino@gmail.com>
+Date:   Wed Jan 29 13:25:37 2014 +0100
+
+    opencv: The plugin works with 2.4.8 too
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723230
+
+ 
