@@ -47029,3 +47029,39 @@ Date:   Wed Jan 29 13:25:37 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723230
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit bdb1f268a6006400070006df9ae2f4ef9d3f728d
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Jan 29 20:20:56 2014 +0100
+
+    part-toc: add format specific information
+
+commit 5ad01ab77d8a21967ab993465d3ca918d8bd1c0a
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Jan 29 18:21:34 2014 +0100
+
+    poolstress: code cleanups
+    
+    Add a few comments. Tell in the results, which number are from which test.
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 06fec6709d7810c7dd377efc0820cde28e96a864
+Author: Duncan Palmer <dpalmer@digisoft.tv>
+Date:   Wed Jan 29 20:38:57 2014 +0100
+
+    uridownloader: Always release the object lock in gst_uri_downloader_fetch_uri_with_range()
+    
+    even if downloader->priv->urisrc is not set. This avoids deadlock under some
+    some conditions on cancel.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723127
+
+ 
