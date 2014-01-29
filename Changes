@@ -47065,3 +47065,16 @@ Date:   Wed Jan 29 20:38:57 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723127
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6b5ccf31aa8f18d7ba36a38f4b1ec30b7b45dc2a
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Jan 29 22:46:48 2014 +0100
+
+    part-toc: emphasize that the later chapters are design draft ideas
+
+ 
