@@ -46882,3 +46882,34 @@ Date:   Thu Jan 16 16:58:43 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ceb602073a7762087d627ec1627c736d189ace92
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Wed Jan 29 10:37:53 2014 +0100
+
+    check: Use fakesink sync=True instead of an audio sink
+    
+    Ensures the test can run on systems without alsa (or any audio output for
+    that matter), and will avoid people running build slaves wondering what
+    the hell was beeping during the night :)
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 274387e8e9698687225156c3ca0b252b9fb10aaf
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Wed Jan 29 10:50:40 2014 +0100
+
+    codecparsers: Don't use gst_ as prefix for private symbols
+    
+    Otherwise they get exposed/accessible in the resulting .so
+    
+    And make check-exports will complain
+
+ 
