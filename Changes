@@ -47289,3 +47289,53 @@ Date:   Thu Jan 30 20:28:04 2014 +0100
     tsdemux: We do not support the SKIP seek flag but that is not a problem
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit c1ec592ec284afff16e419db7aeec7ee2c74de28
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 30 21:24:21 2014 +0100
+
+    tools: Support non-ASCII tags
+    
+    By calling setlocale() to get us multi-byte/UTF-8 support.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723164
+
+commit 8ee77efbed55ff1ecb36eed3d46c3715c1fd7671
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 30 03:22:56 2014 -0300
+
+    outputselector: respect the 'negotiation-mode' property
+    
+    If the segment event is allowed to be pushed to all pads it
+    will lead to an assertion of 'sticky event misordering:
+    segment received before caps' in case the pad-negotiation-mode
+    is set to 'active' or 'none'.
+    
+    This patch fixes this by making all sticky events follow the
+    property like the caps event to prevent misordering warnings.
+    
+    When a new pad is activated the current sticky events on the
+    sinkpad are forwarded to it in the proper order.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723266
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 01bfc79766d2ef796fab00b85acbc1ccbe8bdf96
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 30 21:18:04 2014 +0100
+
+    gst-play: Support non-ASCII tags
+    
+    By calling setlocale() to get us multi-byte/UTF-8 support.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723164
+
+ 
