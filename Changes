@@ -47193,3 +47193,55 @@ Date:   Thu Jan 30 10:46:09 2014 +0100
     From d48bed3 to 1a07da9
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a1169f6c20d3423fe1137b25736c4a276c97c82d
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 30 12:54:20 2014 +0100
+
+    poolstress: print speedup
+
+commit 1bad32b5777d435c6bbd7a7da4f0a4a06c54702c
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 30 12:42:02 2014 +0100
+
+    bufferpool: misc cleanups
+    
+    Review the documentation, comments and logging. Set the initial size to 16 as
+    the size is rounded up to the next power of two anyway.
+
+commit f9a5a2421194eca7401ca1a94a67ef4ae27a0edd
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Thu Jan 30 08:11:12 2014 +0100
+
+    bufferpool: add a new testsuite or the pool
+    
+    Start with some basic tests.
+
+commit 878621f6f5f3090bea9aa78dc4a399b1cabbefb7
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 30 12:26:05 2014 +0100
+
+    bufferpool: avoid excessive GstPoll activity
+    
+    Keep an extra write ref on the control socket. This ensures that we
+    avoid a read/write on the socket when going from non-empty->empty->not-empty.
+    We remove the write ref only when we actually are empty and we need to
+    wait for flushing or a new buffer.
+    
+    This makes the bufferpool benchmark about 30% faster than the pure
+    malloc implementation.
+
+commit fb44b4d2ecf9432442582a157f3e025aa54559cc
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Jan 30 12:25:33 2014 +0100
+
+    poll: improve debug
+    
+    Add object pointer in debug lines.
+
+ 
