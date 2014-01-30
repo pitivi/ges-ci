@@ -47094,3 +47094,102 @@ Date:   Thu Jan 30 03:28:45 2014 -0300
     it to operate properly
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 8ef815e4babf6a66bd84a3e9512acf4c607035a5
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:43:36 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4cb7b6624cd85ea8c34bbbd97961ced76c778036
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:43:48 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 480ae10884f47ec7c1a1b751d5c097a1e0decae1
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:44:05 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 87ce0d8e0b1ad07fed090066828079aecf3b6928
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:44:29 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit d331eee67c527ae58096b111f78176bbd138b986
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:44:18 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 11fa2f88a6a8427e3466a1e3b3fcc917d16f39fb
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:45:05 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
+
+====== gnonlin =============
+
+ commit 242e4e17d91be1864cad4f8193b7508e00677e52
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:45:29 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
+
+====== gst-editing-services =============
+
+ commit 32d526756d46128921c5cb06d1fdb1fcf439fa7a
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Thu Jan 30 10:46:09 2014 +0100
+
+    Automatic update of common submodule
+    
+    From d48bed3 to 1a07da9
+
+ 
