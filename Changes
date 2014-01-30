@@ -47245,3 +47245,20 @@ Date:   Thu Jan 30 12:25:33 2014 +0100
     Add object pointer in debug lines.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 46bc1677a4fa8c640130e58b052376a16cebfdbb
+Author: Per x Johansson <perxjoh@axis.com>
+Date:   Thu Jan 30 09:43:50 2014 +0100
+
+    matroskamux: Fix constantly growing used uid list
+    
+    Moves the used uid list to the class to avoid having it grow forever.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723269
+
+ 
