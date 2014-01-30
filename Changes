@@ -47357,3 +47357,42 @@ Date:   Mon Jan 27 15:30:40 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=721111
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e9a253640e3850ef1ade9a47024059527014249d
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 30 19:45:08 2014 -0300
+
+    tests: gdppay: refactor and add missing bits
+    
+    Most of the tests weren't updated after the sticky events order
+    and stream start. Fix that and refactor those tests check that
+    are the same to some common functions.
+    
+    Those functions still don't actually test the content but at
+    least now they are in a single place and can be improved
+    without replication
+
+commit 68a19b5c7bb65f11b44a00256d98c4f7392e56e2
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 30 18:17:33 2014 -0300
+
+    tests: gdppay: Do not forget to send stream-start event on test
+    
+    Even if we don't want to push the caps event, a stream-start must
+    be present before any data in 1.x
+
+commit e909e6a071eeb9123e8043227071e8cb67f126f9
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 30 18:09:13 2014 -0300
+
+    gdppay: push the stream-start event
+    
+    instead of just swallowing upstream's stream-start into its
+    payload, push it as elements expect a stream-start before data
+
+ 
