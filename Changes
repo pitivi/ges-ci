@@ -47262,3 +47262,30 @@ Date:   Thu Jan 30 09:43:50 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723269
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit f2c1f915082f27af5e05c06985faddbda5e2e878
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Jan 28 14:28:27 2014 +0100
+
+    gst-discoverer: Support non-ASCII tags
+    
+    By calling setlocale() to get us multi-byte/UTF-8 support.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723164
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 9682e44db649cd0a993ac18e25bb6173262e5939
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Jan 30 20:28:04 2014 +0100
+
+    tsdemux: We do not support the SKIP seek flag but that is not a problem
+
+ 
