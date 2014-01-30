@@ -47339,3 +47339,21 @@ Date:   Thu Jan 30 21:18:04 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723164
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 94dbf20400f7aeff6e43c947cf413abf0a8ce61f
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Jan 27 15:30:40 2014 +0100
+
+    ges-asset: Do not forget to give a ref to the registry
+    
+    + Add test in the testsuite
+    + Fix broken tests
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721111
+
+ 
