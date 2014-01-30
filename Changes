@@ -47078,3 +47078,19 @@ Date:   Wed Jan 29 22:46:48 2014 +0100
     part-toc: emphasize that the later chapters are design draft ideas
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 8255f0bb1078daf75da2c3ebd42f3cab91e1cd68
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Jan 30 03:28:45 2014 -0300
+
+    tests: camerabin: improve preview handling in tests
+    
+    Always erase the preview image data to allow the next check for
+    it to operate properly
+
+ 
