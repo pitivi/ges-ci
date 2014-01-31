@@ -47396,3 +47396,24 @@ Date:   Thu Jan 30 18:09:13 2014 -0300
     payload, push it as elements expect a stream-start before data
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit b06e86fb1822d5817ef79fab7be5d6bc7bbbbd9b
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Jan 31 08:35:41 2014 +0100
+
+    docs: unhide docs for allocator
+    
+    Unhinde the class docs. Tech gtk-doc about GST_EXPORTS.
+
+commit c42780db6641f05dc263f36bb37e3d6844ea0321
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Jan 31 08:08:37 2014 +0100
+
+    bufferpool: more tests and small doc fixes
+
+ 
