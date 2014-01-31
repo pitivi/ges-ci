@@ -47438,3 +47438,33 @@ Date:   Wed Jan 29 16:32:30 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723243
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c9b493b853e2c28ad0090b063acf88ae97f080a6
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Jan 31 13:40:36 2014 +0000
+
+    videotestsrc: ensure having caps when setting the buffer pool config
+    
+    It happens if downstream does not propose a buffer pool.
+    GST_DEBUG=2 gst-launch-1.0 videotestsrc ! fakesink
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723271
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 90b01fce6156359b0787172b380f51cb63c15c98
+Author: Julien Isorce <julien.isorce@collabora.co.uk>
+Date:   Fri Jan 31 14:17:54 2014 +0000
+
+    cairooverlay: add support for RGB16
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723289
+
+ 
