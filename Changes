@@ -47417,3 +47417,24 @@ Date:   Fri Jan 31 08:08:37 2014 +0100
     bufferpool: more tests and small doc fixes
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 5fd9b42f29563b9424bc3f9f4fe15ef244851b0a
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Wed Jan 29 16:32:30 2014 +0100
+
+    h264parse: Default framerate to 0/1 when no informations found
+    
+    It is not perfect but it allows us to be sure that the mandatory 'framerate'
+    field is present in the caps.
+    
+    As soon as some information is found in the stream, that will be
+    updated.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723243
+
+ 
