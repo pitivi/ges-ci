@@ -47468,3 +47468,68 @@ Date:   Fri Jan 31 14:17:54 2014 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=723289
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 0c01e9812ac056c956f34a5d9ec7783fe46d2e19
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Sun Feb 2 13:50:53 2014 +0000
+
+    aiffparse: fix data start offset calculation not counting COMM size
+    
+    In particular, this fixes seeking back to the start reading data
+    out of sync with sample start granularity, yielding swapped channels.
+
+commit 20b902fcfa930b0a5a0ec829f8376911e9ebc672
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 31 23:43:32 2014 -0300
+
+    tests: gdpdepay: update to 1.x events
+    
+    Tests needed stream start at beginning and segment after the
+    caps event
+
+commit 6b0014b5acc5b0f995b47124a4acd4bc9dce9a49
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 31 18:38:44 2014 -0300
+
+    gdp: add DTS to headers
+
+commit a029a3503657c909e144ea527cc8cd7b8b0a9c13
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Jan 31 12:15:49 2014 -0300
+
+    gdppay: update to 1.x reality
+    
+    * stream-start-id is mandatory at the beginning, so add that to the
+    gdp headers
+    * caps must be sent before new segment, invert the order from legacy
+    0.10 code
+    
+    And fix the tests as a ref is now kept for those buffers that compose
+    the header
+
+commit c8eb403e383d4b306fdd24c2bba637c001dd0c1e
+Author: Colin Macdonald <cbm@m.fsf.org>
+Date:   Fri Jan 31 16:58:16 2014 -0500
+
+    fisheye: Fix documentation
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723398
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit f86fd7e29e266c1cdf4dd295229810d22a1b5bdb
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sat Feb 1 14:40:24 2014 +0100
+
+    avvidenc: avoid busy-looping when flushing frames
+    
+    ... such as when receiving EOS event.
+
+ 
