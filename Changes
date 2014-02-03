@@ -47533,3 +47533,29 @@ Date:   Sat Feb 1 14:40:24 2014 +0100
     ... such as when receiving EOS event.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit f6d638153c983633df9715bee9fdbd5d8928baee
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Jan 31 09:14:41 2014 +0100
+
+    docs: fix more gtk-doc warnings
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 76ec6d3760157302b888f11001a406a5ededd8ba
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Fri Jan 31 23:27:03 2014 +0100
+
+    docs: doc fixes for audio library
+    
+    Add sections docs for audiometa. Fix sections docs for audiochannels. Remove old
+    mixerutil section.
+
+ 
