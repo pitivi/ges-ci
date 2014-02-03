@@ -47559,3 +47559,18 @@ Date:   Fri Jan 31 23:27:03 2014 +0100
     mixerutil section.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 58b077de23f314838f12289193f546e737b1463b
+Author: Dan Kegel <dank@kegel.com>
+Date:   Sun Feb 2 18:17:06 2014 -0800
+
+    Since b1a756fd, applemedia fails to build on osx 10.7, which lacks VideoToolbox.h... so disable it on OSX if that header is missing.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723508
+
+ 
