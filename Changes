@@ -47849,3 +47849,20 @@ Date:   Wed Jan 15 19:12:08 2014 +0100
     passtrough mode.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c6915ea785c402512b490bab23c2b92b4e32732a
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Feb 4 14:31:29 2014 +0100
+
+    check: add some more checks
+    
+    Add header and payload length check in case of CSRCs.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=723196
+
+ 
