@@ -48155,3 +48155,16 @@ Date:   Thu Jan 16 11:26:41 2014 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=719636
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a00cc4338aae4404e1b8d7ec5401d584841ff6d2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 4 22:23:06 2014 +0100
+
+    manual: Fix build by using the correct C file name
+
+ 
