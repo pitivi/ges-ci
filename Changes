@@ -47980,3 +47980,18 @@ Date:   Tue Feb 4 18:17:32 2014 +0200
     https://bugzilla.gnome.org/show_bug.cgi?id=723615
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 23434848d3ddfe25f455d48793cf0438c9ec7966
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 4 17:48:54 2014 +0100
+
+    capsfeatures: Make sure that the static ANY/EMPTY capsfeatures are never mutable
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=723236
+
+ 
