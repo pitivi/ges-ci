@@ -47743,3 +47743,40 @@ Date:   Tue Feb 4 12:52:25 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723134
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 0f8f852776ab10b13b9a81d9c38b538a8c236579
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Mon Feb 3 02:35:57 2014 +0100
+
+    jsseek: Add missing HAVE_X check
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=723507
+
+commit 2ca256acdb21bfca8f20a52120140508e2311994
+Author: Eric Trousset <etrousset@awox.com>
+Date:   Tue Feb 4 13:55:49 2014 +0100
+
+    tagdemux: Forward TIME seeks upstream too, maybe upstream can handle that
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723597
+
+ 
+
+====== gst-plugins-good =============
+
+ commit ac4df5e2c543acf1834cbaa5534012365b1d4d34
+Author: Rafał Mużyło <galtgendo@o2.pl>
+Date:   Tue Feb 4 13:43:56 2014 +0100
+
+    gst: Don't use endianness-specific S8 audio format
+    
+    It does not exist.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723331
+
+ 
