@@ -48008,3 +48008,34 @@ Date:   Tue Feb 4 18:03:47 2014 +0100
     caps: Don't get us sysmem capsfeatures if we just check for fixed caps
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 97103c90b0adadf695f02322ae440a123f7c706d
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Wed Jan 29 14:39:19 2014 +0000
+
+    tests: add caps features unit tests
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723236
+
+commit 8d7e11e307dbd4a8a8a053f2a05af1098957a070
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 4 18:42:02 2014 +0100
+
+    caps: When getting capsfeatures and none are there, store sysmem capsfeatures
+    
+    ... instead of returning a reference to a global instance. The caller might
+    want to change the global instance otherwise, which causes funny effects like
+    all global instances being changed and at the same time nothing in the caps
+    being changed.
+    
+    As the caps might be immutable while we do this we have to do some magic
+    with atomic operations.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723236
+
+ 
