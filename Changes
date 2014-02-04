@@ -48119,3 +48119,39 @@ Date:   Tue Feb 4 21:26:56 2014 +0100
     at least should be smart enough to avoid it.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit b110286e9531131f610ad4d27580051f91eb09d2
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 4 21:36:18 2014 +0100
+
+    manual: Clean up code a bit to be suitable for the docs
+
+commit cb1657fcea1a5e913839ede84aa97a5b917cb391
+Author: Todd Agulnick <todd@agulnick.com>
+Date:   Fri Jan 3 07:25:37 2014 -0800
+
+    manual: Replace manual's effectswitch.c with newer test-effect-switch.c
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721100
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 200eb7498d01937685a0e2d48df4d7b7b62e83d6
+Author: Matthieu Bouron <matthieu.bouron@collabora.com>
+Date:   Thu Jan 16 11:26:41 2014 +0000
+
+    deinterlace: do not try set deinterlace method if passthrough is enabled
+    
+    Fixes an issue with progressive content and unsupported video formats
+    for the deinterlace method.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=719636
+
+ 
