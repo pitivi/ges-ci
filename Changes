@@ -47728,3 +47728,18 @@ Date:   Tue Feb 4 05:46:16 2014 -0500
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 06dd8839f4c9e8924221834a6125ef47744c86ed
+Author: Duncan Palmer <dpalmer@digisoft.tv>
+Date:   Tue Feb 4 12:52:25 2014 +0100
+
+    uridownloader: Fix race condition between EOS handling and downloading a range
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723134
+
+ 
