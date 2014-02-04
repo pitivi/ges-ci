@@ -48039,3 +48039,67 @@ Date:   Tue Feb 4 18:42:02 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723236
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 05ea12eaeab93c70cf27a8a9ef8648ccab10ad25
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Tue Feb 4 14:15:40 2014 -0300
+
+    tests: insertbin: update tests to 1.x scenario
+    
+    The thread that calls the success/failure callback can be the
+    same that is adding/removing the element as the IDLE probe can
+    happen instantly if the pad is not 'busy'.
+    
+    This required moving some checks for the callback counter around
+    as well as removing some pad pushes from the main test thread as
+    they were made useless after the IDLE pad probe was fixed in core
+    by commit 0324358ebc8122a41ab499a3ef7973b61c3e621b
+
+commit f5cf6016386afa2614cbb0fb78827cd1cabceb84
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Feb 3 23:39:35 2014 -0300
+
+    tests: camerabin: avoid warning if test is failing
+    
+    In case the test fails the message won't be returned and it
+    will lead to an assertion that might be misleading to those
+    debugging the issue.
+
+commit cfda1aafa34563f98df738ebbdb409ab743b249b
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Feb 3 23:10:03 2014 -0300
+
+    wrappercamerabinsrc: stop source to do internal reconfiguration safely
+    
+    In order to be able to change the caps on multiple capsfilters the
+    source element needs to be stopped, otherwise it will get a few
+    reconfigure events and might try to renegotiate while the bin
+    is still transitioning its caps, leading to a not-negotiated failure
+    and the image capture won't happen because the source will be
+    unusable.
+    
+    The solution is to keep the source in paused while the caps are being
+    changed in the bin, and then bring the element back to playing once
+    it is done. Unfortunately this increases the image capture latency,
+    but it should always work.
+    
+    A possible improvement to reduce the latency is to add another signal
+    to be called before 'start-capture': 'prepare-capture'. At this step
+    the camera source should set all caps it needs and get the source
+    ready for doing the capture as soon as 'start-capture' is called.
+    This can be done on a future commit
+
+commit 3cdeea0cac5b9cdb06c26c2234ccda9ec5bdc6f1
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Mon Feb 3 23:09:28 2014 -0300
+
+    camerabin: remove unused variable
+    
+    Probably a left over from 0.10 -> 1.x porting
+
+ 
