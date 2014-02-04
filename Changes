@@ -47703,3 +47703,19 @@ Date:   Sun Feb 2 18:17:06 2014 -0800
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 2ae5adfd539cd080d76a5dd81a4e23388a6cbae7
+Author: Vincent Penquerc'h <vincent.penquerch@collabora.co.uk>
+Date:   Tue Feb 4 05:46:16 2014 -0500
+
+    aiffparse: adaptive buffer size
+    
+    Copied from wavparse, helps with CPU usage on high bitrate
+    files.
+
+ 
