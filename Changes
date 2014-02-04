@@ -47941,3 +47941,42 @@ Date:   Tue Feb 4 14:31:29 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit d12fdf785c112052f154c89b026707fbc78f7e56
+Author: Carlos Rafael Giani <dv@pseudoterminal.org>
+Date:   Tue Feb 4 17:22:27 2014 +0100
+
+    mpg123: improved error report and checks
+    
+    Signed-off-by: Carlos Rafael Giani <dv@pseudoterminal.org>
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit fe224775cfa13b442d73ab76e7b2d5cdd491ef75
+Author: Dmitry Melnichenko <dmitry.m@samsung.com>
+Date:   Tue Feb 4 18:17:32 2014 +0200
+
+    avmux: Fix invalid address passing to av_opt_set_int()
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723615
+
+ 
