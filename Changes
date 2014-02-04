@@ -48103,3 +48103,19 @@ Date:   Mon Feb 3 23:09:28 2014 -0300
     Probably a left over from 0.10 -> 1.x porting
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 85501e6c2a7f41d4025eb51b7605467cf073d2ca
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Feb 4 21:26:56 2014 +0100
+
+    flacenc: order format in template caps by preference
+    
+    To minimise risk of bad fixation, though audioconvert
+    at least should be smart enough to avoid it.
+
+ 
