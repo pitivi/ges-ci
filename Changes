@@ -47780,3 +47780,72 @@ Date:   Tue Feb 4 13:43:56 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=723331
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 99bf36b55d33de8c46fc4722540297417b6b72c6
+Author: Dan Kegel <dank@kegel.com>
+Date:   Sun Feb 2 09:57:03 2014 -0800
+
+    v4l2: Remove obsolete definition GST_V4L2_MISSING_BUFDECL
+    
+    The only use was removed by 9edc0c0365f79ab07ff2e65461c6696e3931a3f0
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723446
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 84ee64d4bda9866f9b51ce90f7f0086958ef658a
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Mon Feb 3 02:06:11 2014 +0100
+
+    tests: Don't build disabled plugins' check tests
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=723505
+
+ 
+
+====== gst-editing-services =============
+
+ commit 922ce357ba5e0e2f894f36de6cd1eff94fd18f37
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Feb 4 13:58:48 2014 +0100
+
+    tests:integration: Fix a race about get_position being called before AYNC_DONE happens
+
+commit df93acc58147b450d75a50f44a579dc45dda8ff7
+Author: Alexandru Băluț <alexandru.balut@gmail.com>
+Date:   Tue Feb 4 10:45:58 2014 +0100
+
+    ges-pipeline: Rename add_timeline to set_timeline
+    
+    API BREAKAGE:
+            - ges_pipeline_add_timeline
+            + ges_pipeline_set_timeline
+
+commit f76000d7504545515d30d5cbf42ba415d2e14040
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Thu Jan 16 15:25:06 2014 +0100
+
+    uri-asset: Let a chance for user to change URI if the set one is not readable
+    
+    It sounds like the most logical thing to do in that case.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721111
+
+commit f4ce6dcab713528dcc9cd07958057547fe1fa727
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Wed Jan 15 19:12:08 2014 +0100
+
+    videosource: Always add a deinterlace at the beining of videosrcbin
+    
+    It might be needed in some cases (for example when decoding prores files) and
+    it is the way it is done with playbin now. Also deinterlace now properly supports
+    passtrough mode.
+
+ 
