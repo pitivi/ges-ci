@@ -48190,3 +48190,24 @@ Date:   Wed Feb 5 00:10:52 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 7b014d67a75866a0822020afc8651903267d9d99
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Wed Feb 5 10:11:43 2014 +0100
+
+    check: Remove a minor leak in unit test
+    
+    Makes valgrind happy
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
