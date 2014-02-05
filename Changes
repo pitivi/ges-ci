@@ -48211,3 +48211,18 @@ Date:   Wed Feb 5 10:11:43 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit f56effbc81a36f8277ee7e2a73dad011a1ccfc03
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Wed Feb 5 12:46:54 2014 +0100
+
+    osxvideo: Fix libtool usage
+    
+    --tag=CC is needed for static build
+
+ 
