@@ -48235,3 +48235,40 @@ Date:   Wed Feb 5 12:46:54 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 00bf61a0dbbcd07f2d78cb1fac25387962dc99b6
+Author: Edward Hervey <edward@collabora.com>
+Date:   Thu Feb 6 14:21:52 2014 +0100
+
+    mpegtsdemux: Update plugin license field
+    
+    The original code (old mpegtsparse) from which this plugin was based on
+    was dual-licensed. This allowed usage of the code under any of the
+    licenses (which including LGPL):
+    
+    """
+    * Alternatively, the contents of this file may be used under the terms of
+    * the GNU Lesser General Public License Version 2 or later (the "LGPL"),
+    * in which case the provisions of the LGPL are applicable instead
+    * of those above. If you wish to allow use of your version of this file only
+    * under the terms of the LGPL, and not to allow others to
+    * use your version of this file under the terms of the MPL, indicate your
+    * decision by deleting the provisions above and replace them with the notice
+    * and other provisions required by the LGPL. If you do not delete
+    * the provisions above, a recipient may use your version of this file under
+    * the terms of the MPL or the LGPL.
+    """
+    
+    When refactored (leading to the creation of this new plugin), I chose all
+    new code to be LGPL-only (which was allowed for pre-existing code) by removing
+    the MPL sections.
+    
+    The headers were all updated, but not the plugin license field. This commit
+    fixes this.
+
+ 
