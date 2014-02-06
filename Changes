@@ -48300,3 +48300,16 @@ Date:   Thu Feb 6 12:21:07 2014 +0100
     effectv: fix doc section of revtv element
 
  
+ 
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit 2bb3b2c977f1beb728c349659086668cb8f7ed8a
+Author: Edward Hervey <edward@collabora.com>
+Date:   Thu Feb 6 19:22:47 2014 +0100
+
+    check: Fix test location
+
+ 
