@@ -48313,3 +48313,168 @@ Date:   Thu Feb 6 19:22:47 2014 +0100
     check: Fix test location
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit dc968163da90ec093f80aa93d16dc95b864a344a
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Thu Feb 6 13:53:49 2014 +0100
+
+    mpegts: Updated docs with new API
+
+commit 6a5f1354b34a62adfdf78a1d8963adb2d59f7b9b
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Tue Nov 19 12:21:31 2013 +0100
+
+    mpegtsmux: Use mpeg-ts lib for PAT/PMT sections
+    
+    Rewrite of the PAT/PMT section handling to use the mpeg-ts library
+
+commit 93a8137be62075fbcfa2b21cc7dd13e25b8d70af
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Wed Nov 20 11:14:46 2013 +0100
+
+    mpegtsmux: Add support for muxing SI tables
+    
+    The muxer is now able to include DVB sections in the transport stream.
+    
+    The si-interval property will determine how often the SI tables are
+    muxed into the stream.
+    
+    The section is handled by the mpeg-ts library. Below is a small example
+    that will include a Netork Information Table with a Network Name
+    descriptor in the stream.
+    
+    GstMpegTsNIT *nit;
+    GstMpegTsDescriptor *descriptor;
+    GstMpegTsSection *section;
+    GstElement *mpegtsmux;
+    
+    gst_mpegts_initialize ();
+    
+    nit = gst_mpegts_section_nit_new ();
+    nit->actual_network = TRUE;
+    
+    descriptor = gst_mpegts_descriptor_from_dvb_network_name ("Network name");
+    g_ptr_array_add (nit->descriptors, descriptor);
+    
+    section = gst_mpegts_section_from_nit (nit);
+    
+    // mpegtsmux should be retrieved from the pipeline
+    gst_mpegts_section_send_event (section, mpegtsmux);
+    gst_mpegts_section_unref (section);
+
+commit b7d256b4c292d0a83f8c7eb2a02de9700082700b
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Tue Nov 19 11:30:33 2013 +0100
+
+    mpegts: Support registration and custom descriptor
+    
+    Support for registration descriptor (0x05)
+    Add function to create a descriptor with custom tag and data
+
+commit 05bf952384b11fe2ab389b161c989522c3517b23
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Tue Nov 19 11:15:52 2013 +0100
+
+    mpegts: Add creation of DVB Subtitling descriptor
+    
+    Descriptor tag is 0x59
+
+commit cfb4da7215f96085ce167551382541ecdb99d4f7
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Tue Nov 19 10:50:30 2013 +0100
+
+    mpegts: Support parsing of DVB Teletext descriptor
+    
+    Descriptor tag is 0x56
+
+commit ffb51c2123fe62e0e62686d3d1bf643a5c034913
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Wed Nov 20 11:06:03 2013 +0100
+
+    mpegts: Add support for creating PAT/PMT
+
+commit fccfc76805beb7e467267eaed231308f7be98c31
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Wed Nov 20 11:04:58 2013 +0100
+
+    mpegts: Add program_number to GstMpegTsPMT
+
+commit dd449c38e6d0b88dd6c40e59a40c3a25ab8546e6
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Mon Oct 28 14:49:08 2013 +0100
+
+    mpegts: Add network name descriptor construction
+    
+    Add function to create a Network Name DVB descriptor.
+
+commit 8c26d69e2f6f75b2ed25239bed78cd86dfdfe4a5
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Mon Oct 28 14:48:13 2013 +0100
+
+    mpegts: Add support for creating a NIT section
+    
+    Functions that will enable user to create Network Information Tables.
+
+commit 4632ccd5bee5060fbca72d76df77d2abe182d47e
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Mon Oct 28 14:26:39 2013 +0100
+
+    mpegts: Add network_id to GstMpegTsNIT
+    
+    The network_id is stored in the subtable extension. Make a field
+    in the GstMpegTsNIT for better code readability
+
+commit 8f429c6c6e0cc971566854e08f62fc11933a16ff
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Thu Oct 31 13:47:23 2013 +0100
+
+    mpegts: Add functions to send sections as events
+    
+    Added function that enables the user to send a GstMpegTsSection as
+    an event to a GstElement. (i.e. mpegtsmux)
+
+commit 930cde73a7313d29335d93637e8609b612cf9df4
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Mon Oct 28 14:44:13 2013 +0100
+
+    mpegts: Add functions to packetize section
+    
+    Sections needs to be packetized for use in i.e. mpegtsmux.
+    These functions handles the generic common parts of a GstMpegTsSection
+
+commit b1c5143b79be4285584a3905eeb8b7e0d42ddce9
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Mon Oct 28 14:39:49 2013 +0100
+
+    mpegts: Add init functions for descriptor/section
+
+commit 4630dfda0596f004609b5c753bf840d9ae10fbcd
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Wed Oct 30 10:43:21 2013 +0100
+
+    mpegts: Add function to encode UTF8 strings
+    
+    This can be used to create descriptors with appropriate character maps
+
+commit 465dea6f3252707886bce09f0d96500d3424b3b1
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Wed Oct 30 10:42:07 2013 +0100
+
+    mpegts: Use big endian UCS-2 coding
+    
+    Parsing of control codes requires a big endian character map
+
+commit 73c82e3f1c0e8f14365325a4e7d86907054dae4d
+Author: Jesper Larsen <jesper.larsen@ixonos.com>
+Date:   Wed Oct 30 10:33:18 2013 +0100
+
+    mpegts: Add support for two-way iconv conversions
+    
+    To use in conversions from UTF-8 to another character map
+
+ 
