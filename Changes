@@ -48287,3 +48287,16 @@ Date:   Thu Feb 6 16:17:39 2014 +0100
     --tag=CC is needed for static build
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 575332d1275cb0031f1eee497d7bcf31bd874ffb
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Thu Feb 6 12:21:07 2014 +0100
+
+    effectv: fix doc section of revtv element
+
+ 
