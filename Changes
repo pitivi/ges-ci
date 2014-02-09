@@ -48478,3 +48478,512 @@ Date:   Wed Oct 30 10:33:18 2013 +0100
     To use in conversions from UTF-8 to another character map
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit b23af1f2f21622aa0254701b4837e3801c29683f
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Feb 9 16:53:55 2014 +0000
+
+    docs: document GST_TAG_*ENCODING environment variables
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721850
+
+commit eee7aa5f15550fe9510e343956d85a8fd0328799
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Feb 9 16:47:53 2014 +0000
+
+    docs: enable parallel build of subdirectories
+    
+    We can build gtk docs, ADM, PWG and FAQ in parallel.
+
+commit 5e7a7aeaf1dba3c81e2c67fd5316d3271fda4827
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Feb 9 16:38:10 2014 +0000
+
+    check: add support for blacklisting checks via GST_CHECKS_IGNORE
+
+commit a6656b04de1cd6b4030803b85524873263d01530
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sun Feb 9 00:25:14 2014 +0000
+
+    tests: fix leak in baseparse test
+    
+    Or rather make it not show up any more by moving
+    it from 'definitely lost' into 'possibly lost'.
+
+commit 7644c8a3c5338a3f98b878730bca174fda79c982
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Sat Feb 8 23:39:03 2014 +0000
+
+    tests: fix leak in systemclock test
+
+commit 53d8460bfd6bc920ac9ff49880eb8aee989651fc
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 16:42:55 2014 +0100
+
+    gst-inspect: Make clang happy with our g_vprintf() wrapper
+
+commit 043c629e72946f80e251ce149777ab91f184cb29
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Thu Feb 6 14:18:31 2014 +0800
+
+    windows: Make GStreamer installation relocatable
+    
+    Use the technique that is now done in GTK+ so that the plugins do not have
+    to be installed in c:\gstreamer\lib\<debug>\gstreamer-$(GSTApiVersion),
+    but can be installed in
+    <parent_folder_of_gstreamer_main_dll>\lib\<debug>\gstreamer-$(GSTApiVersion),
+    or as per g_win32_get_package_installation_directory_of_module() allows.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=679115
+
+commit f85c1c46488abf2814c8ce51a892a4f5f9ab8b98
+Author: Brendan Long <b.long@cablelabs.com>
+Date:   Wed Oct 30 17:02:35 2013 -0500
+
+    gst: clear floating references for GstTask, GstTaskPool and GstCollectPads
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710342
+
+commit f6054722309c3702fbe40ccbf009b8f2cb37e4e2
+Author: Brendan Long <b.long@cablelabs.com>
+Date:   Wed Oct 30 17:02:02 2013 -0500
+
+    docs: gst_pad_new_from_*_template and gst_buffer_pool_new constructors return floating references
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=710342
+
+ 
+
+====== gst-plugins-base =============
+
+ commit c91a4af9abd90657bc2f27e795e4a3f35488f560
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 23:17:03 2014 +0100
+
+    subtitleoverlay: Remove unused function
+
+commit bc92cd8f670438806da832d0669688c956e2d5dc
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 11:28:48 2014 +0100
+
+    audiosrc: Fix typo in docs
+    
+    We read *from* the audio device, not to it.
+
+commit e22243b2d01b533053fb88704e4f26b8fb543df7
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:11:54 2014 +0100
+
+    videoscale: Fix compiler warning in unit test
+    
+    error: implicit conversion from enumeration type
+    'GstFormat' to different enumeration type 'GstVideoFormat'
+
+commit 4046a880dec131ce76140e41f39fd6cc7455d357
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:11:04 2014 +0100
+
+    videoconvert: Fix compiler warning in unit test
+    
+    error: implicit conversion from enumeration type
+    'GstFormat' to different enumeration type 'GstVideoFormat'
+
+commit 856d27338b55d1b8e8168eb66b107cbc8eb88af6
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:07:15 2014 +0100
+
+    playback-test: Fix types for comparisons
+    
+    Storing a 64 bit integer in a 32 bit integer and then checking
+    for the error cases might not be ideal.
+    
+    error: comparison of constant -9223372036854775808 with
+    expression of type 'guint' (aka 'unsigned int') is always true
+
+commit 437d11f5a0d85ad6f203377473938d5efa3dd439
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:02:27 2014 +0100
+
+    oggmux: Fix typo in header include guard
+    
+    clang does not like this.
+
+commit d3e0381d3d694a5a55030f5f67da8580517f6f2d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:01:38 2014 +0100
+
+    alsa: Make clang happy with our g_strdup_vprintf() wrapper
+
+commit 428f10cf57a325b8aeecb9d0cd9bfefff2900d46
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Feb 7 15:33:34 2014 +0100
+
+    playback-test: allow seeking outside of the range
+    
+    For download buffer, allow seeking outside of the already downloaded
+    area.
+
+commit ec7724c095ed7cf2897dad96d3034ea93585f3d1
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Feb 7 02:09:10 2014 -0300
+
+    basetextoverlay: use correct segment for text
+    
+    video time uses the 'segment' and the text time should use
+    the 'text_segment'.
+    
+    If different segments are used for video and text it would
+    lead to out of sync video/subtitles.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit aafcbbb2fe6db79af89c0e9c6e02fe362d048d90
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 23:21:20 2014 +0100
+
+    matroskaparse: Comment out some unused functions used only from the commented out pull-mode code
+
+commit fd55cb324d6d260a3e3ce02ee0801c1ff18f10fa
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 21:01:32 2014 +0100
+
+    id3v2mux: Fix another compiler warning
+
+commit 1a78a7eb22f2d2381048565e1fc5221cb2adfef5
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:43:32 2014 +0100
+
+    souphttpsrc: Fix implicit enum conversion compiler warning
+    
+    error: implicit conversion from enumeration type
+    'SoupStatus' to different enumeration type 'SoupKnownStatusCode'
+
+commit ec1899e4563391cfa346fc232bbe3bf48dff6e08
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:41:21 2014 +0100
+
+    interleave: Fix unitialized variable compiler warning in test
+    
+    error: variable 'mask' is used uninitialized
+    whenever 'if' condition is false [-Werror,-Wsometimes-uninitialized]
+
+commit f299fc899c28eee83ed6d37fb73c492f7710391b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:27:51 2014 +0100
+
+    id3v2mux: Fix unitialized variable compiler warning
+    
+    error: variable 'image_type' is used uninitialized
+    whenever 'if' condition is false [-Werror,-Wsometimes-uninitialized]
+
+commit 4c01974ec1aa83f2a98397c189cf5a1d0269cbc4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:25:27 2014 +0100
+
+    oss4: Fix typo in header include guard
+    
+    error: 'GST_OSS4_AUDIO_H' is used as a header guard here,
+    followed by #define of a different macro [-Werror,-Wheader-guard]
+
+commit 3bc53f08401ba0e4cddf3c9e18c11094b3f406bd
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:24:06 2014 +0100
+
+    rtprtxsend: Fix unitialized variable compiler warning
+    
+    variable 'rtx_ssrc' is used uninitialized whenever
+    'if' condition is false [-Werror,-Wsometimes-uninitialized]
+
+commit 3d8f078b6109d244bc2629cdb5bd11b3a7c5768d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:21:19 2014 +0100
+
+    rtpac3depay: Remove unused variable
+
+commit 29ea0db5a3dd1bf6b6b5e54cf22babe4b287bab5
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 17:19:19 2014 +0100
+
+    flx: Fix typo in header include guard
+    
+    error: '__GST_FLX_FMT__H__' is used as a header guard here,
+    followed by #define of a different macro [-Werror,-Wheader-guard]
+
+commit f5f27f7d0d24f91976f67278b04a300a87017e1e
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Feb 7 10:07:41 2014 -0300
+
+    qtmux: remove have_dts flag from pads
+    
+    It was used in the past in 0.10 when there was no explicit DTS
+    field in buffers, now we have it in 1.x series and we can
+    check it directly with GST_BUFFER_DTS_IS_VALID
+
+commit f89ba82f2998b50c42aa04fd5d507e7e137a69d8
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Fri Feb 7 01:49:26 2014 -0300
+
+    qtmux: improve support for sparse streams
+    
+    Do not try to use subsequent buffer timestamps to calculate
+    sparse streams durations because the stream is sparse and
+    the buffers might not be 'time adjacent'. So rely on the
+    duration and give the option to the pad to provide
+    custom 'empty' buffers to represent the gaps in the
+    stream, this can vary on how the data is represented.
+    
+    Right now, the only sparse stream supported is tx3g subtitles.
+
+commit 99e966e2e15c62608b742a1e6011d31b88358f20
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Feb 6 12:15:22 2014 -0300
+
+    qtmux: add support for text/x-raw subtitles
+    
+    Adds it to mp4mux, qtmux and gppmux.
+    
+    Buffers need to be prefixed with 2 bytes for the text length before
+    being muxed.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=581295
+
+commit d644cda79b2e2419a294942761c1090d3d66be27
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Feb 6 12:09:01 2014 -0300
+
+    qtmux: add support for the TX3G atoms
+    
+    Adds functions for creating and setting values related to the
+    tx3g atom for raw text subtitle support.
+    
+    QTFF spec has information on those atoms
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=581295
+
+commit 2ae18972734cba00a3dc3559c5affbef8ba4f714
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Feb 5 10:27:54 2014 -0300
+
+    qtmux: add subtitle support to qtmuxmap structures
+    
+    adds basic stubs for subtitle support around the qtmux and
+    qtmuxmap structures. Still no real subtitle implemented, but
+    basic functions in place
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=581295
+
+commit 2f8a1aa8705f4c3eab22df864d781f9fd9a31720
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Mon Jan 20 17:31:14 2014 -0300
+
+    matroska: factor out read context init/reset
+    
+    While at this, move _track_reset() to track-ids
+    so it can be called from the common read context
+    reset routine.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722705
+
+ 
+
+====== gst-plugins-ugly =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 6799e3b879f359b99f78a2a72fe1880a36bf0ecc
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 18:49:49 2014 +0100
+
+    hlsdemux: Prefer to use nettle for decryption but fall-back to libgcrypt
+    
+    nettle is used by newer versions of gnutls, while older versions of gnutls
+    used libgcrypt. Support both for now as not every distro has nettle yet.
+    
+    nettle is preferred as it is more efficient to use and much smaller.
+
+commit 6abed8da20eb0a2f4990d064ad923ef735056e84
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 18:19:33 2014 +0100
+
+    hlsdemux: Update to non-deprecated GLib thread API
+
+commit e8befb7ce3c32622289ee21193dfab07505e78fd
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 18:09:36 2014 +0100
+
+    hlsdemux: Use libgcrypt directly instead of going through gnutls
+    
+    gnutls is also just wrapping gcrypt, but we don't need any of
+    the TLS related functionality. We just need to be able to decrypt
+    AES128-CBC.
+
+commit 35e0ffa227dd2a3cc071ddf48f4e16d90befc302
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 20:08:29 2014 +0100
+
+    opus: Remove unused variable from unit test
+
+commit 2139a18272fa12d9e72e4afc51c79e36b400dc93
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 20:07:57 2014 +0100
+
+    kate: Remove unused variable from unit test
+
+commit 6f178ea8dc8f6e292dd56b405646ebf40060dc1e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 20:07:16 2014 +0100
+
+    assrender: Fix compiler warning in test
+    
+    error: suggest braces around initialization of subobject [-Werror,-Wmissing-braces]
+
+commit 15e0db90e827ade350013f2434ff5779b3676fc7
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 19:59:43 2014 +0100
+
+    srtpdec: Fix comparison compiler warning
+    
+    error: comparison of constant -1 with expression of type
+    'GstSrtpCipherType' is always false
+
+commit 43e73bc3e989d90e7e963195c58d0ed92e0865c4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 19:29:33 2014 +0100
+
+    motioncells: Remove unused private fields
+
+commit 50321b1ccd964c4f9a2584729d6be3e34f6ddb1b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 19:28:26 2014 +0100
+
+    segmentation: Fix integer underflow check
+    
+    error: comparison of unsigned expression < 0 is
+    always false [-Werror,-Wtautological-compare]
+
+commit 78d9134d637e439bf82a7103836233703972d017
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 18:58:38 2014 +0100
+
+    dfbvideosink: Fix unitialized variable compiler warning
+
+commit 5c22b7f4a3a302acba7cceb0e8cd0689ef4db27e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 18:57:30 2014 +0100
+
+    bz2: Fix typo in header include guards
+
+commit 6d7fcc6890c37889294f971ac0d49327da39b02b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 18:56:06 2014 +0100
+
+    vdpau: Fix comparison compiler warning
+    
+    error: comparison of constant -1 with expression
+    of type 'const GstVideoFormat' is always false
+
+commit cde8be156fdf5e1e3533199e4e4206ad61101360
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 18:54:58 2014 +0100
+
+    uvch264src: Fix unitialized variable compiler warnings
+
+commit 835414c8877079e7e392747f942838d9f29b337b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 18:48:42 2014 +0100
+
+    id3tag: Fix uninitialized variable compiler warning
+    
+    error: variable 'image_type' is used uninitialized whenever
+    'if' condition is false [-Werror,-Wsometimes-uninitialized]
+
+commit c2de786117d0180df6556b23195b95ffd8d1b0b4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 18:45:10 2014 +0100
+
+    dvdspu: Remove unused variable
+
+commit 603714a4056fa4d63b3615eece4380b9bb2e90d0
+Author: Jesper Larsen <knorr.jesper@gmail.com>
+Date:   Sat Feb 8 18:20:22 2014 +0100
+
+    mpegts: pmt: Detect descriptor length correct
+
+commit f1c8de4bc28eb28ea74c88c24fe8dddf047dc16a
+Author: Jesper Larsen <knorr.jesper@gmail.com>
+Date:   Sat Feb 8 17:43:03 2014 +0100
+
+    mpegts: Correctly check for PAT,PMT,CAT,TSDT
+
+commit 972f7ea71f078648b0a895d07a1d1f16490eb3fa
+Author: Jesper Larsen <knorr.jesper@gmail.com>
+Date:   Sat Feb 8 13:08:02 2014 +0100
+
+    mpegts: Fix some packetizing bugs
+    
+    - Length of NIT stream descriptors was not detected correct
+    - Reserved bits was not set according to EN 300 468, ISO/IEC 13818-1
+    - Also set output data size if the section was previously packetized
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723892
+
+commit 3e6c1967c9bc9a61354c79176b3b467b267be45a
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Fri Feb 7 11:54:07 2014 +0100
+
+    mpegtspacketizer: Remove or move variable assignments
+    
+    To where they're needed
+
+commit 042c8924b6c3df49ea3464a0c89401449047506d
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Fri Feb 7 11:53:38 2014 +0100
+
+    dvb-descriptor: Remove unneeded increment
+
+commit 63348811d27d6cfbd305f98277c45907e0065230
+Author: Edward Hervey <bilboed@bilboed.com>
+Date:   Fri Feb 7 11:42:51 2014 +0100
+
+    dvb-descriptor: Fix comparision
+    
+    we want to stop if one OR the other is NULL.
+
+ 
+
+====== gst-ffmpeg =============
+
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit f88cc0f43372c28b594a610cb1f00cca9125e273
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 20:19:53 2014 +0100
+
+    ges-group: Properly check for integer underflows
+    
+    error: comparison of unsigned expression < 0 is always false
+
+commit 92e595718a76a24d4cabe5c096f500da47251dfd
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sat Feb 8 20:18:11 2014 +0100
+
+    ges-extractable: Return NULL instead of G_TYPE_INVALID
+    
+    The return type of this function is gchar *, not GType
+
+ 
