@@ -48987,3 +48987,36 @@ Date:   Sat Feb 8 20:18:11 2014 +0100
     The return type of this function is gchar *, not GType
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4ecccb6ff6276d2202a8fdd0461a416a46005e70
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 23:38:44 2014 +0100
+
+    goom: Remove unused functions
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit abb56c3803f9c703f7046bf02e024df8937504fe
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 23:41:36 2014 +0100
+
+    asfdemux: Remove unused function
+
+ 
+
+====== gst-editing-services =============
+
+ commit 0a25ed00a19cc150333510e55deaa50b8cbdd9a7
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 9 23:50:25 2014 +0100
+
+    ges: Remove unused functions
+
+ 
