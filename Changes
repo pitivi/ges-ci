@@ -49064,3 +49064,25 @@ Date:   Mon Feb 10 08:22:05 2014 +0000
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 270b57fc33301f37511200e468b7ef51fdc5e672
+Author: Руслан Ижбулатов <lrn1986@gmail.com>
+Date:   Mon Feb 10 08:19:52 2014 +0000
+
+    Change soundfont file search path for fluiddec
+    
+    Use glib to get a list of system "share" directories, then go through that
+    list, appending 'sounds/sf2/' to each directory to get a soundfont directory,
+    and looking for .sf2 files there.
+    
+    This way fluiddec is able to load sf2 files on W32, because otherwise the
+    path '/usr/share/sounds/sf2' makes no sense there.
+    
+    Fixes #724013
+
+ 
