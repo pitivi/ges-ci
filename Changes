@@ -49086,3 +49086,19 @@ Date:   Mon Feb 10 08:19:52 2014 +0000
     Fixes #724013
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 64367f33a65daa3c924e2b33fb29d8e54111f0ae
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Mon Feb 10 14:34:40 2014 +0100
+
+    fluiddec: add more soundfont search paths
+    
+    Fedora installs the soundfonts in /usr/share/soundfonts/ so make sure we
+    look there as well.
+
+ 
