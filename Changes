@@ -49156,3 +49156,44 @@ Date:   Mon Feb 10 17:25:57 2014 +0100
     hlsdemux: Use locale-independent int/float parsing functions from GLib
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 73d9a8b0c97303b3415415efad2df4bef83cc3e6
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 18:29:23 2014 +0100
+
+    hlsdemux: Start downloading the next fragment immediately after caching the initial fragments
+    
+    And only afterwards wait until a fragment was played. Otherwise we're keeping
+    our cache most of the time at "fragments-cache" fragments minus one.
+    
+    Also allow setting "fragments-cache" to 1 now to start playback even faster.
+
+commit 4f04f3e68e9c19986e016b932fd99bcca536d16c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 18:27:58 2014 +0100
+
+    hlsdemux: Start fetching new fragments whenever we have less fragments cached than given by the fragments-cache property
+    
+    Waiting until our cache is empty before starting to fetch the next fragment
+    kind of defeats the purpose of caching multiple fragments.
+
+commit 89c592ccdd37136232b32bca66c5a80eba24f288
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 18:21:38 2014 +0100
+
+    hlsdemux: Fix bitrate calculation
+    
+    g_get_monotonic_time() returns microseconds, not nanoseconds.
+
+ 
