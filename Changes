@@ -49123,3 +49123,36 @@ Date:   Mon Feb 10 16:33:35 2014 +0100
     playbin: Fix memory leak in unit test
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit be32ae0252ae4a9301cc4b360b712a9208d3dfcf
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 17:09:59 2014 +0100
+
+    gst-inspect: Fix yet another compiler warning
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724045
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a4847fd4db9f4a256fc50c35901cd40d46a2336d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 17:26:27 2014 +0100
+
+    hlsdemux: Actually store doubles as such and don't truncate them to ints
+    
+    Fixes broken duration reporting.
+
+commit a5387eb37222cff3cd2ea2835da3f76b51caeb9a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 17:25:57 2014 +0100
+
+    hlsdemux: Use locale-independent int/float parsing functions from GLib
+
+ 
