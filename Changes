@@ -49102,3 +49102,24 @@ Date:   Mon Feb 10 14:34:40 2014 +0100
     look there as well.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 57295753d54da55289f50d4b2585cb234d3fedd0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 16:33:50 2014 +0100
+
+    playbin: Fix memory leak in autoplugging code
+    
+    We should not leak element factories ideally.
+
+commit ce59ac561ed56d8e2c9bdd92163829c7fa4f9847
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Mon Feb 10 16:33:35 2014 +0100
+
+    playbin: Fix memory leak in unit test
+
+ 
