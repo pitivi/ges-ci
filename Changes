@@ -49197,3 +49197,21 @@ Date:   Mon Feb 10 18:21:38 2014 +0100
     g_get_monotonic_time() returns microseconds, not nanoseconds.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f5a1ccd0deb8d82c6befab358e942739ed609b25
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Mon Feb 10 14:33:49 2014 -0800
+
+    shm: use shutdown() instead of close()
+    
+    we make sure both ends get notified when the socket is closed by using
+    shutdown() instead of close().
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724077
+
+ 
