@@ -49215,3 +49215,21 @@ Date:   Mon Feb 10 14:33:49 2014 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=724077
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit fd27bdf5f056967193f1af2a97aa3de806606fae
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Mon Feb 10 15:38:08 2014 -0800
+
+    shm: call close() after shutdown()
+    
+    shutdown() doesn't close the file descriptor so we leak sockets if we
+    don't call close().
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724077
+
+ 
