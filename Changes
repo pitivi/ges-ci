@@ -49286,3 +49286,37 @@ Date:   Tue Feb 11 13:25:22 2014 +0100
     souphttpsrc: Don't duplicate status_code to GStreamer error mapping
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 3726c00b95c1a377dae5ea8984a386ff03611d1e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 15:26:01 2014 +0100
+
+    uridownloader: Reset cancelled state after fetching an URI
+    
+    Otherwise it will never ever be able to fetch anything after an
+    error until the user resets it manually.
+
+commit 591598da4809768e51040d261ba8d9f5a55c5714
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 14:57:16 2014 +0100
+
+    hlsdemux: Propagate download errors properly and post error messages if they're fatal
+
+commit 3a5abc233d025b3544dcce2847c2d875e8d03b54
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 14:18:32 2014 +0100
+
+    ext: Update for GstUriDownloader API changes
+
+commit d445374067996b5c5fefdf03582930bd97c86762
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 14:13:30 2014 +0100
+
+    uridownloader: Provide some more details about errors if downloading fails
+
+ 
