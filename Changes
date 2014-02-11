@@ -49248,3 +49248,41 @@ Date:   Tue Feb 11 09:20:45 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=724100
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 71ad1d6fdd39840b770bfa03a2822b68eee57df9
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 13:27:25 2014 +0100
+
+    error: GST_RESOURCE_ERROR_NOT_AUTHORIZED will be available since 1.2.4
+
+commit 8a96585eeecde2033387ffad8bedcc834326fdb5
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 13:09:11 2014 +0100
+
+    error: Add RESOURCE_NOT_AUTHORIZED error
+    
+    This allows to distinguish normal read failures from read failures
+    where we miss authorization.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit cf31a4284bcd87f4137bdd8f2dc1cf3cedf43ccb
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 13:25:46 2014 +0100
+
+    souphttpsrc: Add mapping for NOT_FOUND and NOT_AUTHORIZED errors
+
+commit 5514bc2785efbe5922c86f7ffe558a0518c5d403
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 13:25:22 2014 +0100
+
+    souphttpsrc: Don't duplicate status_code to GStreamer error mapping
+
+ 
