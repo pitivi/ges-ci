@@ -49379,3 +49379,42 @@ Date:   Tue Feb 11 16:30:31 2014 +0000
     https://bugzilla.gnome.org/show_bug.cgi?id=724132
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 09644d0e4a8bab38c045306d509b6f27ba2567a8
+Author: Sebastian Rasmussen <sebras@hotmail.com>
+Date:   Sun Feb 2 23:59:36 2014 +0100
+
+    tests: Don't build disabled plugins' check tests
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=723492
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 19a307930a9e44b5453501ec3ae8b6890ed489c0
+Author: divhaere <dirk.vanhaerenborgh@ugent.be>
+Date:   Fri Feb 7 14:00:15 2014 +0100
+
+    matroska: add support for GRAY8, BGR and RGB video colourspaces in V_UNCOMPRESSED codec
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723849
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit f3464e01bba5c7e918d4d1bec96e1a542d117935
+Author: Lihua Liu <lihual@axis.com>
+Date:   Tue Feb 11 15:20:58 2014 +0100
+
+    curlsmtpsink: Include timezone information in mail header
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724125
+
+ 
