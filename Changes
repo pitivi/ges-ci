@@ -49358,3 +49358,24 @@ Date:   Tue Feb 11 18:15:07 2014 +0100
     if not the fallback IV is used by the playlist.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit be8eeabefcec730747369b63395dba941eaf9c69
+Author: William Manley <will@williammanley.net>
+Date:   Tue Feb 11 16:30:31 2014 +0000
+
+    docs: Fix location of plugins and registry in home directories
+    
+    Fixes out of date documentation left over since 0.10.  In 1.0 plugins are
+    stored in $XDG_DATA_HOME and the registry in $XDG_CACHE_HOME conformant
+    with the XDG Base Directory Specification[1].
+    
+    [1]: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724132
+
+ 
