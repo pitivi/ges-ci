@@ -49233,3 +49233,18 @@ Date:   Mon Feb 10 15:38:08 2014 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=724077
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit eef356c80f2eef7bbdc78a9930083cb940a632b3
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 09:20:45 2014 +0100
+
+    configure: The winks plugin is not ported to 1.0 yet
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724100
+
+ 
