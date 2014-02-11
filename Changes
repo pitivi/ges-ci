@@ -49320,3 +49320,19 @@ Date:   Tue Feb 11 14:13:30 2014 +0100
     uridownloader: Provide some more details about errors if downloading fails
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit a02678057ee0ea5a2b2029eb2f4ef6347041155d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 16:35:45 2014 +0100
+
+    playbin: First try to get the pad's current caps, then query caps
+    
+    The caps query might give us ANY caps while the pad has fixed caps
+    configured currently.
+
+ 
