@@ -49418,3 +49418,21 @@ Date:   Tue Feb 11 15:20:58 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=724125
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 4f42fff349df98733e6e40cb848e604d8e93b329
+Author: Reynaldo H. Verdejo Pinochet <r.verdejo@sisa.samsung.com>
+Date:   Tue Jan 7 23:00:56 2014 -0300
+
+    souphttp*: add ability to do HTTP session logging
+    
+    This changeset adds the loggin infrastructure and
+    mods both souphttpsrc and souphttclientsink to use it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=721764
+
+ 
