@@ -49336,3 +49336,25 @@ Date:   Tue Feb 11 16:35:45 2014 +0100
     configured currently.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 5e55bae14b69eb2dc4780cc53d23580c8a85482d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 18:15:45 2014 +0100
+
+    hlsdemux: Don't try decryption if an unsupported method is found
+
+commit 56faad51bb032c4596c1f1fba2015069f79cfb3b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 11 18:15:07 2014 +0100
+
+    hlsdemux: Properly parse IV from the playlist
+    
+    Without this every fragment's first 16 bytes will be corrupted
+    if not the fallback IV is used by the playlist.
+
+ 
