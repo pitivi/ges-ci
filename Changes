@@ -49489,3 +49489,81 @@ Date:   Wed Feb 12 12:39:10 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=722185
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 106bc2b17b6ab5c29f297e4979d55dcf6588fbb8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 13:00:13 2014 +0100
+
+    souphttpsrc: Add "compress" property to enable/disable automatic gzip/deflate content encoding handling
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 8c3ef21a6861fa42e97bce9dad0a6a415f81960f
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 13:13:30 2014 +0100
+
+    hlsdemux: Download playlists with compression, keys and fragments without
+
+commit a11c6640bf41243576771dd1019a3062cda13264
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 13:11:38 2014 +0100
+
+    mssdemux: Download the manifest with compression, the fragments without
+
+commit 48ba499ed2a7cff74b5f99a6f1960e6c7860846d
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 13:10:50 2014 +0100
+
+    dashdemux: Download MPD with compression, the fragments without
+
+commit 2a38c1409b8295265c7484f96f7e37d7bf235805
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 13:08:29 2014 +0100
+
+    uridownloader: Add support for compressed downloads
+    
+    Very useful for playlists, less useful for media files.
+
+commit 245a7d94f5b1a14fe7db16ec0836e9e71fe7d035
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 11:26:04 2014 +0100
+
+    hlsdemux: Don't set the element private data on the srcpads
+    
+    It's not used anyway.
+
+commit 60f1dadd1c1f8d97fc9f5da77444cd9e4ef3fae4
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 11:25:41 2014 +0100
+
+    hlsdemux: Use gst_pad_use_fixed_caps() on the srcpads
+
+commit bc42a18f921c15e30b4d8104dcbfeffb5e9de748
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 10:59:38 2014 +0100
+
+    hlsdemux: Cache the key fragment instead of downloading it over and over again
+
+commit 792d1e01099a854cec24d592e77872e357e39d19
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 10:58:45 2014 +0100
+
+    hlsdemux: Fix cleanup when decryption fails
+    
+    First unmap buffers, then unref them. And also unref the
+    key fragment.
+
+ 
+
+====== gst-python =============
+
+ 
+
+ 
