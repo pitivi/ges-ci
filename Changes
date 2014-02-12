@@ -49593,3 +49593,34 @@ Date:   Wed Feb 12 14:10:02 2014 +0100
     hlsdemux: Use g_ascii_xdigit_value() instead of our own version of it
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 4dcacc17736e1b81471e3135b0b691d968f0ea8b
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 15:33:06 2014 +0100
+
+    hlsdemux: Prevent rounding errors due to division by using gst_util_uint64_scale()
+
+commit 6e54b8ee53eea1ca318c1a4efbbd642ba9155117
+Author: Arnaud Vrac <avrac@freebox.fr>
+Date:   Thu Jul 25 19:36:48 2013 +0200
+
+    hlsdemux: schedule next update based on the fragment duration
+
+commit 05efcbf757790818d36488ae4b7c9ccbbd706bac
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 15:16:23 2014 +0100
+
+    hlsdemux: Properly error out if caps can't be typefind instead of using NULL caps
+
+commit 63e18bb7bf960c9eb268e22768bda19e987b06db
+Author: Arnaud Vrac <avrac@freebox.fr>
+Date:   Mon Jul 29 18:00:31 2013 +0200
+
+    hlsdemux: log fragment timestamp
+
+ 
