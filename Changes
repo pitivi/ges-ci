@@ -49580,3 +49580,16 @@ Date:   Wed Feb 12 13:40:41 2014 +0100
     hlsdemux: Error out if the key is not 16 bytes large
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit dc45d236d2d160099f439637b59275d0b967d524
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 14:10:02 2014 +0100
+
+    hlsdemux: Use g_ascii_xdigit_value() instead of our own version of it
+
+ 
