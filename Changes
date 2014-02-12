@@ -49436,3 +49436,20 @@ Date:   Tue Jan 7 23:00:56 2014 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=721764
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 436d41fa8e8b7ffc63440b19ffc0d2bf7e15da42
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 10:08:50 2014 +0100
+
+    souputils: Fix compiler warning
+    
+    gstsouputils.c:35:25: error: comparison of constant 9 with expression of type
+          'SoupLoggerLogLevel' is always false
+          [-Werror,-Wtautological-constant-out-of-range-compare]
+
+ 
