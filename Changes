@@ -49705,3 +49705,24 @@ Date:   Wed Feb 12 17:59:45 2014 +0100
     Based on a patch by Andoni Morales.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e40b72bc9bae30742b78cac3dfdbfd89adc4ed8e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 18:49:13 2014 +0100
+
+    hlsdemux: Ignore empty lines in the playlist
+    
+    Based on a patch by Andoni Morales.
+
+commit 65c1faf5535f912f7dc9463d3182597764e36bd8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 18:47:45 2014 +0100
+
+    hlsdemux: Make sure to ignore \r in line endings in every case
+
+ 
