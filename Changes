@@ -49567,3 +49567,16 @@ Date:   Wed Feb 12 10:58:45 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a84220a65820f4a2d1b1e88a5ea48b3ed1ae8a6e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 13:40:41 2014 +0100
+
+    hlsdemux: Error out if the key is not 16 bytes large
+
+ 
