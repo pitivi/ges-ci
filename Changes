@@ -49468,3 +49468,24 @@ Date:   Wed Feb 12 10:08:50 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 9cac68709a5bc3d01564fa58ee1afc8bc886205c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 12:39:10 2014 +0100
+
+    souphttpsrc: Retry connection if we're finished before the content size only if we actually have a content size
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=722185
+
+ 
