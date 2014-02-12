@@ -49647,3 +49647,16 @@ Date:   Wed Feb 12 16:01:05 2014 +0100
     hlsdemux: Wait for the update task to finish when shutting down
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit adea24cdf8e06ddd4e2b62a2c09b9d1dfbd9c0b8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 16:46:31 2014 +0100
+
+    hlsdemux: Stop leaking GErrors in some error paths
+
+ 
