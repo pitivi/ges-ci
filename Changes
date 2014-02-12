@@ -49673,3 +49673,35 @@ Date:   Wed Feb 12 17:34:32 2014 +0100
     uridecodebin: Don't leak pad references
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 13997abbf9a7c04c73831f75a7510b2fb6d8b318
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 18:27:21 2014 +0100
+
+    hlsdemux: Give a proper name to the srcpads and remove it when resetting the element
+
+commit d4368444343b3237b9d8cd0dcff17a55036ba614
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 18:06:43 2014 +0100
+
+    uridownloader: Fix potential deadlock
+    
+    The streaming thread might use our lock, so shutting
+    down the element while holding that lock calls for problems.
+
+commit 8cd6208b7d6c77bf57478968a9973d84374f2f58
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 17:59:45 2014 +0100
+
+    uridownloader: Shutdown the source element before unlinking it
+    
+    Otherwise we might get warnings about pushing to unlinked pads.
+    
+    Based on a patch by Andoni Morales.
+
+ 
