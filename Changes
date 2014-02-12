@@ -49624,3 +49624,26 @@ Date:   Mon Jul 29 18:00:31 2013 +0200
     hlsdemux: log fragment timestamp
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 62ddd348071bc205529fd4b17e281d8772f0d200
+Author: Gil Pedersen <git@gpost.dk>
+Date:   Fri May 11 13:58:28 2012 +0200
+
+    hlsdemux: don't pause task when it is stopped
+    
+    This fixes a potential dead-lock situation from GstTask
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=675869
+
+commit 281f2f3590607e0fb816ef6e53e1fedf2cb4fc2a
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Wed Feb 12 16:01:05 2014 +0100
+
+    hlsdemux: Wait for the update task to finish when shutting down
+
+ 
