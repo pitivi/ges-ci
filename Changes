@@ -49806,3 +49806,21 @@ Date:   Thu Feb 13 10:06:48 2014 +0100
     Allows to implement keep-alive handling in the source element.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 7f1d51ba90275a53e00339a75746bc638edded0c
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Feb 13 12:29:13 2014 -0300
+
+    qtdemux: handle tags in mac encoding
+    
+    Check the charset from (C)*** tags and set the charset
+    to convert from MAC encoding if suitable.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=723166
+
+ 
