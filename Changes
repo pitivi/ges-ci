@@ -49726,3 +49726,83 @@ Date:   Wed Feb 12 18:47:45 2014 +0100
     hlsdemux: Make sure to ignore \r in line endings in every case
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit f47c704b99b6a9753e8a3f12be483988a937081c
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Feb 13 12:07:50 2014 +0100
+
+    basesrc: Add gst_base_src_set_automatic_eos() API
+    
+    This defaults to TRUE and if it is set to FALSE it is the subclasses
+    responsibility to return GST_FLOW_EOS from the create() vmethod once
+    the stream is done.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit fdb39a9f7b2bd092b5ba41543ca3f9c96547f613
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Feb 13 12:09:13 2014 +0100
+
+    souphttpsrc: Use new automatic_eos API from basesrc
+    
+    We want to notice ourselves that we're EOS. Otherwise we will
+    always cancel requests in the very end and confuse the server...
+    and also make it impossible to use persistent connections.
+
+commit 4dfad42e8165cdba6a25add20ed141aec34bc210
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Feb 13 11:11:13 2014 +0100
+
+    souphttpsrc: Consistently use have_size instead of content_size!=0
+
+commit dde171ac3061e16bf8e17fbf44821ee5eed0ae80
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Feb 13 10:30:09 2014 +0100
+
+    souphttpsrc: Free extra headers when finalizing the element
+    
+    It's set as property by the application, we should not just reset
+    properties when going back to READY.
+
+commit a79f92ee9d0f4867c624ed522ca1303b030b9a27
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Feb 13 10:28:13 2014 +0100
+
+    souphttpsrc: Properly close the session when going back to NULL
+    
+    Don't wait for that until the element is disposed.
+
+commit 4d80d3fad92704dfbc394d1ddfc36df9f742e2e1
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Thu Feb 28 12:20:52 2013 +0100
+
+    souphttpsrc: add support for keep-alive sessions
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=699926
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit a1d9f6c79627475bc9cc7f210a735328dc421261
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Feb 13 10:21:15 2014 +0100
+
+    uridownloader: Keep alive connections if the source supports that
+
+commit c76ea2919fb666dc62a58ee1f3bbfcfe0445e042
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Thu Feb 13 10:06:48 2014 +0100
+
+    uridownloader: Re-use old source element if possible
+    
+    Allows to implement keep-alive handling in the source element.
+
+ 
