@@ -49824,3 +49824,19 @@ Date:   Thu Feb 13 12:29:13 2014 -0300
     https://bugzilla.gnome.org/show_bug.cgi?id=723166
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit a6890ec7ef69f34b38ae2c600f136b43574102e7
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Thu Feb 13 16:03:01 2014 -0300
+
+    oggmux: properly flush when seeking at the beginning
+    
+    Reset all internal status when collect pads forwards a flush-stop
+    from the pads to be able to start the stream again.
+
+ 
