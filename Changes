@@ -49947,3 +49947,24 @@ Date:   Mon Apr 8 14:04:10 2013 +0200
     hlsdemux: fix update interval with respect of the spec
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 353e510f94b30549eeca3c8ff2e573289c4560cd
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Feb 14 15:59:46 2014 +0100
+
+    rtpjitterbuffer: add support for serialized queries
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=723850
+
+commit 6af234e29e9f64ce55901965c741ee71cffeaf50
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Feb 14 15:53:55 2014 +0100
+
+    tests: fix typecast to fix compilation
+
+ 
