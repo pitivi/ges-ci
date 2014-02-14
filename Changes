@@ -49934,3 +49934,16 @@ Date:   Fri Feb 14 12:28:50 2014 +0100
     amcaudiodec: Release buffer back to Android if allocating output fails
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 99feef2d080b9c01f85b3cd8aa4f0df88baa9146
+Author: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date:   Mon Apr 8 14:04:10 2013 +0200
+
+    hlsdemux: fix update interval with respect of the spec
+
+ 
