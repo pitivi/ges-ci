@@ -49891,3 +49891,46 @@ Date:   Fri Feb 14 12:01:00 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit 5b23cf694cccbfd7a5e13083b09274b8fd3bc6ce
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Feb 14 12:39:06 2014 +0100
+
+    amcaudiodec: Calculate number of samples per frame for MP3 and use that
+    
+    Some audio decoders (at least the MP3 decoder on MTK based devices) outputs
+    raw audio in batches of multiple audio frames. We need to handle that
+    properly, otherwise the base class will be kind of unhappy.
+
+commit aeeeedd7c7bd11f05d3e79464c06dff54b1c7563
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Feb 14 12:33:08 2014 +0100
+
+    amcaudiodec: Error out if we get an invalid raw audio buffer size
+
+commit cea218db6f6e3aa06b3b766fe5d459bd309cc070
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Feb 14 12:32:31 2014 +0100
+
+    amcvideodec: Store return value of gst_caps_merge_structure()
+    
+    The inputs are both invalid afterwards.
+
+commit faf48d26bf76b921c8e0d0d4455e92b44bbdd404
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Feb 14 12:31:29 2014 +0100
+
+    amcvideodec: Release buffer to Android if allocating output failed
+
+commit 2476b926b1611249776e1c71efb3277b8cff8e0e
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Feb 14 12:28:50 2014 +0100
+
+    amcaudiodec: Release buffer back to Android if allocating output fails
+
+ 
