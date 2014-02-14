@@ -49968,3 +49968,16 @@ Date:   Fri Feb 14 15:53:55 2014 +0100
     tests: fix typecast to fix compilation
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6767d26cb25f6e79b1e89acc745d5fb273a50d2c
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Fri Feb 14 20:16:04 2014 +0000
+
+    tools: gst-play: add volume control
+
+ 
