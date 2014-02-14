@@ -49981,3 +49981,28 @@ Date:   Fri Feb 14 20:16:04 2014 +0000
     tools: gst-play: add volume control
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 2b15ae4ecd75d479a469311aac165bff8be4af96
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Fri Feb 14 22:50:49 2014 +0100
+
+    soup: We need libsoup >= 2.40 for proper usage of the content decoder
+    
+    Previous versions did not consider our chunk allocator and allocated
+    memory by themselves, which caused crashes and broken behaviour.
+
+commit 577d87300906f961d13f76b44ba60fc40f0c637a
+Author: William Jon McCann <william.jon.mccann@gmail.com>
+Date:   Fri Feb 14 15:27:20 2014 -0500
+
+    docs: fix mismatched para tags
+    
+    newer gtkdoc is more sensitive to mismatched docbook tags.
+    This fixes the build in master.
+
+ 
