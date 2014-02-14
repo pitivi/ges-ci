@@ -49864,3 +49864,30 @@ Date:   Thu Feb 13 16:03:01 2014 -0300
  
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit bbe6d9a25876b6869fbd4811b38f9ad65b664a1b
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Fri Feb 14 12:01:00 2014 +0100
+
+    rtpsession: proxy caps and allocation on RTP pads
+    
+    recv_rtp_sink: allow proxying of the allocation query.
+    send_rtp_sink: allow proxying of caps and allocation. This allows us to
+    query caps downstream as well as get an allocator from downstream.
+    send_rtp_src: allow proxy of caps, this makes the caps query do
+    upstream.
+    
+    See https://bugzilla.gnome.org/show_bug.cgi?id=723850
+
+ 
+
+====== gnonlin =============
+
+ 
+
+ 
