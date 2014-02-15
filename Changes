@@ -50022,3 +50022,18 @@ Date:   Sat Feb 15 21:22:45 2014 +0100
     unparsable declarations.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit f5fae6f339d6b33222618f7aea4eed76289634cb
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sat Feb 15 22:34:33 2014 +0100
+
+    docs: add the boxed types to the .types.in
+    
+    This makes them show up in the object hierarchy.
+
+ 
