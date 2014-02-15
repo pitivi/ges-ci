@@ -50006,3 +50006,19 @@ Date:   Fri Feb 14 15:27:20 2014 -0500
     This fixes the build in master.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit b892b438cc4d28a0a051772a9c9745b5bfcfd53e
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sat Feb 15 21:22:45 2014 +0100
+
+    docs: gtkdoc is not good at parsing inline functions in headers
+    
+    Mark the inline function, so that gtkdoc skips them. Avoids some warnings about
+    unparsable declarations.
+
+ 
