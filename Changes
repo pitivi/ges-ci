@@ -50117,3 +50117,19 @@ Date:   Fri Feb 14 13:20:31 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=724337
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 465dfe4920f8a49c94bb6dfc27272d41e8b82df2
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Sun Feb 16 21:24:29 2014 +0100
+
+    encodebin: refactor tests
+    
+    Add a new test to demo how to get missing plugin message.
+    Split some tests that unneccesarily munge unrelated checks into one test.
+
+ 
