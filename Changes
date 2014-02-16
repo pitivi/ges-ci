@@ -50063,3 +50063,24 @@ Date:   Sun Feb 16 10:09:18 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=724100
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 4dd30bbd166db003f9963f41918b056df338dcf0
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 16 15:32:47 2014 +0100
+
+    playsink: Only remove the complete text chain if the text pad goes away
+    
+    If the text pads does not go away we just set the overlay to silent, which
+    allows us to immediately re-enable subs later again. However before this
+    change we also released the streamsynchronizer text pads, which deadlocked
+    because there was still dataflow going on. Just do this only if we remove
+    the complete chain.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=683504
+
+ 
