@@ -50037,3 +50037,29 @@ Date:   Sat Feb 15 22:34:33 2014 +0100
     This makes them show up in the object hierarchy.
 
  
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit e6cb996cea42b91ae0c6188f90c64f2c111dc3da
+Author: Stefan Ringel <linuxtv@stefanringel.de>
+Date:   Mon Feb 10 21:52:28 2014 +0100
+
+    mpegts: Add support for DVB terrestrial delivery system descriptor
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724069
+
+commit 22b4223c86d5e996aa6a9df3d6b7f4ba56d572a8
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Sun Feb 16 10:09:18 2014 +0100
+
+    configure: Rename all variables related to the winks plugin
+    
+    It does not make sense to call them after directshow if they
+    are for the winks plugin only.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724100
+
+ 
