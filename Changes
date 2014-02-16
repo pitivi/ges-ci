@@ -50084,3 +50084,16 @@ Date:   Sun Feb 16 15:32:47 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=683504
 
  
+ 
+
+ 
+
+====== gst-ffmpeg =============
+
+ commit 7f5132b34fef8f0879d8cad480261f0136531aac
+Author: Mark Nauwelaerts <mnauw@users.sourceforge.net>
+Date:   Sun Feb 16 15:58:15 2014 +0100
+
+    gst-libs: handle make dist for out-of-tree build
+
+ 
