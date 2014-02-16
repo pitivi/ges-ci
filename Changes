@@ -50097,3 +50097,23 @@ Date:   Sun Feb 16 15:58:15 2014 +0100
     gst-libs: handle make dist for out-of-tree build
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit 387b234f3b2a4d5cb21995264367c4a0776fb60a
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Fri Feb 14 13:20:31 2014 +0100
+
+    ges: Give a reference to the formatter for the idle callback
+    
+    This avoid segfault as we are not guaranteed that the formatter will
+    not be destroyed in the meantime.
+    
+    + Minor cleanup of handling of private members
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724337
+
+ 
