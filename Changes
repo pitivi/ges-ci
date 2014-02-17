@@ -50170,3 +50170,19 @@ Date:   Sun Feb 16 10:43:52 2014 +0100
     https://bugzilla.gnome.org/show_bug.cgi?id=724034
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit f921277ac20e3883d6817fc5e6464a9bdfba419f
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Feb 17 12:34:04 2014 +0100
+
+    Rename TIMELINE_MODE_XXX to GES_PIPELINE_MODE_XXX so it corresponds to reality
+    
+    First, it was not in any namespace, second the name of the enum is
+    GESPipelineFlags.
+
+ 
