@@ -50186,3 +50186,39 @@ Date:   Mon Feb 17 12:34:04 2014 +0100
     GESPipelineFlags.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit a2742a575bd2af56fa093fd2dec8ce30b4fe6668
+Author: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+Date:   Mon Feb 17 11:37:30 2014 +0100
+
+    pwg: Update raw properties
+    
+    Using info from gst-plugins-base/docs/design .
+    
+    Encoded streams might make use of the raw properties, so list them all under foo/* .
+    For foo/raw, only note which of these properties are mandatory.
+    
+    I didn't take a closer look at the raw formats yet. Those might still be out-of-date.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724187
+
+commit 383ffd13f845cbb8554b847a88bb49e8a71e749f
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Mon Feb 17 17:28:38 2014 +0000
+
+    scripts: create-uninstalled-setup: remove dead http links
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724561
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
