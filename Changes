@@ -50133,3 +50133,40 @@ Date:   Sun Feb 16 21:24:29 2014 +0100
     Split some tests that unneccesarily munge unrelated checks into one test.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ 
+
+ 
+
+====== gst-plugins-bad =============
+
+ commit beb31d127b6b5bf392f211ae46d07931c277cafe
+Author: Stefan Ringel <linuxtv@stefanringel.de>
+Date:   Sun Feb 16 10:45:21 2014 +0100
+
+    mpegts: Add support for content descriptor
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724034
+
+commit 792fc1cf01d15bf531c05fba63cb6a24607f4feb
+Author: Stefan Ringel <linuxtv@stefanringel.de>
+Date:   Sun Feb 16 10:44:55 2014 +0100
+
+    mpegts: Add support for component descriptor
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724034
+
+commit 347ac5fbd79a94764494c38b71bd75b4887e3597
+Author: Stefan Ringel <linuxtv@stefanringel.de>
+Date:   Sun Feb 16 10:43:52 2014 +0100
+
+    mpegts: Add support for extended event desriptor
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724034
+
+ 
