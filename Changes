@@ -50238,3 +50238,65 @@ Date:   Tue Feb 18 11:28:18 2014 +0100
     Fixes #724619
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 04a6c661c82a29df0627519da678595f48aa8abd
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Feb 18 11:49:37 2014 +0100
+
+    basesrc: in automatic_eos mode, don't modify the size
+    
+    Don't set the size to -1 in automatic_eos mode (which also updates the
+    duration to -1). We only want automatic_eos mode influence the maxsize
+    calculations without any side effects.
+    
+    Fixes https://bugzilla.gnome.org/show_bug.cgi?id=724564
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6c6619a66922bac0c343c4a5623d5bdb322f0e92
+Author: Tim-Philipp Müller <tim@centricular.com>
+Date:   Tue Feb 18 10:42:04 2014 +0000
+
+    audioconvert: never do mixing for 1->1 channel conversions
+    
+    MONO and NONE position are the same, for example, but in
+    general there isn't much to do here for such a conversion.
+    
+    Fixes problem in audioconvert, which would end up using
+    a mixmatrix when converting between different mono format
+    because it thinks MONO positioning is different from
+    unpositioned channels, which is not the case in this
+    special case. The mixmatrix would end up being 0.0 so
+    audioconvert would convert to silence samples.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724509
+
+commit 5496d09eb42fa63d725f0a01ac6c7584126bc5da
+Author: Rafał Mużyło <galtgendo@o2.pl>
+Date:   Tue Feb 18 10:32:46 2014 +0000
+
+    audio: map channels=1,channel-mask=0 to MONO instead of NONE
+    
+    Fixes problem in audioconvert, which would end up using
+    a mixmatrix when converting between different mono format
+    because it thinks MONO positioning is different from
+    unpositioned channels, which is not the case in this
+    special case. The mixmatrix would end up being 0.0 so
+    audioconvert would convert to silence samples.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724509
+
+ 
+
+====== gst-plugins-good =============
+
+ 
+
+ 
