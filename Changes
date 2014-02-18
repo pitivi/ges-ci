@@ -50413,3 +50413,18 @@ Date:   Tue Feb 18 13:08:09 2014 -0500
     part-mediatype-video-raw.txt.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 2337311216c750c654f4bab91026fda88ed91177
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Feb 18 20:48:57 2014 +0100
+
+    encodebin: simplify tests
+    
+    Also use the profile helper for the ogg profile here.
+
+ 
