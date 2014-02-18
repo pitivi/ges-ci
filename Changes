@@ -50395,3 +50395,21 @@ Date:   Tue Feb 18 15:46:32 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 6b779710970a642dae4b7f2181910a6eea491947
+Author: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Date:   Tue Feb 18 13:08:09 2014 -0500
+
+    video: Fix NV12_64Z32 default offset and size
+    
+    This was a regression introduced by f52fd7a68, where we started using
+    the stride to encode the dimensions in tiles. This patch simply updates
+    offset and size calculation as described in the documentation,
+    part-mediatype-video-raw.txt.
+
+ 
