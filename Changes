@@ -50344,3 +50344,27 @@ Date:   Tue Feb 18 14:21:20 2014 +0100
     of the merged range or continue reading.
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit a5918b0ab5c2880244ea75fe7ecafbee455a2daf
+Author: Sebastian Dröge <sebastian@centricular.com>
+Date:   Tue Feb 18 15:02:57 2014 +0100
+
+    playbin: Keep inputselector around until we release its pads
+    
+    Otherwise there's an interesting race condition when we destroy
+    the inputselector (actually it will be destroyed later when its state
+    change message gets destroyed) and afterwards release its sinkpad.
+    
+    This is the code path when the last channel is removed from the
+    input selector.
+    
+    Gave this warning sometimes, for chained oggs or whenever else
+    we change decode groups:
+    GStreamer-CRITICAL **: Padname '':sink_0 does not belong to element inputselector0 when removing
+
+ 
