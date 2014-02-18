@@ -50324,3 +50324,23 @@ Date:   Mon Feb 17 13:33:51 2014 +0100
     the same position with the same priority.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6fa8edd6b0b13006a2633f98b7fb5735e7fc134d
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Feb 18 14:21:20 2014 +0100
+
+    queue2: Fix merging of ranges
+    
+    Make a method to get the seeking threshold. If data is further away from
+    this threshold we want to perform a seek upstream.
+    When the current downloaded range can merge with the next range,
+    actually include the data of the next range into the current range
+    instead of discarding it. Also decide if we seek to the write position
+    of the merged range or continue reading.
+
+ 
