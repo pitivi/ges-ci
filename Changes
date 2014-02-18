@@ -50428,3 +50428,36 @@ Date:   Tue Feb 18 20:48:57 2014 +0100
     Also use the profile helper for the ogg profile here.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit a4fd0f9351ee319f850aca2acb42f8856a2c1a12
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Feb 18 22:54:45 2014 +0100
+
+    docs: use docbook markup for xi:include
+    
+    It turns out that the change in gtk-doc-1.20 which wraps the |[]| content in
+    CDATA break xi:inlcude examples. As in a whole jhbuild checkout these where
+    the only 4, we're fixing them instead.
+
+commit 9d9ffba17e8dde15dd29a03172783e20327eba09
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Feb 18 22:35:45 2014 +0100
+
+    isomp4mux: fix copy and paste
+    
+    This fixes doc warnings.
+
+commit 35da463618f78532f2313e7584b36761bd35a69b
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Tue Feb 18 21:44:24 2014 +0100
+
+    docs: use the gtk-doc syntax to link to properties
+    
+    Don't use docbook unless needed. Also stip other docbook tags in the the files we fix.
+
+ 
