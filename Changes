@@ -50300,3 +50300,27 @@ Date:   Tue Feb 18 10:32:46 2014 +0000
  
 
  
+ 
+
+ 
+
+====== gst-editing-services =============
+
+ commit c795ebfde202851579487f6da4f1b4035dc7ce49
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Tue Feb 18 12:40:06 2014 +0100
+
+    docs: Fix documentation about copying timeline elements
+
+commit e9ecfef80834a573fac4c0399fce67491de4e3e5
+Author: Thibault Saunier <thibault.saunier@collabora.com>
+Date:   Mon Feb 17 13:33:51 2014 +0100
+
+    timeline: Make sure not to add 2 times a TrackElement in the same track
+    
+    Without that, if a UriClip contains several tracks of a same type (ie.
+    video or audio...), we would add all the TrackElements to each track
+    making everything failling as we end up with several GNL sources at
+    the same position with the same priority.
+
+ 
