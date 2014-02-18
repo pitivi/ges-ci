@@ -50368,3 +50368,21 @@ Date:   Tue Feb 18 15:02:57 2014 +0100
     GStreamer-CRITICAL **: Padname '':sink_0 does not belong to element inputselector0 when removing
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 252aa44887a40f4fc3262331e156c897f8edc034
+Author: Wim Taymans <wtaymans@redhat.com>
+Date:   Tue Feb 18 15:46:32 2014 +0100
+
+    queue2: don't truncate the temp file on shutdown
+    
+    We want to keep the downloaded file untruncated so that we can use it
+    again later.
+    
+    Fixes: https://bugzilla.gnome.org/show_bug.cgi?id=724373
+
+ 
