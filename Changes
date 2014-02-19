@@ -50596,3 +50596,16 @@ Date:   Sun Feb 16 17:39:35 2014 -0800
     https://bugzilla.gnome.org/show_bug.cgi?id=724393
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 0de0a1f1db8d12357297221d798be04593e6fe92
+Author: Thijs Vermeir <thijsvermeir@gmail.com>
+Date:   Wed Feb 19 22:21:54 2014 +0100
+
+    osxaudio: remove unused variables
+
+ 
