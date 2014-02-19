@@ -50530,3 +50530,49 @@ Date:   Wed Feb 19 15:19:30 2014 +0100
  
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 9121b16aa097b0de12368da336085d1ebccd5b7d
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Sun Feb 16 23:55:17 2014 -0800
+
+    rtspconnection: get rid of superfluous whitespaces
+
+ 
+
+====== gst-plugins-good =============
+
+ commit c0fd8e0c39032d3048b44660ddca049a4d169ea7
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Feb 19 21:26:03 2014 +0100
+
+    autodetect: extract common helper code
+    
+    The function to generate the pretty names is basically the same. Use one and add
+    a parameter.
+
+commit ce683b0031835e6b2e7a844ec7884d15adf997a6
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Feb 19 21:01:39 2014 +0100
+
+    autodetect: improve the tests
+    
+    Add fake audio/video sinks. Previously running the test might be flaky due to
+    the use of real elements (hardware in use), which we don't want to test here.
+    Add two more tests that check that the fakes are chosen.
+
+ 
+
+====== gst-plugins-ugly =============
+
+ commit e10e3b97da4a2a1e12b0334fa53418c121056718
+Author: Rico Tzschichholz <ricotz@ubuntu.com>
+Date:   Wed Feb 19 21:11:55 2014 +0100
+
+    m4: Fix multiple tests in AC_CHECK_A52DEC
+
+ 
