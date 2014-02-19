@@ -50461,3 +50461,40 @@ Date:   Tue Feb 18 21:44:24 2014 +0100
     Don't use docbook unless needed. Also stip other docbook tags in the the files we fix.
 
  
+ 
+
+ 
+
+====== gstreamer =============
+
+ commit 6fc23cd0161029ca2362ea8eb6ec7c322836fa6b
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Feb 19 10:57:33 2014 +0100
+
+    check: also use the glob on GST_CHECKS when forcing to run broken tests
+    
+    GST_CHECKS can be simply "test*" to run run all tests (including those that are
+    marked broken). Update the sparse comments a bit to tell how this works.
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 02e59756a9d91da62a94ae44480b262f1e6205d6
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Feb 19 11:26:22 2014 +0100
+
+    autodetect: fix the disabled test
+    
+    Use a shared helper for both tests. It turns out that the valgrind variant is
+    fine (maybe due to picking up pulsesink though).
+
+commit c40e8b12101c1c47d7f2ea1a4c907a9a6796bed6
+Author: Stefan Sauer <ensonic@users.sf.net>
+Date:   Wed Feb 19 11:05:35 2014 +0100
+
+    autodetect: remove cruft from the test
+    
+    Remove the obsolete version check and use the ignore macro for the disabled test.
+
+ 
