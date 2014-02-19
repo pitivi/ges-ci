@@ -50498,3 +50498,26 @@ Date:   Wed Feb 19 11:05:35 2014 +0100
     Remove the obsolete version check and use the ignore macro for the disabled test.
 
  
+ 
+
+ 
+
+====== gst-plugins-good =============
+
+ commit 6f1d4da8b43b2392a0c7df3feb2daaa7e7c45964
+Author: Branislav Katreniak <bkatreniak@nuvotechnologies.com>
+Date:   Wed Feb 19 15:19:30 2014 +0100
+
+    souphttpsrc: do not emit error when connection with unknown size ends
+    
+    Commit 46fd12ae5ec53200b16dfd7f17048d6bc60fbfbc introduced connection
+    recovery. But when server does not specify content-size,
+    souphttpsrc tries to reconnect even after regular end of stream.
+    Http server replies  with SOUP_STATUS_REQUESTED_RANGE_NOT_SATISFIABLE
+    but souphttpsrc still emits error instead of EOS.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724717
+    
+    Signed-off-by: Branislav Katreniak <bkatreniak@nuvotechnologies.com>
+
+ 
