@@ -50576,3 +50576,23 @@ Date:   Wed Feb 19 21:11:55 2014 +0100
     m4: Fix multiple tests in AC_CHECK_A52DEC
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit 0a115bd31f77a6b4b38127937c562f4145f8ccfc
+Author: Aleix Conchillo Flaqué <aleix@oblong.com>
+Date:   Sun Feb 16 17:39:35 2014 -0800
+
+    rtspconnection: allow specifying a certificate database
+    
+    Two new functions have been added,
+    gst_rtsp_connection_set_tls_database() and
+    gst_rtsp_connection_get_tls_database(). The certificate database will be
+    used when a certificate can't be verified with the default database.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724393
+
+ 
