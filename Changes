@@ -50609,3 +50609,30 @@ Date:   Wed Feb 19 22:21:54 2014 +0100
     osxaudio: remove unused variables
 
  
+ 
+
+ 
+
+====== gst-plugins-base =============
+
+ commit b0985365affd8f469a288ca7eecb620007d3b1fa
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Feb 19 01:55:50 2014 -0300
+
+    oggdemux: allow file to go until the end in push mode
+    
+    When seeking back to original state after duration seeks, let
+    upstream know that we want the whole file, including the last
+    byte that wasn't requested on the duration seeks.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=724633
+
+commit ef547c3eb54edae5df26f38642bf7832268d4278
+Author: Thiago Santos <ts.santos@sisa.samsung.com>
+Date:   Wed Feb 19 23:54:59 2014 -0300
+
+    oggdemux: remove unused instance variable event
+    
+    It is never set to anything
+
+ 
