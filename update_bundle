@@ -22,8 +22,8 @@ else:
 
 path = os.environ["PATH"]
 os.environ["PATH"] =  "%s:%s" %(path, os.path.expanduser("~/bin"))
-commands = ["cerbero fetch --reset-rdeps --full-reset pitivi",
-            "cerbero bootstrap --build-tools-only",
+commands = ["cerbero bootstrap --build-tools-only",
+            "cerbero fetch --reset-rdeps --full-reset pitivi",
             "cerbero package pitivi -d --output-dir $HOME",
             "tar -cf pitivi-%(version_name)s-%(arch)s.tar pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum",
             "md5sum pitivi-%(version_name)s-%(arch)s.tar > pitivi-%(version_name)s-%(arch)s.tar.md5sum",
