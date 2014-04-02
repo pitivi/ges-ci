@@ -1,0 +1,43 @@
+#!/usr/bin/python
+
+import platform
+import os
+import sys
+
+def message(msg):
+    sys.stdout.write(msg + '\n')
+    sys.stdout.flush()
+
+
+arch = platform.machine()
+if arch.endswith('86'):
+    arch = "x86"
+
+
+version="0.93-beta"
+if len(sys.argv) == 2:
+    version_name = sys.argv[1]
+else:
+    version_name = version
+
+path = os.environ["PATH"]
+os.environ["PATH"] =  "%s:%s" %(path, os.path.expanduser("~/bin"))
+commands = ["cerbero fetch --reset-rdeps --full-reset pitivi",
+            "cerbero bootstrap --build-tools-only",
+            "cerbero package pitivi -d --output-dir $HOME",
+            "tar -cf pitivi-%(version_name)s-%(arch)s.tar pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum",
+            "md5sum pitivi-%(version_name)s-%(arch)s.tar > pitivi-%(version_name)s-%(arch)s.tar.md5sum",
+            "mv pitivi-%(version_name)s-%(arch)s.tar ~/Dropbox/Public/",
+            "mv pitivi-%(version_name)s-%(arch)s.tar.md5sum ~/Dropbox/Public/",
+            "date > ~/Dropbox/Public/pitivi-%(version_name)s-%(arch)s.tar.date"]
+
+os.chdir(os.environ["HOME"])
+for command in commands:
+    command = command % {"arch": arch, "version": version,
+                         "version_name": version_name}
+    message("Launching %s" % command)
+
+    res = os.system(command)
+    if res != 0:
+       message("FAILLURE!")
+       exit(1)
