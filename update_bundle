@@ -29,7 +29,7 @@ cerbero_default_branch = "thiblahute/gi+pitivi"
 commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
-            "cerbero package pitivi -d --output-dir %s" % os.path.expanduser('~'),
+            "cerbero package pitivi --linux-bundle -d --output-dir %s" % os.path.expanduser('~'),
             "tar -cf pitivi-%(version_name)s-%(arch)s.tar pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum",
             "md5sum pitivi-%(version_name)s-%(arch)s.tar > pitivi-%(version_name)s-%(arch)s.tar.md5sum",
             "mv pitivi-%(version_name)s-%(arch)s.tar ~/Dropbox/Public/",
