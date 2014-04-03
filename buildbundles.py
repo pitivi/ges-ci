@@ -30,12 +30,12 @@ def bundle(vmname, vmuser, sshadress):
             # call("VBoxManage controlvm %s savestate" % vmname)
             return False
 
-    if not call("ssh %s cd %s && git fetch origin && git reset --hard origin/master"
+    if not call("ssh %s 'cd %s && git fetch origin && git reset --hard origin/master'"
                 % (vm_ssh, ges_ci_folder)):
         message("Fetching update_bundle script failed")
         return False
 
-    if not call("ssh %s %s/devel/ges-ci/update_bundle latest" % (vm_ssh, vm_home)):
+    if not call("ssh %s '%s/devel/ges-ci/update_bundle latest'" % (vm_ssh, vm_home)):
         message("Update bundle FAILED")
         return False
 
