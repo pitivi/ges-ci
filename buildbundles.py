@@ -17,21 +17,27 @@ def call(command):
 
 
 def bundle(vmname, vmuser, sshadress):
+    vm_home = "/home/%s" % vmuser
+    vm_ssh = "%s@%s" % (vmuser, sshadress)
+    ges_ci_folder="%s/devel/ges-ci/" % vm_home
+
     call("VBoxManage startvm %s --type headless" % vmname)
     vm_is_ready = False
     t = time.time()
-    while not call("ssh %s@%s echo 'Vm is up and running'" % (vmuser, sshadress)):
+    while not call("ssh %s echo 'Vm is up and running'" % (vm_ssh)):
         if time.time() - t > 600:
             message("TIMEOUT, could not connect to VM")
             # call("VBoxManage controlvm %s savestate" % vmname)
             return False
 
-    if not call("ssh %s@%s /home/%s/bin/update_bundle latest" % (vmuser, sshadress, vmuser)):
-        message("Update bundle FAILED")
+    if not call("ssh %s cd %s && git fetch origin && git reset --hard origin/master"
+                % (vm_ssh, ges_ci_folder)):
+        message("Fetching update_bundle script failed")
         return False
 
-    # if not call("VBoxManage controlvm %s savestate" % vmname):
-    #    message("Save state failed -- not fatal")
+    if not call("ssh %s %s/devel/ges-ci/update_bundle latest" % (vm_ssh, vm_home)):
+        message("Update bundle FAILED")
+        return False
 
     return True
 
