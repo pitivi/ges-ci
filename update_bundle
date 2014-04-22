@@ -13,6 +13,9 @@ def message(msg):
 arch = platform.machine()
 if arch.endswith('86'):
     arch = "x86"
+    arch_folder_name = "32bits"
+else:
+    arch_folder_name = "64bits"
 
 
 version="0.93-beta"
@@ -32,14 +35,17 @@ commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folde
             "cerbero package pitivi --linux-bundle -d --output-dir %s" % os.path.expanduser('~'),
             "tar -cf pitivi-%(version_name)s-%(arch)s.tar pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum",
             "md5sum pitivi-%(version_name)s-%(arch)s.tar > pitivi-%(version_name)s-%(arch)s.tar.md5sum",
-            "mv pitivi-%(version_name)s-%(arch)s.tar ~/Dropbox/Public/",
-            "mv pitivi-%(version_name)s-%(arch)s.tar.md5sum ~/Dropbox/Public/",
-            "date > ~/Dropbox/Public/pitivi-%(version_name)s-%(arch)s.tar.date"]
+            "mv pitivi-%(version_name)s-%(arch)s.tar ~/Dropbox/Public/bundles/%(arch_folder_name)s",
+            "mv pitivi-%(version_name)s-%(arch)s.tar.md5sum ~/Dropbox/Public/bundles/%(arch_folder_name)s",
+            "date > ~/Dropbox/Public/bundles/%(arch_folder_name)s/pitivi-%(version_name)s-%(arch)s.tar.date",
+            "rsync -v ~/Dropbox/Public/bundles/%(arch_folder_name)s/* amazon:/home/ubuntu/pitivi-fundraising/www/website/static/websitestatic/"]
 
 os.chdir(os.environ["HOME"])
 for command in commands:
     command = command % {"arch": arch, "version": version,
-                         "version_name": version_name}
+                         "version_name": version_name,
+                         "arch_folder_name": arch_folder_name,
+                         }
     message("Launching %s" % command)
 
     res = os.system(command)
