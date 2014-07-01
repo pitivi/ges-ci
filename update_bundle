@@ -28,11 +28,12 @@ path = os.environ["PATH"]
 os.environ["PATH"] =  "%s:%s" %(path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
-cerbero_default_branch = "thiblahute/pitivi-bundles"
+cerbero_default_branch = "origin/master"
 commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
+            "echo $(git show --summary)",
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
-            "cerbero package pitivi --linux-bundle -d --output-dir %s" % os.path.expanduser('~'),
+            "cerbero package pitivi --force --linux-bundle --no-devel --output-dir %s" % os.path.expanduser('~'),
             "tar -cf pitivi-%(version_name)s-%(arch)s.tar pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum",
             "md5sum pitivi-%(version_name)s-%(arch)s.tar > pitivi-%(version_name)s-%(arch)s.tar.md5sum",
             "mv pitivi-%(version_name)s-%(arch)s.tar ~/Dropbox/Public/bundles/%(arch_folder_name)s",
