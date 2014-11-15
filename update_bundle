@@ -18,7 +18,7 @@ else:
     arch_folder_name = "64bits"
 
 
-version="0.93-beta"
+version="0.94"
 if len(sys.argv) == 2:
     version_name = sys.argv[1]
 else:
@@ -28,9 +28,10 @@ path = os.environ["PATH"]
 os.environ["PATH"] =  "%s:%s" %(path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
-cerbero_default_branch = "thiblahute/pitivi-0.94"
-commands = ["cd %s #&& git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
-            "echo $(git show --summary)",
+cerbero_default_branch = "origin/master"
+commands = [
+             "cd %s #&& git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
+             "echo $(git show --summary)",
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
             "cerbero package pitivi --force --linux-bundle --no-devel --output-dir %s" % os.path.expanduser('~'),
@@ -43,7 +44,8 @@ commands = ["cd %s #&& git remote update && git reset --hard %s" % (cerbero_fold
 
 os.chdir(os.environ["HOME"])
 for command in commands:
-    command = command % {"arch": arch, "version": version,
+    command = command % {"arch": arch,
+                         "version": version,
                          "version_name": version_name,
                          "arch_folder_name": arch_folder_name,
                          }
