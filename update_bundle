@@ -28,10 +28,10 @@ path = os.environ["PATH"]
 os.environ["PATH"] =  "%s:%s" %(path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
-cerbero_default_branch = "thiblahute/master"
+cerbero_default_branch = "origin/master"
 commands = [
-             "cd %s #&& git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
-             "echo $(git show --summary)",
+            "cd %s && git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
+            "echo $(git show --summary)",
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
             "cerbero package pitivi --force --linux-bundle --no-devel --output-dir %s" % os.path.expanduser('~'),
