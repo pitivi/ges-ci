@@ -59,16 +59,16 @@ os.environ["PATH"] = "%s:%s" % (path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
 cerbero_default_branch = "origin/master"
-tarball_name = bundles_dir + arch_folder_name + "/" + "pitivi-" + version_name + "-" + arch + ".tar"
+tarball_name = bundles_dir + arch_folder_name + "/" + "pitivi-" + version_name + "-" + arch + ".tar.xz"
 commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
             "echo $(git show --summary)",
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
             "cerbero package pitivi --force --linux-bundle --no-devel --output-dir %s" % os.path.expanduser('~'),
-            "tar -cf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum"]
+            "tar -Jcf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum"]
 
 os.chdir(os.environ["HOME"])
-to_archive = glob.glob(os.path.join(bundles_dir, arch_folder_name) + "/pitivi-*.tar")
+to_archive = glob.glob(os.path.join(bundles_dir, arch_folder_name) + "/pitivi-*.tar.*")
 for command in commands:
     command = command % {"arch": arch,
                          "version": version,
