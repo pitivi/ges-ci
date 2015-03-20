@@ -2,7 +2,6 @@
 
 import datetime
 import time
-import time
 import platform
 import os
 import sys
@@ -15,8 +14,9 @@ def message(msg):
     sys.stdout.flush()
 
 
-
 MAX_BUNDLE_DAYS = 30
+
+
 arch = platform.machine()
 if arch.endswith('86'):
     arch = "x86"
@@ -24,7 +24,7 @@ if arch.endswith('86'):
 else:
     arch_folder_name = "64bits"
 
-if len(sys.argv) < 2 or not "release" in sys.argv[1]:
+if len(sys.argv) < 2 or "release" not in sys.argv[1]:
     bundles_dir = "/mnt/bundles/daily/"
 else:
     bundles_dir = "/mnt/bundles/releases/"
@@ -33,41 +33,39 @@ archives_dir = os.path.join(bundles_dir, arch_folder_name, "archives")
 
 def cleanup_bundles(to_archive):
     for f in to_archive:
-        message("Archiving %s into %s" %(f, archives_dir))
+        message("Archiving %s into %s" % (f, archives_dir))
         shutil.move(f, os.path.join(archives_dir,
                     time.strftime("%Y%m%d-%H%M%S") + "-" + os.path.basename(f)))
 
-    #message("Cleaning up old bundles")
-    #now = time.time()
-    #for f in os.listdir(archives_dir):
-        #f = os.path.join(archives_dir, f)
-        #last_modification = os.path.getmtime(f)
-        #age = (now - last_modification) / 86400
-        #if age > MAX_BUNDLE_DAYS:
-            #message("Deleting file %s, it is %d days old" % (f, age))
-            #os.remove(f)
+    # message("Cleaning up old bundles")
+    # now = time.time()
+    # for f in os.listdir(archives_dir):
+        # f = os.path.join(archives_dir, f)
+        # last_modification = os.path.getmtime(f)
+        # age = (now - last_modification) / 86400
+        # if age > MAX_BUNDLE_DAYS:
+        # message("Deleting file %s, it is %d days old" % (f, age))
+        # os.remove(f)
 
 
-version="0.94"
+version = "0.94"
 if len(sys.argv) == 2:
     version_name = sys.argv[1]
 else:
     version_name = datetime.datetime.now().strftime("%Y-%m-%d_%H%M")
 
 path = os.environ["PATH"]
-os.environ["PATH"] =  "%s:%s" %(path, os.path.expanduser("~/bin"))
+os.environ["PATH"] = "%s:%s" % (path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
 cerbero_default_branch = "origin/master"
 tarball_name = bundles_dir + arch_folder_name + "/" + "pitivi-" + version_name + "-" + arch + ".tar"
-commands = [
-            "cd %s && git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
+commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folder, cerbero_default_branch),
             "echo $(git show --summary)",
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
             "cerbero package pitivi --force --linux-bundle --no-devel --output-dir %s" % os.path.expanduser('~'),
-            "tar -cf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum"
-    ]
+            "tar -cf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum"]
 
 os.chdir(os.environ["HOME"])
 to_archive = glob.glob(os.path.join(bundles_dir, arch_folder_name) + "/pitivi-*.tar")
@@ -84,8 +82,8 @@ for command in commands:
 
     res = os.system(command)
     if res != 0:
-       message("FAILLURE!")
-       exit(1)
+        message("FAILLURE!")
+        exit(1)
 
 cleanup_bundles(to_archive)
 os.rename(tarball_name + ".tmp", tarball_name)
