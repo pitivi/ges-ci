@@ -2,7 +2,6 @@
 
 import os
 import sys
-import subprocess
 import time
 
 
@@ -19,10 +18,9 @@ def call(command):
 def bundle(vmname, vmuser, sshadress):
     vm_home = "/home/%s" % vmuser
     vm_ssh = "%s@%s" % (vmuser, sshadress)
-    ges_ci_folder="%s/devel/ges-ci/" % vm_home
+    ges_ci_folder = "%s/devel/ges-ci/" % vm_home
 
     call("VBoxManage startvm %s --type headless" % vmname)
-    vm_is_ready = False
     t = time.time()
     while not call("ssh %s echo 'Vm is up and running'" % (vm_ssh)):
         if time.time() - t > 600:
@@ -40,6 +38,7 @@ def bundle(vmname, vmuser, sshadress):
         return False
 
     return True
+
 
 if __name__ == "__main__":
     ret = 0

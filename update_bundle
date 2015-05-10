@@ -65,10 +65,13 @@ commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folde
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
             "cerbero package pitivi --force --linux-bundle --no-devel --output-dir %s" % os.path.expanduser('~'),
-            "tar -Jcf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum"]
+            "mv pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s-%(date)s",
+            "ln -s pitivi-%(version)s-%(arch)s-%(date)s pitivi-%(version)s-%(arch)s",
+            "tar -Jcf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum pitivi-%(version)s-%(arch)s-%(date)s"]
 
 os.chdir(os.environ["HOME"])
 to_archive = glob.glob(os.path.join(bundles_dir, arch_folder_name) + "/pitivi-*.tar.*")
+date = datetime.datetime.now().strftime("%Y-%m-%d_%H%M")
 for command in commands:
     command = command % {"arch": arch,
                          "version": version,
@@ -77,6 +80,7 @@ for command in commands:
                          "bundles_dir": bundles_dir,
                          "archives_dir": archives_dir,
                          "tarball_name": tarball_name,
+                         "date": date,
                          }
     message("Launching %s" % command)
 
