@@ -43,8 +43,18 @@ def bundle(vmname, vmuser, sshadress):
 if __name__ == "__main__":
     ret = 0
 
-    for vmname, vmuser, sshadress in (("debian_wheezy_32", "gstqa", "192.168.1.92"),
-                                      ("debian_wheezy", "gst-qa", "192.168.1.99")):
+    vms = []
+
+    if "32bits" in sys.argv:
+        vms.append(("debian_wheezy_32", "gstqa", "192.168.1.92"))
+
+    if "64bits" in sys.argv:
+        vms.append(("debian_wheezy", "gst-qa", "192.168.1.99"))
+
+    if not vms:
+        vms.append(("debian_wheezy", "gst-qa", "192.168.1.99"))
+
+    for vmname, vmuser, sshadress in vms:
         if not bundle(vmname, vmuser, sshadress):
             ret = 1
             message("ERROR, Could not create %s bundle" % (vmname))
