@@ -68,7 +68,7 @@ commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folde
             "echo $(git show --summary)",
             "cerbero bootstrap --build-tools-only",
             "cerbero fetch --reset-rdeps --full-reset pitivi",
-            "cerbero package pitivi --force --linux-bundle --output-dir %(bundling_dir)s",
+            "cerbero package pitivi --force --linux-bundle --output-dir %(bundling_dir)s --no-devel",
             "mv pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s-%(date)s",
             "ln -s pitivi-%(version)s-%(arch)s-%(date)s pitivi-%(version)s-%(arch)s",
             "tar -Jcf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum pitivi-%(version)s-%(arch)s-%(date)s",
