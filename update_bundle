@@ -52,7 +52,7 @@ version = "0.94"
 if len(sys.argv) == 2:
     version_name = sys.argv[1]
 else:
-    version_name = datetime.datetime.now().strftime("%Y-%m-%d_%H%M")
+    version_name = "latest"
 
 path = os.environ["PATH"]
 os.environ["PATH"] = "%s:%s" % (path, os.path.expanduser("~/bin"))
