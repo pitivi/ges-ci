@@ -58,7 +58,7 @@ path = os.environ["PATH"]
 os.environ["PATH"] = "%s:%s" % (path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
-cerbero_default_branch = "origin/master"
+cerbero_default_branch = "origin/1.6"
 tarball_name = bundles_dir + arch_folder_name + "/" + "pitivi-" + version_name + "-" + arch + ".tar.xz"
 
 bundling_dir = os.path.expanduser("~/pitivi/bundling/")
