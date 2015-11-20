@@ -68,6 +68,7 @@ open("/root/.cerbero/cerbero.cbc", 'w').write("""
 use_ccache=True
 variants = ['python3', 'gtk3']
 recipes_commits = {
+    "pitivi": "RELEASE-0_95_0",
     "gst-editing-services-1.0-static": "origin/1.6",
     "gst-editing-services-1.0": "origin/1.6",
     "gst-libav-1.0-static": "origin/1.6",

@@ -13,7 +13,7 @@ RUN ln -s /root/devel/cerbero/cerbero-uninstalled /usr/bin/cerbero
 RUN cd /root/devel/ && git clone https://github.com/pitivi/ges-ci.git
 RUN cd /root/devel/ges-ci && git pull --rebase
 RUN mkdir ~/.cerbero/ && echo "use_ccache=True\nvariants = ['python3', 'gtk3']" > ~/.cerbero/cerbero.cbc
-RUN echo "#!/bin/sh\n\ncd /root/devel/ges-ci/ && git fetch && git reset --hard origin/master && /root/devel/ges-ci/update_bundle" > /usr/bin/update_bundle
+RUN echo "#!/bin/sh\n\ncd /root/devel/ges-ci/ && git fetch && git checkout 0.95; git reset --hard origin/0.95 && /root/devel/ges-ci/update_bundle 0.95-beta release" > /usr/bin/update_bundle
 RUN chmod +x /usr/bin/update_bundle
 RUN apt-get install -y gcc-multilib
 CMD update_bundle
