@@ -48,7 +48,7 @@ def cleanup_bundles(to_archive):
         # os.remove(f)
 
 
-version = "0.94"
+version = "0.95"
 if len(sys.argv) == 2:
     version_name = sys.argv[1]
 else:
