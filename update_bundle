@@ -24,7 +24,7 @@ if arch.endswith('86'):
 else:
     arch_folder_name = "64bits"
 
-if len(sys.argv) < 2 or "release" not in sys.argv[1]:
+if len(sys.argv) < 2 or "release" not in sys.argv:
     bundles_dir = "/mnt/bundles/daily/"
 else:
     bundles_dir = "/mnt/bundles/releases/"
