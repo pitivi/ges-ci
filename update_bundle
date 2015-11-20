@@ -24,7 +24,7 @@ if arch.endswith('86'):
 else:
     arch_folder_name = "64bits"
 
-if len(sys.argv) < 2 or "release" not in sys.argv:
+if True or len(sys.argv) < 2 or "release" not in sys.argv:
     bundles_dir = "/mnt/bundles/daily/"
 else:
     bundles_dir = "/mnt/bundles/releases/"
@@ -52,7 +52,7 @@ version = "0.95"
 if len(sys.argv) == 2:
     version_name = sys.argv[1]
 else:
-    version_name = "latest"
+    version_name = "beta"
 
 path = os.environ["PATH"]
 os.environ["PATH"] = "%s:%s" % (path, os.path.expanduser("~/bin"))
