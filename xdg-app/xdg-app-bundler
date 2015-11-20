@@ -85,10 +85,6 @@ class Bundle:
         return bool(self.file)
 
     def download(self):
-        # REMOVEME!!
-        self.tarball = open("/home/thiblahute/Downloads/pitivi-0.95-beta-x86_64.tar.xz", 'r')
-        return True
-
         printf("Downloading bundle... ", end="")
         self.tarball = tempfile.NamedTemporaryFile(suffix="pitivi_bundle")
         command = ["wget", self.uri, "-O", self.tarball.name]
