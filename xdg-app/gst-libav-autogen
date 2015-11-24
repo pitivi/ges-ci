@@ -1,0 +1,15 @@
+#!/bin/sh
+
+FLAGS="$@"
+
+./autogen.sh $FLAGS
+
+
+mv configure real_configure
+
+echo "#!/bin/sh" > configure
+echo 'FLAGS="$@"' >> configure
+echo "export TMPDIR=$PWD" >> configure
+echo "./real_configure \$FLAGS" >> configure
+
+chmod +x configure

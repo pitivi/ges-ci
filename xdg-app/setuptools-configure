@@ -1,0 +1,16 @@
+#!/bin/sh
+
+FLAGS="$@"
+
+mkdir -p /app/lib/python3.3/site-packages/
+
+cat <<EOF > Makefile
+all:
+	python3 ./setup.py install --prefix=/app
+
+install:
+	echo "Already done"
+
+
+EOF
+

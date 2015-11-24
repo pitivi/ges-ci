@@ -1,0 +1,20 @@
+#!/bin/sh
+
+FLAGS="$@"
+
+
+echo "Copying _ssl and _sqlite3 because of https://github.com/alexlarsson/gnome-sdk-images/issues/5"
+mkdir -p /app/lib/python3.3/site-packages/ || exit 1
+cp ../../_ssl.cpython-33m.so /app/lib/python3.3/site-packages/ || exit 1
+cp ../../_sqlite3.cpython-33m.so /app/lib/python3.3/site-packages/ || exit 1
+
+cat <<EOF > Makefile
+all:
+	ARCHFLAGS='-arch x86_64' CFLAGS=' -L/usr/lib -Lbuild/temp.linux-x86_64-3.3 -I/usr/include -I/usr/include/python3.3m/ ' python3 ./setup.py install --prefix=/app
+
+install:
+	echo "Already done"
+
+
+EOF
+
