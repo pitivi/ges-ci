@@ -5,7 +5,39 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BUILDDIR=$DIR
 cd $BUILDDIR
 
-xdg-app-builder $BUILDDIR/app $DIR/pitivi.json
-xdg-app build $BUILDDIR/app bash -c "mv /app/share/applications/pitivi.desktop /app/share/applications/org.pitivi.Pitivi.desktop"
-xdg-app build $BUILDDIR/app bash -c "cp pitivi_app /app/bin/pitivi_app"
-xdg-app build-finish --verbose --command=pitivi_app --socket=x11 --socket=session-bus --talk-name=ca.desrt.dconf --filesystem=home $BUILDDIR/app/
+if [[ $1 == '0.95' ]]
+then
+  echo "Building Pitivi 0.95"
+  PITIVI=pitivi-0.95
+  BRANCHNAME=0.95
+  if [[ $2 == '' ]]
+  then
+    REPO=$BUILDDIR/xdg-app-repos/pitivi/
+  else
+    REPO=$2
+  fi
+else
+  echo "Building Pitivi master"
+  PITIVI=pitivi
+  BRANCHNAME=master
+
+  if [[ $1 == '' ]]
+  then
+    REPO=$BUILDDIR/xdg-app-repos/pitivi/
+  else
+    REPO=$1
+  fi
+fi
+
+JSON=$DIR/$PITIVI.json
+APPDIR=$BUILDDIR/$PITIVI/
+
+mkdir -p $REPO
+
+xdg-app-builder $APPDIR $JSON || exit 1
+
+echo "Exporting repo $REPO"
+xdg-app build-export $REPO $APPDIR $BRANCHNAME || exit 1
+echo "Exporting repo $REPO"
+xdg-app repo-update $REPO || exit 1
+echo "DONE!"
