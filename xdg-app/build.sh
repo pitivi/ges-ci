@@ -34,7 +34,7 @@ APPDIR=$BUILDDIR/$PITIVI/
 
 mkdir -p $REPO
 
-xdg-app-builder $APPDIR $JSON || exit 1
+xdg-app-builder --disable-cache $APPDIR $JSON || exit 1
 
 echo "Exporting repo $REPO"
 xdg-app build-export $REPO $APPDIR $BRANCHNAME || exit 1

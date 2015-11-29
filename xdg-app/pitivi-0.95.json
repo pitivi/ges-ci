@@ -3,7 +3,7 @@
     "version": "0.95",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.18",
-    "finish-args": ["--command=pitivi_app",
+    "finish-args": ["--command=pitivi",
                     "--socket=x11", "--socket=session-bus",
                     "--talk-name=ca.desrt.dconf",
                     "--filesystem=home",
@@ -14,7 +14,7 @@
     "rename-desktop-file": "pitivi.desktop",
     "rename-icon": "pitivi",
     "desktop-file-name-prefix": "(Daily) ",
-    "command": "pitivi_app",
+    "command": "pitivi",
     "build-options" : {
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g",
@@ -48,17 +48,6 @@
                     "type": "file",
                     "path": "gst-libav-autogen",
                     "dest-filename": "autogen"
-                }
-            ]
-        },
-        {
-            "name": "gst-python",
-            "config-opts": ["--with-pygi-overrides-dir=/app/lib/python3.3/site-packages/gi/"],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://gstreamer.freedesktop.org/src/gst-python/gst-python-1.6.1.tar.xz",
-                    "sha256": "3cbe332e18fd2eaf23ddeee96c414f79ac1edc2f7d990582fa0ec5f977bd04f1"
                 }
             ]
         },
@@ -153,22 +142,11 @@
         },
         {
             "name": "pitivi",
-            "rm-configure": true,
             "sources": [
                 {
                     "type": "archive",
                     "url": "http://ftp.gnome.org/pub/GNOME/sources/pitivi/0.95/pitivi-0.95.tar.xz",
                     "sha256": "5f15220bcc3d02cef4edacaa19da284014caf725e41fc9cbec70469582e1d313"
-                },
-                {
-                    "type": "file",
-                    "path": "pitivi_app",
-                    "dest-filename": "pitivi_app"
-                },
-                {
-                    "type": "file",
-                    "path": "pitivi-autogen",
-                    "dest-filename": "autogen"
                 }
             ]
         }

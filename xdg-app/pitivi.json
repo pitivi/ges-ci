@@ -3,7 +3,7 @@
     "version": "master",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.18",
-    "finish-args": ["--command=pitivi_app",
+    "finish-args": ["--command=pitivi",
                     "--socket=x11", "--socket=session-bus",
                     "--talk-name=ca.desrt.dconf",
                     "--filesystem=home",
@@ -11,7 +11,6 @@
                     "--filesystem=xdg-music",
                     "--filesystem=xdg-pictures"],
     "sdk": "org.gnome.Sdk",
-    "command": "pitivi_app",
     "rename-desktop-file": "pitivi.desktop",
     "rename-icon": "pitivi",
     "desktop-file-name-prefix": "(Daily) ",
@@ -179,16 +178,6 @@
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/pitivi"
-                },
-                {
-                    "type": "file",
-                    "path": "pitivi_app",
-                    "dest-filename": "pitivi_app"
-                },
-                {
-                    "type": "file",
-                    "path": "pitivi-autogen",
-                    "dest-filename": "autogen"
                 }
             ]
         }
