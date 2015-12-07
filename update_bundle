@@ -58,7 +58,7 @@ path = os.environ["PATH"]
 os.environ["PATH"] = "%s:%s" % (path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
-cerbero_default_branch = "origin/1.6"
+cerbero_default_branch = "origin/master"
 tarball_name = bundles_dir + arch_folder_name + "/" + "pitivi-" + version_name + "-" + arch + ".tar.xz"
 
 bundling_dir = os.path.expanduser("~/pitivi/bundling/")
@@ -67,25 +67,6 @@ os.system('mkdir -p %s' % bundling_dir)
 open("/root/.cerbero/cerbero.cbc", 'w').write("""
 use_ccache=True
 variants = ['python3', 'gtk3']
-recipes_commits = {
-    "gst-editing-services-1.0-static": "origin/1.6",
-    "gst-editing-services-1.0": "origin/1.6",
-    "gst-libav-1.0-static": "origin/1.6",
-    "gst-libav-1.0": "origin/1.6",
-    "gst-plugins-bad-1.0-static": "origin/1.6",
-    "gst-plugins-bad-1.0": "origin/1.6",
-    "gst-plugins-base-1.0-static": "origin/1.6",
-    "gst-plugins-base-1.0": "origin/1.6",
-    "gst-plugins-good-1.0-static": "origin/1.6",
-    "gst-plugins-good-1.0": "origin/1.6",
-    "gst-plugins-ugly-1.0-static": "origin/1.6",
-    "gst-plugins-ugly-1.0": "origin/1.6",
-    "gst-python-1.0": "origin/1.6",
-    "gst-rtsp-server-1.0": "origin/1.6",
-    "gst-validate": "origin/1.6",
-    "gstreamer-1.0-static": "origin/1.6",
-    "gstreamer-1.0": "origin/1.6",
-}
 """)
 
 
