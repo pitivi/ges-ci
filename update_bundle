@@ -59,6 +59,7 @@ os.environ["PATH"] = "%s:%s" % (path, os.path.expanduser("~/bin"))
 cerbero_folder = os.path.expanduser("~/devel/cerbero")
 
 cerbero_default_branch = "origin/master"
+tarball = "/tmp/" + "pitivi-" + version_name + "-" + arch + ".tar.xz"
 tarball_name = bundles_dir + arch_folder_name + "/" + "pitivi-" + version_name + "-" + arch + ".tar.xz"
 
 bundling_dir = os.path.expanduser("~/pitivi/bundling/")
@@ -80,7 +81,8 @@ commands = ["cd %s && git remote update && git reset --hard %s" % (cerbero_folde
             "cerbero package pitivi --force --linux-bundle --output-dir %(bundling_dir)s --no-devel",
             "mv pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s-%(date)s",
             "ln -s pitivi-%(version)s-%(arch)s-%(date)s pitivi-%(version)s-%(arch)s",
-            "tar -Jcf %(tarball_name)s.tmp pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum pitivi-%(version)s-%(arch)s-%(date)s",
+            "tar -Jcf %(tarball)s pitivi-%(version)s-%(arch)s pitivi-%(version)s-%(arch)s.md5sum pitivi-%(version)s-%(arch)s-%(date)s",
+            "mv %(tarball)s %(tarball_name)s",
             "rm -Rf %(bundling_dir)s/*"]
 
 os.chdir(bundling_dir)
@@ -95,6 +97,7 @@ for command in commands:
                          "bundles_dir": bundles_dir,
                          "bundling_dir": bundling_dir,
                          "archives_dir": archives_dir,
+                         "tarball": tarball,
                          "tarball_name": tarball_name,
                          "date": date,
                          }
@@ -106,4 +109,4 @@ for command in commands:
         exit(1)
 
 cleanup_bundles(to_archive)
-os.rename(tarball_name + ".tmp", tarball_name)
+os.rename(tarball, tarball_name)
