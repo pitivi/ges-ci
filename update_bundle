@@ -66,6 +66,7 @@ bundling_dir = os.path.expanduser("~/pitivi/bundling/")
 os.system('mkdir -p %s' % bundling_dir)
 
 open("/root/.cerbero/cerbero.cbc", 'w').write("""
+home_dir='/root/cerbero'
 use_ccache=True
 variants = ['python3', 'gtk3']
 """)
